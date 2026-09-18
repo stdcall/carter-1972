@@ -93,6 +93,8 @@ def source_checks(path, text, config):
     for m in re.finditer(r'(?<!\\)<([A-Za-z][A-Za-z0-9_:\-.]*)>', clean):
         name = m.group(1)
         labels.append((name, text.count('\n', 0, m.start())+1))
+        if re.match(r'(?:th|l|p|cor|def|ex|eq):\d', name):
+            add('T010', m.start(), 'Use a descriptive label independent of the printed number')
         if not re.fullmatch(r'(?:'+'|'.join(sorted(PREFIXES))+r'):[a-z0-9]+(?:-[a-z0-9]+)*', name):
             add('T010', m.start(), f'Invalid semantic label: {name}')
     # Check only math spans; skip escaped dollar signs and masked strings/comments.
@@ -125,11 +127,8 @@ def source_checks(path, text, config):
             add('T017', m.start(), 'Literal bibliography numbers: use bib-ref with stable BibLaTeX keys')
         for m in re.finditer(r'#set\s+(?:page\b|text\s*\([^)]*\bfont\s*:)|#include\s+', clean):
             add('T040', m.start(), 'Page/font policy and includes belong to the configured layout files')
-        for m in re.finditer(r'\b(Theorem|Lemma|Proposition|Corollary|Definition)\s+(\d+(?:\.\d+)+)\.(?!\d)', clean):
-            prefix = {'Theorem':'th','Lemma':'l','Proposition':'p','Corollary':'cor','Definition':'def'}[m.group(1)]
-            expected = prefix+':'+m.group(2).replace('.', '-')
-            if f'<{expected}>' not in clean[max(0,m.start()-180):m.start()]:
-                add('T011', m.start(), f'Statement requires preceding <{expected}> anchor')
+        for m in re.finditer(r'#smallcaps\[(?:Theorem|Lemma|Proposition|Corollary|Proof)\b|_(?:Definition|Example)\s+\d+(?:\.\d+)+\.|#qed\b', clean):
+            add('T011', m.start(), 'Use a semantic statement or proof block; type, number and style are centralized')
     return findings, labels
 
 
@@ -185,6 +184,11 @@ def semantic_checks(data, expected_pages):
             target = value.get('target', 'pg:source-'+str(value.get('original-page', '')))
             if not value.get('resolved'):
                 add('T014', value, f'Unresolved reference: {target}')
+        if kind == 'statement':
+            prefix = {'Theorem': 'th', 'Lemma': 'l', 'Proposition': 'p',
+                      'Corollary': 'cor', 'Definition': 'def', 'Example': 'ex'}.get(value.get('type'))
+            if prefix is None or not re.fullmatch(str(prefix)+r':[a-z][a-z0-9]*(?:-[a-z0-9]+)*', name):
+                add('T011', value, 'Statement type and semantic label must agree')
         if kind == 'source':
             sources.append(value['file-page'])
             printed = value['printed-page']

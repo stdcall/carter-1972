@@ -1,6 +1,8 @@
+#import "statements.typ": lemma, proof, theorem
+
 #let chapter = [
   #[
-    #import "main-defs.typ": book-ref, mathclap, qed, source
+    #import "main-defs.typ": book-ref, mathclap, source
 
     #source(183, "170")
     #heading(level: 1)[
@@ -23,285 +25,329 @@
     elements $w_i$, $i in I$, such that $w_i^2=1$. Let $G'$ denote the
     commutator subgroup of $G$.
 
-    #block(sticky: true)[
-      #metadata((kind: "anchor")) <th:11-1-1>
-      #smallcaps[Theorem 11.1.1.] _Let $G$ be a group with a $(B,N)$-pair
-      satisfying the following conditions:_
+    #theorem(<th:bn-pair-simplicity-criterion>)[
+      #block(sticky: true)[
+        Let $G$ be a group with a $(B,N)$-pair satisfying the following
+        conditions:
+      ]
+      #enum(
+        numbering: "(a)",
+        [$G=G'$,],
+        [$B$ is soluble,],
+        [$inter.big_(g in G) g B g^(-1)=1$,],
+        [the set $I$ cannot be decomposed into two non-empty complementary
+          subsets $J,K$ such that $w_j$ commutes with $w_k$ for all $j in J$,
+          $k in K$.],
+      )
+      Then $G$ is simple.
     ]
-    #enum(
-      numbering: "(a)",
-      [$G=G'$,],
-      [_$B$ is soluble,_],
-      [$inter.big_(g in G) g B g^(-1)=1$,],
-      [_the set $I$ cannot be decomposed into two non-empty complementary
-      subsets $J,K$ such that $w_j$ commutes with $w_k$ for all $j in J$,
-      $k in K$._],
-    )
-    _Then $G$ is simple._
 
-    #smallcaps[Proof.] Let $G_1$ be a normal subgroup of $G$. Then $G_1 B$ is a
-    subgroup of $G$ containing $B$, thus $G_1 B=P_J$ for some subset $J$ of $I$,
-    by #book-ref("th", "8-3-2", [8.3.2]). Let $K$ be the subset of $I$
-    complementary to $J$. Let $j in J$ and $k in K$, and let $n_j,n_k$ be
-    elements of $N$ corresponding to $w_j,w_k in W$ under the natural
-    homomorphism. If we define the length function $l(w)$ as in the proof of
-    #book-ref(
-      "p",
-      "8-2-3",
-      [8.2.3],
-    ) we have $l(w_j w_k)>l(w_k)$. By #book-ref("p", "8-2-4", [8.2.4]) we see
-    that
-    $ B n_j B dot B n_k B subset.eq B n_j n_k B. $
-    <eq:11-1-1-length-product>
+    #proof[
+      Let $G_1$ be a normal subgroup of $G$. Then $G_1 B$ is a subgroup of $G$
+      containing $B$, thus $G_1 B=P_J$ for some subset $J$ of $I$, by #book-ref(
+        "th",
+        "subgroups-containing-borel",
+      ). Let $K$ be the subset of $I$ complementary to $J$. Let $j in J$ and
+      $k in K$, and let $n_j,n_k$ be elements of $N$ corresponding to
+      $w_j,w_k in W$ under the natural homomorphism. If we define the length
+      function $l(w)$ as in the proof of #book-ref(
+        "p",
+        "bruhat-double-coset-uniqueness",
+      ) we have $l(w_j w_k)>l(w_k)$. By #book-ref(
+        "p",
+        "increasing-length-bruhat-product",
+      ) we see that
+      $ B n_j B dot B n_k B subset.eq B n_j n_k B. $
+      <eq:bn-pair-simplicity-criterion-length-product>
 
-    #source(184, "171")
-    Now we have
-    $ G_1 B=P_J=B N_J B $ <eq:11-1-1-parabolic>
-    and therefore
-    $ B n_j B ∩ G_1 != emptyset. $ <eq:11-1-1-normal-intersection>
-    Since $G_1$ is a normal subgroup of $G$ this implies
-    $ n_k B n_j B n_k ∩ G_1 != emptyset. $ <eq:11-1-1-conjugate-intersection>
-    However
-    $
-      n_k B n_j B n_k subset.eq n_k B n_j n_k B
-      subset.eq B n_j n_k B union B n_k n_j n_k B
-    $ <eq:11-1-1-bn4-union>
-    by axiom #book-ref("def", "bn-4", [_BN_ 4]). Thus we have
-    $
-      B n_j n_k B ∩ G_1 != emptyset quad "or" quad
-      B n_k n_j n_k B ∩ G_1 != emptyset.
-    $ <eq:11-1-1-two-intersections>
-    The former condition implies that $n_j n_k in N_J$, whence $n_k in N_J$ and
-    $w_k in W_J$. This contradicts the fact, shown in the proof of #book-ref(
-      "th",
-      "8-3-4",
-      [8.3.4],
-    ), that the elements $w_i$ form a minimal set of generators for $W$. Hence
-    we have
-    $ B n_k n_j n_k B ∩ G_1 != emptyset. $ <eq:11-1-1-remaining-intersection>
-    This means that $n_k n_j n_k in N_J$ and $w_k w_j w_k in W_J$. Thus
-    $
-      w_k w_j w_k in W_J ∩ W_({j,k})=W_({j})
-    $ <eq:11-1-1-parabolic-intersection>
-    by #book-ref("th", "8-3-4", [8.3.4]). It follows that $w_k w_j w_k$ is
-    either $1$ or $w_j$. $w_k w_j w_k=1$ implies that $w_j=1$, which is
-    impossible; thus we have $w_k w_j w_k=w_j$. Hence for each $j in J$,
-    $k in K$ we have $w_j w_k=w_k w_j$. Since $I$ does not decompose into two
-    non-empty complementary subsets with this property, either $J$ or $K$ must
-    be empty.
+      #source(184, "171")
+      Now we have
+      $ G_1 B=P_J=B N_J B $ <eq:bn-pair-simplicity-criterion-parabolic>
+      and therefore
+      $
+        B n_j B ∩ G_1 != emptyset.
+      $ <eq:bn-pair-simplicity-criterion-normal-intersection>
+      Since $G_1$ is a normal subgroup of $G$ this implies
+      $
+        n_k B n_j B n_k ∩ G_1 != emptyset.
+      $ <eq:bn-pair-simplicity-criterion-conjugate-intersection>
+      However
+      $
+        n_k B n_j B n_k subset.eq n_k B n_j n_k B
+        subset.eq B n_j n_k B union B n_k n_j n_k B
+      $ <eq:bn-pair-simplicity-criterion-bn4-union>
+      by axiom #book-ref("def", "bn-4", [_BN_ 4]). Thus we have
+      $
+        B n_j n_k B ∩ G_1 != emptyset quad "or" quad
+        B n_k n_j n_k B ∩ G_1 != emptyset.
+      $ <eq:bn-pair-simplicity-criterion-two-intersections>
+      The former condition implies that $n_j n_k in N_J$, whence $n_k in N_J$
+      and $w_k in W_J$. This contradicts the fact, shown in the proof of
+      #book-ref("th", "abstract-parabolic-lattice"), that the elements $w_i$
+      form a minimal set of generators for $W$. Hence we have
+      $
+        B n_k n_j n_k B ∩ G_1 != emptyset.
+      $ <eq:bn-pair-simplicity-criterion-remaining-intersection>
+      This means that $n_k n_j n_k in N_J$ and $w_k w_j w_k in W_J$. Thus
+      $
+        w_k w_j w_k in W_J ∩ W_({j,k})=W_({j})
+      $ <eq:bn-pair-simplicity-criterion-parabolic-intersection>
+      by #book-ref("th", "abstract-parabolic-lattice"). It follows that
+      $w_k w_j w_k$ is either $1$ or $w_j$. $w_k w_j w_k=1$ implies that
+      $w_j=1$, which is impossible; thus we have $w_k w_j w_k=w_j$. Hence for
+      each $j in J$, $k in K$ we have $w_j w_k=w_k w_j$. Since $I$ does not
+      decompose into two non-empty complementary subsets with this property,
+      either $J$ or $K$ must be empty.
 
-    Suppose $K$ is empty. Then $J=I$ and $G_1 B=G$. Thus we have
-    $ G\/G_1=G_1 B\/G_1 approx.eq B\/(G_1 ∩ B). $ <eq:11-1-1-quotient>
-    Now $B$ is soluble and so $G\/G_1$ is soluble also. However, the fact that
-    $G$ coincides with its commutator subgroup $G'$ means that $G$ has no
-    non-trivial soluble factor group. Hence $G_1=G$.
+      Suppose $K$ is empty. Then $J=I$ and $G_1 B=G$. Thus we have
+      $
+        G\/G_1=G_1 B\/G_1 approx.eq B\/(G_1 ∩ B).
+      $ <eq:bn-pair-simplicity-criterion-quotient>
+      Now $B$ is soluble and so $G\/G_1$ is soluble also. However, the fact that
+      $G$ coincides with its commutator subgroup $G'$ means that $G$ has no
+      non-trivial soluble factor group. Hence $G_1=G$.
 
-    Suppose $J$ is empty. Then $G_1 B=B$ and so $G_1$ is contained in $B$. Since
-    $G_1$ is normal in $G$ we have
-    $ G_1 subset.eq inter.big_(g in G) g B g^(-1)=1. $ <eq:11-1-1-core>
-    Therefore $G_1=1$.
+      Suppose $J$ is empty. Then $G_1 B=B$ and so $G_1$ is contained in $B$.
+      Since $G_1$ is normal in $G$ we have
+      $
+        G_1 subset.eq inter.big_(g in G) g B g^(-1)=1.
+      $ <eq:bn-pair-simplicity-criterion-core>
+      Therefore $G_1=1$.
 
-    Thus $G_1$ is either $G$ or $1$, and so the group $G$ is simple. #qed
+      Thus $G_1$ is either $G$ or $1$, and so the group $G$ is simple.
+    ]
 
-    Theorem #book-ref("th", "11-1-1", [11.1.1]) shows that groups with a
-    $(B,N)$-pair have a definite tendency to be simple. Now the Chevalley groups
-    $G=frak(L)(K)$ all have
+    Theorem #book-ref("th", "bn-pair-simplicity-criterion") shows that groups
+    with a $(B,N)$-pair have a definite tendency to be simple. Now the Chevalley
+    groups $G=frak(L)(K)$ all have
     #source(185, "172")
-    $(B,N)$-pairs by #book-ref("p", "8-2-1", [8.2.1]). Thus we may use
-    #book-ref(
-      "th",
-      "11-1-1",
-      [11.1.1],
-    ) to try to prove the simplicity of the Chevalley groups. The proof goes
-    through in all but a few cases.
+    $(B,N)$-pairs by #book-ref("p", "chevalley-bn-pair"). Thus we may use
+    #book-ref("th", "bn-pair-simplicity-criterion") to try to prove the
+    simplicity of the Chevalley groups. The proof goes through in all but a few
+    cases.
 
-    #block(sticky: true)[
-      #metadata((kind: "anchor")) <th:11-1-2>
-      #smallcaps[Theorem 11.1.2.] _(i) Let $frak(L)$ be a simple Lie algebra
-      over $CC$ and $K$ be an arbitrary field. Then the Chevalley group
-      $G=frak(L)(K)$ is simple, except for $A_1(2)$, $A_1(3)$, $B_2(2)$,
-      $G_2(2)$._
+    #theorem(<th:chevalley-group-simplicity>)[
+      #block(sticky: true)[
+        (i) Let $frak(L)$ be a simple Lie algebra over $CC$ and $K$ be an
+        arbitrary field. Then the Chevalley group $G=frak(L)(K)$ is simple,
+        except for $A_1(2)$, $A_1(3)$, $B_2(2)$, $G_2(2)$.
+      ]
+      (ii) Each Chevalley group (even a non-simple one) has trivial centre.
     ]
-    _(ii) Each Chevalley group (even a non-simple one) has trivial centre._
 
-    #block(sticky: true)[
-      #smallcaps[Proof.] By #book-ref("th", "11-1-1", [11.1.1]) it will be
-      sufficient to prove that
+    #proof[
+      #block(sticky: true)[
+        By #book-ref("th", "bn-pair-simplicity-criterion") it will be sufficient
+        to prove that
+      ]
+      $ G=G' quad "and" quad inter.big_(g in G) g B g^(-1)=1. $
+      <eq:chevalley-group-simplicity-reductions>
+      For the Borel subgroup $B$ is certainly soluble, being the semi-direct
+      product of the nilpotent group $U$ with the abelian group $H$. Moreover,
+      the set $w_i$ of distinguished generators of $W$ are the fundamental
+      reflections, and these cannot be decomposed into two non-empty
+      complementary commuting subsets since $frak(L)$ is simple.
+
+      We show first that $G$ has no non-trivial normal subgroup contained in
+      $B$. Let $G_1$ be such a normal subgroup. Now by #book-ref(
+        "p",
+        "longest-weyl-element",
+      ) the Weyl group $W$ contains an element $w_0$ which transforms every
+      positive root into a negative root. Let $n_0$ be a corresponding element
+      of $N$. Then we have
+      $ n_0 U n_0^(-1)=V $ <eq:chevalley-group-simplicity-opposite-unipotent>
+      by #book-ref("l", "monomial-conjugation-root-subgroups"), and also
+      $ n_0 U H n_0^(-1)=V H. $ <eq:chevalley-group-simplicity-opposite-borel>
+      Now $G_1$ is contained in $U H$, so also in $V H$ since it is normal. Thus
+      $
+        G_1 subset.eq U H ∩ V H=H
+      $ <eq:chevalley-group-simplicity-toral-subgroup>
+      by #book-ref("cor", "opposite-borel-intersection"). However, $H$
+      normalizes $U$ and so we have
+      $ [U,H] subset.eq U $ <eq:chevalley-group-simplicity-borel-commutator>
+      and
+      $
+        [U,G_1] subset.eq U ∩ G_1 subset.eq U ∩ H=1.
+      $ <eq:chevalley-group-simplicity-centralizer>
+      Thus every element of $G_1$ commutes with every element of $U$. Let
+      $h(chi) in G_1$. Then
+      $
+        h(chi) x_r (1) h(chi)^(-1)=x_r (chi(r))=x_r (1)
+      $ <eq:chevalley-group-simplicity-character>
+      for all $r in Phi^+$. It follows that $chi(r)=1$ for all $r in Phi^+$.
+      Hence $chi=1$ and $h(chi)=1$. Thus $G_1=1$. We have therefore shown that
+      $
+        inter.big_(g in G) g B g^(-1)=1.
+      $ <eq:chevalley-group-simplicity-trivial-core>
+
+      #source(186, "173")
+      We show next that $G$ has trivial centre. Let $Z$ be the centre of $G$.
+      The argument used in the proof of #book-ref(
+        "th",
+        "bn-pair-simplicity-criterion",
+      ) shows that either
+      $ G=Z B quad "or" quad Z subset.eq inter.big_(g in G) g B g^(-1). $
+      <eq:chevalley-group-simplicity-centre-dichotomy>
+      If $G=Z B$ then $B$ is normal in $G$. Since by #book-ref(
+        "th",
+        "parabolic-normalizers-and-conjugacy",
+      ) $B$ is its own normalizer in $G$ we have $Z B=B$. Therefore
+      $Z subset.eq B$, and since $Z$ is normal we have
+      $
+        Z subset.eq inter.big_(g in G) g B g^(-1).
+      $ <eq:chevalley-group-simplicity-centre-core>
+      Hence $Z=1$.
+
+      In order to show that $G$ is simple it remains to prove that $G=G'$. We
+      shall require the following lemma.
+
+      #lemma(<l:weight-character-values>)[
+        #block(sticky: true)[
+          (i) Let $r in Phi$ and $t$ be a non-zero element of $K$. Let $Q$ be
+          the additive group of weights. Then there is a $K$-character $chi$ of
+          $Q$ such that $chi(r)=t^2$.
+        ]
+        (ii) There is a $K$-character $chi$ of $Q$ such that $chi(r)=t$, unless
+        $frak(L)=A_1$ or $frak(L)=C_l$ and $r$ is a long root.
+      ]
+
+      #proof[
+        #block(sticky: true)[
+          (i) Let $chi_(r,t)$ be the $K$-character of $Q$ defined, as in
+          #book-ref("th", "diagonal-subgroup-characters"), by
+        ]
+        $
+          chi_(r,t)(a)=t^(2(r,a) slash (r,r)).
+        $ <eq:weight-character-values-character>
+        Then $chi_(r,t)(r)=t^2$.
+
+        (ii) Let $P$ be the additive group generated by the roots. We recall
+        from section #book-ref("sec", "diagonal-subgroup") that $P,Q$ are free
+        abelian groups of rank $l$ and that $P$ is a subgroup of $Q$ of finite
+        index. Let $m$ be the greatest integer such that $(1\/m)r in Q$. ($m$ is
+        the highest common factor of the coefficients of $r$ when expressed as
+        an integral combination of $q_1,dots,q_l$.) Let
+        $ r_1=frac(1, m)r. $ <eq:weight-character-values-primitive-root>
+        #block(sticky: true)[Then]
+        $ frac(1, n)r_1 in.not Q $ <eq:weight-character-values-indivisibility>
+        for any $n>1$, and therefore $r_1$ forms part of some basis for $Q$.
+        Hence a $K$-character $chi$ of $Q$ can be chosen so that $chi(r_1)$ is
+        an arbitrary non-zero element of $K$. Let
+        $ h_r=frac(2r, lr((r,r))) $ <eq:weight-character-values-coroot>
+        #source(187, "174")
+        be the co-root corresponding to $r$. Then $(h_r,r_1) in ZZ$ since
+        $r_1 in Q$, by #book-ref("sec", "diagonal-subgroup"). Thus
+        $
+          2 frac(lr((r,r_1)), lr((r,r)))=frac(2, m)
+        $ <eq:weight-character-values-divisibility>
+        is an integer, hence $m=1$ or $2$.
+
+        If $m=1$ we can certainly choose $chi$ so that $chi(r)=t$, and this is
+        so unless $frac(1, 2)r in Q$. We first consider what happens when $r$ is
+        a fundamental root. Let $r=p_i$. Then
+        $
+          r=sum_(j=1)^l A_(j i) q_j
+        $ <eq:weight-character-values-weight-expansion>
+        by #book-ref("sec", "diagonal-subgroup"), and $frac(1, 2)r in Q$ only if
+        each $A_(j i)$ for $j=1,dots,l$ is divisible by $2$. A glance at the
+        Cartan matrices of the simple Lie algebras (listed in section #book-ref(
+          "sec",
+          "description-of-simple-lie-algebras",
+        )) shows that this can happen only if $frak(L)=A_1$ or if $frak(L)=C_l$,
+        $(l>=2)$, and $r$ is the long fundamental root. If $r$ is not a
+        fundamental root it can be transformed into one by an element of $W$ and
+        the property $frac(1, 2)r in Q$ is preserved. Thus $frac(1, 2)r in Q$
+        holds only for the roots of $A_1$ and the long roots of $C_l$.
+      ]
+
+      We may now complete the proof of #book-ref(
+        "th",
+        "chevalley-group-simplicity",
+      ) and to do so we must show that $G=G'$.
+
+      Suppose first that $K$ has at least four elements. Then there is a
+      non-zero element $t in K$ such that $t^2!=1$. By #book-ref(
+        "l",
+        "weight-character-values",
+      ) there exists for each $r in Phi$ a $K$-character $chi$ of $Q$ such that
+      $chi(r)!=1$. Then $h(chi) in H$ by #book-ref(
+        "th",
+        "diagonal-subgroup-characters",
+      ) and we have
+      $
+        h(chi) x_r (t) h(chi)^(-1)=x_r (chi(r)t).
+      $ <eq:chevalley-group-simplicity-torus-action>
+      #block(sticky: true)[
+        It follows that $x_r ((chi(r)-1)t) in G'$ for all $t in K$. Let $u in K$
+        and choose
+      ]
+      $ t=frac(u, chi(r)-1). $ <eq:chevalley-group-simplicity-parameter>
+      Then $x_r (u) in G'$. Since the elements $x_r (u)$ for all $r in Phi$,
+      $u in K$ generate $G$, we have $G'=G$.
+
+      Next suppose that $K=op("GF")(3)$. If $frak(L)$ is not of type $A_1$ or
+      $C_l$, #book-ref("l", "weight-character-values") shows that there exists
+      for each $r in Phi$ a $K$-character $chi$ of $Q$ with $chi(r)!=1$. Then
+      $G'=G$ as above. Thus suppose that $G=C_l (3)$, where $l>=2$. Now $G$ is
+      generated by its root subgroups $X_r$ for all $r in Phi$. Since $X_r$,
+      $X_(w(r))$ are conjugate subgroups of $G$ by #book-ref(
+        "l",
+        "monomial-conjugation-root-subgroups",
+      ), and so equivalent modulo $G'$, the factor group $G\/G'$ is generated by
+      the images of the root subgroups $X_r$ and it is sufficient to take one
+      root from each orbit of $Phi$ under $W$,
+      #source(188, "175")
+      i.e. one root of each length. If $r$ is a short root of $C_l$ there is a
+      $K$-character $chi$ of $Q$ such that $chi(r)!=1$, by #book-ref(
+        "l",
+        "weight-character-values",
+      ). Thus $X_r$ is contained in $G'$ in this case. Let $s$ be the long
+      fundamental root of $C_l$ and $r$ the fundamental root joined to it in the
+      Dynkin diagram. Then we have
+      $ [x_s (1),x_r (1)]=x_(r+s)(plus.minus 1) x_(2r+s)(plus.minus 1) $
+      <eq:chevalley-group-simplicity-c3-commutator>
+      by the commutator formula. Now $r+s$ is a short root and $2r+s$ is a long
+      root. Thus $X_(r+s) subset.eq G'$ and
+      $x_(r+s)(plus.minus 1)x_(2r+s)(plus.minus 1) in G'$. It follows that
+      $X_(2r+s) subset.eq G'$ and that $G'=G$.
+
+      Suppose finally that $K=op("GF")(2)$. If all the roots of $frak(L)$ have
+      the same length, $G\/G'$ is generated by the image of $x_r (1)$ for any
+      single root $r$. If $frak(L)!=A_1$ we can choose $r,s in Phi$ such that
+      $r+s in Phi$. Then we have
+      $
+        [x_s (1),x_r (1)]=x_(r+s)(1)
+      $ <eq:chevalley-group-simplicity-simply-laced-commutator>
+      by the commutator formula. Thus $x_(r+s)(1) in G'$ and so $G'=G$.
+
+      Now suppose there are roots of two different lengths. Then $G\/G'$ is
+      generated by $x_r (1)$, $x_s (1)$, where $r,s$ are fundamental roots of
+      different lengths. We may assume $r$ is a short root, $s$ a long root and
+      that $r+s in Phi$. We assume also that the nodes corresponding to $r,s$
+      are joined by a double bond in the Dynkin diagram, i.e. that
+      $frak(L)!=G_2$. Then the commutator formula gives
+      $
+        [x_s (1),x_r (1)]=x_(r+s)(1)x_(2r+s)(1)
+      $ <eq:chevalley-group-simplicity-double-bond-commutator>
+      and so $x_(r+s)(1)x_(2r+s)(1) in G'$. Here $r+s$ is a short root and
+      $2r+s$ a long one. Suppose $frak(L)!=B_2$. Then the Dynkin diagram of
+      $frak(L)$ has two nodes joined by a single bond.
+
+      #block(sticky: true)[
+        Let $r_1,r_2$ be the corresponding fundamental roots. Then
+      ]
+      $
+        [x_(r_2)(1),x_(r_1)(1)]=x_(r_1+r_2)(1)
+      $ <eq:chevalley-group-simplicity-single-bond-commutator>
+      and so $x_(r_1+r_2)(1) in G'$. If $r_1+r_2$ is a short root this implies
+      that all the root subgroups corresponding to short roots are in $G'$. Thus
+      $x_(r+s)(1) in G'$. But then $x_(2r+s)(1) in G'$ and $G'$ contains all the
+      root subgroups corresponding to long roots also. Hence $G'=G$. A similar
+      argument clearly applies if $r_1+r_2$ is a long root.
+
+      The only Chevalley groups not covered in the above argument are $A_1(2)$,
+      $A_1(3)$, $B_2(2)$, $G_2(2)$ and so the theorem is proved.
     ]
-    $ G=G' quad "and" quad inter.big_(g in G) g B g^(-1)=1. $
-    <eq:11-1-2-reductions>
-    For the Borel subgroup $B$ is certainly soluble, being the semi-direct
-    product of the nilpotent group $U$ with the abelian group $H$. Moreover, the
-    set $w_i$ of distinguished generators of $W$ are the fundamental
-    reflections, and these cannot be decomposed into two non-empty complementary
-    commuting subsets since $frak(L)$ is simple.
-
-    We show first that $G$ has no non-trivial normal subgroup contained in $B$.
-    Let $G_1$ be such a normal subgroup. Now by #book-ref("p", "2-2-6", [2.2.6])
-    the Weyl group $W$ contains an element $w_0$ which transforms every positive
-    root into a negative root. Let $n_0$ be a corresponding element of $N$. Then
-    we have
-    $ n_0 U n_0^(-1)=V $ <eq:11-1-2-opposite-unipotent>
-    by #book-ref("l", "7-2-1", [7.2.1]), and also
-    $ n_0 U H n_0^(-1)=V H. $ <eq:11-1-2-opposite-borel>
-    Now $G_1$ is contained in $U H$, so also in $V H$ since it is normal. Thus
-    $ G_1 subset.eq U H ∩ V H=H $ <eq:11-1-2-toral-subgroup>
-    by #book-ref("cor", "7-1-3", [7.1.3]). However, $H$ normalizes $U$ and so we
-    have
-    $ [U,H] subset.eq U $ <eq:11-1-2-borel-commutator>
-    and
-    $ [U,G_1] subset.eq U ∩ G_1 subset.eq U ∩ H=1. $ <eq:11-1-2-centralizer>
-    Thus every element of $G_1$ commutes with every element of $U$. Let
-    $h(chi) in G_1$. Then
-    $ h(chi) x_r (1) h(chi)^(-1)=x_r (chi(r))=x_r (1) $ <eq:11-1-2-character>
-    for all $r in Phi^+$. It follows that $chi(r)=1$ for all $r in Phi^+$. Hence
-    $chi=1$ and $h(chi)=1$. Thus $G_1=1$. We have therefore shown that
-    $ inter.big_(g in G) g B g^(-1)=1. $ <eq:11-1-2-trivial-core>
-
-    #source(186, "173")
-    We show next that $G$ has trivial centre. Let $Z$ be the centre of $G$. The
-    argument used in the proof of #book-ref("th", "11-1-1", [11.1.1]) shows that
-    either
-    $ G=Z B quad "or" quad Z subset.eq inter.big_(g in G) g B g^(-1). $
-    <eq:11-1-2-centre-dichotomy>
-    If $G=Z B$ then $B$ is normal in $G$. Since by #book-ref(
-      "th",
-      "8-3-3",
-      [8.3.3],
-    ) $B$ is its own normalizer in $G$ we have $Z B=B$. Therefore
-    $Z subset.eq B$, and since $Z$ is normal we have
-    $ Z subset.eq inter.big_(g in G) g B g^(-1). $ <eq:11-1-2-centre-core>
-    Hence $Z=1$.
-
-    In order to show that $G$ is simple it remains to prove that $G=G'$. We
-    shall require the following lemma.
-
-    #block(sticky: true)[
-      #metadata((kind: "anchor")) <l:11-1-3>
-      #smallcaps[Lemma 11.1.3.] _(i) Let $r in Phi$ and $t$ be a non-zero
-      element of $K$. Let $Q$ be the additive group of weights. Then there is a
-      $K$-character $chi$ of $Q$ such that $chi(r)=t^2$._
-    ]
-    _(ii) There is a $K$-character $chi$ of $Q$ such that $chi(r)=t$, unless
-    $frak(L)=A_1$ or $frak(L)=C_l$ and $r$ is a long root._
-
-    #block(sticky: true)[
-      #smallcaps[Proof.] (i) Let $chi_(r,t)$ be the $K$-character of $Q$
-      defined, as in #book-ref("th", "7-1-1", [7.1.1]), by
-    ]
-    $ chi_(r,t)(a)=t^(2(r,a) slash (r,r)). $ <eq:11-1-3-character>
-    Then $chi_(r,t)(r)=t^2$.
-
-    (ii) Let $P$ be the additive group generated by the roots. We recall from
-    section #book-ref("sec", "diagonal-subgroup") that $P,Q$ are free abelian
-    groups of rank $l$ and that $P$ is a subgroup of $Q$ of finite index. Let
-    $m$ be the greatest integer such that $(1\/m)r in Q$. ($m$ is the highest
-    common factor of the coefficients of $r$ when expressed as an integral
-    combination of $q_1,dots,q_l$.) Let
-    $ r_1=frac(1, m)r. $ <eq:11-1-3-primitive-root>
-    #block(sticky: true)[Then]
-    $ frac(1, n)r_1 in.not Q $ <eq:11-1-3-indivisibility>
-    for any $n>1$, and therefore $r_1$ forms part of some basis for $Q$. Hence a
-    $K$-character $chi$ of $Q$ can be chosen so that $chi(r_1)$ is an arbitrary
-    non-zero element of $K$. Let
-    $ h_r=frac(2r, lr((r,r))) $ <eq:11-1-3-coroot>
-    #source(187, "174")
-    be the co-root corresponding to $r$. Then $(h_r,r_1) in ZZ$ since
-    $r_1 in Q$, by #book-ref("sec", "diagonal-subgroup"). Thus
-    $ 2 frac(lr((r,r_1)), lr((r,r)))=frac(2, m) $ <eq:11-1-3-divisibility>
-    is an integer, hence $m=1$ or $2$.
-
-    If $m=1$ we can certainly choose $chi$ so that $chi(r)=t$, and this is so
-    unless $frac(1, 2)r in Q$. We first consider what happens when $r$ is a
-    fundamental root. Let $r=p_i$. Then
-    $ r=sum_(j=1)^l A_(j i) q_j $ <eq:11-1-3-weight-expansion>
-    by #book-ref("sec", "diagonal-subgroup"), and $frac(1, 2)r in Q$ only if
-    each $A_(j i)$ for $j=1,dots,l$ is divisible by $2$. A glance at the Cartan
-    matrices of the simple Lie algebras (listed in section #book-ref(
-      "sec",
-      "description-of-simple-lie-algebras",
-    )) shows that this can happen only if $frak(L)=A_1$ or if $frak(L)=C_l$,
-    $(l>=2)$, and $r$ is the long fundamental root. If $r$ is not a fundamental
-    root it can be transformed into one by an element of $W$ and the property
-    $frac(1, 2)r in Q$ is preserved. Thus $frac(1, 2)r in Q$ holds only for the
-    roots of $A_1$ and the long roots of $C_l$. #qed
-
-    We may now complete the proof of #book-ref("th", "11-1-2", [11.1.2]) and to
-    do so we must show that $G=G'$.
-
-    Suppose first that $K$ has at least four elements. Then there is a non-zero
-    element $t in K$ such that $t^2!=1$. By #book-ref("l", "11-1-3", [11.1.3])
-    there exists for each $r in Phi$ a $K$-character $chi$ of $Q$ such that
-    $chi(r)!=1$. Then $h(chi) in H$ by #book-ref("th", "7-1-1", [7.1.1]) and we
-    have
-    $ h(chi) x_r (t) h(chi)^(-1)=x_r (chi(r)t). $ <eq:11-1-2-torus-action>
-    #block(sticky: true)[
-      It follows that $x_r ((chi(r)-1)t) in G'$ for all $t in K$. Let $u in K$
-      and choose
-    ]
-    $ t=frac(u, chi(r)-1). $ <eq:11-1-2-parameter>
-    Then $x_r (u) in G'$. Since the elements $x_r (u)$ for all $r in Phi$,
-    $u in K$ generate $G$, we have $G'=G$.
-
-    Next suppose that $K=op("GF")(3)$. If $frak(L)$ is not of type $A_1$ or
-    $C_l$, #book-ref("l", "11-1-3", [11.1.3]) shows that there exists for each
-    $r in Phi$ a $K$-character $chi$ of $Q$ with $chi(r)!=1$. Then $G'=G$ as
-    above. Thus suppose that $G=C_l (3)$, where $l>=2$. Now $G$ is generated by
-    its root subgroups $X_r$ for all $r in Phi$. Since $X_r$, $X_(w(r))$ are
-    conjugate subgroups of $G$ by #book-ref("l", "7-2-1", [7.2.1]), and so
-    equivalent modulo $G'$, the factor group $G\/G'$ is generated by the images
-    of the root subgroups $X_r$ and it is sufficient to take one root from each
-    orbit of $Phi$ under $W$,
-    #source(188, "175")
-    i.e. one root of each length. If $r$ is a short root of $C_l$ there is a
-    $K$-character $chi$ of $Q$ such that $chi(r)!=1$, by #book-ref(
-      "l",
-      "11-1-3",
-      [11.1.3],
-    ). Thus $X_r$ is contained in $G'$ in this case. Let $s$ be the long
-    fundamental root of $C_l$ and $r$ the fundamental root joined to it in the
-    Dynkin diagram. Then we have
-    $ [x_s (1),x_r (1)]=x_(r+s)(plus.minus 1) x_(2r+s)(plus.minus 1) $
-    <eq:11-1-2-c3-commutator>
-    by the commutator formula. Now $r+s$ is a short root and $2r+s$ is a long
-    root. Thus $X_(r+s) subset.eq G'$ and
-    $x_(r+s)(plus.minus 1)x_(2r+s)(plus.minus 1) in G'$. It follows that
-    $X_(2r+s) subset.eq G'$ and that $G'=G$.
-
-    Suppose finally that $K=op("GF")(2)$. If all the roots of $frak(L)$ have the
-    same length, $G\/G'$ is generated by the image of $x_r (1)$ for any single
-    root $r$. If $frak(L)!=A_1$ we can choose $r,s in Phi$ such that
-    $r+s in Phi$. Then we have
-    $ [x_s (1),x_r (1)]=x_(r+s)(1) $ <eq:11-1-2-simply-laced-commutator>
-    by the commutator formula. Thus $x_(r+s)(1) in G'$ and so $G'=G$.
-
-    Now suppose there are roots of two different lengths. Then $G\/G'$ is
-    generated by $x_r (1)$, $x_s (1)$, where $r,s$ are fundamental roots of
-    different lengths. We may assume $r$ is a short root, $s$ a long root and
-    that $r+s in Phi$. We assume also that the nodes corresponding to $r,s$ are
-    joined by a double bond in the Dynkin diagram, i.e. that $frak(L)!=G_2$.
-    Then the commutator formula gives
-    $
-      [x_s (1),x_r (1)]=x_(r+s)(1)x_(2r+s)(1)
-    $ <eq:11-1-2-double-bond-commutator>
-    and so $x_(r+s)(1)x_(2r+s)(1) in G'$. Here $r+s$ is a short root and $2r+s$
-    a long one. Suppose $frak(L)!=B_2$. Then the Dynkin diagram of $frak(L)$ has
-    two nodes joined by a single bond.
-
-    #block(sticky: true)[
-      Let $r_1,r_2$ be the corresponding fundamental roots. Then
-    ]
-    $
-      [x_(r_2)(1),x_(r_1)(1)]=x_(r_1+r_2)(1)
-    $ <eq:11-1-2-single-bond-commutator>
-    and so $x_(r_1+r_2)(1) in G'$. If $r_1+r_2$ is a short root this implies
-    that all the root subgroups corresponding to short roots are in $G'$. Thus
-    $x_(r+s)(1) in G'$. But then $x_(2r+s)(1) in G'$ and $G'$ contains all the
-    root subgroups corresponding to long roots also. Hence $G'=G$. A similar
-    argument clearly applies if $r_1+r_2$ is a long root.
-
-    The only Chevalley groups not covered in the above argument are $A_1(2)$,
-    $A_1(3)$, $B_2(2)$, $G_2(2)$ and so the theorem is proved. #qed
 
     The four groups which have not been proved to be simple are all in fact not
     simple. $A_1(2)$ has order $6$ and is isomorphic to the symmetric group
@@ -313,7 +359,7 @@
   ]
 
   #[
-    #import "main-defs.typ": bib-ref, book-ref, qed, source
+    #import "main-defs.typ": bib-ref, book-ref, source
 
     #heading(level: 2)[
       Classical Lie Algebras in Matrix Form
@@ -336,92 +382,101 @@
     $(i,j)$-coefficient $1$ and other coefficients $0$. Then $frak(H)$ is a
     Cartan subalgebra of $frak(L)$ and
     $ frak(L)=frak(H) ⊕ sum_(i!=j) CC e_(i j) $
-    <eq:11-2-1-cartan>
+    <eq:matrix-algebra-a-cartan>
     is a Cartan decomposition. Let $h in frak(H)$ be defined by
-    $ h=op("diag")(lambda_0,lambda_1,dots,lambda_l). $ <eq:11-2-1-diagonal>
+    $
+      h=op("diag")(lambda_0,lambda_1,dots,lambda_l).
+    $ <eq:matrix-algebra-a-diagonal>
     #block(sticky: true)[Then we have]
-    $ [h e_(i j)]=(lambda_i-lambda_j)e_(i j). $ <eq:11-2-1-weights>
+    $ [h e_(i j)]=(lambda_i-lambda_j)e_(i j). $ <eq:matrix-algebra-a-weights>
     Thus we evidently have a root system of type $A_l$ (cf. section #book-ref(
       "sec",
       "description-of-simple-lie-algebras",
     )) and the root space negative to $CC e_(i j)$ is $CC e_(j i)$. Let
-    $ h_(i j)=[e_(i j)e_(j i)]=e_(i i)-e_(j j). $ <eq:11-2-1-coroot>
+    $ h_(i j)=[e_(i j)e_(j i)]=e_(i i)-e_(j j). $ <eq:matrix-algebra-a-coroot>
     Then $h_(i j)$ is the co-root corresponding to the root space $CC e_(i j)$.
     For $h_(i j)$ is certainly a scalar multiple of this co-root, however we
     have
-    $ [h_(i j),e_(i j)]=2e_(i j) $ <eq:11-2-1-normalization>
+    $ [h_(i j),e_(i j)]=2e_(i j) $ <eq:matrix-algebra-a-normalization>
     and so $h_(i j)$ must be the co-root itself.
 
     Let $theta$ be the map of $frak(L)$ into itself given by
-    $ theta(x)=-x', $ <eq:11-2-1-transpose>
+    $ theta(x)=-x', $ <eq:matrix-algebra-a-transpose>
     where $x'$ is the transpose of $x$. Then $theta$ is an automorphism of
     $frak(L)$. For
     $ [-x',-y']=x'y'-y'x'=(y x)'-(x y)'=-[x y]'. $
-    <eq:11-2-1-automorphism>
+    <eq:matrix-algebra-a-automorphism>
 
     #source(190, "177")
     #block(sticky: true)[Also we have]
-    $ theta(e_(i j))=-e_(j i). $ <eq:11-2-1-matrix-transpose>
+    $ theta(e_(i j))=-e_(j i). $ <eq:matrix-algebra-a-matrix-transpose>
     Thus if $r$ is the root whose root space is $CC e_(i j)$ and if we define
     the root vector $e_r$ by $e_r=e_(i j)$, then
-    $ theta(e_r)=-e_(-r) $ <eq:11-2-1-opposite>
+    $ theta(e_r)=-e_(-r) $ <eq:matrix-algebra-a-opposite>
     for all $r in Phi$. Now we have
-    $ [e_r e_s]=N_(r,s)e_(r+s) $ <eq:11-2-1-structure>
+    $ [e_r e_s]=N_(r,s)e_(r+s) $ <eq:matrix-algebra-a-structure>
     and applying $theta$ this gives
-    $ [e_(-r)e_(-s)]=-N_(r,s)e_(-r-s). $ <eq:11-2-1-opposite-structure>
-    Hence $N_(-r,-s)=-N_(r,s)$. Since by #book-ref("th", "4-1-2", [4.1.2]) we
-    have
-    $ N_(r,s)N_(-r,-s)=-(p+1)^2 $ <eq:11-2-1-product>
+    $
+      [e_(-r)e_(-s)]=-N_(r,s)e_(-r-s).
+    $ <eq:matrix-algebra-a-opposite-structure>
+    Hence $N_(-r,-s)=-N_(r,s)$. Since by #book-ref(
+      "th",
+      "structure-constant-relations",
+    ) we have
+    $ N_(r,s)N_(-r,-s)=-(p+1)^2 $ <eq:matrix-algebra-a-product>
     it follows that
-    $ N_(r,s)=plus.minus(p+1). $ <eq:11-2-1-integrality>
+    $ N_(r,s)=plus.minus(p+1). $ <eq:matrix-algebra-a-integrality>
     Thus the elements $h_(i j)$ corresponding to the fundamental roots and the
     elements $e_(i j)$ corresponding to all roots form a Chevalley basis of
     $frak(L)$.
 
-    #block(sticky: true)[
-      #metadata((kind: "anchor")) <l:11-2-2>
-      // Carter numbers this lemma in the same sequence as the subsections.
-      #counter(heading).step(level: 3)
-      #smallcaps[Lemma 11.2.2.] _Let $A$ be an $n times n$ matrix over $CC$.
-      Then the $n times n$ matrices $T$ satisfying_
+    #lemma(<l:bilinear-form-exponential>)[
+      #block(sticky: true)[
+        Let $A$ be an $n times n$ matrix over $CC$. Then the $n times n$
+        matrices $T$ satisfying
+      ]
+      $ T'A+A T=0 $ <eq:bilinear-form-exponential-form>
+      form a Lie algebra. If $T$ is a nilpotent matrix satisfying this condition
+      then
+      $ (exp T)'A(exp T)=A. $ <eq:bilinear-form-exponential-exponential>
     ]
-    $ T'A+A T=0 $ <eq:11-2-2-form>
-    _form a Lie algebra. If $T$ is a nilpotent matrix satisfying this condition
-    then_
-    $ (exp T)'A(exp T)=A. $ <eq:11-2-2-exponential>
 
-    #smallcaps[Proof.] The set of matrices $T$ satisfying $T'A+A T=0$ is closed
-    under addition and scalar multiplication. Let $T_1,T_2$ satisfy this
-    condition and consider the Lie product $[T_1 T_2]=T_1 T_2-T_2 T_1$. We have
-    $
-      T'_2 T'_1 A-T'_1 T'_2 A & =-T'_2 A T_1+T'_1 A T_2, \
-          A T_1 T_2-A T_2 T_1 & =-T'_1 A T_2+T'_2 A T_1.
-    $ <eq:11-2-2-commutator-calculation>
-    #block(sticky: true)[Thus]
-    $ [T_1 T_2]'A+A[T_1 T_2]=0. $ <eq:11-2-2-closed>
+    #proof[
+      The set of matrices $T$ satisfying $T'A+A T=0$ is closed under addition
+      and scalar multiplication. Let $T_1,T_2$ satisfy this condition and
+      consider the Lie product $[T_1 T_2]=T_1 T_2-T_2 T_1$. We have
+      $
+        T'_2 T'_1 A-T'_1 T'_2 A & =-T'_2 A T_1+T'_1 A T_2, \
+            A T_1 T_2-A T_2 T_1 & =-T'_1 A T_2+T'_2 A T_1.
+      $ <eq:bilinear-form-exponential-commutator-calculation>
+      #block(sticky: true)[Thus]
+      $ [T_1 T_2]'A+A[T_1 T_2]=0. $ <eq:bilinear-form-exponential-closed>
 
-    Now suppose that $T$ is nilpotent. Thus $T^k=0$ for some $k$ and
-    $ exp T=sum_(i=0)^(k-1) frac(1, i!)T^i. $ <eq:11-2-2-finite-exponential>
-    #source(191, "178")
-    #block(sticky: true)[Then we have]
-    $
-      (exp T)'A & =exp(T')dot A=sum_i frac(1, i!)(T')^i A \
-                & =sum_i frac(1, i!)(-1)^i A T^i=A dot exp(-T).
-    $ <eq:11-2-2-transpose-exponential>
-    #block(breakable: false)[
-      It follows that
-      $ (exp T)'A(exp T)=A. $ <eq:11-2-2-preserved>
-      #qed
+      Now suppose that $T$ is nilpotent. Thus $T^k=0$ for some $k$ and
+      $
+        exp T=sum_(i=0)^(k-1) frac(1, i!)T^i.
+      $ <eq:bilinear-form-exponential-finite-exponential>
+      #source(191, "178")
+      #block(sticky: true)[Then we have]
+      $
+        (exp T)'A & =exp(T')dot A=sum_i frac(1, i!)(T')^i A \
+                  & =sum_i frac(1, i!)(-1)^i A T^i=A dot exp(-T).
+      $ <eq:bilinear-form-exponential-transpose-exponential>
+      #block(breakable: false)[
+        It follows that
+        $ (exp T)'A(exp T)=A. $ <eq:bilinear-form-exponential-preserved>
+      ]
     ]
 
     === _The algebra $D_l$_ <sec:matrix-algebra-d>
 
     #block(sticky: true)[We now take]
-    $ A=mat(0, I_l; I_l, 0) $ <eq:11-2-3-form>
+    $ A=mat(0, I_l; I_l, 0) $ <eq:matrix-algebra-d-form>
     #block(sticky: true)[
-      in #book-ref("l", "11-2-2", [11.2.2]) and consider $2l times 2l$ matrices
+      in #book-ref("l", "bilinear-form-exponential") and consider $2l times 2l$
+      matrices
     ]
-    $ T=mat(T_11, T_12; T_21, T_22) $ <eq:11-2-3-blocks>
+    $ T=mat(T_11, T_12; T_21, T_22) $ <eq:matrix-algebra-d-blocks>
     satisfying $T'A+A T=0$. $T$ satisfies this condition if and only if
     $T_22=-T'_11$ and $T_12,T_21$ are skew-symmetric. Let $frak(L)$ be the Lie
     algebra of all such matrices and $frak(H)$ be the set of diagonal matrices
@@ -437,9 +492,9 @@
         , , , , , , dots.down, ;
         , , , , , , , -lambda_l;
       ).
-    $ <eq:11-2-3-diagonal>
+    $ <eq:matrix-algebra-d-diagonal>
     Numbering the rows and columns $1,2,dots,l,-1,-2,dots,-l$ we have
-    $ frak(L)=frak(H) ⊕ sum_r CC e_r, $ <eq:11-2-3-cartan>
+    $ frak(L)=frak(H) ⊕ sum_r CC e_r, $ <eq:matrix-algebra-d-cartan>
     #source(192, "179")
     #block(sticky: true)[where]
     $
@@ -449,14 +504,14 @@
         e_(i,-j)-e_(j,-i) ",",
         -e_(-i,j)+e_(-j,i) ",",
       ) quad 0<i<j.
-    $ <eq:11-2-3-root-vectors>
+    $ <eq:matrix-algebra-d-root-vectors>
     $h$ transforms these root vectors according to the following formulae:
     $
        [h,e_(i j)-e_(-j,-i)] & =(lambda_i-lambda_j)(e_(i j)-e_(-j,-i)), \
       [h,-e_(-i,-j)+e_(j i)] & =(lambda_j-lambda_i)(-e_(-i,-j)+e_(j i)), \
        [h,e_(i,-j)-e_(j,-i)] & =(lambda_i+lambda_j)(e_(i,-j)-e_(j,-i)), \
       [h,-e_(-i,j)+e_(-j,i)] & =(-lambda_i-lambda_j)(-e_(-i,j)+e_(-j,i)).
-    $ <eq:11-2-3-weights>
+    $ <eq:matrix-algebra-d-weights>
     Thus $frak(L)$ is a simple algebra of type $D_l$ (compare section #book-ref(
       "sec",
       "description-of-simple-lie-algebras",
@@ -467,7 +522,7 @@
       j)-e_(-i,-i)+e_(-j,-j), \
       [e_(i,-j)-e_(j,-i),-e_(-i,j)+e_(-j,i)]=e_(i i)
       +e_(j j)-e_(-i,-i)-e_(-j,-j).
-    $ <eq:11-2-3-coroots>
+    $ <eq:matrix-algebra-d-coroots>
     For in each case we have $[h_r e_r]=2e_r$. As in #book-ref(
       "sec",
       "matrix-algebra-a",
@@ -481,10 +536,10 @@
     === _The algebra $B_l$_ <sec:matrix-algebra-b>
 
     #block(sticky: true)[This time we take]
-    $ A=mat(2, 0, 0; 0, 0, I_l; 0, I_l, 0) $ <eq:11-2-4-form>
+    $ A=mat(2, 0, 0; 0, 0, I_l; 0, I_l, 0) $ <eq:matrix-algebra-b-form>
     #source(193, "180")
     and consider $(2l+1)times(2l+1)$ matrices $T$ satisfying $T'A+A T=0$. These
-    form a Lie algebra as in #book-ref("l", "11-2-2", [11.2.2]).
+    form a Lie algebra as in #book-ref("l", "bilinear-form-exponential").
 
     #block(sticky: true)[Let]
     $
@@ -494,7 +549,7 @@
         display(mat(delim: #none, 1; l; l));
         display(mat(delim: #none, column-gap: #1.4em, 1, l, l)), ;
       )
-    $ <eq:11-2-4-blocks>
+    $ <eq:matrix-algebra-b-blocks>
     be the expression of $T$ as a block matrix. Then $T$ satisfies $T'A+A T=0$
     if and only if $T_22=-T'_11$, $T_12$ and $T_21$ are skew-symmetric,
     $T_10=-2T'_02$, $T_20=-2T'_01$ and $T_00=0$. Let $frak(L)$ be the Lie
@@ -510,9 +565,9 @@
         , , , , , dots.down, ;
         , , , , , , -lambda_l;
       ).
-    $ <eq:11-2-4-diagonal>
+    $ <eq:matrix-algebra-b-diagonal>
     Numbering the rows and columns $0,1,dots,l,-1,dots,-l$ we have
-    $ frak(L)=frak(H) ⊕ sum_r CC e_r, $ <eq:11-2-4-cartan>
+    $ frak(L)=frak(H) ⊕ sum_r CC e_r, $ <eq:matrix-algebra-b-cartan>
     #block(sticky: true)[where]
     $
       e_r=cases(
@@ -523,7 +578,7 @@
         2e_(i 0)-e_(0,-i) ",",
         -2e_(-i,0)+e_(0 i) ",",
       ) quad 0<i<j.
-    $ <eq:11-2-4-root-vectors>
+    $ <eq:matrix-algebra-b-root-vectors>
 
     #source(194, "181")
     $h$ transforms these root vectors according to the following formulae:
@@ -534,7 +589,7 @@
       [h,-e_(-i,j)+e_(-j,i)] & =(-lambda_i-lambda_j)(-e_(-i,j)+e_(-j,i)), \
        [h,2e_(i 0)-e_(0,-i)] & =lambda_i (2e_(i 0)-e_(0,-i)), \
       [h,-2e_(-i,0)+e_(0 i)] & =-lambda_i (-2e_(-i,0)+e_(0 i)).
-    $ <eq:11-2-4-weights>
+    $ <eq:matrix-algebra-b-weights>
     $frak(L)$ is a simple Lie algebra and the above decomposition is a Cartan
     decomposition giving a root system of type $B$ (cf. section #book-ref(
       "sec",
@@ -546,16 +601,16 @@
       [e_(i,-j)-e_(j,-i),-e_(-i,j)+e_(-j,i)]=e_(i i)+e_(j
       j)-e_(-i,-i)-e_(-j,-j), \
       [2e_(i 0)-e_(0,-i),-2e_(-i,0)+e_(0 i)]=2e_(i i)-2e_(-i,-i).
-    $ <eq:11-2-4-coroots>
+    $ <eq:matrix-algebra-b-coroots>
     For in each case we have $[h_r e_r]=2e_r$.
 
     Let $delta$ be the matrix $op("diag")(2,1,dots,1)$. Then the map $theta$
     defined by
-    $ theta(x)=-delta^(-1)x'delta $ <eq:11-2-4-transpose>
+    $ theta(x)=-delta^(-1)x'delta $ <eq:matrix-algebra-b-transpose>
     is an automorphism of $frak(L)$. It has the effect of transposing the
     matrix, changing its sign, halving the first row and doubling the first
     column. Thus it can be seen that
-    $ theta(e_r)=-e_(-r) $ <eq:11-2-4-opposite>
+    $ theta(e_r)=-e_(-r) $ <eq:matrix-algebra-b-opposite>
     for all roots $r$. Hence the fundamental co-roots and root vectors $e_r$
     defined above form a Chevalley basis of $frak(L)$, as in #book-ref(
       "sec",
@@ -565,10 +620,10 @@
     === _The algebra $C_l$_ <sec:matrix-algebra-c>
 
     #block(sticky: true)[This time we take]
-    $ A=mat(0, I_l; -I_l, 0) $ <eq:11-2-5-form>
+    $ A=mat(0, I_l; -I_l, 0) $ <eq:matrix-algebra-c-form>
     and consider the Lie algebra of all $2l times 2l$ matrices satisfying
     $T'A+A T=0$. Let
-    $ T=mat(T_11, T_12; T_21, T_22). $ <eq:11-2-5-blocks>
+    $ T=mat(T_11, T_12; T_21, T_22). $ <eq:matrix-algebra-c-blocks>
     #source(195, "182")
     Then $T$ satisfies $T'A+A T=0$ if and only if $T_22=-T'_11$ and $T_12,T_21$
     are symmetric. Let $frak(L)$ be the Lie algebra of all such matrices and
@@ -583,9 +638,9 @@
         , , , , dots.down, ;
         , , , , , -lambda_l;
       ).
-    $ <eq:11-2-5-diagonal>
+    $ <eq:matrix-algebra-c-diagonal>
     Numbering the rows and columns $1,2,dots,l,-1,-2,dots,-l$ we have
-    $ frak(L)=frak(H) ⊕ sum_r CC e_r, $ <eq:11-2-5-cartan>
+    $ frak(L)=frak(H) ⊕ sum_r CC e_r, $ <eq:matrix-algebra-c-cartan>
     #block(sticky: true)[where]
     $
       e_r=cases(
@@ -596,7 +651,7 @@
         e_(i,-i) ",",
         e_(-i,i) ",",
       ) quad 0<i<j.
-    $ <eq:11-2-5-root-vectors>
+    $ <eq:matrix-algebra-c-root-vectors>
     $h$ transforms these root vectors according to the following formulae:
     $
        [h,e_(i j)-e_(-j,-i)] & =(lambda_i-lambda_j)(e_(i j)-e_(-j,-i)), \
@@ -605,7 +660,7 @@
        [h,e_(-i,j)+e_(-j,i)] & =(-lambda_i-lambda_j)(e_(-i,j)+e_(-j,i)), \
                 [h,e_(i,-i)] & =2lambda_i e_(i,-i), \
                 [h,e_(-i,i)] & =-2lambda_i e_(-i,i).
-    $ <eq:11-2-5-weights>
+    $ <eq:matrix-algebra-c-weights>
     $frak(L)$ is a simple Lie algebra and the above decomposition is a Cartan
     decomposition giving a root system of type $C_l$. The co-roots of $frak(L)$
     are the
@@ -617,14 +672,14 @@
       [e_(i,-j)+e_(j,-i),e_(-i,j)+e_(-j,i)]=e_(i i)
       +e_(j j)-e_(-i,-i)-e_(-j,-j), \
       [e_(i,-i),e_(-i,i)]=e_(i i)-e_(-i,-i).
-    $ <eq:11-2-5-coroots>
+    $ <eq:matrix-algebra-c-coroots>
     For $[h_r e_r]=2e_r$ in each case. The map $theta(x)=-x'$ is an automorphism
     of $frak(L)$ such that $theta(e_r)=-e_(-r)$ for all roots $r$. Thus the
     fundamental co-roots and vectors $e_r$ again form a Chevalley basis.
   ]
 
   #[
-    #import "main-defs.typ": bib-ref, book-ref, qed, source
+    #import "main-defs.typ": bib-ref, book-ref, source
 
     #heading(level: 2)[
       Identifications with some Classical Groups
@@ -636,13 +691,15 @@
     representations we have $e_r^3=0$. In fact $e_r^2=0$ in all cases except for
     $
       e_r=cases(2e_(i 0)-e_(0,-i) ",", -2e_(-i,0)+e_(0 i))
-    $ <eq:11-3-nonsquarezero>
+    $ <eq:classical-group-identifications-nonsquarezero>
     in type $B_l$. In these cases we have
     $
       e_r^2=cases(-2e_(i,-i) ",", -2e_(-i,i) ".")
-    $ <eq:11-3-squares>
+    $ <eq:classical-group-identifications-squares>
     #block(sticky: true)[Thus]
-    $ exp(t e_r)=1+t e_r+frac(1, 2)t^2 e_r^2. $ <eq:11-3-exponential>
+    $
+      exp(t e_r)=1+t e_r+frac(1, 2)t^2 e_r^2.
+    $ <eq:classical-group-identifications-exponential>
 
     Secondly we note that the coefficients of $exp(t e_r)$ are all of the form
     $n,n t$ or $n t^2$, where $n in ZZ$. This is because the coefficients of
@@ -656,241 +713,271 @@
     $overline(G)$ be the group of matrices generated by the elements
     $exp(t e_r)$ for all $r in Phi$ and all $t in K$. By #book-ref(
       "l",
-      "4-5-1",
-      [4.5.1],
+      "exponential-conjugation",
     ) we have
     $
       exp(t op("ad") e_r)dot x=exp(t e_r)dot x dot exp(t e_r)^(-1)
-    $ <eq:11-3-conjugation>
+    $ <eq:classical-group-identifications-conjugation>
     for all $x in frak(L)_K$. Thus there is a homomorphism $sigma$ of
     $overline(G)$ onto $G=frak(L)(K)$ such
     #source(197, "184")
     that
-    $ exp(t e_r) arrow^sigma exp(t op("ad") e_r). $ <eq:11-3-homomorphism>
+    $
+      exp(t e_r) arrow^sigma exp(t op("ad") e_r).
+    $ <eq:classical-group-identifications-homomorphism>
 
     We determine the kernel of $sigma$.
 
-    #block(sticky: true)[
-      #metadata((kind: "anchor")) <l:11-3-1>
-      #smallcaps[Lemma 11.3.1.] _The kernel of the homomorphism
-      $sigma:overline(G)->G$ is the centre $Z$ of $overline(G)$._
+    #lemma(<l:adjoint-kernel-centre>)[
+      #block(sticky: true)[
+        The kernel of the homomorphism $sigma:overline(G)->G$ is the centre $Z$
+        of $overline(G)$.
+      ]
     ]
 
-    #smallcaps[Proof.] Let $y in overline(G)$ be in the kernel of $sigma$. Then
-    $y x y^(-1)=x$ for all $x in frak(L)_K$. In particular $y$ commutes with
-    $t e_r$ for all $r in Phi$. Thus $y$ commutes with $exp(t e_r)$ and so $y$
-    is in the centre $Z$ of $overline(G)$.
+    #proof[
+      Let $y in overline(G)$ be in the kernel of $sigma$. Then $y x y^(-1)=x$
+      for all $x in frak(L)_K$. In particular $y$ commutes with $t e_r$ for all
+      $r in Phi$. Thus $y$ commutes with $exp(t e_r)$ and so $y$ is in the
+      centre $Z$ of $overline(G)$.
 
-    Conversely, suppose $y$ is an element of $Z$. Then $y$ commutes with
-    $exp e_r$ for all $r in Phi$. If $frak(L)$ is not of type $B_l$ we have
-    $ exp e_r=1+e_r; $ <eq:11-3-1-squarezero>
-    thus $y$ commutes with $e_r$. Since
-    $ [e_r e_(-r)]=h_r, $ <eq:11-3-1-coroot>
-    $y$ also commutes with $h_r$ for all $r in Phi$. Thus $y$ is in the kernel
-    of $sigma$. Now suppose that $frak(L)$ is of type $B_l$. Then $y$ commutes
-    with $e_r$ whenever $e_r^2=0$, and if $e_r^2!=0$, $y$ commutes with
-    $(exp(e_r)-1)^2=e_r^2$. Thus provided $K$ does not have characteristic $2$,
-    $y$ commutes with
-    $
-      exp(e_r)-1-frac(1, 2)(exp(e_r)-1)^2=e_r
-    $ <eq:11-3-1-recover>
-    and it follows as above that $y$ is in the kernel of $sigma$. Finally, if
-    $K$ has characteristic $2$ an easy matrix calculation shows that $y$ is a
-    scalar multiple of the identity, and so is in the kernel of $sigma$. #qed
+      Conversely, suppose $y$ is an element of $Z$. Then $y$ commutes with
+      $exp e_r$ for all $r in Phi$. If $frak(L)$ is not of type $B_l$ we have
+      $ exp e_r=1+e_r; $ <eq:adjoint-kernel-centre-squarezero>
+      thus $y$ commutes with $e_r$. Since
+      $ [e_r e_(-r)]=h_r, $ <eq:adjoint-kernel-centre-coroot>
+      $y$ also commutes with $h_r$ for all $r in Phi$. Thus $y$ is in the kernel
+      of $sigma$. Now suppose that $frak(L)$ is of type $B_l$. Then $y$ commutes
+      with $e_r$ whenever $e_r^2=0$, and if $e_r^2!=0$, $y$ commutes with
+      $(exp(e_r)-1)^2=e_r^2$. Thus provided $K$ does not have characteristic
+      $2$, $y$ commutes with
+      $
+        exp(e_r)-1-frac(1, 2)(exp(e_r)-1)^2=e_r
+      $ <eq:adjoint-kernel-centre-recover>
+      and it follows as above that $y$ is in the kernel of $sigma$. Finally, if
+      $K$ has characteristic $2$ an easy matrix calculation shows that $y$ is a
+      scalar multiple of the identity, and so is in the kernel of $sigma$.
+    ]
 
     We are now able to prove a theorem of Ree identifying Chevalley groups of
     type $A_l,B_l,C_l,D_l$ with classical groups.
 
-    #block(sticky: true)[
-      #metadata((kind: "anchor")) <th:11-3-2>
-      #smallcaps[Theorem 11.3.2.] _(i) $A_l (K)$ is isomorphic to the linear
-      group $op("PSL")_(l+1)(K)$._
-    ]
+    #theorem(<th:classical-group-identifications>)[
+      #block(sticky: true)[
+        (i) $A_l (K)$ is isomorphic to the linear group $op("PSL")_(l+1)(K)$.
+      ]
 
-    #block(sticky: true)[
-      _(ii) $B_l (K)$ is isomorphic to the orthogonal group
-      $P Omega_(2l+1)(K,f_B)$, except for $B_2 (2)$, where $f_B$ is the
-      quadratic form_
-    ]
-    // E047: the exception already present in the proof also qualifies (ii).
-    $ x_0^2+x_1 x_(-1)+x_2 x_(-2)+dots+x_l x_(-l). $ <eq:11-3-2-form-b>
+      #block(sticky: true)[
+        (ii) $B_l (K)$ is isomorphic to the orthogonal group
+        $P Omega_(2l+1)(K,f_B)$, except for $B_2 (2)$, where $f_B$ is the
+        quadratic form
+      ]
+      // E047: the exception already present in the proof also qualifies (ii).
+      $
+        x_0^2+x_1 x_(-1)+x_2 x_(-2)+dots+x_l x_(-l).
+      $ <eq:classical-group-identifications-form-b>
 
-    _(iii) $C_l (K)$ is isomorphic to the symplectic group $op("PSp")_(2l)(K)$._
+      (iii) $C_l (K)$ is isomorphic to the symplectic group $op("PSp")_(2l)(K)$.
 
-    #block(sticky: true)[
-      _(iv) $D_l (K)$ is isomorphic to the orthogonal group
-      $P Omega_(2l)(K,f_D)$, where $f_D$ is the quadratic form_
+      #block(sticky: true)[
+        (iv) $D_l (K)$ is isomorphic to the orthogonal group
+        $P Omega_(2l)(K,f_D)$, where $f_D$ is the quadratic form
+      ]
+      $
+        x_1 x_(-1)+x_2 x_(-2)+dots+x_l x_(-l).
+      $ <eq:classical-group-identifications-form-d>
+
     ]
-    $ x_1 x_(-1)+x_2 x_(-2)+dots+x_l x_(-l). $ <eq:11-3-2-form-d>
 
     #source(198, "185")
     Note that $f_B$ and $f_D$ are both quadratic forms of maximal index in the
     spaces concerned (cf. section #book-ref("sec", "orthogonal-groups")).
 
-    #smallcaps[Proof.] (i) Let $G=A_l (K)$. Then $overline(G)$ is the group of
-    $(l+1)times(l+1)$ matrices generated by
-    $ I+t e_(i j) quad (i!=j) $ <eq:11-3-2-generators-a>
-    for all $t in K$. These matrices generate the group $op("SL")_(l+1)(K)$.
-    Thus, by #book-ref("l", "11-3-1", [11.3.1]),
-    $ G tilde.eq overline(G)/Z tilde.eq op("PSL")_(l+1)(K). $
-    <eq:11-3-2-identification-a>
+    #proof[
+      (i) Let $G=A_l (K)$. Then $overline(G)$ is the group of $(l+1)times(l+1)$
+      matrices generated by
+      $
+        I+t e_(i j) quad (i!=j)
+      $ <eq:classical-group-identifications-generators-a>
+      for all $t in K$. These matrices generate the group $op("SL")_(l+1)(K)$.
+      Thus, by #book-ref("l", "adjoint-kernel-centre"),
+      $ G tilde.eq overline(G)/Z tilde.eq op("PSL")_(l+1)(K). $
+      <eq:classical-group-identifications-identification-a>
 
-    (iv) Let $G=D_l (K)$. Then, by #book-ref("l", "11-2-2", [11.2.2]) and
-    #book-ref("sec", "matrix-algebra-d"), $overline(G)$ is a group of
-    $2l times 2l$ matrices generated by elements $T$ satisfying $T'A T=A$, where
-    $ A=mat(0, I_l; I_l, 0). $ <eq:11-3-2-matrix-d>
-    If the characteristic of $K$ is not $2$ all such matrices represent
-    isometries of the quadratic form
-    $ x_1 x_(-1)+x_2 x_(-2)+dots+x_l x_(-l) $ <eq:11-3-2-quadratic-d>
-    and so $overline(G)$ is a subgroup of $O_(2l)(K,f_D)$. Now $overline(G)$ is
-    generated by matrices
-    $
-      cases(
-        I+t(e_(i j)-e_(-j,-i)) ",",
-        I-t(e_(-i,-j)-e_(j i)) ",",
-        I+t(e_(i,-j)-e_(j,-i)) ",",
-        I-t(e_(-i,j)-e_(-j,i)) ".",
-      ) quad 0<i<j.
-    $ <eq:11-3-2-generators-d>
-    It is easily seen that these generators leave invariant the above quadratic
-    form also when $K$ has characteristic $2$. Thus $overline(G)$ is a subgroup
-    of $O_(2l)(K,f_D)$ in all cases. Moreover it is shown in Ree #bib-ref(
-      "ree1957",
-    ) that the above matrices generate $Omega_(2l)(K,f_D)$, the commutator
-    subgroup of $O_(2l)(K,f_D)$. Thus $overline(G) tilde.eq Omega_(2l)(K,f_D)$
-    and it follows by #book-ref("l", "11-3-1", [11.3.1]) that
-    $ G tilde.eq overline(G)/Z tilde.eq P Omega_(2l)(K,f_D). $
-    <eq:11-3-2-identification-d>
+      (iv) Let $G=D_l (K)$. Then, by #book-ref("l", "bilinear-form-exponential")
+      and #book-ref("sec", "matrix-algebra-d"), $overline(G)$ is a group of
+      $2l times 2l$ matrices generated by elements $T$ satisfying $T'A T=A$,
+      where
+      $ A=mat(0, I_l; I_l, 0). $ <eq:classical-group-identifications-matrix-d>
+      If the characteristic of $K$ is not $2$ all such matrices represent
+      isometries of the quadratic form
+      $
+        x_1 x_(-1)+x_2 x_(-2)+dots+x_l x_(-l)
+      $ <eq:classical-group-identifications-quadratic-d>
+      and so $overline(G)$ is a subgroup of $O_(2l)(K,f_D)$. Now $overline(G)$
+      is generated by matrices
+      $
+        cases(
+          I+t(e_(i j)-e_(-j,-i)) ",",
+          I-t(e_(-i,-j)-e_(j i)) ",",
+          I+t(e_(i,-j)-e_(j,-i)) ",",
+          I-t(e_(-i,j)-e_(-j,i)) ".",
+        ) quad 0<i<j.
+      $ <eq:classical-group-identifications-generators-d>
+      It is easily seen that these generators leave invariant the above
+      quadratic form also when $K$ has characteristic $2$. Thus $overline(G)$ is
+      a subgroup of $O_(2l)(K,f_D)$ in all cases. Moreover it is shown in Ree
+      #bib-ref(
+        "ree1957",
+      ) that the above matrices generate $Omega_(2l)(K,f_D)$, the commutator
+      subgroup of $O_(2l)(K,f_D)$. Thus $overline(G) tilde.eq Omega_(2l)(K,f_D)$
+      and it follows by #book-ref("l", "adjoint-kernel-centre") that
+      $ G tilde.eq overline(G)/Z tilde.eq P Omega_(2l)(K,f_D). $
+      <eq:classical-group-identifications-identification-d>
 
-    (iii) Let $G=C_l (K)$. Then $overline(G)$ is a group of $2l times 2l$
-    matrices generated by
-    #source(199, "186")
-    elements $T$ satisfying $T'A T=A$, where
-    $ A=mat(0, I_l; -I_l, 0). $ <eq:11-3-2-matrix-c>
-    Such matrices are elements of the symplectic group $op("Sp")_(2l)(K)$.
-    $overline(G)$ is generated by the matrices
-    $
-      cases(
-        I+t(e_(i j)-e_(-j,-i)) ",",
-        I-t(e_(-i,-j)-e_(j i)) ",",
-        I+t(e_(i,-j)+e_(j,-i)) ",",
-        I-t(-e_(-i,j)-e_(-j,i)) ",",
-        I+t e_(i,-i) ",",
-        I+t e_(-i,i) ".",
-      ) quad 0<i<j.
-    $ <eq:11-3-2-generators-c>
-    But these matrices generate the symplectic group $op("Sp")_(2l)(K)$ (cf. Ree
-    #bib-ref("ree1957")). Thus $overline(G) tilde.eq op("Sp")_(2l)(K)$ and
-    $ G tilde.eq overline(G)/Z tilde.eq op("PSp")_(2l)(K). $
-    <eq:11-3-2-identification-c>
+      (iii) Let $G=C_l (K)$. Then $overline(G)$ is a group of $2l times 2l$
+      matrices generated by
+      #source(199, "186")
+      elements $T$ satisfying $T'A T=A$, where
+      $ A=mat(0, I_l; -I_l, 0). $ <eq:classical-group-identifications-matrix-c>
+      Such matrices are elements of the symplectic group $op("Sp")_(2l)(K)$.
+      $overline(G)$ is generated by the matrices
+      $
+        cases(
+          I+t(e_(i j)-e_(-j,-i)) ",",
+          I-t(e_(-i,-j)-e_(j i)) ",",
+          I+t(e_(i,-j)+e_(j,-i)) ",",
+          I-t(-e_(-i,j)-e_(-j,i)) ",",
+          I+t e_(i,-i) ",",
+          I+t e_(-i,i) ".",
+        ) quad 0<i<j.
+      $ <eq:classical-group-identifications-generators-c>
+      But these matrices generate the symplectic group $op("Sp")_(2l)(K)$ (cf.
+      Ree #bib-ref("ree1957")). Thus $overline(G) tilde.eq op("Sp")_(2l)(K)$ and
+      $ G tilde.eq overline(G)/Z tilde.eq op("PSp")_(2l)(K). $
+      <eq:classical-group-identifications-identification-c>
 
-    (ii) Let $G=B_l (K)$ and suppose the characteristic of $K$ is not $2$. Then
-    $overline(G)$ is a group of $(2l+1)times(2l+1)$ matrices generated by
-    elements $T$ satisfying $T'A T=A$, where
-    $ A=mat(2, 0, 0; 0, 0, I_l; 0, I_l, 0). $ <eq:11-3-2-matrix-b>
-    Such matrices represent isometries of the quadratic form
-    $ x_0^2+x_1 x_(-1)+x_2 x_(-2)+dots+x_l x_(-l) $ <eq:11-3-2-quadratic-b>
-    and so $overline(G)$ is a subgroup of $O_(2l+1)(K,f_B)$. Now $overline(G)$
-    is generated by matrices
-    $
-      cases(
-        I+t(e_(i j)-e_(-j,-i)) ",",
-        I-t(e_(-i,-j)-e_(j i)) ",",
-        I+t(e_(i,-j)-e_(j,-i)) ",",
-        I-t(e_(-i,j)-e_(-j,i)) ",",
-        I+t(2e_(i 0)-e_(0,-i))-t^2 e_(i,-i) ",",
-        I-t(2e_(-i,0)-e_(0 i))-t^2 e_(-i,i) ".",
-      )
-    $ <eq:11-3-2-generators-b>
-    #source(200, "187")
-    and it is shown in Ree #bib-ref("ree1957") that these matrices generate
-    $Omega_(2l+1)(K,f_B)$, the commutator subgroup of $O_(2l+1)(K,f_B)$. Thus
-    $overline(G) tilde.eq Omega_(2l+1)(K,f_B)$ and
-    $ G tilde.eq overline(G)/Z tilde.eq P Omega_(2l+1)(K,f_B). $
-    <eq:11-3-2-identification-b>
+      (ii) Let $G=B_l (K)$ and suppose the characteristic of $K$ is not $2$.
+      Then $overline(G)$ is a group of $(2l+1)times(2l+1)$ matrices generated by
+      elements $T$ satisfying $T'A T=A$, where
+      $
+        A=mat(2, 0, 0; 0, 0, I_l; 0, I_l, 0).
+      $ <eq:classical-group-identifications-matrix-b>
+      Such matrices represent isometries of the quadratic form
+      $
+        x_0^2+x_1 x_(-1)+x_2 x_(-2)+dots+x_l x_(-l)
+      $ <eq:classical-group-identifications-quadratic-b>
+      and so $overline(G)$ is a subgroup of $O_(2l+1)(K,f_B)$. Now $overline(G)$
+      is generated by matrices
+      $
+        cases(
+          I+t(e_(i j)-e_(-j,-i)) ",",
+          I-t(e_(-i,-j)-e_(j i)) ",",
+          I+t(e_(i,-j)-e_(j,-i)) ",",
+          I-t(e_(-i,j)-e_(-j,i)) ",",
+          I+t(2e_(i 0)-e_(0,-i))-t^2 e_(i,-i) ",",
+          I-t(2e_(-i,0)-e_(0 i))-t^2 e_(-i,i) ".",
+        )
+      $ <eq:classical-group-identifications-generators-b>
+      #source(200, "187")
+      and it is shown in Ree #bib-ref("ree1957") that these matrices generate
+      $Omega_(2l+1)(K,f_B)$, the commutator subgroup of $O_(2l+1)(K,f_B)$. Thus
+      $overline(G) tilde.eq Omega_(2l+1)(K,f_B)$ and
+      $ G tilde.eq overline(G)/Z tilde.eq P Omega_(2l+1)(K,f_B). $
+      <eq:classical-group-identifications-identification-b>
 
-    Now suppose $K$ has characteristic $2$. In this case $overline(G)$ can be
-    considered as a group of linear transformations of a vector space $frak(V)$
-    with basis $v_0,v_1,dots,v_l,v_(-1),dots,v_(-l)$, where
-    $ e_(alpha beta)dot v_alpha=v_beta. $ <eq:11-3-2-action>
-    Now in the set of generators for $overline(G)$ described in #book-ref(
-      "th",
-      "11-3-2",
-      [11.3.2],
-    ) (ii), the terms involving $e_(i 0)$ and $e_(-i,0)$ vanish when $K$ has
-    characteristic $2$. Hence the subspace $frak(W)$ of $frak(V)$ with basis
-    $v_1,dots,v_l,v_(-1),dots,v_(-l)$ is invariant under $overline(G)$. We show
-    that $overline(G)$ operates faithfully on $frak(W)$.
+      Now suppose $K$ has characteristic $2$. In this case $overline(G)$ can be
+      considered as a group of linear transformations of a vector space
+      $frak(V)$ with basis $v_0,v_1,dots,v_l,v_(-1),dots,v_(-l)$, where
+      $
+        e_(alpha beta)dot v_alpha=v_beta.
+      $ <eq:classical-group-identifications-action>
+      Now in the set of generators for $overline(G)$ described in #book-ref(
+        "th",
+        "classical-group-identifications",
+      ) (ii), the terms involving $e_(i 0)$ and $e_(-i,0)$ vanish when $K$ has
+      characteristic $2$. Hence the subspace $frak(W)$ of $frak(V)$ with basis
+      $v_1,dots,v_l,v_(-1),dots,v_(-l)$ is invariant under $overline(G)$. We
+      show that $overline(G)$ operates faithfully on $frak(W)$.
 
-    We remarked in #book-ref("l", "11-3-1", [11.3.1]) that the centre $Z$ of
-    $overline(G)$ consists only of scalar multiples of the identity. However,
-    the elements of $overline(G)$ satisfy $T'A T=A$, where
-    $ A=mat(2, 0, 0; 0, 0, I_l; 0, I_l, 0) $ <eq:11-3-2-matrix-b-two>
-    and $lambda I$ can only satisfy this if $lambda^2=1$. In characteristic $2$
-    this implies $lambda=1$. Hence $Z=1$ and $overline(G)$ is isomorphic to $G$.
-    It follows that $overline(G)$ is simple. (We exclude the exceptional case
-    $B_2 (2)$.) Thus $overline(G)$ acts faithfully on $frak(W)$.
+      We remarked in #book-ref("l", "adjoint-kernel-centre") that the centre $Z$
+      of $overline(G)$ consists only of scalar multiples of the identity.
+      However, the elements of $overline(G)$ satisfy $T'A T=A$, where
+      $
+        A=mat(2, 0, 0; 0, 0, I_l; 0, I_l, 0)
+      $ <eq:classical-group-identifications-matrix-b-two>
+      and $lambda I$ can only satisfy this if $lambda^2=1$. In characteristic
+      $2$ this implies $lambda=1$. Hence $Z=1$ and $overline(G)$ is isomorphic
+      to $G$. It follows that $overline(G)$ is simple. (We exclude the
+      exceptional case $B_2 (2)$.) Thus $overline(G)$ acts faithfully on
+      $frak(W)$.
 
-    Now the quadratic form $f_B$ in characteristic $2$ is non-degenerate but has
-    defect $1$ (see section #book-ref(
-      "sec",
-      "orthogonal-groups-characteristic-two",
-    )). The vector space $frak(V)$ on which $f_B$ is defined therefore has
-    non-singular symplectic subspaces of co-dimension $1$, and $frak(W)$ is such
-    a subspace. We therefore compare the action of $overline(G)$ on $frak(W)$
-    with the action of the symplectic group $op("Sp")_(2l)(K)$.
+      Now the quadratic form $f_B$ in characteristic $2$ is non-degenerate but
+      has defect $1$ (see section #book-ref(
+        "sec",
+        "orthogonal-groups-characteristic-two",
+      )). The vector space $frak(V)$ on which $f_B$ is defined therefore has
+      non-singular symplectic subspaces of co-dimension $1$, and $frak(W)$ is
+      such a subspace. We therefore compare the action of $overline(G)$ on
+      $frak(W)$ with the action of the symplectic group $op("Sp")_(2l)(K)$.
 
-    Now the group $overline(G)$ acting on $frak(W)$ is generated by the
-    following matrices (using the fact that $-1=1$ in $K$):
-    $
-      cases(
-        I+t(e_(i j)-e_(-j,-i)) ",",
-        I-t(e_(-i,-j)-e_(j i)) ",",
-        I+t(e_(i,-j)+e_(j,-i)) ",",
-        I-t(e_(-i,j)-e_(-j,i)) ",",
-        I+t^2 e_(i,-i) ",",
-        I+t^2 e_(-i,i) ".",
-      )
-    $ <eq:11-3-2-generators-b-two>
+      Now the group $overline(G)$ acting on $frak(W)$ is generated by the
+      following matrices (using the fact that $-1=1$ in $K$):
+      $
+        cases(
+          I+t(e_(i j)-e_(-j,-i)) ",",
+          I-t(e_(-i,-j)-e_(j i)) ",",
+          I+t(e_(i,-j)+e_(j,-i)) ",",
+          I-t(e_(-i,j)-e_(-j,i)) ",",
+          I+t^2 e_(i,-i) ",",
+          I+t^2 e_(-i,i) ".",
+        )
+      $ <eq:classical-group-identifications-generators-b-two>
 
-    #source(201, "188")
-    If these generators are compared with the ones in #book-ref(
-      "th",
-      "11-3-2",
-      [11.3.2],
-    ) (iii) it is clear that $overline(G)$ is a subgroup of $op("Sp")_(2l)(K)$.
-    Moreover if $K$ is a perfect field each element of $K$ is a square and so
-    $overline(G)=op("Sp")_(2l)(K)$. Thus
-    $ overline(G)=op("Sp")_(2l)(K)=O_(2l+1)(K,f_B) $ <eq:11-3-2-perfect>
-    as in section #book-ref("sec", "orthogonal-groups-characteristic-two") and
-    so
-    $
-      B_l (K) tilde.eq P Omega_(2l+1)(K,f_B),
-    $ <eq:11-3-2-perfect-identification>
-    since $overline(G)$ is simple.
+      #source(201, "188")
+      If these generators are compared with the ones in #book-ref(
+        "th",
+        "classical-group-identifications",
+      ) (iii) it is clear that $overline(G)$ is a subgroup of
+      $op("Sp")_(2l)(K)$. Moreover if $K$ is a perfect field each element of $K$
+      is a square and so $overline(G)=op("Sp")_(2l)(K)$. Thus
+      $
+        overline(G)=op("Sp")_(2l)(K)=O_(2l+1)(K,f_B)
+      $ <eq:classical-group-identifications-perfect>
+      as in section #book-ref("sec", "orthogonal-groups-characteristic-two") and
+      so
+      $
+        B_l (K) tilde.eq P Omega_(2l+1)(K,f_B),
+      $ <eq:classical-group-identifications-perfect-identification>
+      since $overline(G)$ is simple.
 
-    Now suppose that $K$ is not perfect. The situation is now more complicated
-    since the orthogonal group $O_(2l+1)(K,f_B)$ is a proper subgroup of
-    $op("Sp")_(2l)(K)$ (cf. section #book-ref(
-      "sec",
-      "orthogonal-groups-characteristic-two",
-    )). However it is easily checked that the given generators of the group
-    $overline(G)$ lie in $O_(2l+1)(K,f_B)$. The commutator subgroup
-    $Omega_(2l+1)(K,f_B)$ is generated by ‘orthogonal transvections’
-    corresponding to elements $x in frak(V)$ with $f_B (x) in K^2$, except
-    possibly when $l=2$ (cf. Dieudonné #bib-ref(
-      "dieudonne1948",
-    ), p. 59). The generators $I+t^2 e_(i,-i)$ and $I+t^2 e_(-i,i)$ are
-    orthogonal transvections of this kind and it is shown by Dieudonné #bib-ref(
-      "dieudonne1957bn",
-    ) that the group $overline(G)$ contains all such orthogonal transvections,
-    so must contain $Omega_(2l+1)(K,f_B)$. Thus $overline(G)$ lies between
-    $Omega_(2l+1)(K,f_B)$ and $O_(2l+1)(K,f_B)$. Since $overline(G)$ is simple
-    we have $overline(G)=Omega_(2l+1)(K,f_B)$ and so
-    #block(breakable: false)[
-      $ B_l (K) tilde.eq P Omega_(2l+1)(K,f_B) $ <eq:11-3-2-imperfect>
-      in this case also. #qed
+      Now suppose that $K$ is not perfect. The situation is now more complicated
+      since the orthogonal group $O_(2l+1)(K,f_B)$ is a proper subgroup of
+      $op("Sp")_(2l)(K)$ (cf. section #book-ref(
+        "sec",
+        "orthogonal-groups-characteristic-two",
+      )). However it is easily checked that the given generators of the group
+      $overline(G)$ lie in $O_(2l+1)(K,f_B)$. The commutator subgroup
+      $Omega_(2l+1)(K,f_B)$ is generated by ‘orthogonal transvections’
+      corresponding to elements $x in frak(V)$ with $f_B (x) in K^2$, except
+      possibly when $l=2$ (cf. Dieudonné #bib-ref(
+        "dieudonne1948",
+      ), p. 59). The generators $I+t^2 e_(i,-i)$ and $I+t^2 e_(-i,i)$ are
+      orthogonal transvections of this kind and it is shown by Dieudonné
+      #bib-ref(
+        "dieudonne1957bn",
+      ) that the group $overline(G)$ contains all such orthogonal transvections,
+      so must contain $Omega_(2l+1)(K,f_B)$. Thus $overline(G)$ lies between
+      $Omega_(2l+1)(K,f_B)$ and $O_(2l+1)(K,f_B)$. Since $overline(G)$ is simple
+      we have $overline(G)=Omega_(2l+1)(K,f_B)$ and so
+      #block(breakable: false)[
+        $
+          B_l (K) tilde.eq P Omega_(2l+1)(K,f_B)
+        $ <eq:classical-group-identifications-imperfect>
+        in this case also.
+      ]
     ]
+
   ]
 ]
 

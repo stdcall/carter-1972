@@ -1,3 +1,5 @@
+#import "statements.typ": lemma, proof, proposition, theorem
+
 #let chapter = [
   #[
     #import "main-defs.typ": L, bib-ref, book-ref, source
@@ -25,28 +27,27 @@
       numbering: "(i)",
       indent: 1.1em,
       body-indent: 0.5em,
-      [#metadata((kind: "anchor")) <def:3-1-lie-i>
+      [#metadata((kind: "anchor")) <def:lie-algebras-and-subalgebras-lie-i>
         $[x y]$ is bilinear for $x,y in frak(L)$.],
-      [#metadata((kind: "anchor")) <def:3-1-lie-ii>
+      [#metadata((kind: "anchor")) <def:lie-algebras-and-subalgebras-lie-ii>
         $[x x]=0$ for $x in frak(L)$.],
-      [#metadata((kind: "anchor")) <def:3-1-lie-iii>
+      [#metadata((kind: "anchor")) <def:lie-algebras-and-subalgebras-lie-iii>
         $[[x y] z]+[[y z] x]+[[z x] y]=0$ for $x,y,z in frak(L)$.],
     )
     #block(sticky: true)[
-      #book-ref("def", "3-1-lie-iii", [Axiom (iii)]) is called the Jacobi
-      identity. We note that $[[x y] z]$ is not necessarily equal to
-      $[x [y z]]$, thus Lie multiplication is not in general associative. As a
-      simple consequence of axioms #book-ref("def", "3-1-lie-i", [(i)]),
-      #book-ref(
+      #book-ref("def", "lie-algebras-and-subalgebras-lie-iii", [Axiom (iii)]) is
+      called the Jacobi identity. We note that $[[x y] z]$ is not necessarily
+      equal to $[x [y z]]$, thus Lie multiplication is not in general
+      associative. As a simple consequence of axioms #book-ref(
         "def",
-        "3-1-lie-ii",
-        [(ii)],
-      ) we have
+        "lie-algebras-and-subalgebras-lie-i",
+        [(i)],
+      ), #book-ref("def", "lie-algebras-and-subalgebras-lie-ii", [(ii)]) we have
     ]
     $
       0=[x+y, x+y] & =[x x]+[x y]+[y x]+[y y] \
                    & =[x y]+[y x].
-    $ <eq:3-1-anticommutativity>
+    $ <eq:lie-algebras-and-subalgebras-anticommutativity>
     Thus $[y x]=-[x y]$ and Lie multiplication is anticommutative. In the
     present work we shall be concerned only with finite-dimensional Lie
     algebras.
@@ -69,37 +70,41 @@
       For each element $x$ of a Lie algebra #L we define a map $ad x$ of #L into
       itself by
     ]
-    $ ad x dot y=[x y], quad y in frak(L). $ <eq:3-1-adjoint-map>
+    $
+      ad x dot y=[x y], quad y in frak(L).
+    $ <eq:lie-algebras-and-subalgebras-adjoint-map>
     #block(sticky: true)[
       $ad x$ is a linear map, and also satisfies the condition
     ]
     $
       ad x dot [y z] & =[x [y z]]=[[x y] z]+[y [x z]] \
                      & =[ad x dot y,z]+[y,ad x dot z].
-    $ <eq:3-1-inner-derivation>
+    $ <eq:lie-algebras-and-subalgebras-inner-derivation>
     #block(sticky: true)[
       A linear map $delta$ of #L into itself satisfying
     ]
     $
       delta [y z]=[delta y,z]+[y,delta z], quad y,z in frak(L),
-    $ <eq:3-1-derivation>
+    $ <eq:lie-algebras-and-subalgebras-derivation>
     #block(sticky: true)[
       is called a derivation of #L. Thus $ad x$ is a derivation of #L for each
       $x$. We note further that
     ]
-    $ ad x dot ad y-ad y dot ad x=ad [x y]. $ <eq:3-1-adjoint-bracket>
+    $
+      ad x dot ad y-ad y dot ad x=ad [x y].
+    $ <eq:lie-algebras-and-subalgebras-adjoint-bracket>
     #block(sticky: true)[For, given $z in frak(L)$, we have]
     $
       (ad x dot ad y-ad y dot ad x) dot z & =[x [y z]]-[y [x z]] \
                                           & =[[x y] z]=ad [x y] dot z.
-    $ <eq:3-1-adjoint-bracket-proof>
+    $ <eq:lie-algebras-and-subalgebras-adjoint-bracket-proof>
 
     #block(sticky: true)[
       An important rôle in the theory of Lie algebras is played by a scalar
       product called the Killing form. For each $x,y in frak(L)$ we define the
       scalar product $(x,y)$ by
     ]
-    $ (x,y)=tr(ad x dot ad y). $ <eq:3-1-killing-form>
+    $ (x,y)=tr(ad x dot ad y). $ <eq:lie-algebras-and-subalgebras-killing-form>
     As the trace of the linear map $ad x dot ad y$, $(x,y)$ is an element of the
     field $K$. The scalar product defined in this way is certainly bilinear, and
     is also symmetric, since $tr(theta phi)=tr(phi theta)$ for any two linear
@@ -115,13 +120,13 @@
       of the general theory. We observe first that any associative algebra can
       be made into a Lie algebra by defining the Lie multiplication by
     ]
-    $ [x y]=x y-y x. $ <eq:3-1-associative-bracket>
+    $ [x y]=x y-y x. $ <eq:lie-algebras-and-subalgebras-associative-bracket>
     #block(sticky: true)[For $[x y]$ is clearly bilinear, $[x x]=0$ and]
     $
       [[x y] z]+[[y z] x]+[[z x] y] & =(x y-y x)z-z(x y-y x)+(y z-z y)x \
                                     & quad-x(y z-z y)+(z x-x z)y-y(z x-x z) \
                                     & =0.
-    $ <eq:3-1-associative-jacobi>
+    $ <eq:lie-algebras-and-subalgebras-associative-jacobi>
 
     #source(48, "35")
     #block(sticky: true)[
@@ -134,7 +139,7 @@
            tr(x+y) & =tr x+tr y=0, \
       tr(lambda x) & =lambda tr x=0, quad lambda in CC, \
           tr [x y] & =tr(x y-y x)=0.
-    $ <eq:3-1-traceless-subalgebra>
+    $ <eq:lie-algebras-and-subalgebras-traceless-subalgebra>
     The Lie algebra of all $(l+1) times (l+1)$ matrices of trace $0$ is in fact
     simple.
   ]
@@ -186,7 +191,7 @@
     ]
     $
       frak(L)=frak(H) ⊕ frak(L)_(r_1) ⊕ frak(L)_(r_2) ⊕ dots.c ⊕ frak(L)_(r_k),
-    $ <eq:3-2-cartan-decomposition>
+    $ <eq:cartan-decomposition-cartan-decomposition>
     #source(49, "36")where $dim frak(L)_(r_i)=1$ and
     $[frak(H) frak(L)_(r_i)]=frak(L)_(r_i)$, for each $i$. This is called a
     Cartan decomposition of #L.
@@ -196,7 +201,9 @@
       trace $0$, it is easy to see that the diagonal matrices of trace $0$ form
       a Cartan subalgebra #H. Then we have
     ]
-    $ frak(L)=frak(H) ⊕ sum_(i!=j) CC e_(i j), $ <eq:3-2-matrix-decomposition>
+    $
+      frak(L)=frak(H) ⊕ sum_(i!=j) CC e_(i j),
+    $ <eq:cartan-decomposition-matrix-decomposition>
     #block(sticky: true)[
       where $e_(i j)$ is the elementary matrix with $1$ in the $(i,j)$ position
       and $0$ elsewhere. This direct decomposition is a Cartan decomposition.
@@ -204,7 +211,7 @@
     ]
     $
       [h e_(i j)]=h e_(i j)-e_(i j)h=(lambda_i-lambda_j)e_(i j).
-    $ <eq:3-2-diagonal-action>
+    $ <eq:cartan-decomposition-diagonal-action>
     Hence the 1-dimensional subspace $CC e_(i j)$ is invariant under #H.
   ]
 
@@ -218,13 +225,13 @@
     #block(sticky: true)[Let #L be a simple Lie algebra over $CC$ and]
     $
       frak(L)=frak(H) ⊕ frak(L)_(r_1) ⊕ dots.c ⊕ frak(L)_(r_k)
-    $ <eq:3-3-cartan-decomposition>
+    $ <eq:roots-of-simple-lie-algebras-cartan-decomposition>
     #block(sticky: true)[
       be a Cartan decomposition of #L. In each 1-dimensional subspace
       $frak(L)_r$ we choose a non-zero element $e_r$. Then, for each
       $h in frak(H)$, $[h e_r]$ is a scalar multiple of $e_r$, and we write
     ]
-    $ [h e_r]=r(h)e_r. $ <eq:3-3-root-action>
+    $ [h e_r]=r(h)e_r. $ <eq:roots-of-simple-lie-algebras-root-action>
     The map $r:frak(H) arrow.r CC$ defined in this way is certainly linear, so
     is an element of the dual space of #H. The maps $r_1,r_2,dots.c,r_k$ from #H
     into $CC$ are called the roots of #L and the subspaces
@@ -247,7 +254,9 @@
     $h arrow.r.bar r(h)$ may be identified with the root $r$. Thus $r$ can be
     regarded either as an element of #H or an element of its dual space; the
     relation between these two being given by
-    $ r(h)=(r,h), quad h in frak(H). $ <eq:3-3-root-identification>
+    $
+      r(h)=(r,h), quad h in frak(H).
+    $ <eq:roots-of-simple-lie-algebras-root-identification>
 
     Considering the roots as elements of #H, let $Phi$ be the finite subset of
     #H obtained in this way. It can be shown that $Phi$ spans #H, and that if we
@@ -262,21 +271,25 @@
     positive definite on $frak(H)_RR$ and so $frak(H)_RR$ may be regarded as a
     Euclidean space. In particular we can define the length of an element
     $x in frak(H)_RR$ by
-    $ abs(x)=sqrt((x,x)) $ <eq:3-3-root-norm>
+    $ abs(x)=sqrt((x,x)) $ <eq:roots-of-simple-lie-algebras-root-norm>
     #block(sticky: true)[and the angle $theta$ between $x,y in frak(H)_RR$ by]
-    $ (x,y)=abs(x) abs(y) cos theta. $ <eq:3-3-root-angle>
+    $
+      (x,y)=abs(x) abs(y) cos theta.
+    $ <eq:roots-of-simple-lie-algebras-root-angle>
 
     #block(sticky: true)[
       Now it is shown in the theory of simple Lie algebras that the subset $Phi$
       of the Euclidean space $frak(H)_RR$ forms a system of roots in the sense
-      defined in #book-ref("def", "2-1-1", [2.1.1]). In particular,
-      $2(r,s)\/(r,r)$ is a rational integer for all $r,s in Phi$. We give an
-      interpretation of this integer. Suppose $r,s$ are linearly independent.
-      Since $Phi$ is finite there exist integers $p,q>=0$ such that
-      $i r+s in Phi$ for $-p<=i<=q$ but $-(p+1)r+s$ and $(q+1)r+s$ are not in
-      $Phi$. The sequence of roots
+      defined in #book-ref("def", "root-system"). In particular, $2(r,s)\/(r,r)$
+      is a rational integer for all $r,s in Phi$. We give an interpretation of
+      this integer. Suppose $r,s$ are linearly independent. Since $Phi$ is
+      finite there exist integers $p,q>=0$ such that $i r+s in Phi$ for
+      $-p<=i<=q$ but $-(p+1)r+s$ and $(q+1)r+s$ are not in $Phi$. The sequence
+      of roots
     ]
-    $ -p r+s,dots.c,s,dots.c,q r+s $ <eq:3-3-root-chain>
+    $
+      -p r+s,dots.c,s,dots.c,q r+s
+    $ <eq:roots-of-simple-lie-algebras-root-chain>
     #block(sticky: true)[
       will be called the $r$-chain of roots through $s$. Now the reflection
       $w_r$ in the hyperplane orthogonal to $r$ can be shown to permute the
@@ -285,25 +298,31 @@
       $-p r+s$, $q r+s$ are mirror images in the hyperplane orthogonal to $r$.
       Hence
     ]
-    $ ((-p r+s)+(q r+s),r)=0. $ <eq:3-3-chain-midpoint>
+    $ ((-p r+s)+(q r+s),r)=0. $ <eq:roots-of-simple-lie-algebras-chain-midpoint>
     #source(51, "38")
     #block(sticky: true)[It follows that]
-    $ frac(2(r,s), lr((r,r)))=p-q. $ <eq:3-3-chain-integer>
+    $
+      frac(2(r,s), lr((r,r)))=p-q.
+    $ <eq:roots-of-simple-lie-algebras-chain-integer>
     #block(sticky: true)[#metadata((kind: "anchor")) <def:cartan-integer>
       For each pair of roots $r,s in Phi$ we define]
-    $ A_(r s)=frac(2(r,s), lr((r,r))). $ <eq:3-3-cartan-integer>
+    $
+      A_(r s)=frac(2(r,s), lr((r,r))).
+    $ <eq:roots-of-simple-lie-algebras-cartan-integer>
     #block(sticky: true)[
       Thus $A_(r s)$ is a rational integer which satisfies $A_(r s)=p-q$ and
     ]
-    $ w_r (s)=s-A_(r s)r. $ <eq:3-3-reflection>
+    $ w_r (s)=s-A_(r s)r. $ <eq:roots-of-simple-lie-algebras-reflection>
 
     #block(sticky: true)[
       #metadata((kind: "anchor")) <def:fundamental-roots>
-      By #book-ref("p", "2-1-2", [2.1.2]) the root system $Phi$ contains a
-      subsystem $Pi$ which is a system of fundamental roots. We shall denote
-      such a subsystem by
+      By #book-ref("p", "fundamental-system-existence") the root system $Phi$
+      contains a subsystem $Pi$ which is a system of fundamental roots. We shall
+      denote such a subsystem by
     ]
-    $ Pi={p_1,p_2,dots.c,p_l}. $ <eq:3-3-fundamental-roots>
+    $
+      Pi={p_1,p_2,dots.c,p_l}.
+    $ <eq:roots-of-simple-lie-algebras-fundamental-roots>
     Every root in $Phi$ is an integral combination of roots in $Pi$ with
     coefficients which are all non-negative or all non-positive and we denote by
     $Phi^+,Phi^-$ the sets of positive and negative roots with respect to the
@@ -314,13 +333,19 @@
       algebra of all $(l+1) times (l+1)$ matrices of trace $0$. We have seen
       that the diagonal matrices in #L form a Cartan subalgebra #H, and that
     ]
-    $ frak(L)=frak(H) ⊕ sum_(i!=j) CC e_(i j) $ <eq:3-3-matrix-decomposition>
+    $
+      frak(L)=frak(H) ⊕ sum_(i!=j) CC e_(i j)
+    $ <eq:roots-of-simple-lie-algebras-matrix-decomposition>
     #block(sticky: true)[
       is a Cartan decomposition. Let $h$ be the diagonal matrix
     ]
-    $ op("diag")(lambda_0,lambda_1,dots.c,lambda_l). $ <eq:3-3-diagonal-matrix>
+    $
+      op("diag")(lambda_0,lambda_1,dots.c,lambda_l).
+    $ <eq:roots-of-simple-lie-algebras-diagonal-matrix>
     #block(sticky: true)[Then]
-    $ [h e_(i j)]=(lambda_i-lambda_j)e_(i j) $ <eq:3-3-matrix-root>
+    $
+      [h e_(i j)]=(lambda_i-lambda_j)e_(i j)
+    $ <eq:roots-of-simple-lie-algebras-matrix-root>
     #block(sticky: true)[
       and so the root corresponding to the subspace $CC e_(i j)$ is the map
       $h arrow.r.bar lambda_i-lambda_j$ of #H into $CC$. Let
@@ -330,12 +355,14 @@
       p_1: h & arrow.r.bar lambda_0-lambda_1, \
       p_2: h & arrow.r.bar lambda_1-lambda_2, \
       p_l: h & arrow.r.bar lambda_(l-1)-lambda_l.
-    $ <eq:3-3-type-a-fundamental-roots>
+    $ <eq:roots-of-simple-lie-algebras-type-a-fundamental-roots>
     #block(sticky: true)[
       Then $p_1,p_2,dots.c,p_l$ form a system of fundamental roots, and the
       other roots have form
     ]
-    $ plus.minus(p_(i+1)+dots.c+p_j), quad i<j. $ <eq:3-3-type-a-roots>
+    $
+      plus.minus(p_(i+1)+dots.c+p_j), quad i<j.
+    $ <eq:roots-of-simple-lie-algebras-type-a-roots>
     The positive roots of this Lie algebra are therefore the sums of consecutive
     fundamental roots.
   ]
@@ -349,7 +376,7 @@
     $theta_(i j)$ be the angle between them. Since $-p_i+p_j$ is not a root,
     $p_j$ is the first member of the #box[$p_i$-chain] of roots through it.
     Using the relation
-    $ frac(2(r,s), lr((r,r)))=p-q, $ <eq:3-4-1>
+    $ frac(2(r,s), lr((r,r)))=p-q, $ <eq:dynkin-diagram-1>
     derived in #section-ref("roots-of-simple-lie-algebras"), and noting that
     $p=0$, we see that $(p_i,p_j)<=0$. Thus the angle between two distinct
     fundamental roots is obtuse.
@@ -357,7 +384,9 @@
     There are only a few possibilities for the value of this angle. For
     $2(p_i,p_j)\/(p_i,p_i)$ and $2(p_j,p_i)\/(p_j,p_j)$ are both integers, and
     so
-    $ frac(4(p_i,p_j)^2, (p_i,p_i)(p_j,p_j))=4 cos^2 theta_(i j) $ <eq:3-4-2>
+    $
+      frac(4(p_i,p_j)^2, (p_i,p_i)(p_j,p_j))=4 cos^2 theta_(i j)
+    $ <eq:dynkin-diagram-2>
     is an integer also. Since $0<=cos^2 theta_(i j)<=1$, we have
     $4 cos^2 theta_(i j)=0,1,2,3$ or $4$. Since $theta_(i j)$ is obtuse,
     $theta_(i j)$ is one of $pi\/2$, $2pi\/3$, $3pi\/4$, $5pi\/6$ or $pi$. The
@@ -368,7 +397,7 @@
     $
       n_(i j)=frac(2(p_i,p_j), lr((p_i,p_i))) dot
       frac(2(p_j,p_i), lr((p_j,p_j)))
-    $ <eq:3-4-3>
+    $ <eq:dynkin-diagram-3>
     into a product of two non-positive integers. We consider this factorization
     in the different cases which can arise.
     #enum(
@@ -387,11 +416,11 @@
     #block(breakable: false)[
       We observe that the #box[$p_i$-chain] of roots through $p_j$ has length 1,
       2, 3 or 4. For
-      $ frac(2(p_i,p_j), lr((p_i,p_i)))=p-q, $ <eq:3-4-4>
+      $ frac(2(p_i,p_j), lr((p_i,p_i)))=p-q, $ <eq:dynkin-diagram-4>
     ]
     where $p,q$ are the integers defined as before by the #box[$p_i$-chain] of
     roots through $p_j$. We have seen that
-    $ frac(2(p_i,p_j), lr((p_i,p_i)))=0,-1,-2 "or" -3; $ <eq:3-4-5>
+    $ frac(2(p_i,p_j), lr((p_i,p_i)))=0,-1,-2 "or" -3; $ <eq:dynkin-diagram-5>
     #source(53, "40")
     furthermore $p=0$ since $p_j$ begins the #box[$p_i$-chain] through it. Hence
     $q<=3$, and so the #box[$p_i$-chain] through $p_j$ contains at most four
@@ -400,7 +429,7 @@
     #block(breakable: false)[
       The same argument shows in fact that any #box[$r$-chain] has at most four
       roots. For let $s$ be the first root in some #box[$r$-chain]. Then
-      $ frac(2(r,s), lr((r,r)))=p-q $ <eq:3-4-6>
+      $ frac(2(r,s), lr((r,r)))=p-q $ <eq:dynkin-diagram-6>
     ]
     and, as before, this must take one of the values $0,-1,-2,-3$. Since $p=0$
     we have $q<=3$, and so the #box[$r$-chain] has at most four roots.
@@ -417,17 +446,17 @@
     to one another. Thus the Dynkin diagram of this algebra is #align(
       center,
       numbered-chain(),
-    ) <fig:3-4-chain>
+    ) <fig:dynkin-diagram-chain>
 
     Now the possible Dynkin diagrams of simple Lie algebras can be enumerated,
     using the classical results of Killing and Cartan. It can be shown that the
     Dynkin diagram of a simple Lie algebra must be a connected graph.
     Furthermore the only connected graphs which can be Dynkin diagrams of simple
     Lie algebras are the ones in the #figure-ref(
-      "3-4-classification",
+      "dynkin-diagram-classification",
       body: [following list],
       highlight: false,
-    ) #align(center, classification()) <fig:3-4-classification>
+    ) #align(center, classification()) <fig:dynkin-diagram-classification>
     The diagrams are usually named as shown, the suffix denoting the rank (i.e.
     the number of nodes in the graph). The reason that the second type #source(
       54,
@@ -438,7 +467,7 @@
     a knowledge of the Dynkin diagram. In the diagram #align(
       center,
       numbered-chain(double: true),
-    ) <fig:3-4-chain-bc>
+    ) <fig:dynkin-diagram-chain-bc>
     it is evident that the corresponding fundamental roots
     $p_1,p_2,dots.c,p_(l-1)$ all have the same length, but $p_l$ is either
     $sqrt(2)$ times shorter or $sqrt(2)$ times longer than the remainder. If
@@ -483,18 +512,18 @@
       $alpha:Phi_1 arrow.r Phi_2$ such that
     ]
     $ (alpha(r),alpha(s))=lambda(r, s), quad r,s in Phi_1, $
-    <eq:3-5-equivalent-roots>
+    <eq:existence-and-isomorphism-theorems-equivalent-roots>
     where $lambda$ is some positive real number independent of $r,s$.
 
     #source(55, "42")
     Now the root system determined by a simple Lie algebra is indecomposable.
     This follows from the fact that the Dynkin diagram of a simple Lie algebra
-    is connected, using #book-ref("p", "2-1-8", [2.1.8]).
+    is connected, using #book-ref("p", "fundamental-reflections-generate").
 
-    #metadata((kind: "anchor")) <th:3-5-1>
-    #smallcaps[Theorem 3.5.1] (Existence theorem). _Let $Phi$ be an
-    indecomposable root system. Then there exists a simple Lie algebra over $CC$
-    which has a root system equivalent to $Phi$._
+    #theorem(<th:simple-lie-algebra-existence>, title: [Existence theorem])[
+      Let $Phi$ be an indecomposable root system. Then there exists a simple Lie
+      algebra over $CC$ which has a root system equivalent to $Phi$.
+    ]
 
     A proof of the existence theorem using the concepts we have outlined can be
     found in Tits #bib-ref("tits1966existence").
@@ -505,7 +534,7 @@
       multiplication of the root spaces in a Cartan decomposition. Let
     ]
     $ frak(L)=frak(H) ⊕ sum_(r in Phi) frak(L)_r $
-    <eq:3-5-cartan-decomposition>
+    <eq:existence-and-isomorphism-theorems-cartan-decomposition>
     be a Cartan decomposition of #L. Then, for any pair of roots $r,s in Phi$ we
     have:
     #enum(
@@ -514,29 +543,36 @@
       body-indent: 0.5em,
       [$[frak(L)_r frak(L)_s]=frak(L)_(r+s)$, if $r+s in Phi$.],
       [$[frak(L)_r frak(L)_s]=0$, if $r+s in.not Phi$, $r+s!=0$.],
-      [#metadata((kind: "anchor")) <eq:3-5-bracket-iii>
+      [#metadata((
+          kind: "anchor",
+        )) <eq:existence-and-isomorphism-theorems-bracket-iii>
         $[frak(L)_r frak(L)_(-r)]=CC r$.],
       [$[frak(H) frak(L)_r]=frak(L)_r$.],
     )
     #block(sticky: true)[
-      In #book-ref("eq", "3-5-bracket-iii", [(iii)]) $r$ is interpreted as an
-      element of #H. Instead of considering the root $r in frak(H)$ it is often
-      convenient to take a scalar multiple $h_r$ of $r$, defined by
+      In #book-ref(
+        "eq",
+        "existence-and-isomorphism-theorems-bracket-iii",
+        [(iii)],
+      ) $r$ is interpreted as an element of #H. Instead of considering the root
+      $r in frak(H)$ it is often convenient to take a scalar multiple $h_r$ of
+      $r$, defined by
     ]
-    $ h_r=frac(2r, lr((r,r))). $ <eq:3-5-coroot>
+    $ h_r=frac(2r, lr((r,r))). $ <eq:existence-and-isomorphism-theorems-coroot>
     #block(sticky: true)[Since we have]
     $ [h_r e_s]=frac(2(r,s), lr((r,r)))e_s=A_(r s)e_s, $
-    <eq:3-5-coroot-action>
+    <eq:existence-and-isomorphism-theorems-coroot-action>
     it is evident that $ad h_r$ transforms $e_s$ into an integral multiple of
-    itself. By #book-ref("eq", "3-5-bracket-iii", [property (iii)]) above we can
-    find, for each $e_r!=0 in frak(L)_r$, an element $e_(-r) in frak(L)_(-r)$
-    such that $[e_r e_(-r)]=h_r$.
+    itself. By #book-ref(
+      "eq",
+      "existence-and-isomorphism-theorems-bracket-iii",
+      [property (iii)],
+    ) above we can find, for each $e_r!=0 in frak(L)_r$, an element
+    $e_(-r) in frak(L)_(-r)$ such that $[e_r e_(-r)]=h_r$.
 
     We can now state the isomorphism theorem for simple Lie algebras.
 
-    #metadata((kind: "anchor")) <th:3-5-2>
-    #smallcaps[Theorem 3.5.2] (Isomorphism theorem).
-    #emph[
+    #theorem(<th:simple-lie-algebra-isomorphism>, title: [Isomorphism theorem])[
       Let $frak(L),frak(L)'$ be simple Lie algebras over $CC$ with Cartan
       subalgebras $frak(H),frak(H)'$ of the same dimension $l$. Let
       $p_1,p_2,dots.c,p_l$, and $p'_1,p'_2,dots.c,p'_l$ be sets of fundamental
@@ -544,9 +580,11 @@
       $
         A_(i j)=frac(2(p_i,p_j), lr((p_i,p_i))), quad
         A'_(i j)=frac(2(p'_i,p'_j), lr((p'_i,p'_i))).
-      $ <eq:3-5-cartan-matrices>
+      $ <eq:existence-and-isomorphism-theorems-cartan-matrices>
       #block(sticky: true)[Let]
-      $ h_(p_i)=frac(2p_i, lr((p_i,p_i))), $ <eq:3-5-simple-coroot>
+      $
+        h_(p_i)=frac(2p_i, lr((p_i,p_i))),
+      $ <eq:existence-and-isomorphism-theorems-simple-coroot>
       and let $e_(p_i) in frak(L)_(p_i)$, $e_(-p_i) in frak(L)_(-p_i)$ be chosen
       so that $[e_(p_i) e_(-p_i)]=h_(p_i)$. Define $h_(p'_i),e_(p'_i),e_(-p'_i)$
       similarly in $frak(L)'$.
@@ -567,7 +605,7 @@
 
   #[
     #import "main-defs.typ": (
-      L, V, bib-ref, book-ref, figure-ref, qed, section-ref, source,
+      L, V, bib-ref, book-ref, figure-ref, section-ref, source,
     )
     #import "diagrams/dynkin.typ": fundamental, low-rank-roots, standard
 
@@ -617,10 +655,12 @@
         standard("E8", unit: 8mm),
         table.hline(stroke: 0.6pt),
       )
-    ] <fig:3-6-standard-list>
+    ] <fig:description-of-simple-lie-algebras-standard-list>
 
-    The matrix $(A_(i j))$ defined in #book-ref("th", "3-5-2", [3.5.2]) is
-    called the Cartan matrix of #L. The isomorphism theorem shows that the
+    The matrix $(A_(i j))$ defined in #book-ref(
+      "th",
+      "simple-lie-algebra-isomorphism",
+    ) is called the Cartan matrix of #L. The isomorphism theorem shows that the
     Cartan matrix determines the Lie algebra #L. The Cartan matrices of the
     individual simple algebras #source(57, "44")are shown below.
 
@@ -636,7 +676,7 @@
         dots.v, dots.v, dots.v, dots.down, -1, 2, -1;
         0, dots.c, dots.c, dots.c, 0, -1, 2;
       ),
-    $ <eq:3-6-cartan-a>
+    $ <eq:description-of-simple-lie-algebras-cartan-a>
     $
       B_l: mat(
         2, -1, 0, dots.c, 0, 0, 0;
@@ -647,7 +687,7 @@
         dots.v, dots.v, dots.v, dots.down, -1, 2, -1;
         0, dots.c, dots.c, dots.c, 0, -2, 2;
       ),
-    $ <eq:3-6-cartan-b>
+    $ <eq:description-of-simple-lie-algebras-cartan-b>
     $
       C_l: mat(
         2, -1, 0, dots.c, 0, 0, 0;
@@ -658,7 +698,7 @@
         dots.v, dots.v, dots.v, dots.down, -1, 2, -2;
         0, dots.c, dots.c, dots.c, 0, -1, 2;
       ),
-    $ <eq:3-6-cartan-c>
+    $ <eq:description-of-simple-lie-algebras-cartan-c>
     $
       D_l: mat(
         2, -1, 0, dots.c, 0, 0, 0;
@@ -669,12 +709,12 @@
         0, dots.c, dots.c, 0, -1, 2, 0;
         0, dots.c, dots.c, 0, -1, 0, 2;
       ),
-    $ <eq:3-6-cartan-d>
+    $ <eq:description-of-simple-lie-algebras-cartan-d>
     #source(58, "45")
-    $ G_2: mat(2, -1; -3, 2), $ <eq:3-6-cartan-g>
+    $ G_2: mat(2, -1; -3, 2), $ <eq:description-of-simple-lie-algebras-cartan-g>
     $
       F_4: mat(2, -1, 0, 0; -1, 2, -1, 0; 0, -2, 2, -1; 0, 0, -1, 2),
-    $ <eq:3-6-cartan-f>
+    $ <eq:description-of-simple-lie-algebras-cartan-f>
     $
       E_6: mat(
         2, -1, 0, 0, 0, 0;
@@ -684,7 +724,7 @@
         0, 0, -1, 0, 2, -1;
         0, 0, 0, 0, -1, 2;
       ),
-    $ <eq:3-6-cartan-e6>
+    $ <eq:description-of-simple-lie-algebras-cartan-e6>
     $
       E_7: mat(
         2, -1, 0, 0, 0, 0, 0;
@@ -695,7 +735,7 @@
         0, 0, 0, -1, 0, 2, -1;
         0, 0, 0, 0, 0, -1, 2;
       ),
-    $ <eq:3-6-cartan-e7>
+    $ <eq:description-of-simple-lie-algebras-cartan-e7>
     $
       E_8: mat(
         2, -1, 0, 0, 0, 0, 0, 0;
@@ -707,7 +747,7 @@
         0, 0, 0, 0, -1, 0, 2, -1;
         0, 0, 0, 0, 0, 0, -1, 2;
       ).
-    $ <eq:3-6-cartan-e8>
+    $ <eq:description-of-simple-lie-algebras-cartan-e8>
 
     We also give a description of the indecomposable root systems. We begin with
     the systems of rank 1 and 2, viz., systems of type $A_1,A_2,B_2,G_2$.
@@ -721,7 +761,7 @@
     (i) Type $A_l$. Let $e_0,e_1,dots.c,e_l$ be an orthonormal basis of a
     Euclidean space of dimension $l+1$, and let #V be the subspace of vectors
     $ sum_(i=0)^l lambda_i e_i "with" sum_(i=0)^l lambda_i=0. $
-    <eq:3-6-space-a>
+    <eq:description-of-simple-lie-algebras-space-a>
     #source(59, "46")
     #figure(
       [#block[#low-rank-roots() #align(center)[Figure 1]] <fig:1>],
@@ -732,10 +772,15 @@
     #block(sticky: true)[
       Then the following vectors in #V form a fundamental system of type $A_l$.
     ]
-    #align(center, fundamental("A")) <fig:3-6-roots-a>
+    #align(
+      center,
+      fundamental("A"),
+    ) <fig:description-of-simple-lie-algebras-roots-a>
     #block(sticky: true)[The full system of roots with the above fundamental
       system is given by]
-    $ Phi={e_i-e_j; i!=j, quad i,j=0,1,dots.c,l}. $ <eq:3-6-roots-a>
+    $
+      Phi={e_i-e_j; i!=j, quad i,j=0,1,dots.c,l}.
+    $ <eq:description-of-simple-lie-algebras-roots-a>
 
     #source(60, "47")
     #block(sticky: true)[
@@ -746,7 +791,7 @@
     #align(
       center,
       fundamental("B"),
-    ) <fig:3-6-roots-b>
+    ) <fig:description-of-simple-lie-algebras-roots-b>
     #block(sticky: true)[The full system of roots with the above fundamental
       system is given by]
     $
@@ -757,7 +802,7 @@
             plus.minus e_i, i=1\,2\,dots.c\,l;
           ) }
       ).
-    $ <eq:3-6-roots-b>
+    $ <eq:description-of-simple-lie-algebras-roots-b>
 
     #block(breakable: false)[
       (iii) Type $C_l$. Let $e_1,e_2,dots.c,e_l$ be an orthonormal basis for #V.
@@ -765,7 +810,7 @@
       #align(
         center,
         fundamental("C"),
-      ) <fig:3-6-roots-c>
+      ) <fig:description-of-simple-lie-algebras-roots-c>
       #block(sticky: true)[The full system of roots with this fundamental system
         is given by]
       $
@@ -776,7 +821,7 @@
               plus.minus 2e_i, i=1\,2\,dots.c\,l;
             ) }
         ).
-      $ <eq:3-6-roots-c>
+      $ <eq:description-of-simple-lie-algebras-roots-c>
     ]
 
     #block(sticky: true)[
@@ -786,11 +831,11 @@
     #align(
       center,
       fundamental("D"),
-    ) <fig:3-6-roots-d>
+    ) <fig:description-of-simple-lie-algebras-roots-d>
     #block(sticky: true)[The full system of roots with this fundamental system
       is given by]
     $ Phi={plus.minus e_i plus.minus e_j; i!=j, quad i,j=1,2,dots.c,l}. $
-    <eq:3-6-roots-d>
+    <eq:description-of-simple-lie-algebras-roots-d>
 
     (v) Type $G_2$. This has already been described.
 
@@ -801,7 +846,7 @@
     #align(
       center,
       fundamental("F"),
-    ) <fig:3-6-roots-f>
+    ) <fig:description-of-simple-lie-algebras-roots-f>
     #block(sticky: true)[The full system of roots is]
     $
       Phi=lr(
@@ -812,7 +857,7 @@
             1/2(plus.minus e_1 plus.minus e_2 plus.minus e_3 plus.minus e_4), ;
           ) }
       ).
-    $ <eq:3-6-roots-f>
+    $ <eq:description-of-simple-lie-algebras-roots-f>
 
     #source(61, "48")
     (vii) It is convenient to describe next the root system of type $E_8$. The
@@ -825,7 +870,7 @@
     #align(
       center,
       fundamental("E8"),
-    ) <fig:3-6-roots-e8>
+    ) <fig:description-of-simple-lie-algebras-roots-e8>
     #block(sticky: true)[The full root system is]
     $
       Phi=lr(
@@ -836,7 +881,7 @@
             epsilon_i=plus.minus 1\, quad product_(i=1)^8 epsilon_i=1;
           ) }
       ).
-    $ <eq:3-6-roots-e8>
+    $ <eq:description-of-simple-lie-algebras-roots-e8>
 
     #block(sticky: true)[
       (viii) Let $e_i$ ($i=1,2,dots.c,8$) be as in (vii). Then we have a
@@ -845,10 +890,10 @@
     #align(
       center,
       fundamental("E7"),
-    ) <fig:3-6-roots-e7>
+    ) <fig:description-of-simple-lie-algebras-roots-e7>
     These vectors lie in the subspace of elements
     $ sum_(i=1)^8 lambda_i e_i "satisfying" lambda_1=lambda_8. $
-    <eq:3-6-space-e7>
+    <eq:description-of-simple-lie-algebras-space-e7>
     #block(sticky: true)[The full root system is]
     $
       Phi=lr(
@@ -864,7 +909,7 @@
             quad product_(i=1)^8 epsilon_i=1;
           ) }
       ).
-    $ <eq:3-6-roots-e7>
+    $ <eq:description-of-simple-lie-algebras-roots-e7>
 
     #source(62, "49")
     #block(sticky: true)[
@@ -874,10 +919,10 @@
     #align(
       center,
       fundamental("E6"),
-    ) <fig:3-6-roots-e6>
+    ) <fig:description-of-simple-lie-algebras-roots-e6>
     These vectors lie in the 6-dimensional subspace of elements
     $ sum_(i=1)^8 lambda_i e_i "satisfying" lambda_1=lambda_2=lambda_8. $
-    <eq:3-6-space-e6>
+    <eq:description-of-simple-lie-algebras-space-e6>
     #block(sticky: true)[The full root system is]
     $
       Phi=lr(
@@ -892,40 +937,44 @@
             quad product_(i=1)^8 epsilon_i=1;
           ) }
       ).
-    $ <eq:3-6-roots-e6>
+    $ <eq:description-of-simple-lie-algebras-roots-e6>
 
     For further information about these indecomposable root systems, the reader
     is referred to Jacobson’s book #bib-ref("jacobson1962").
 
     Let $Phi$ be any indecomposable root system. For each root $r in Phi$ define
-    $ h_r=frac(2r, lr((r,r))). $ <eq:3-6-coroot>
+    $ h_r=frac(2r, lr((r,r))). $ <eq:description-of-simple-lie-algebras-coroot>
     $h_r$ is called the co-root corresponding to $r$ (cf. #section-ref(
       "existence-and-isomorphism-theorems",
     )). Let $Phi^*$ be the set of co-roots $h_r$ for all $r in Phi$.
 
-    #metadata((kind: "anchor")) <p:3-6-1>
-    #smallcaps[Proposition 3.6.1.] _$Phi^*$ is also a root system. Moreover if
-    $Phi$ contains roots of two different lengths, $r$ is a short root of $Phi$
-    if and only if $h_r$ is a long root of $Phi^*$._
-
-    #block(sticky: true)[
-      #smallcaps[Proof.] We show that $Phi^*$ satisfies the axioms for a root
-      system (#book-ref("def", "2-1-1", [2.1.1])). Since $h_r$ is a scalar
-      multiple of $r$ we have $w_r=w_(h_r)$. Thus
+    #proposition(<p:dual-root-system>)[
+      $Phi^*$ is also a root system. Moreover if $Phi$ contains roots of two
+      different lengths, $r$ is a short root of $Phi$ if and only if $h_r$ is a
+      long root of $Phi^*$.
     ]
-    $
-      w_(h_r)(h_s)=w_r lr((frac(2s, lr((s,s)))))
-      =frac(2w_(r)(s), lr((w_(r)(s),w_(r)(s))))=h_(w_(r)(s)).
-    $ <eq:3-6-coroot-reflection>
-    Also we have
-    $ frac(2(h_r,h_s), lr((h_r,h_r)))=frac(2(s,r), lr((s,s))), $
-    <eq:3-6-coroot-integer>
-    which is an integer. Thus $Phi^*$ is a root system.
 
-    #source(63, "50")
-    Now $(h_r,h_r)=4\/(r,r)$ and so $(r,r)<(s,s)$ if and only if
-    $(h_r,h_r)>(h_s,h_s)$. Thus $r$ is a short root in $Phi$ if and only if
-    $h_r$ is a long root in $Phi^*$. #qed
+    #proof[
+      #block(sticky: true)[
+        We show that $Phi^*$ satisfies the axioms for a root system (#book-ref(
+          "def",
+          "root-system",
+        )). Since $h_r$ is a scalar multiple of $r$ we have $w_r=w_(h_r)$. Thus
+      ]
+      $
+        w_(h_r)(h_s)=w_r lr((frac(2s, lr((s,s)))))
+        =frac(2w_(r)(s), lr((w_(r)(s),w_(r)(s))))=h_(w_(r)(s)).
+      $ <eq:description-of-simple-lie-algebras-coroot-reflection>
+      Also we have
+      $ frac(2(h_r,h_s), lr((h_r,h_r)))=frac(2(s,r), lr((s,s))), $
+      <eq:description-of-simple-lie-algebras-coroot-integer>
+      which is an integer. Thus $Phi^*$ is a root system.
+
+      #source(63, "50")
+      Now $(h_r,h_r)=4\/(r,r)$ and so $(r,r)<(s,s)$ if and only if
+      $(h_r,h_r)>(h_s,h_s)$. Thus $r$ is a short root in $Phi$ if and only if
+      $h_r$ is a long root in $Phi^*$.
+    ]
 
     $Phi^*$ is called the dual root system of $Phi$. It is clear that
     $Phi^(**) = Phi$. It is readily verified that the dual of a root system of
@@ -939,37 +988,48 @@
     We conclude the present chapter by giving two lemmas which will be useful in
     the development to follow.
 
-    #metadata((kind: "anchor")) <l:3-6-2>
-    #smallcaps[Lemma 3.6.2.] _Any positive root $r in Phi^+$ can be expressed as
-    a sum of fundamental roots_
-    $ r=p_(i_1)+p_(i_2)+dots.c+p_(i_k) $ <eq:3-6-partial-root-sums>
-    _in such a way that $p_(i_1)+p_(i_2)+dots.c+p_(i_a)$ is a root for all
-    $a<=k$._
+    #lemma(<l:positive-root-partial-sums>)[
+      Any positive root $r in Phi^+$ can be expressed as a sum of fundamental
+      roots
+      $
+        r=p_(i_1)+p_(i_2)+dots.c+p_(i_k)
+      $ <eq:description-of-simple-lie-algebras-partial-root-sums>
+      in such a way that $p_(i_1)+p_(i_2)+dots.c+p_(i_a)$ is a root for all
+      $a<=k$.
+    ]
 
-    #block(sticky: true)[#smallcaps[Proof.] Let]
-    $ r=sum_(i=1)^l n_i p_i $ <eq:3-6-positive-root-coordinates>
-    be the expression of $r$ as an integral combination of fundamental roots.
-    Then
-    $ (r,r)=lr((r,sum_(i=1)^l n_i p_i))=sum_(i=1)^l n_i (r,p_i). $
-    <eq:3-6-positive-pairing>
-    Now $(r,r)>0$ and $n_i>=0$ for each $i$. Thus there is some $i$ for which
-    $(r,p_i)>0$. Suppose $r$ is not a fundamental root. Then $r,p_i$ are
-    linearly independent, and $r$ cannot be the first member of the
-    #box[$p_i$-chain] of roots through it, thus $r-p_i$ is a root. By repeating
-    this process we obtain the required expression for $r$ as a sum of
-    fundamental roots. #qed
+    #proof[
+      #block(sticky: true)[ Let]
+      $
+        r=sum_(i=1)^l n_i p_i
+      $ <eq:description-of-simple-lie-algebras-positive-root-coordinates>
+      be the expression of $r$ as an integral combination of fundamental roots.
+      Then
+      $ (r,r)=lr((r,sum_(i=1)^l n_i p_i))=sum_(i=1)^l n_i (r,p_i). $
+      <eq:description-of-simple-lie-algebras-positive-pairing>
+      Now $(r,r)>0$ and $n_i>=0$ for each $i$. Thus there is some $i$ for which
+      $(r,p_i)>0$. Suppose $r$ is not a fundamental root. Then $r,p_i$ are
+      linearly independent, and $r$ cannot be the first member of the
+      #box[$p_i$-chain] of roots through it, thus $r-p_i$ is a root. By
+      repeating this process we obtain the required expression for $r$ as a sum
+      of fundamental roots.
+    ]
 
-    #metadata((kind: "anchor")) <l:3-6-3>
-    #smallcaps[Lemma 3.6.3.] _Let $r,s$ be roots such that $r+s$ is a root. Then
-    the integral combinations of $r,s$ which are roots (i.e. the elements of
-    $Phi$ of form $i r+j s$ with $i,j in ZZ$) form a root system of type $A_2$,
-    $B_2$ or $G_2$._
+    #lemma(<l:rank-two-root-subsystems>)[
+      Let $r,s$ be roots such that $r+s$ is a root. Then the integral
+      combinations of $r,s$ which are roots (i.e. the elements of $Phi$ of form
+      $i r+j s$ with $i,j in ZZ$) form a root system of type $A_2$, $B_2$ or
+      $G_2$.
+    ]
 
-    #smallcaps[Proof.] The elements of $Phi$ of form $i r+j s$, with
-    $i,j in ZZ$, satisfy the axioms #book-ref("def", "2-1-1", [2.1.1]) for a
-    root system in the 2-dimensional space they generate. This 2-dimensional
-    system is indecomposable, since it contains two independent non-orthogonal
-    roots, so must have type $A_2$, $B_2$ or $G_2$. #qed
+    #proof[
+      The elements of $Phi$ of form $i r+j s$, with $i,j in ZZ$, satisfy the
+      axioms #book-ref("def", "root-system") for a root system in the
+      2-dimensional space they generate. This 2-dimensional system is
+      indecomposable, since it contains two independent non-orthogonal roots, so
+      must have type $A_2$, $B_2$ or $G_2$.
+    ]
+
   ]
 ]
 

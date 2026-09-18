@@ -97,7 +97,7 @@
   $
     abs(italic("PSL")_n (q)) = frac(1, lr((n,q-1)))
     q^(n(n-1)/2)(q^2-1)(q^3-1) dots.c (q^n-1).
-  $ <eq:1-2-1>
+  $ <eq:linear-groups-1>
 
   #source(16, "3")
   == The Symplectic Groups <sec:symplectic-groups>
@@ -108,14 +108,14 @@
     #block(sticky: true)[
       We assume that this scalar product is skew-symmetric, so that
     ]
-    $ (y,x)=-(x,y) $ <eq:1-3-1>
+    $ (y,x)=-(x,y) $ <eq:symplectic-groups-1>
   ]
   for all $x,y in frak(V)$. A space endowed with a scalar product of this type
   is called a symplectic space.
 
   Consider the non-singular linear transformations of #V into itself which are
   isometries, i.e. which satisfy the condition
-  $ (T x,T y)=(x,y) $ <eq:1-3-2>
+  $ (T x,T y)=(x,y) $ <eq:symplectic-groups-2>
   for all $x,y in frak(V)$. The isometries form a subgroup of
   $italic("GL")_n (K)$ called the symplectic group $italic("Sp")_n (K)$. Now
   this group is, to within isomorphism, independent of the choice of the scalar
@@ -131,11 +131,11 @@
       , 0, , , , 0, 1;
       , , , , , -1, 0;
     ).
-  $ <eq:1-3-3>
+  $ <eq:symplectic-groups-3>
   In particular, the dimension of any non-singular symplectic space is even.
   With respect to the above basis the symplectic transformations are represented
   by matrices $T$ satisfying the condition
-  $ T' A T=A. $ <eq:1-3-4>
+  $ T' A T=A. $ <eq:symplectic-groups-4>
 
   Now a symplectic transformation necessarily has determinant 1. (cf. Dieudonné
   #bib-ref(
@@ -156,7 +156,7 @@
     $
       & italic("Sp")_2(K)=italic("SL")_2(K), \
       & italic("PSp")_2(K)=italic("PSL")_2(K).
-    $ <eq:1-3-isomorphisms>
+    $ <eq:symplectic-groups-isomorphisms>
   ]
   #block(breakable: false)[
     The finite symplectic groups are denoted by $italic("Sp")_n (q)$, and the
@@ -164,7 +164,7 @@
     $
       abs(italic("PSp")_(2l)(q))=frac(1, lr((2,q-1))) q^(l^2)(q^2-1)(q^4-1)
       dots.c (q^(2l)-1).
-    $ <eq:1-3-5>
+    $ <eq:symplectic-groups-5>
   ]
 
   == The Orthogonal Groups <sec:orthogonal-groups>
@@ -174,13 +174,13 @@
   #section-ref("orthogonal-groups-characteristic-two").) We assume that there is
   defined on #V a non-singular bilinear scalar product which is symmetric, so
   that
-  $ (y,x)=(x,y) $ <eq:1-4-1>
+  $ (y,x)=(x,y) $ <eq:orthogonal-groups-1>
   for all $x,y in frak(V)$. This scalar product determines a quadratic form $f$
   given by
-  $ f(x)=(x,x). $ <eq:1-4-2>
+  $ f(x)=(x,x). $ <eq:orthogonal-groups-2>
   #block(breakable: false)[
     Conversely, the quadratic form determines the scalar product by the formula
-    $ (x,y)=1/2(f(x+y)-f(x)-f(y)). $ <eq:1-4-3>
+    $ (x,y)=1/2(f(x+y)-f(x)-f(y)). $ <eq:orthogonal-groups-3>
   ]
   (We have used here the fact that the characteristic of $K$ is not 2.) The
   non-singular linear transformations of #V which are isometries form a group
@@ -194,7 +194,7 @@
     "5",
   )form is its index, which is defined in the following way. A subspace
   $frak(U)$ of #V is called isotropic if
-  $ (x,y)=0 $ <eq:1-4-isotropic>
+  $ (x,y)=0 $ <eq:orthogonal-groups-isotropic>
   for all $x,y in frak(U)$. It was proved by Witt that the maximal isotropic
   subspaces of #V all have the same dimension (cf. Dieudonné #bib-ref(
     "dieudonne1948",
@@ -208,14 +208,14 @@
   $italic("SO")_n (K,f)$, the special orthogonal group of $f$. The centre $Z$ of
   $O_n (K,f)$ consists of the transformations $T x=lambda x$ where
   $lambda=plus.minus 1$, provided $n>2$, and
-  $ Z inter italic("SO")_n (K,f) $ <eq:1-4-centre>
+  $ Z inter italic("SO")_n (K,f) $ <eq:orthogonal-groups-centre>
   is the centre of $italic("SO")_n (K,f)$. Factoring by the centre we obtain the
   corresponding projective groups
   $
      italic("PO")_n (K,f) & = O_n (K,f)\/Z, \
     italic("PSO")_n (K,f) & = italic("SO")_n (K,f)\/Z inter
                             italic("SO")_n (K,f).
-  $ <eq:1-4-projective>
+  $ <eq:orthogonal-groups-projective>
 
   One might expect, by analogy with the symplectic groups, that the groups
   $italic("PSO")_n (K,f)$ are generally simple. This is not so, however, and it
@@ -225,7 +225,7 @@
   $italic("SO")_n (K,f)$. We define the corresponding projective group
   $
     P Omega_n (K,f)=Omega_n (K,f)\/Z inter Omega_n (K,f).
-  $ <eq:1-4-projective-omega>
+  $ <eq:orthogonal-groups-projective-omega>
   Then the groups $P Omega_n (K,f)$ are generally simple. In fact
   $P Omega_n (K,f)$ is simple provided $n>=5$ and $nu>=1$. It is not generally
   true that $P Omega_n (K,f)$ is simple if $n=4$, or if $n>=5$ and $nu=0$.
@@ -242,13 +242,13 @@
   and
   $
     A=mat(1, 0, dots.c, 0; 0, 0, , I_l; dots.v, , , ; 0, I_l, , 0).
-  $ <eq:1-4-odd-form>
+  $ <eq:orthogonal-groups-odd-form>
   These two scalar products give rise to the same orthogonal group
   $O_(2l+1)(q)$, and the order of the associated simple group is given by
   $
     abs(P Omega_(2l+1)(q))=frac(1, lr((2,q-1))) q^(l^2)(q^2-1)(q^4-1) dots.c
     (q^(2l)-1).
-  $ <eq:1-4-odd-order>
+  $ <eq:orthogonal-groups-odd-order>
   Note that this is the same as the order of the group $italic("PSp")_(2l)(q)$,
   although the two groups are in general not isomorphic.
 
@@ -264,7 +264,7 @@
       0, dots.c, 0, 1, 0;
       0, dots.c, 0, 0, -epsilon;
     ),
-  $ <eq:1-4-even-forms>
+  $ <eq:orthogonal-groups-even-forms>
   where $epsilon$ is a non-square in $K$. The first of these gives rise to a
   quadratic form of maximal index $l$, and the second has a quadratic form of
   index $l-1$. We shall denote the corresponding orthogonal groups by
@@ -277,16 +277,16 @@
     abs(P Omega_(2l)^-(q)) & = frac(1, lr((4,q^l+1)))
                              q^(l(l-1))(q^2-1)(q^4-1) dots.c
                              (q^(2l-2)-1)(q^l+1).
-  $ <eq:1-4-even-orders>
+  $ <eq:orthogonal-groups-even-orders>
 
   == The Unitary Groups <sec:unitary-groups>
   We now consider a vector space #V of dimension $n$ over a field $K$ and
   suppose $lambda arrow overline(lambda)$ is an automorphism of $K$ of order 2.
   Suppose #V is endowed with a non-singular Hermitian scalar product $(x,y)$.
   Thus $(x,y)$ is linear in $x$, conjugate linear in $y$, and
-  $ (y,x)=overline(lr((x,y))). $ <eq:1-5-hermitian>
+  $ (y,x)=overline(lr((x,y))). $ <eq:unitary-groups-hermitian>
   This scalar product determines a Hermitian form $f$ given by
-  $ f(x)=(x,x). $ <eq:1-5-form>
+  $ f(x)=(x,x). $ <eq:unitary-groups-form>
   The values $f(x)$ of the form lie in the fixed field $K_0$ of the involutary
   automorphism of $K$. The non-singular linear transformations of #V which are
   isometries with respect to this scalar product form a group $U_n (K,f)$, the
@@ -305,7 +305,7 @@
      italic("PU")_n (K,f) & = U_n (K,f)\/Z, \
     italic("PSU")_n (K,f) & = italic("SU")_n (K,f)\/Z inter
                             italic("SU")_n (K,f).
-  $ <eq:1-5-projective>
+  $ <eq:unitary-groups-projective>
   The groups $italic("PSU")_n (K,f)$ are usually simple. In fact
   $italic("PSU")_n (K,f)$ is always simple provided $n>=2$ and $nu>=1$, with the
   exception of three finite unitary groups mentioned below. Again there are
@@ -314,7 +314,7 @@
   We now describe the finite unitary groups. A finite field $K$ admitting an
   automorphism of order 2 must be a field $italic("GF")(q^2)$ for some
   prime-power #source(21, "8")$q$, and the involutary automorphism is given by
-  $ overline(lambda)=lambda^q. $ <eq:1-5-frobenius>
+  $ overline(lambda)=lambda^q. $ <eq:unitary-groups-frobenius>
   By choosing a suitable basis for the vector space #V over $italic("GF")(q^2)$,
   any non-singular Hermitian scalar product can be represented by the matrix
   $I_n$. Thus there is essentially only one such scalar product, and this gives
@@ -325,11 +325,11 @@
     abs(italic("PSU")_n (q^2))=frac(1, lr((n,q+1)))
     q^(n(n-1)/2)(q^2-1)(q^3+1)(q^4-1)
     dots.c (q^n-(-1)^n).
-  $ <eq:1-5-order>
+  $ <eq:unitary-groups-order>
   The three exceptional groups which are not simple are
   $
     italic("PSU")_2(2^2), quad italic("PSU")_2(3^2), quad italic("PSU")_3(2^2).
-  $ <eq:1-5-exceptions>
+  $ <eq:unitary-groups-exceptions>
 
   #heading(level: 2)[
     The Orthogonal Groups in Characteristic 2
@@ -341,21 +341,23 @@
   by $f(x)=(x,x)$, and therefore satisfies the condition
   $
     f(lambda x+mu y)=lambda^2 f(x)+mu^2 f(y)+2lambda mu(x, y)
-  $ <eq:1-6-odd-polarization>
+  $ <eq:orthogonal-groups-characteristic-two-odd-polarization>
   for all $lambda,mu in K$.
 
   Now suppose $K$ is a field of characteristic 2. A quadratic form on #V is a
   function $f$ with values in $K$ satisfying the condition
   $
     f(lambda x+mu y)=lambda^2 f(x)+mu^2 f(y)+lambda mu(x, y)
-  $ <eq:1-6-polarization>
+  $ <eq:orthogonal-groups-characteristic-two-polarization>
   for all $lambda,mu in K$, where $(x,y)$ is some bilinear scalar product on #V.
   In particular, putting $mu=0$ we have
-  $ f(lambda x)=lambda^2 f(x) $ <eq:1-6-homogeneity>
+  $
+    f(lambda x)=lambda^2 f(x)
+  $ <eq:orthogonal-groups-characteristic-two-homogeneity>
   and putting $lambda=mu=1$ we have
-  $ (x,x)=0 $ <eq:1-6-alternating>
+  $ (x,x)=0 $ <eq:orthogonal-groups-characteristic-two-alternating>
   and
-  $ (y,x)=(x,y). $ <eq:1-6-symmetric>
+  $ (y,x)=(x,y). $ <eq:orthogonal-groups-characteristic-two-symmetric>
 
   #source(22, "9")
   Thus $(x,y)$ may be regarded as a symplectic scalar product on #V. It is not
@@ -375,15 +377,17 @@
       , , , , , , , , , dots.down, ;
       , , , , , , , , , , 0;
     ).
-  $ <eq:1-6-scalar-matrix>
+  $ <eq:orthogonal-groups-characteristic-two-scalar-matrix>
   Let $n$ be the dimension of #V and $2l$ be the rank of the #equation-ref(
-    "1-6-scalar-matrix",
+    "orthogonal-groups-characteristic-two-scalar-matrix",
     body: [above matrix],
     highlight: false,
   ). Let $frak(V)_0$ be the set of $x in frak(V)$ such that $(x,y)=0$ for all
   $y in frak(V)$. Then $frak(V)_0$ is a subspace of #V of dimension $d=n-2l$. On
   this subspace $frak(V)_0$ the quadratic form $f$ satisfies the condition
-  $ f(lambda x+mu y)=lambda^2 f(x)+mu^2 f(y) $ <eq:1-6-radical-form>
+  $
+    f(lambda x+mu y)=lambda^2 f(x)+mu^2 f(y)
+  $ <eq:orthogonal-groups-characteristic-two-radical-form>
   and $f$ is said to be non-degenerate if no non-zero vector $x in frak(V)_0$
   satisfies $f(x)=0$. The dimension $d$ of $frak(V)_0$ is called the defect of
   $f$.
@@ -392,12 +396,16 @@
     The non-singular linear transformations $T$ of #V which satisfy the
     condition
   ]
-  $ f(T x)=f(x) $ <eq:1-6-isometry>
+  $ f(T x)=f(x) $ <eq:orthogonal-groups-characteristic-two-isometry>
   form the orthogonal group $O_n (K,f)$ associated with $f$. Since
-  $ (x,y)=f(x+y)+f(x)+f(y), $ <eq:1-6-polar-form>
+  $
+    (x,y)=f(x+y)+f(x)+f(y),
+  $ <eq:orthogonal-groups-characteristic-two-polar-form>
   #source(23, "10")
   it is clear that
-  $ (T x,T y)=(x,y). $ <eq:1-6-bilinear-isometry>
+  $
+    (T x,T y)=(x,y).
+  $ <eq:orthogonal-groups-characteristic-two-bilinear-isometry>
   Thus each element of $O_n (K,f)$ is an isometry of the scalar product $(x,y)$.
 
   A vector $x in frak(V)$ is called singular if $f(x)=0$, and a subspace of #V
@@ -422,8 +430,8 @@
     f(x) & = x_1 x_(-1)+x_2 x_(-2)+dots.c+x_l x_(-l), \
     f(x) & = x_1 x_(-1)+x_2 x_(-2)+dots.c+x_(l-1)x_(-(l-1))+alpha x_l^2+x_l
            x_(-l)+alpha x_(-l)^2,
-  $ <eq:1-6-two-forms>
-  where $x=sum_i x_i e_i$ <eq:1-6-coordinates>
+  $ <eq:orthogonal-groups-characteristic-two-two-forms>
+  where $x=sum_i x_i e_i$ <eq:orthogonal-groups-characteristic-two-coordinates>
   and $alpha t^2+t+alpha$ is an irreducible polynomial over $K=italic("GF")(q)$,
   where $q$ is a power of 2. The indices of these forms $f$ are $l$ and $l-1$
   respectively, and the respective orthogonal groups are denoted by
@@ -434,7 +442,9 @@
   Now suppose that $f$ is a non-degenerate quadratic form of defect greater
   than 0. The defect $d=n-2l$ is the dimension of the subspace $frak(V)_0$ of
   #V, and on $frak(V)_0$ the form $f$ satisfies the relation
-  $ f(lambda x+mu y)=lambda^2 f(x)+mu^2 f(y). $ <eq:1-6-positive-defect>
+  $
+    f(lambda x+mu y)=lambda^2 f(x)+mu^2 f(y).
+  $ <eq:orthogonal-groups-characteristic-two-positive-defect>
   The set of values $f(x)$ for $x in frak(V)_0$ therefore forms a subset of $K$
   which is a subspace over the subfield $K^2$ of $K$. Since $frak(V)_0$ has
   dimension $d$ over $K$ and #source(
@@ -442,17 +452,21 @@
     "11",
   )$f$ is non-degenerate, $f(frak(V)_0)$ has dimension $d$ over $K^2$. In
   particular
-  $ d<=abs(K\:K^2). $ <eq:1-6-defect-bound>
+  $ d<=abs(K\:K^2). $ <eq:orthogonal-groups-characteristic-two-defect-bound>
   It can be shown (cf. Dieudonné #bib-ref("dieudonne1948")) that $O_n (K,f)$ is
   isomorphic to the subgroup of $italic("Sp")_(2l)(K)$ of transformations $T$
   satisfying the condition
-  $ f(T x)+f(x) in f(frak(V)_0), $ <eq:1-6-symplectic-subgroup>
+  $
+    f(T x)+f(x) in f(frak(V)_0),
+  $ <eq:orthogonal-groups-characteristic-two-symplectic-subgroup>
   where $x$ lies in some suitably chosen non-singular symplectic subspace of #V
   of dimension $2l$.
 
   If $K$ is a perfect field, i.e. $K^2=K$, it is clear from the above that $d=1$
   and
-  $ O_(2l+1)(K,f) ≅ italic("Sp")_(2l)(K). $ <eq:1-6-perfect-isomorphism>
+  $
+    O_(2l+1)(K,f) ≅ italic("Sp")_(2l)(K).
+  $ <eq:orthogonal-groups-characteristic-two-perfect-isomorphism>
   In particular there is one finite family of orthogonal groups $O_(2l+1)(q)$ of
   this kind, and $O_(2l+1)(q)$ is isomorphic to $italic("Sp")_(2l)(q)$.
 

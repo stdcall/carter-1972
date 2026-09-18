@@ -89,17 +89,19 @@ class SourceRules(unittest.TestCase):
 
     def test_label_prefix(self):
         self.assertIn('T010', self.rules('= A <theorem1>\n'))
-        self.assertNotIn('T010', self.rules('$ x=0 $ <eq:1-2-3>\n'))
+        self.assertNotIn('T010', self.rules('$ x=0 $ <eq:sum-identity>\n'))
+        self.assertIn('T010', self.rules('$ x=0 $ <eq:1-2-3>\n'))
 
     def test_ocr_confusable_and_placeholder(self):
         self.assertIn('T002', self.rules('The grоup\n'))  # Cyrillic о
         self.assertIn('T003', self.rules('UNREADABLE\n'))
 
-    def test_statement_requires_correct_prefix(self):
-        self.assertIn('T011', self.rules('#metadata(0) <th:1-2-3>\nLemma 1.2.3.\n'))
-        self.assertNotIn('T011', self.rules('#metadata(0) <l:1-2-3>\nLemma 1.2.3.\n'))
-        self.assertIn('T011', self.rules('#metadata(0) <p:1-2-3>\nCorollary 1.2.3.\n'))
-        self.assertNotIn('T011', self.rules('#metadata(0) <cor:1-2-3>\nCorollary 1.2.3.\n'))
+    def test_manual_statement_and_proof_headers_are_rejected(self):
+        for source in ['#smallcaps[Lemma 1.2.3.]', '#smallcaps[Proof.]',
+                       '_Definition 1.2.3._', '_Example 1.2.3._', '#qed']:
+            self.assertIn('T011', self.rules(source+'\n'))
+        self.assertNotIn('T011', self.rules('#lemma(<l:root-factorization>)[Text.]\n'))
+
 
 
 class SemanticRules(unittest.TestCase):
@@ -130,6 +132,14 @@ class SemanticRules(unittest.TestCase):
         self.data['metadata'].append(copy.deepcopy(self.data['metadata'][0]))
         self.assertIn('T010', self.rules())
         self.assertIn('T015', self.rules())
+
+    def test_statement_requires_correct_semantic_prefix(self):
+        item = {'label': '<th:root-factorization>', 'value': {
+            'kind': 'statement', 'type': 'Lemma', 'number': '13.5.1'}}
+        self.data['metadata'].append(item)
+        self.assertIn('T011', self.rules())
+        item['label'] = '<l:root-factorization>'
+        self.assertNotIn('T011', self.rules())
 
     def test_source_offset(self):
         self.data['metadata'][0]['value']['file-page'] = 15

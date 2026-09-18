@@ -19,6 +19,7 @@
   prefix,
   id,
   supplement: [],
+  suffix: [],
   highlight: true,
   above: 0pt,
   ..content,
@@ -29,12 +30,25 @@
   let found = query(target)
   let body = if body == none {
     if found.len() == 0 and chapter-preview-mode.get() {
-      supplement + [?]
+      supplement + [?] + suffix
     } else {
-      assert(found.len() == 1, message: "Missing heading: " + str(target))
+      assert(
+        found.len() == 1,
+        message: "Missing reference target: " + str(target),
+      )
       let entry = found.first()
-      assert(entry.func() == heading and entry.numbering != none)
-      supplement + numbering("1.1", ..counter(heading).at(entry.location()))
+      let number = if entry.func() == heading {
+        assert(entry.numbering != none)
+        numbering("1.1", ..counter(heading).at(entry.location()))
+      } else {
+        let value = entry.value
+        if value.at("statement", default: none) != none {
+          value = query(label(value.statement)).first().value
+        }
+        assert(value.kind == "statement", message: "Unnumbered target")
+        value.number
+      }
+      supplement + number + suffix
     }
   } else { body }
   let destination = if found.len() == 1 {
@@ -81,11 +95,11 @@
   } else { body },
   highlight: highlight,
 )
-#let theorem-ref(n) = book-ref("th", n.replace(".", "-"), [Theorem #n])
-#let lemma-ref(n) = book-ref("l", n.replace(".", "-"), [Lemma #n])
-#let proposition-ref(n) = book-ref("p", n.replace(".", "-"), [Proposition #n])
-#let corollary-ref(n) = book-ref("cor", n.replace(".", "-"), [Corollary #n])
-#let definition-ref(n) = book-ref("def", n.replace(".", "-"), [Definition #n])
+#let theorem-ref(id) = book-ref("th", id, supplement: [Theorem ])
+#let lemma-ref(id) = book-ref("l", id, supplement: [Lemma ])
+#let proposition-ref(id) = book-ref("p", id, supplement: [Proposition ])
+#let corollary-ref(id) = book-ref("cor", id, supplement: [Corollary ])
+#let definition-ref(id) = book-ref("def", id, supplement: [Definition ])
 #let figure-ref(n, body: none, highlight: true) = book-ref(
   "fig",
   n.replace(".", "-"),
@@ -135,7 +149,6 @@
 #let V = $frak(V)$
 #let L = $frak(L)$
 
-#let qed = [#h(1fr)#box[#text(size: 11pt)[■]]]
 
 // Center a long operator limit without reserving its horizontal width.
 // Like \mathclap in a script: use deliberately and inspect neighbouring

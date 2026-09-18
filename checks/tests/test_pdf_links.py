@@ -17,11 +17,12 @@ from check_indexes import check_definition_destinations
 
 EXPR = 'query(metadata).filter(it => it.value.at("kind", default: "") in ("cross-reference", "page-reference")).map(it => it.value)'
 FIXTURE = '''#import "/content/main-defs.typ": *
+#import "/content/statements.typ": *
 #set page(width: 176mm, height: 250mm)
 #set heading(numbering: book-heading-numbering)
 #chapter-ref("chapter"), #section-ref("section"), #equation-ref("1.2"),
-#theorem-ref("1.3"), #lemma-ref("1.4"), #proposition-ref("1.5"),
-#definition-ref("1.6"), #corollary-ref("1.8"), #figure-ref("1.7"), #source-page-ref("1"),
+#theorem-ref("theorem-example"), #lemma-ref("lemma-example"), #proposition-ref("proposition-example"),
+#definition-ref("definition-example"), #corollary-ref("corollary-example"), #figure-ref("1.7"), #source-page-ref("1"),
 #bib-ref("chevalley1955", "jordan1870")
 #bib-ref("steinberg1967lectures"), #bib-ref("tits1966existence")
 #pagebreak()
@@ -29,18 +30,13 @@ FIXTURE = '''#import "/content/main-defs.typ": *
 = Chapter <ch:chapter>
 == Section <sec:section>
 $ x = 1 $ <eq:1-2>
-#metadata((kind: "anchor")) <th:1-3>
-Theorem 1.3.\n
-#metadata((kind: "anchor")) <l:1-4>
-Lemma 1.4.\n
-#metadata((kind: "anchor")) <p:1-5>
-Proposition 1.5.\n
-#metadata((kind: "anchor")) <def:1-6>
-Definition 1.6.\n
+#theorem(<th:theorem-example>)[An assertion.]\n
+#lemma(<l:lemma-example>)[An assertion.]\n
+#proposition(<p:proposition-example>)[An assertion.]\n
+#definition(<def:definition-example>)[An assertion.]\n
 #metadata((kind: "anchor")) <fig:1-7>
 Figure 1.7.\n
-#metadata((kind: "anchor")) <cor:1-8>
-Corollary 1.8.\n
+#corollary(<cor:corollary-example>)[An assertion.]\n
 #metadata((kind: "bibliography-anchor", key: "chevalley1955")) <bib:chevalley1955>
 Chevalley 4.\n
 #metadata((kind: "bibliography-anchor", key: "jordan1870")) <bib:jordan1870>
@@ -135,7 +131,7 @@ The chapter ends here.
                 ['typst', 'compile', '--root', str(ROOT), str(source), str(Path(folder)/'main.pdf')],
                 capture_output=True, text=True)
             self.assertNotEqual(result.returncode, 0)
-            self.assertIn('Missing heading:', result.stderr)
+            self.assertIn('Missing reference target:', result.stderr)
 
 
 class IndexLinks(unittest.TestCase):
