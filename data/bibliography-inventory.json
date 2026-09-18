@@ -1,0 +1,492 @@
+{
+  "scope": "Complete original bibliography, printed311–322, file324–335. Author groups and terminal work numbers visually compared with all12 full scans.",
+  "review_status": "agent_visual_checked; independent human review pending",
+  "groups": [
+    {
+      "author": "Abe, E.",
+      "last_number": 4
+    },
+    {
+      "author": "Adams, J. F.",
+      "last_number": 1
+    },
+    {
+      "author": "Aomoto, K.",
+      "last_number": 1
+    },
+    {
+      "author": "Artin, E.",
+      "last_number": 3
+    },
+    {
+      "author": "Asano, H.",
+      "last_number": 1
+    },
+    {
+      "author": "Borel, A.",
+      "last_number": 3
+    },
+    {
+      "author": "Borel, A. and Springer, T. A.",
+      "last_number": 1
+    },
+    {
+      "author": "Borel, A. and de Siebenthal, J.",
+      "last_number": 1
+    },
+    {
+      "author": "Borel, A. and Tits, J.",
+      "last_number": 1
+    },
+    {
+      "author": "Borel, A. and Carter, R. and Curtis, C. W. and Iwahori, N. and Springer, T. A. and Steinberg, R.",
+      "last_number": 1
+    },
+    {
+      "author": "Bott, R.",
+      "last_number": 1
+    },
+    {
+      "author": "Bourbaki, N.",
+      "last_number": 1
+    },
+    {
+      "author": "Brauer, R. and Fowler, K. A.",
+      "last_number": 1
+    },
+    {
+      "author": "Bruhat, F.",
+      "last_number": 4
+    },
+    {
+      "author": "Bruhat, F. and Tits, J.",
+      "last_number": 2
+    },
+    {
+      "author": "Burnside, W.",
+      "last_number": 1
+    },
+    {
+      "author": "Cartan, E.",
+      "last_number": 1
+    },
+    {
+      "author": "Carter, R. W.",
+      "last_number": 3
+    },
+    {
+      "author": "Chang, B.",
+      "last_number": 1
+    },
+    {
+      "author": "Chevalley, C.",
+      "last_number": 7
+    },
+    {
+      "author": "Cohn, P. M.",
+      "last_number": 1
+    },
+    {
+      "author": "Coleman, A. J.",
+      "last_number": 1
+    },
+    {
+      "author": "Conway, J. H.",
+      "last_number": 2
+    },
+    {
+      "author": "Coxeter, H. S. M.",
+      "last_number": 4
+    },
+    {
+      "author": "Coxeter, H. S. M. and Moser, W.",
+      "last_number": 1
+    },
+    {
+      "author": "Curtis, C. W.",
+      "last_number": 8
+    },
+    {
+      "author": "Curtis, C. W. and Reiner, I.",
+      "last_number": 1
+    },
+    {
+      "author": "Davis, Constance",
+      "last_number": 1
+    },
+    {
+      "author": "Demazure, M. and Grothendieck, A.",
+      "last_number": 1
+    },
+    {
+      "author": "Dickson, L. E.",
+      "last_number": 3
+    },
+    {
+      "author": "Dieudonné, J.",
+      "last_number": 5
+    },
+    {
+      "author": "Duncan, Anne",
+      "last_number": 1
+    },
+    {
+      "author": "Dynkin, E. B.",
+      "last_number": 2
+    },
+    {
+      "author": "Eichler, M.",
+      "last_number": 1
+    },
+    {
+      "author": "Ennola, V.",
+      "last_number": 1
+    },
+    {
+      "author": "Feit, W.",
+      "last_number": 2
+    },
+    {
+      "author": "Feit, W. and Higman, G.",
+      "last_number": 1
+    },
+    {
+      "author": "Feit, W. and Thompson, J. G.",
+      "last_number": 1
+    },
+    {
+      "author": "Fischer, B.",
+      "last_number": 1
+    },
+    {
+      "author": "Flatto, L.",
+      "last_number": 1
+    },
+    {
+      "author": "Flatto, L. and Weiner, Margaret",
+      "last_number": 1
+    },
+    {
+      "author": "Freudenthal, H.",
+      "last_number": 2
+    },
+    {
+      "author": "Freudenthal, H. and de Vries, H.",
+      "last_number": 1
+    },
+    {
+      "author": "Frobenius, G.",
+      "last_number": 1
+    },
+    {
+      "author": "Gel’fand, I. M. and Graev, M. I.",
+      "last_number": 1
+    },
+    {
+      "author": "Gibbs, J. A.",
+      "last_number": 1
+    },
+    {
+      "author": "Gorenstein, D.",
+      "last_number": 1
+    },
+    {
+      "author": "Green, J. A.",
+      "last_number": 2
+    },
+    {
+      "author": "Hall, M.",
+      "last_number": 1
+    },
+    {
+      "author": "Hall, M. and Wales, D.",
+      "last_number": 1
+    },
+    {
+      "author": "Harder, G.",
+      "last_number": 1
+    },
+    {
+      "author": "Harish-Chandra",
+      "last_number": 3
+    },
+    {
+      "author": "Hausner, M. and Schwartz, J. T.",
+      "last_number": 1
+    },
+    {
+      "author": "Held, D.",
+      "last_number": 1
+    },
+    {
+      "author": "Hering, C. and Kantor, W. M. and Seitz, G. M.",
+      "last_number": 1
+    },
+    {
+      "author": "Hertzig, D.",
+      "last_number": 2
+    },
+    {
+      "author": "Higman, D. G. and Sims, C. C.",
+      "last_number": 1
+    },
+    {
+      "author": "Higman, G.",
+      "last_number": 1
+    },
+    {
+      "author": "Higman, G. and McKay, J.",
+      "last_number": 1
+    },
+    {
+      "author": "Hopf, H.",
+      "last_number": 1
+    },
+    {
+      "author": "Humphreys, J. E.",
+      "last_number": 2
+    },
+    {
+      "author": "Huppert, B.",
+      "last_number": 1
+    },
+    {
+      "author": "Ihara, S. and Yokonuma, T.",
+      "last_number": 1
+    },
+    {
+      "author": "Iwahori, N.",
+      "last_number": 2
+    },
+    {
+      "author": "Iwahori, N. and Matsumoto, H.",
+      "last_number": 1
+    },
+    {
+      "author": "Jacobson, N.",
+      "last_number": 5
+    },
+    {
+      "author": "Janko, Z.",
+      "last_number": 2
+    },
+    {
+      "author": "Janko, Z. and Thompson, J. G.",
+      "last_number": 1
+    },
+    {
+      "author": "Jordan, C.",
+      "last_number": 1
+    },
+    {
+      "author": "Killing, W.",
+      "last_number": 1
+    },
+    {
+      "author": "Kneser, M.",
+      "last_number": 2
+    },
+    {
+      "author": "Kondo, T.",
+      "last_number": 1
+    },
+    {
+      "author": "Kostant, B.",
+      "last_number": 4
+    },
+    {
+      "author": "Lang, S.",
+      "last_number": 1
+    },
+    {
+      "author": "Leech, J.",
+      "last_number": 1
+    },
+    {
+      "author": "Lie, S.",
+      "last_number": 1
+    },
+    {
+      "author": "Livingstone, D.",
+      "last_number": 1
+    },
+    {
+      "author": "Loomis, L. H. and Sternberg, S.",
+      "last_number": 1
+    },
+    {
+      "author": "Lou, B.",
+      "last_number": 1
+    },
+    {
+      "author": "Lüneburg, H.",
+      "last_number": 4
+    },
+    {
+      "author": "Macdonald, I. G.",
+      "last_number": 2
+    },
+    {
+      "author": "McLaughlin, J.",
+      "last_number": 2,
+      "source_author": "MacLaughlin, J.",
+      "editorial_correction": "E091/E092:confirmed author-name typo;numbering unchanged."
+    },
+    {
+      "author": "Mathieu, E.",
+      "last_number": 2
+    },
+    {
+      "author": "Matsumoto, H.",
+      "last_number": 3
+    },
+    {
+      "author": "Mills, W. H. and Seligman, G. B.",
+      "last_number": 1
+    },
+    {
+      "author": "Niemeier, H. V.",
+      "last_number": 1,
+      "source_author": "Niemeyer, H. V.",
+      "editorial_correction": "E091/E092:confirmed author-name typo;numbering unchanged."
+    },
+    {
+      "author": "O’Meara, O. T.",
+      "last_number": 1
+    },
+    {
+      "author": "Ono, T.",
+      "last_number": 1
+    },
+    {
+      "author": "Ree, R.",
+      "last_number": 6
+    },
+    {
+      "author": "Richardson, R.",
+      "last_number": 1
+    },
+    {
+      "author": "Richen, F.",
+      "last_number": 1
+    },
+    {
+      "author": "Rozenfel’d, B. A.",
+      "last_number": 1
+    },
+    {
+      "author": "Samelson, H.",
+      "last_number": 1
+    },
+    {
+      "author": "Scott, W. R.",
+      "last_number": 1
+    },
+    {
+      "author": "Seligman, G. B.",
+      "last_number": 3
+    },
+    {
+      "author": "Serre, J.-P.",
+      "last_number": 3
+    },
+    {
+      "author": "Shephard, G. C.",
+      "last_number": 2
+    },
+    {
+      "author": "Soda, D.",
+      "last_number": 1
+    },
+    {
+      "author": "Solomon, L.",
+      "last_number": 6
+    },
+    {
+      "author": "Spitznagel, E. L.",
+      "last_number": 2
+    },
+    {
+      "author": "Springer, T. A.",
+      "last_number": 3
+    },
+    {
+      "author": "Srinivasan, B.",
+      "last_number": 1
+    },
+    {
+      "author": "Steinberg, R.",
+      "last_number": 17
+    },
+    {
+      "author": "Stewart, I. N.",
+      "last_number": 1
+    },
+    {
+      "author": "Suzuki, M.",
+      "last_number": 3
+    },
+    {
+      "author": "Thompson, J. G.",
+      "last_number": 3
+    },
+    {
+      "author": "Tits, J.",
+      "last_number": 22
+    },
+    {
+      "author": "Todd, J. A. and Shephard, G. C.",
+      "last_number": 1
+    },
+    {
+      "author": "Tsuzuku, T.",
+      "last_number": 1
+    },
+    {
+      "author": "Veisfeiler, B. J.",
+      "last_number": 1
+    },
+    {
+      "author": "van der Waerden, B. L.",
+      "last_number": 1
+    },
+    {
+      "author": "Wall, G. E.",
+      "last_number": 1
+    },
+    {
+      "author": "Ward, H. N.",
+      "last_number": 1
+    },
+    {
+      "author": "Weyl, H.",
+      "last_number": 3
+    },
+    {
+      "author": "Winter, D. J.",
+      "last_number": 1
+    },
+    {
+      "author": "Witt, E.",
+      "last_number": 3
+    },
+    {
+      "author": "Yokonuma, T.",
+      "last_number": 2
+    }
+  ],
+  "numbered_items_per_source_page": {
+    "324": 18,
+    "325": 22,
+    "326": 21,
+    "327": 20,
+    "328": 20,
+    "329": 18,
+    "330": 18,
+    "331": 19,
+    "332": 21,
+    "333": 26,
+    "334": 24,
+    "335": 16
+  }
+}

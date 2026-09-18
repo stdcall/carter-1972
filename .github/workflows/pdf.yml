@@ -1,0 +1,73 @@
+name: PDF and checks
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: '0.12.16'
+          enable-cache: true
+      - run: uv sync --locked
+      - name: Install pinned Typst tools
+        shell: uv run --locked python {0}
+        run: |
+          import hashlib, json, os, pathlib, tarfile, urllib.request
+          config = json.loads(pathlib.Path('config/project.json').read_text())
+          target = pathlib.Path(os.environ['RUNNER_TEMP'])/'typst-tools'
+          target.mkdir()
+          for name, spec in config['linux_tools'].items():
+              archive = target/spec['url'].split('/')[-1]
+              urllib.request.urlretrieve(spec['url'], archive)
+              assert hashlib.sha256(archive.read_bytes()).hexdigest() == spec['sha256'], name
+              if spec.get('archive'):
+                  with tarfile.open(archive) as tar:
+                      tar.extractall(target/name, filter='data')
+                  executable = next(p for p in (target/name).rglob(name) if p.is_file())
+                  (target/name).rename(target/(name+'-files'))
+                  executable = target/(name+'-files')/executable.relative_to(target/name)
+                  (target/name).symlink_to(executable)
+              else:
+                  archive.rename(target/name)
+              (target/name).chmod(0o755)
+          with open(os.environ['GITHUB_PATH'], 'a') as stream:
+              stream.write(str(target)+'\n')
+      - name: Check and build
+        run: uv run --locked python scripts/project.py check
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: carter-1972-pdfs
+          path: |
+            build/carter-1972.pdf
+            build/carter-1972.corrections.pdf
+          if-no-files-found: error
+          retention-days: 14
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: check
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: carter-1972-pdfs
+          path: build
+      - name: Publish release PDFs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release create "$RELEASE_TAG" --verify-tag --generate-notes
+          fi
+          gh release upload "$RELEASE_TAG" build/carter-1972.pdf build/carter-1972.corrections.pdf --clobber

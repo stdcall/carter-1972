@@ -1,0 +1,1204 @@
+{
+  "policy": "Owner instruction 2026-09-18: correct confirmed source typos in reading text; retain source reading, correction and rationale here. OCR errors are recorded separately.",
+  "entries": [
+    {
+      "id": "E001",
+      "source_file_page": 26,
+      "printed_page": 13,
+      "location": "eq:2-1-fundamental-basis",
+      "original": "Π′ = {r₁,…,rₗ}",
+      "corrected": "Π = {r₁,…,rₗ}",
+      "reason": "The defined fundamental system is Π; no second basis is introduced.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E002",
+      "source_file_page": 26,
+      "printed_page": 13,
+      "location": "eq:2-1-lexicographic-vector",
+      "original": "Σ from l=1 to l, λᵢvᵢ",
+      "corrected": "Σ from i=1 to l, λᵢvᵢ",
+      "reason": "The summand and the surrounding coefficient definition use i.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E003",
+      "source_file_page": 31,
+      "printed_page": 18,
+      "location": "th:2-2-2",
+      "original": "Let w by an element of W",
+      "corrected": "Let w be an element of W",
+      "reason": "Typographical substitution by/be.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E004",
+      "source_file_page": 32,
+      "printed_page": 19,
+      "location": "th:2-2-2",
+      "original": "as a produce of k−2 fundamental reflections",
+      "corrected": "as a product of k−2 fundamental reflections",
+      "reason": "The word denotes a product of group elements.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E005",
+      "source_file_page": 34,
+      "printed_page": 21,
+      "location": "eq:2-3-walls",
+      "original": "(vᵢ,x)>0",
+      "corrected": "(rᵢ,x)>0",
+      "reason": "The chamber is defined by the simple roots rᵢ; vᵢ is not defined here.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E006",
+      "source_file_page": 34,
+      "printed_page": 21,
+      "location": "eq:2-3-walls",
+      "original": "vectors x for (rᵢ,x)=0",
+      "corrected": "vectors x for which (rᵢ,x)=0",
+      "reason": "Missing relative pronoun.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E007",
+      "source_file_page": 35,
+      "printed_page": 22,
+      "location": "p:2-3-1",
+      "original": "where Φ⁺ is the set of positive elements with respect to a total ordering",
+      "corrected": "where 𝔙⁺ is the set of positive elements with respect to a total ordering",
+      "reason": "The ordered ambient cone is 𝔙⁺; Φ⁺=Φ∩𝔙⁺ is the finite root subset.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E008",
+      "source_file_page": 37,
+      "printed_page": 24,
+      "location": "eq:2-4-1-deletion",
+      "original": "the relations wᵢ²=1",
+      "corrected": "the relations wᵣᵢ²=1",
+      "reason": "Generators in this proof are wᵣᵢ; wᵢ is not introduced.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E009",
+      "source_file_page": 40,
+      "printed_page": 27,
+      "location": "sec:2-5",
+      "original": "Let Π by a fundamental system",
+      "corrected": "Let Π be a fundamental system",
+      "reason": "Typographical substitution by/be.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E010",
+      "source_file_page": 44,
+      "printed_page": 31,
+      "location": "eq:2-6-cells",
+      "original": "all subsets … of the form ⋂Hᵣ^εᵣ",
+      "corrected": "all non-empty subsets … of the form ⋂Hᵣ^εᵣ",
+      "reason": "These sets are equivalence classes, hence non-empty. Inconsistent signs give the empty intersection, which would contradict uniqueness in Proposition 2.6.3. Mathematical clarification, rather than merely spelling.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E011",
+      "source_file_page": 45,
+      "printed_page": 32,
+      "location": "p:2-6-3",
+      "original": "there-therefore across a line break",
+      "corrected": "therefore",
+      "reason": "Duplicated first syllable at the printed line break.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E012",
+      "source_file_page": 325,
+      "printed_page": 312,
+      "location": "bib:chevalley1955",
+      "original": "Sur certain groupes simples",
+      "corrected": "Sur certains groupes simples",
+      "reason": "Title spelling confirmed in publisher/journal metadata (Springer page is later edition with same title). Carter edition/date retained.",
+      "evidence_url": "https://www.jstage.jst.go.jp/article/tmj1949/7/1-2/7_1-2_14/_article",
+      "status": "corrected"
+    },
+    {
+      "id": "E013",
+      "source_file_page": 327,
+      "printed_page": 314,
+      "location": "bib:dieudonne1955",
+      "original": "Le géométrie des groupes classiques",
+      "corrected": "La géométrie des groupes classiques",
+      "reason": "Title spelling confirmed in publisher/journal metadata (Springer page is later edition with same title). Carter edition/date retained.",
+      "evidence_url": "https://link.springer.com/book/10.1007/978-3-662-59144-4",
+      "status": "corrected"
+    },
+    {
+      "id": "E014",
+      "source_file_page": 50,
+      "printed_page": 37,
+      "location": "sec:3-3",
+      "original": "intergers",
+      "corrected": "integers",
+      "reason": "Spelling error in root-chain paragraph; confirmed directly on the source scan.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E015",
+      "source_file_page": 49,
+      "printed_page": 36,
+      "location": "sec:3-3",
+      "original": "restricted to the Cartan subalgebra of H",
+      "corrected": "restricted to the Cartan subalgebra H",
+      "reason": "Extraneous of: H is the already defined Cartan subalgebra of L. The restriction under discussion is the Killing form of L on H, as the following sentence and preceding decomposition require.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E016",
+      "source_file_page": 59,
+      "printed_page": 46,
+      "location": "fig:1",
+      "original": "A₂ lower-right root labelled b",
+      "corrected": "−b",
+      "reason": "The opposite root is b; the lower-right vertex is its negative. Native scan confirms the missing minus.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E017",
+      "source_file_page": 62,
+      "printed_page": 49,
+      "location": "sec:3-6",
+      "original": "cf. 3.5.1",
+      "corrected": "cf. section 3.5",
+      "reason": "The coroot definition occurs in section 3.5 after Theorem 3.5.1; the theorem itself is the existence theorem and does not define coroots.",
+      "status": "corrected; checked against source and context"
+    },
+    {
+      "id": "E018",
+      "source_file_page": 64,
+      "printed_page": 51,
+      "location": "eq:4-1-basis-products",
+      "original": "[e_r e_s]=0 for r,s∈Φ, r+s∉Φ",
+      "corrected": "Add r+s≠0",
+      "reason": "Opposite roots give [e_r e_−r]=h_r as explicitly stated on the preceding line and in section3.5. Full source scan confirms omission. Exact Lie algebra model supplies counterexample without the condition.",
+      "status": "corrected; scan and preceding identity checked",
+      "literature_check": {
+        "path": "../../math/groups.chevalley/steinberg.pdf",
+        "title": "Robert Steinberg, Lectures on Chevalley Groups, University Lecture Series 66",
+        "printed_page": 7,
+        "pdf_page": 20,
+        "locator": "Theorem 1(d),(e)",
+        "result": "Both root-sum domain and nonzero-sum exclusion explicit; X_alpha maps to e_r, H_alpha to h_r. Text and rendered page checked."
+      }
+    },
+    {
+      "id": "E019",
+      "source_file_page": 68,
+      "printed_page": 55,
+      "location": "eq:4-1-2-iii",
+      "original": "N_r,s N_−r,−s=−(p+1)^2 for r,s∈Φ",
+      "corrected": "r,s,r+s∈Φ",
+      "reason": "Lemma4.1.1 used in the derivation requires r+s a root. For a nonroot sum the stated convention makes N zero while −(p+1)^2 is nonzero; next section also says relevant pairs.",
+      "status": "corrected; scan and derivation checked"
+    },
+    {
+      "id": "E020",
+      "source_file_page": 70,
+      "printed_page": 57,
+      "location": "th:4-2-1",
+      "original": "[e_r e_s]=±(p+1)e_(r+s) without explicit sum-root domain; [e_r e_s]=0 if r+s∉Φ",
+      "corrected": "State r+s∈Φ for the first formula; add r+s≠0 to zero-bracket condition.",
+      "reason": "Same missing domain conditions as E018–E019; the immediately preceding derivation expressly assumes r,s,r+s∈Φ, and opposite-root bracket equals h_r.",
+      "status": "corrected; source and derivation checked",
+      "literature_check": {
+        "path": "../../math/groups.chevalley/steinberg.pdf",
+        "title": "Robert Steinberg, Lectures on Chevalley Groups, University Lecture Series 66",
+        "printed_page": 7,
+        "pdf_page": 20,
+        "locator": "Theorem 1(d),(e)",
+        "result": "Both root-sum domain and nonzero-sum exclusion explicit; X_alpha maps to e_r, H_alpha to h_r. Text and rendered page checked."
+      }
+    },
+    {
+      "id": "E021",
+      "source_file_page": 72,
+      "printed_page": 59,
+      "location": "eq:4-2-positive-pairs",
+      "original": "The displayed five pairs are called special pairs without qualifications.",
+      "corrected": "For nonzero terms, obtain the special pairs by ordering the entries of the displayed pairs.",
+      "reason": "Some corresponding terms vanish because a difference is not a root. Even when both entries are roots, their printed order need not be increasing; G2 with a height/lex order gives a counterexample. The twelve-pair orbit and antisymmetry permit the required interchange. Exact finite models verify the corrected statement.",
+      "status": "corrected; source checked and exact counterexamples found",
+      "literature_check": {
+        "path": "../../math/algebra.lie/carter-lie.algebras.pdf",
+        "title": "R. W. Carter, Lie Algebras of Finite and Affine Type, Cambridge 2005",
+        "printed_page": 95,
+        "pdf_page": 114,
+        "locator": "Proof of Proposition 7.4",
+        "result": "First pair explicitly separated from four smaller-sum pairs; latter called positive pairs, not special. alpha,beta,gamma,delta map to r,s,r1,s1. Does not independently fix absent-root terms; that condition follows from zero constants and exact examples."
+      }
+    },
+    {
+      "id": "E022",
+      "source_file_page": 72,
+      "printed_page": 59,
+      "location": "sec:4-2-structure-constants",
+      "original": "for each of these special pairs ... r̄+s̄≺r+s",
+      "corrected": "for each of the last four special pairs",
+      "reason": "The first pair is (r1,s1) with r1+s1=r+s by definition. Only the last four pairs have smaller sum; the next sentence already separates the extraspecial constant from those smaller terms.",
+      "status": "corrected; source and algebraic sums checked",
+      "literature_check": {
+        "path": "../../math/algebra.lie/carter-lie.algebras.pdf",
+        "title": "R. W. Carter, Lie Algebras of Finite and Affine Type, Cambridge 2005",
+        "printed_page": 95,
+        "pdf_page": 114,
+        "locator": "Proof of Proposition 7.4",
+        "result": "First pair explicitly separated from four smaller-sum pairs; latter called positive pairs, not special. alpha,beta,gamma,delta map to r,s,r1,s1. Does not independently fix absent-root terms; that condition follows from zero constants and exact examples."
+      }
+    },
+    {
+      "id": "E023",
+      "source_file_page": 80,
+      "printed_page": 67,
+      "location": "Proof of Proposition4.5.2",
+      "original": "The Chevalley group L_K is generated …",
+      "corrected": "The Chevalley group L(K) is generated …",
+      "reason": "L_K denotes the Lie algebra; section4.4 defines its generated automorphism group as L(K). Here L=A1. The scanned group subscript is explicit and corrected to the defined group notation.",
+      "status": "corrected; checked against source and preceding definition"
+    },
+    {
+      "id": "E024",
+      "source_file_page": 83,
+      "printed_page": 70,
+      "location": "Third sum in induction proof of Lemma5.1.2",
+      "original": "Sum includes i=0 although its summand contains xi^(i−1)/(i−1)!",
+      "corrected": "Explicit i≥1 condition on that sum",
+      "reason": "The commutation formula contributes −i xi^(i−1)[xi,eta]; the i=0 term is absent before cancellation of i/i!. The added bound removes an undefined factorial without changing the intended polynomial.",
+      "status": "domain clarification; checked against the preceding commutation step"
+    },
+    {
+      "id": "E025",
+      "source_file_page": 86,
+      "printed_page": 73,
+      "location": "eq:5-2-g2-second-product, first exponential in case(iii)",
+      "original": "exp(u ad e_s + M_{r,s,1} M_{r,s,2} t^3 u^2 ad e_{3r+2s})",
+      "corrected": "exp(u ad e_s + M_{r,s,1}tu ad e_{r+s}) exp(M_{r,s,2}t^2u ad e_{2r+s})",
+      "reason": "The preceding page defines xi=u ad e_s+M_{r,s,1}tu ad e_{r+s} and eta=M_{r,s,2}t^2u ad e_{2r+s}. Applying Lemma5.1.2 gives exp(xi)exp(eta) before the printed central-commutator correction. The source first factor accidentally replaces the two noncentral factors by a product of their coefficients and the highest-root operator. The next line retains both resulting root-group factors, confirming the intended expansion. The BCH convention is also corroborated in LIT001.",
+      "status": "corrected; full scan and adjacent defining equations checked; no new CAS test"
+    },
+    {
+      "id": "E026",
+      "source_file_page": 95,
+      "printed_page": 82,
+      "location": "eq:6-1-1-diagonal-factorization",
+      "original": "Last factor is ((1,-alpha^-1),(0,0)).",
+      "corrected": "Last factor is ((1,-alpha^-1),(0,1)).",
+      "reason": "The scanned last factor has bottom-right0; it would be singular, unlike the diagonal matrix of determinant1. With1 the first three factors multiply to ((alpha,1),(0,alpha^-1)); the corrected final factor gives the displayed diagonal matrix. Direct symbolic multiplication by hand, no CAS claim.",
+      "status": "corrected; full scan and elementary matrix multiplication checked"
+    },
+    {
+      "id": "E027",
+      "source_file_page": 95,
+      "printed_page": 82,
+      "location": "paragraph preceding eq:6-1-polynomial-action",
+      "original": "of SL_2(K) operates on R",
+      "corrected": "of SL_2(C) operates on R",
+      "reason": "Here R=C[x,y] is explicitly defined; the next sentence and whole construction use SL_2(C). Arbitrary K need not embed in C.",
+      "status": "corrected; full scan and adjacent definitions checked"
+    },
+    {
+      "id": "E028",
+      "source_file_page": 105,
+      "printed_page": 92,
+      "location": "eq:6-4-1-actions",
+      "original": "s in Sigma",
+      "corrected": "s in Phi",
+      "reason": "The root set throughout Carter is Phi; no Sigma is introduced here. The statement is the action on all root vectors and the proof treats every root s. Steinberg Lemma19(c), with its separate notation Sigma for roots, corroborates the action; Carter’s own notation is retained.",
+      "status": "corrected; source and notation checked"
+    },
+    {
+      "id": "E029",
+      "source_file_page": 109,
+      "printed_page": 96,
+      "location": "eq:6-4-3-sign-reversal",
+      "original": "j=0,1,...,(q-1)",
+      "corrected": "j=-p,-p+1,...,(q-1)",
+      "reason": "The preceding structure-constant relation applies whenever jr+s and (j+1)r+s are adjacent roots of the chain, hence -p<=j<=q-1. The printed range covers only signs indexed p,...,p+q-1; the next displayed denominator also uses barred signs up to p-1 and needs negative j if p>q. The full chain range supplies all p+q signs, including the q=0 case. This makes explicit the range already required by the printed derivation. Steinberg Lemma19(a), printed22–23, independently confirms the resulting opposite-root sign identity, but not Carter’s intermediate indexing.",
+      "status": "corrected; chain endpoints and index substitution checked; no CAS claim"
+    },
+    {
+      "id": "E030",
+      "source_file_page": 115,
+      "printed_page": 102,
+      "location": "Proof of Theorem7.2.2, scalar in n^-1 e_s",
+      "original": "eta=±1 for an arbitrary n∈N",
+      "corrected": "eta∈K*",
+      "reason": "N includes the diagonal subgroup H. Already for n=h_s(2) over Q, Proposition6.4.1 gives n^-1 e_s=(1/4)e_s, not ±e_s. For a general monomial automorphism the coefficient is any nonzero field scalar. The next computation uses eta eta^-1=1 and remains valid. Steinberg Lemma22 corroborates normality and the quotient theorem, using the root representatives for sign calculations rather than arbitrary n.",
+      "status": "corrected; source checked, direct consequence of6.4.1; no new CAS claim"
+    },
+    {
+      "id": "E031",
+      "source_file_page": 116,
+      "printed_page": 103,
+      "location": "Paragraph before eq:7-2-2-coset-involution",
+      "original": "n_r²=h(-1)∈H",
+      "corrected": "n_r²=h_r(-1)∈H",
+      "reason": "The torus element needs the root index r. The image under phi_r of [[0,1],[-1,0]]²=diag(-1,-1) is h_r(-1), also following6.4.4. h(chi) instead requires a character argument.",
+      "status": "corrected; missing index restored from defining matrices"
+    },
+    {
+      "id": "E032",
+      "source_file_page": 121,
+      "printed_page": 108,
+      "location": "p:8-2-1",
+      "original": "n_r X_r n_r = X_-r",
+      "corrected": "n_r X_r n_r^(-1) = X_-r",
+      "reason": "Conjugation formula7.2.1(ii) requires the inverse on the right. The printed product instead equals X_-r h_r(-1), not generally X_-r (e.g. type A2 over Q). The next set relation n_r B n_r ≠ B remains correct since n_r²=h_r(-1)∈B.",
+      "status": "corrected; checked against full scan and7.2.1"
+    },
+    {
+      "id": "E033",
+      "source_file_page": 129,
+      "printed_page": 116,
+      "location": "eq:8-4-3-conjugation-word",
+      "original": "h n_r1 … n_rk X_s n_r1^(-1) … n_rk^(1) h^(-1)",
+      "corrected": "h n_r1 … n_rk X_s n_rk^(-1) … n_r1^(-1) h^(-1)",
+      "reason": "The inverse of h n_r1 … n_rk is n_rk^(-1) … n_r1^(-1) h^(-1). Both the reversed order and all minus signs are required. Full scan and enlarged crop build/e033-source.png confirm the printed order and missing minus. Lemma7.2.1 gives the next equality.",
+      "status": "corrected; group inversion identity and scan checked"
+    },
+    {
+      "id": "E034",
+      "source_file_page": 131,
+      "printed_page": 118,
+      "location": "eq:8-5-1-conjugation",
+      "original": "… n_2^(-1) n_r1^(-1)",
+      "corrected": "… n_r2^(-1) n_r1^(-1)",
+      "reason": "The second inverse factor must correspond to n_r2 in the original product. The missing r is visible in build/e034-source.png.",
+      "status": "corrected; index restored from the defining word"
+    },
+    {
+      "id": "E035",
+      "source_file_page": 133,
+      "printed_page": 120,
+      "location": "eq:8-5-2-complement-unipotent-support and eq:8-5-2-complement-levi-support",
+      "original": "x∈H⊕Σ_(r−s∈Φbar_J)L_r; θe_s∈L_s⊕Σ_(r−s∈Φ_J)L_r",
+      "corrected": "x∈H⊕Σ_(r−s∉V_J)L_r; θe_s∈Σ_(r−s∈V_J)L_r, with V_J the span of J from section2.5",
+      "reason": "A difference of roots need not itself be a root. The two printed supports are too narrow for the separate inferences from θ∈U_J and θ∈L_J. Exact A2 conjugation produces a shift2alpha outside span(J), while a G2 Levi reflection produces3alpha inside span(J). Neither is a root. Root-group actions preserve weight classes modulo span(J) for L_J; nonconstant U_J terms strictly increase a coefficient outside J. The corrected supports intersect only at e_s and retain the proof conclusion. See validation/levi-support-sage.json for two exact counterexamples and the general support argument.",
+      "status": "corrected; substantive indexing error, two exact Sage counterexamples and root-grading argument; not a formal proof of whole theorem"
+    },
+    {
+      "id": "E036",
+      "source_file_page": 134,
+      "printed_page": 121,
+      "location": "eq:8-6-unipotent-elements",
+      "original": "product indexed by r∈Φ+ with factor x_ri(t_i)",
+      "corrected": "product indexed by r_i∈Φ+ with factor x_ri(t_i)",
+      "reason": "Bind the same root variable in the product limit and the factor, consistently with the immediately following product and the earlier canonical expression.",
+      "status": "corrected; bound-index consistency"
+    },
+    {
+      "id": "E037",
+      "source_file_page": 136,
+      "printed_page": 123,
+      "location": "Section9.1, sentence before eq:9-1-tensor-algebra",
+      "original": "the algebra of symmetric element in the tensor space",
+      "corrected": "the algebra of symmetric elements in the tensor space",
+      "reason": "Unambiguous missing plural ending in the source scan.",
+      "status": "corrected; complete source page visually checked"
+    },
+    {
+      "id": "E038",
+      "source_file_page": 140,
+      "printed_page": 127,
+      "location": "Proof of Theorem9.2.2, before partial derivatives are introduced",
+      "original": "An arbitrary nonzero weighted-homogeneous relation is chosen; its evaluated partial derivatives are asserted not all zero.",
+      "corrected": "Choose such a relation with d as small as possible.",
+      "reason": "Formal derivatives of a nonzero polynomial need not remain nonzero after substitution: a squared relation has zero evaluated gradient. Minimal positive weighted degree ensures a nonzero formal partial has smaller weight and cannot be a relation. See LIT008 and validation/invariant-relation-sage.json. The latter gives an exact non-reflection-group example only, not a counterexample to Chevalley’s theorem.",
+      "status": "corrected; omitted minimality condition restored, local literature and exact Sage diagnostic checked"
+    },
+    {
+      "id": "E039",
+      "source_file_page": 147,
+      "printed_page": 134,
+      "location": "eq:9-3-5-invariance",
+      "original": "w_r(I_i(a))",
+      "corrected": "(w_r(I_i))(a)",
+      "reason": "The action defined in9.1 is on polynomial functions; it precedes evaluation. Since reflection is its own inverse, I_i(w_r(a))=(w_r(I_i))(a)=I_i(a). The printed parentheses apply w_r to a scalar instead. Full scan checked; exact Sage example recorded separately.",
+      "status": "corrected; action/evaluation parentheses",
+      "additional_occurrences": [
+        {
+          "source_file_page": 152,
+          "printed_page": 139,
+          "location": "eq:9-4-6-linear-form-action",
+          "original": "w_s(H_r(x))",
+          "corrected": "(w_s(H_r))(x)"
+        },
+        {
+          "source_file_page": 153,
+          "printed_page": 140,
+          "location": "eq:9-4-6-hyperplane-vanishing",
+          "original": "w_r(P(x))",
+          "corrected": "(w_r(P))(x)"
+        },
+        {
+          "source_file_page": 180,
+          "printed_page": 167,
+          "location": "prose before eq:10-6-1-dual-action",
+          "original": "w(P(y))",
+          "corrected": "(w(P))(y)"
+        }
+      ]
+    },
+    {
+      "id": "E040",
+      "source_file_page": 156,
+      "printed_page": 143,
+      "location": "eq:9-4-8-fixed-complement",
+      "original": "1/(1-t^(l-|J|))",
+      "corrected": "1/(1-t)^(l-|J|)",
+      "reason": "There are l-|J| independent degree-one invariants. Each contributes1/(1-t). The corrected expression equals1/((1-t)^l Pbar_WJ) by the displayed definition of Pbar_WJ. Exact Sage diagnostics include J empty in rank2 and J=Pi; the printed expression gives wrong coefficients or a zero denominator. Full scan checked.",
+      "status": "corrected; exact Sage diagnostics passed",
+      "validation": "validation/solomon-sage.json"
+    },
+    {
+      "id": "E041",
+      "source_file_page": 163,
+      "printed_page": 150,
+      "locations": [
+        "eq:10-1-8-subset-expansion, second row",
+        "eq:10-1-8-averaged-subsets"
+      ],
+      "original": "Omega subseteq Phi",
+      "corrected": "Omega subseteq Phi+",
+      "reason": "Both sums expand a product over positive roots, so their indices must enumerate subsets of Phi+. The third row already prints Phi+. Full scan confirms two missing plus signs. Sage A1 exact counterexample distinguishes both erroneous expressions; Weyl identity and singular cancellation checked in five small types.",
+      "status": "corrected; exact Sage diagnostics passed",
+      "validation": "validation/weyl-denominator-sage.json"
+    },
+    {
+      "id": "E042",
+      "source_file_page": 180,
+      "printed_page": 167,
+      "locations": [
+        "eq:10-6-1-derivative-term",
+        "eq:10-6-1-monomial"
+      ],
+      "original": "Same lambda_i in derivative and primitive leading monomial; terms involving y_i with i>1",
+      "corrected": "Use mu_i for derivative coefficient, lambda_i for primitive coefficient; dummy coordinate index j>1",
+      "reason": "At i=1, differentiation of lambda_1*y_1^d_1 gives d_1*lambda_1*y_1^(d_1−1), so the coefficients need distinct names. For i>1 they agree. No subsequent argument changes because it uses only nonzero coefficients. Source repeats i for the fixed invariant and coordinates in remainder; use dummy j. Humphreys81 repeats coefficient shorthand but states remainder correctly as y2,…,yn.",
+      "status": "coefficient ambiguity and dummy-index clash corrected; exact Sage diagnostic passed",
+      "validation": "validation/coxeter-spectrum-sage.json"
+    },
+    {
+      "id": "E043",
+      "source_file_page": 184,
+      "printed_page": 171,
+      "location": "eq:11-1-1-bn4-union",
+      "original": "Bn_jn_kB intersection Bn_kn_jn_kB",
+      "corrected": "Bn_jn_kB union Bn_kn_jn_kB",
+      "reason": "Full scan and native crop show intersection. AxiomBN4 (source121) gives a union; next line explicitly uses or. Distinct double cosets have empty intersection. Sage finite SL3(F2) diagnostic distinguishes both readings.",
+      "status": "corrected; exact Sage diagnostic passed",
+      "validation": "validation/simplicity-sage.json"
+    },
+    {
+      "id": "E044",
+      "source_file_page": 188,
+      "printed_page": 175,
+      "location": "prose after eq:11-1-2-single-bond-commutator",
+      "original": "x_{r^1+r^2}(1)",
+      "corrected": "x_{r_1+r_2}(1)",
+      "reason": "Native-resolution crop confirms superscript1,2 in this occurrence. The immediately preceding displayed equation and following sentence use the defined fundamental roots r_1,r_2.",
+      "status": "corrected; source context and crop checked"
+    },
+    {
+      "id": "E045",
+      "source_file_page": 192,
+      "printed_page": 179,
+      "location": "sec:11-2-3, concluding paragraph",
+      "original": "theta(e_r)=e_{-r}",
+      "corrected": "theta(e_r)=-e_{-r}",
+      "reason": "For each displayed D_l and C_l pair, e_{-r}=e_r transpose. For B_l the pair satisfies e_{-r}=delta^-1 e_r transpose delta. Substitution into the printed definitions of theta therefore gives the missing minus in all cases, for arbitrary rank. The normalization [h_r,e_r]=2e_r agrees with these listed opposite vectors. Sage independently checks every root and root-sum pair in eight finite ranks. Geck1.6.5–7 corroborates form-preserving matrix construction, with different coordinate order; the sign correction is our direct elementary-matrix inference, not a quotation from Geck.",
+      "additional_occurrences": [
+        {
+          "source_file_page": 194,
+          "printed_page": 181,
+          "location": "eq:11-2-4-opposite"
+        },
+        {
+          "source_file_page": 196,
+          "printed_page": 183,
+          "location": "sec:11-2-5, last paragraph"
+        }
+      ],
+      "status": "corrected; general elementary-matrix calculation and exact finite Sage checks",
+      "validation": "validation/classical-matrices-sage.json"
+    },
+    {
+      "id": "E046",
+      "source_file_page": 192,
+      "printed_page": 179,
+      "location": "sec:11-2-3, concluding paragraph",
+      "original": "As in11.2.1 the map theta(x)=-x′ is an automorphism of L, but this time it satisfies theta(e_r)=e_{-r} for each root r. To show that the fundamental co-roots and the root vectors e_r form a Chevalley basis we observe that theta(ie_r)=-(-ie_{-r}) and that [ie_r,-ie_{-r}]=h_r. Thus the fundamental co-roots together with ie_r (r positive) and -ie_{-r} (r positive) form a Chevalley basis, as in11.2.1. It follows that the fundamental co-roots together with e_r,e_{-r} (r positive) also form a Chevalley basis, using the general ideas of section4.2.",
+      "corrected": "After [h_r e_r]=2e_r: As in11.2.1 the map theta(x)=-x′ is an automorphism of L satisfying theta(e_r)=-e_{-r} for each root r. Thus the fundamental co-roots together with the root vectors e_r form a Chevalley basis, by the argument of11.2.1.",
+      "reason": "The imaginary rescaling detour rests on E045 and is false for the displayed matrices. With r=epsilon1-epsilon2, s=epsilon2-epsilon3, the displayed basis has [e_r,e_s]=e_{r+s}; scaling all positive-root vectors by i produces structure constant i, not plus/minus1. The corrected transpose sign directly gives N_{-r,-s}=-N_{r,s}. Together with the normalized co-roots and4.1.2 this gives N_{r,s}=plus/minus(p+1), exactly the valid argument of11.2.1. No imaginary rescaling is needed. This is an explicit proof repair, not just punctuation; full original paragraph retained here.",
+      "status": "corrected; source paragraph checked, exact D4/D5 counterexamples and general replacement argument",
+      "validation": "validation/classical-matrices-sage.json"
+    },
+    {
+      "id": "E047",
+      "source_file_page": 197,
+      "printed_page": 184,
+      "location": "Theorem11.3.2(ii)",
+      "original": "B_l(K) is isomorphic to the orthogonal group POmega_(2l+1)(K,f_B), with no exception in the statement.",
+      "corrected": "Qualify the identification by except for B_2(2).",
+      "reason": "The proof explicitly excludes B2(2) on source200/printed187. Carter11.1 identifies B2(2) with S6. Omega is defined here as the commutator subgroup, so Omega5(2) is A6, of order360, while B2(2) has order720. Exact enumeration of the printed five-dimensional generators over F2 gives order720, centre1, derived subgroup order360 with centre1, and faithful symplectic projection of order720. Geck–Malle2020 Table2.1 independently gives Sp4(2)=S6. Thus the missing exception is substantive and required; no change to the existing proof exclusion.",
+      "status": "corrected; source proof, local literature and exact Sage diagnostic agree",
+      "validation": "validation/classical-identification-sage.json"
+    },
+    {
+      "id": "E048",
+      "source_file_page": 209,
+      "additional_source_file_pages": [
+        210,
+        211
+      ],
+      "printed_page": 196,
+      "location": "Final sentence of12.1.1(i); universal-torus coordinates after the proof; first central-torus product on printed198",
+      "original": "Unbarred h_r(t) in the final induction conclusion, and unbarred h_pi(t_i) in two products explicitly belonging to Hbar.",
+      "corrected": "Restore overbars on these h factors. Retain the unbarred factors when their images in the adjoint group G are discussed.",
+      "reason": "The source distinguishes universal generators with overbars from their adjoint images. The cited expressions are in Hbar; immediately adjacent steps and the corresponding product on printed199 already carry the bars.",
+      "status": "corrected; full scans and surrounding notation checked"
+    },
+    {
+      "id": "E049",
+      "source_file_page": 212,
+      "printed_page": 199,
+      "location": "Last paragraph of12.1",
+      "original": "t_1,...,t_l determines a K-character",
+      "corrected": "t_1,...,t_l determine a K-character",
+      "reason": "The listed elements are the plural subject; no change to the mathematical condition.",
+      "status": "corrected after full-scan comparison; manual grammar correction"
+    },
+    {
+      "id": "E050",
+      "source_file_page": 212,
+      "printed_page": 199,
+      "location": "12.2.1, relation R2, product limit",
+      "original": "i,j != 0",
+      "corrected": "i,j > 0",
+      "reason": "The Chevalley commutator product ranges over positive integers. Compare5.2.2 and12.1.1; Steinberg2016 Theorem8(B), printed43, gives the same restriction. Negative root combinations are not part of this product.",
+      "status": "corrected; scan and preceding defining relation checked"
+    },
+    {
+      "id": "E051",
+      "source_file_page": 219,
+      "printed_page": 206,
+      "location": "12.4 opening paragraph, description of rbar",
+      "original": "is the root obtained by reflecting r in the line bisecting a,b",
+      "corrected": "is the root in the direction obtained by reflecting r in the line bisecting a,b",
+      "reason": "Reflection preserves length, whereas the defined dual-root map interchanges long and short roots. The coordinate definition in12.3 and its B2 explanation specify direction. Steinberg2016 printed85 Example(b) explicitly combines reflection with the required length adjustment. This restores that qualification without changing the defined map.",
+      "status": "corrected; scan, preceding definition and independent literature checked"
+    },
+    {
+      "id": "E052",
+      "source_file_page": 228,
+      "printed_page": 215,
+      "location": "12.5.1 proof, sentence after theta5 fixes x_r(t)",
+      "original": "for all r in Pi, t in K. Since these elements x_r(t) generate G",
+      "corrected": "for all r in Phi, t in K. Since these elements x_r(t) generate G",
+      "reason": "Positive simple root groups lie in U and cannot generate G. The preceding argument fixes the Weyl representatives n_r; conjugating the fixed simple-root elements by them gives fixed root elements for every root in Phi, by7.2.1. Steinberg2016 Theorem30 proof(4),printed94 explicitly includes the Weyl representatives in its generating set. The correction states the already implied all-root conclusion.",
+      "status": "corrected; complete scan and independent literature checked"
+    },
+    {
+      "id": "E053",
+      "source_file_page": 233,
+      "printed_page": 220,
+      "location": "13.2.2 proof, basis construction",
+      "original": "where r_i^1 is in Phi_(J_i)^+",
+      "corrected": "where r_i is in Phi_(J_i)^+",
+      "reason": "The projected vector need not be an original root. The roots r_i are chosen in the distinct simple-root orbits J_i; their projections have disjoint support and form the basis. Steinberg2016 Theorem32 proof(10),printed102, explicitly chooses original roots before projecting. The source scan confirms the extraneous superscript1.",
+      "status": "corrected; full scan and independent literature checked"
+    },
+    {
+      "id": "E054",
+      "source_file_page": 236,
+      "printed_page": 223,
+      "location": "13.3.5 and13.3.6, rank-one folded groups",
+      "original": "W is isomorphic to W(A1), in both subsections.",
+      "corrected": "W^1 is isomorphic to W(A1).",
+      "reason": "W denotes the original Weyl group of B2 or G2, of order8 or12. Its fixed subgroup W^1 acts on a line and has order2. Surrounding section, summary table and Steinberg2016 printed103 examples(e),(f) confirm the missing superscript.",
+      "status": "corrected; full scan and independent literature checked"
+    },
+    {
+      "id": "E055",
+      "source_file_page": 240,
+      "source_file_pages": [
+        240,
+        241
+      ],
+      "printed_page": 227,
+      "printed_pages": [
+        227,
+        228
+      ],
+      "location": "13.5.1 proof, nontrivial fixed element for B2/G2 equivalence classes",
+      "original": "If S is of type A1,A2,B2 orG2, there is a root r in S such that r=bar(r). For B2/G2, sigma.x_r(1)=x_r(1).",
+      "corrected": "Restrict the fixed-root case to A1/A2. In B2/G2 use the highest long root r and its highest-short dual bar(r). Their commuting parameter-one elements are exchanged by sigma, so their product is a nonidentity fixed element.",
+      "reason": "Exceptional graph duality swaps lengths and has no fixed root. Highest-root pairs (2a+b,a+b) and (3a+2b,2a+b), a short,b long, have no positive integral combination that is a root. Commutator formula and uniqueness of root factorization give the replacement. Steinberg2016 Lemma61,printed104, explicitly uses a product over a terminal-root orbit. Exact root checks in twisted-fixed-sage.json and conditional abstract group proof in TwistedOrbit.lean; neither formalizes the entire BN-pair theorem.",
+      "status": "corrected; complete source page, independent literature, exact root calculation and bounded Lean proof checked"
+    },
+    {
+      "id": "E056",
+      "source_file_page": 241,
+      "printed_page": 228,
+      "location": "13.5.1 proof, first displayed/introduction triple orbit product",
+      "original": "x_r(1)x_bar(r)(gamma_r)x_barbar(r)(gamma_bar(r))",
+      "corrected": "x_r(1)x_bar(r)(gamma_r)x_barbar(r)(gamma_r gamma_bar(r))",
+      "reason": "Applying sigma twice to x_r(1) multiplies both consecutive signs. The very next orbit calculation and final fixed-element formula in the original print the product gamma_r gamma_bar(r). Native-resolution crop confirms its omission only in the first occurrence.",
+      "status": "corrected; source crop and subsequent displayed proof agree"
+    },
+    {
+      "id": "E057",
+      "source_file_page": 246,
+      "printed_page": 233,
+      "location": "13.6.2 proof, second induction case, following double bracket",
+      "original": "Since e_(r_i) -> e_(r_i) and e_(bar(r_i)) -> e_(bar(r_i)) ...",
+      "corrected": "Since e_(r_i) -> e_(bar(r_i)) and e_(bar(r_i)) -> e_(r_i) ...",
+      "reason": "These two simple roots form the nonfixed pair in the second case. The defining action at the start of13.6.2 interchanges their root vectors. Native-resolution crops confirm that the source erroneously repeats each subscript unchanged. The double bracket is unchanged on exchanging the two orthogonal simple-root operators, by Jacobi; no change to the conclusion gamma_r=1.",
+      "status": "corrected; native source crops and defining automorphism checked"
+    },
+    {
+      "id": "E058",
+      "source_file_page": 252,
+      "printed_page": 239,
+      "location": "13.7.2 triple-orbit character",
+      "original": "chi_(r,lambda) chi_(bar(r),bar(lambda)) chi_(barbar(r),lambda)",
+      "corrected": "chi_(r,lambda) chi_(bar(r),bar(lambda)) chi_(barbar(r),barbar(lambda))",
+      "reason": "The third parameter lacks a double bar in the original (native crop checked). Self-conjugacy requires consecutive field conjugates; the next torus-generator display in the source includes both bars.",
+      "status": "corrected; scan checked and bounded validation recorded"
+    },
+    {
+      "id": "E059",
+      "source_file_page": 254,
+      "printed_page": 241,
+      "location": "13.7.3 nonzero parameter domains; also source261,printed248 torus parameter",
+      "original": "L subset K; every lambda in K; later h_a(u^theta)h_b(u) for all u in K",
+      "corrected": "L subset K*; every lambda in K*; later u in K*",
+      "reason": "Inverses and torus parameters require nonzero elements. t in the norm equation remains allowed to be zero. Steinberg Lemma64 works in multiplicative k*. Sage verifies both rational constructions under nonzero hypotheses.",
+      "status": "corrected; scan checked and bounded validation recorded"
+    },
+    {
+      "id": "E060",
+      "source_file_page": 260,
+      "printed_page": 247,
+      "location": "13.7.4 first highest-root-vector display",
+      "original": "u(t).e_(-3a+2b)",
+      "corrected": "u(t).e_(-3a-2b)",
+      "reason": "The printed plus gives a non-root. The preceding text, following display and continuation all use the negative highest root. Exact adjoint calculation confirms its coefficient is -t^2.",
+      "status": "corrected; scan checked and bounded validation recorded"
+    },
+    {
+      "id": "E061",
+      "source_file_page": 261,
+      "printed_page": 248,
+      "location": "13.7.4 Weyl group paragraph",
+      "original": "w_0 is the only non-unit elements of W^1",
+      "corrected": "w_0 is the only non-unit element of W^1",
+      "reason": "Singular subject and unique element; confirmed against full scan. Grammar correction only.",
+      "status": "corrected; scan checked and bounded validation recorded"
+    },
+    {
+      "id": "E062",
+      "source_file_page": 252,
+      "printed_page": 239,
+      "location": "13.7.2 type-A2 subsystem paragraph",
+      "original": "The subgroup <X_r,X_bar(r),X_-r,X_-bar(r)> of G is isomorphic to the Chevalley group A2(K). By11.3.2 there is a homomorphism from SL3(K) into ...",
+      "corrected": "The subgroup is a homomorphic image of SL3(K). As in11.3.2, there is a homomorphism from SL3(K) onto ...",
+      "reason": "Mathematical correction, not an OCR typo: a subsystem subgroup can retain central scalars although the ambient group is adjoint. In adjoint A4(F4), diag(1,z,z,z,1) for z^3=1,z!=1 is central on the middle A2 subsystem but acts nontrivially on the ambient x12. Exact Sage witness recorded. Only a surjective root-compatible map from SL3 is needed in this proof; the blanket identification with adjoint A2=PSL3 is unjustified.",
+      "status": "corrected; scan checked and bounded validation recorded"
+    },
+    {
+      "id": "E063",
+      "source_file_pages": [
+        332,
+        334,
+        335
+      ],
+      "printed_pages": [
+        319,
+        321,
+        322
+      ],
+      "location": "Bibliography: Serre3,Tits1,Tits13,Yokonuma2",
+      "original": "Algebras de Lie semi-simples complexes; Sur les analogue algébriques; Géométries polyédriques finis; Sur la commutant",
+      "corrected": "Algèbres de Lie semi-simples complexes; Sur les analogues algébriques; Géométries polyédriques finies; Sur le commutant",
+      "reason": "Clear French spelling/agreement errors in the original bibliography, confirmed in full source scans. Work numbers and other source publication data preserved.",
+      "status": "corrected; original scans checked"
+    },
+    {
+      "id": "E064",
+      "source_file_page": 265,
+      "source_file_pages": [
+        265
+      ],
+      "printed_pages": [
+        252
+      ],
+      "location": "14.1.2 first orbit-character count",
+      "original": "product_J q(|J|-1)",
+      "corrected": "product_J (q^|J|-1)",
+      "reason": "The preceding counts are q-1,q^2-1,q^3-1; the next display prints the correct product. Scan confirms parentheses/exponent error. Seven finite A2 character counts agree.",
+      "status": "corrected; full scans and stated independent evidence checked"
+    },
+    {
+      "id": "E065",
+      "source_file_page": 265,
+      "source_file_pages": [
+        265
+      ],
+      "printed_pages": [
+        252
+      ],
+      "location": "14.1.2 self-conjugate weight characters and restriction kernel",
+      "original": "h(chi) fixed iff chi self-conjugate; Hhat^1 defined as fixed subgroup of H but counted as Q-characters; kernel described as elements h(chi); index |Hhat^1:H^1|=d",
+      "corrected": "Use if, define Hhat^1 as the group of self-conjugate Q-characters, use restriction to P onto H^1 with kernel characters trivial on P, and cardinality ratio |Hhat^1|/|H^1|=d.",
+      "reason": "An adjoint element depends only on restriction to P; its Q-extension need not be unique or self-conjugate. In A2 overGF16, values(z,z^2),z order3,restrict to identity but are not self-conjugate. Sage exhaustive seven-q check; Steinberg universal fixed torus divided by fixed centre confirms image/kernel interpretation. This is a mathematical correction of the original argument, not OCR repair; final order unchanged.",
+      "status": "corrected; full scans and stated independent evidence checked"
+    },
+    {
+      "id": "E066",
+      "source_file_page": 268,
+      "source_file_pages": [
+        268
+      ],
+      "printed_pages": [
+        255
+      ],
+      "location": "14.2.1(b), middle length sum",
+      "original": "Inner sum over w in W with w(J) subset Phi+",
+      "corrected": "Inner sum over w in W^1 with w(J) subset Phi+",
+      "reason": "Adjacent expressions enumerate D_J^1 and then W^1. Native scan confirms lost superscript in this occurrence. A2 exact enumeration distinguishes the full-W and fixed-W polynomials.",
+      "status": "corrected; full scans and stated independent evidence checked"
+    },
+    {
+      "id": "E067",
+      "source_file_page": 268,
+      "source_file_pages": [
+        268
+      ],
+      "printed_pages": [
+        255
+      ],
+      "location": "14.2.1(c), scope of face-character identity",
+      "original": "sum_J (-1)^O_J n_J(w tau)=det w, w in W^1",
+      "corrected": "Same equality for w in W",
+      "reason": "The geometric argument does not assume w commutes with tau. Part(d) averages over all W and needs this broader quantifier. Steinberg2016 Lemma66 proof(6prime),printed109,explicitly states w in W. Exact face/coset enumeration checks342 elements in A2,A3,A4,D4 triality,312 outside W^1.",
+      "status": "corrected; full scans and stated independent evidence checked"
+    },
+    {
+      "id": "E068",
+      "source_file_page": 271,
+      "source_file_pages": [
+        271
+      ],
+      "printed_pages": [
+        258
+      ],
+      "location": "14.2.1(e), shifted Hilbert series",
+      "original": "product_(i=1)^l t^N/((1-eta_i t) Pbar_W1(t))",
+      "corrected": "t^N/((product_(i=1)^l(1-eta_i t)) Pbar_W1(t))",
+      "reason": "Degree shift n to n-N multiplies the preceding series by t^N once. Printed product incorrectly raises t^N and Pbar to the lth power. Full scan and preceding/next argument checked; exact A2 rational functions distinguish the expressions.",
+      "status": "corrected; full scans and stated independent evidence checked"
+    },
+    {
+      "id": "E069",
+      "source_file_page": 271,
+      "source_file_pages": [
+        271,
+        272
+      ],
+      "printed_pages": [
+        258,
+        259
+      ],
+      "location": "14.2.1(e), degree-one parabolic/complement factors and singular coefficient",
+      "original": "Final source271 denominator factors (1-eta_(k+1))...(1-eta_l); source272 Pbar denominator1-eta_i; following complement factors(1-eta_(k+1)t^0)...(1-eta_l t^0); the coefficients ... is",
+      "corrected": "Restore t in every degree-one factor,replace t^0 by t,and use the coefficient ... is.",
+      "reason": "The complement generators x_i have degree1,so their geometric-series factors are1/(1-eta_i t). Same denominator already occurs at source271 opening. The printed t^0 gives an identically zero denominator for an eta=1 eigenvalue. Exact A2,J empty witness; full source pages inspected. Singular coefficient repairs explicit agreement typo without rewriting prose.",
+      "status": "corrected; full scans and stated independent evidence checked"
+    },
+    {
+      "id": "E070",
+      "source_file_page": 274,
+      "printed_page": 261,
+      "location": "14.3,F4 degree8 invariant,long-root sum",
+      "original": "sum_(i!=j)(+/-x_i +/-x_j)^8",
+      "corrected": "sum_(i<j)(+/-x_i +/-x_j)^8,with all four sign choices",
+      "reason": "Author specifies one term per root. Literal ordered i!=j counts each long root twice but each short root once,and destroys tau invariance:at(1,0,0,0) values57 and78 after root duality. Unordered pairs give24 long and24 short terms; Sage confirms all four Weyl generators,duality invariance,and I(1,i,0,0)=160. Steinberg2016 printed111 uses a sum over individual roots. This makes the intended counting explicit rather than treating an unspecified unordered-pair convention as automatic.",
+      "status": "corrected; source and stated validation evidence checked"
+    },
+    {
+      "id": "E071",
+      "source_file_page": 273,
+      "printed_page": 260,
+      "location": "14.3.1 first display after replacing t by its inverse",
+      "original": "product_(l=1)^l (t^d_i-epsilon_i)/(t-eta_i)",
+      "corrected": "product_(i=1)^l (t^d_i-epsilon_i)/(t-eta_i)",
+      "reason": "Native crop confirms l=1 in the scan. The factors and both adjacent versions are indexed by i; l is the fixed rank.",
+      "status": "corrected; source and stated validation evidence checked"
+    },
+    {
+      "id": "E072",
+      "source_file_page": 276,
+      "printed_page": 263,
+      "location": "14.4.1(b),self-conjugate Q-character existence;continued on264",
+      "original": "For any root r and any permitted nonzero t one can find a self-conjugate K-character of Q with chi(r)=t;later chi(r)=lambda is prescribed arbitrarily.",
+      "corrected": "Use explicit orbit coroot characters to obtain only the nontrivial root values needed. For an A2 orbit choose chi=chi_(r,lambda)chi_(rbar,lambdabar),so chi(r)=lambda^2/lambdabar and chi(r+rbar)=lambda*lambdabar.",
+      "reason": "The assertion of arbitrary values fails:overGF(25),24 self-conjugate Q-characters give only8 root values. For fixed singleton roots c^2 suffices exceptGF(3);in that finite residual case an adjacent orbit gives an inverse norm with both nonzero values. Commuting orbits give c^2 overK,which has more than3 elements. For A2,the norm is nonconstant unless the fixed field isGF(2). These constructions give exactly the nontrivial characters used below. Steinberg2016 printed112 gives the same unitary torus weights. Sage verifies the symbolic commutator/inverse and bounded finite cases;not the full theorem.",
+      "original_prose_snapshot": "build/ch14-4-original-character-prose.typ",
+      "status": "corrected; source and stated validation evidence checked"
+    },
+    {
+      "id": "E073",
+      "source_file_page": 276,
+      "printed_page": 263,
+      "location": "14.4.1(a),indecomposable generating set",
+      "original": "non-empty complimentary subsets",
+      "corrected": "non-empty complementary subsets",
+      "reason": "The subsets are complements in I;complimentary is the wrong adjective.",
+      "status": "corrected; source and stated validation evidence checked"
+    },
+    {
+      "id": "E074",
+      "source_file_page": 280,
+      "printed_page": 267,
+      "location": "14.4.1(e),domain of h((-lambda^-2)^theta)h(-lambda^-2)",
+      "original": "for all lambda in K",
+      "corrected": "for all lambda !=0 in K",
+      "reason": "The preceding torus element contains inverse powers;13.7.4 and subsequent paragraph already require lambda nonzero.",
+      "status": "corrected; source and stated validation evidence checked"
+    },
+    {
+      "id": "E075",
+      "source_file_page": 278,
+      "printed_page": 265,
+      "location": "14.4.1(c),A4 central chain commutator and three subsequent occurrences",
+      "original": "x_S4(tu,t*tbar*vbar);at t=1,x_S4(u,vbar)",
+      "corrected": "x_S4(tu,t*tbar*v);at t=1,x_S4(u,v)",
+      "reason": "With Carter bracket[a,b]=a^-1 b^-1 a b and ordered coordinates of13.6.4(iv),set r,s,sbar,rbar to successive A4 simple roots. Exact5x5 unipotent matrix multiplication overGF(2)[t,tbar,u,ubar,v],with vbar=u*ubar+v,proves the corrected identity. The printed right side differs only in entry(1,5) by t*tbar*u*ubar. A genuine conjugation-compatible witness overGF(4),t=u=1,v^2+v=1,gives difference1. First factor x_S3(t*vbar) retains its bar. Full source278 and earlier definition249 visually checked.",
+      "status": "corrected; source and stated validation evidence checked"
+    },
+    {
+      "id": "E076",
+      "source_file_page": 281,
+      "printed_page": 268,
+      "location": "14.5.1 choice of epsilon when l is odd",
+      "original": "an element of K satisfying epsilon+epsilonbar=0",
+      "corrected": "a non-zero element of K satisfying epsilon+epsilonbar=0",
+      "reason": "The form must be nondegenerate and A inverse is used in the proof;epsilon=0 would make the entire form zero.",
+      "status": "corrected; source and stated validation evidence checked"
+    },
+    {
+      "id": "E077",
+      "source_file_page": 282,
+      "printed_page": 269,
+      "location": "14.5.1 conjugation of x_r(t),last exponential",
+      "original": "exp(tbar*e_rbar)",
+      "corrected": "exp(ad(tbar*e_rbar))",
+      "reason": "The displayed equality is in the adjoint representation on the Lie algebra. The first two exponentials contain ad;the third dropped it. Source page visually confirms omission.",
+      "status": "corrected; source and stated validation evidence checked"
+    },
+    {
+      "id": "E078",
+      "source_file_page": 286,
+      "printed_page": 273,
+      "location": "14.5.2,matrices of forms on271 and273",
+      "original": "A is the matrix of f_D; S transpose A S with coordinates x1,...,xl,x-1,...,x-l",
+      "corrected": "A is the matrix of the polar form;S transpose A S is the polar matrix of f in the reordered coordinates",
+      "reason": "For Q=sum y_i*y_-i,the displayed off-diagonal identity blocks are the matrix of Q(x+y)-Q(x)-Q(y). In characteristic2 the polar matrix alone does not determine Q. The block S used on273 requires the coordinate order explicitly introduced on272,with l,-l last. Exact Sage pullback verifies Q itself in characteristics0 and2.",
+      "status": "corrected; source and stated validation evidence checked"
+    },
+    {
+      "id": "E079",
+      "source_file_page": 286,
+      "printed_page": 273,
+      "location": "14.5.2 concluding paragraph",
+      "original": "Thus the subgroup of Omega_2l(K,f_D) of elements T invariant under sigma is S Omega_2l(K0,f) S^-1. Since G is isomorphic to P Omega_2l(K,f_D) it follows that G1 is isomorphic to P Omega_2l(K0,f).",
+      "corrected": "The fixed root subgroups generating U1,V1 become elementary orthogonal subgroups of f overK0;these generate Omega_2l(K0,f). Their generated matrix group is S Omega_2l(K0,f) S^-1;quotienting scalar matrices gives the stated identification.",
+      "reason": "Fixed points do not in general commute with taking the commutator subgroup. OverK0=GF(3),K=GF(9),the matrix diag(2,1,1,1,2,1,1,1) preserves the descended form and is fixed,with spinor norm2. It belongs to Omega overK since2 becomes a square,but not overK0. Taylor11.51 supplies the spinor-norm criterion. The definition of G1 uses fixed root groups,not all fixed elements;Taylor11.46 gives elementary/Siegel generation. Sage checks the terminal D4 orbit product is exactly a Siegel transformation,as well as the quadratic pullback and semilinear descent in characteristics0/2. The full general identification is not formally proved.",
+      "status": "corrected; source and stated validation evidence checked"
+    },
+    {
+      "id": "E080",
+      "source_file_page": 287,
+      "printed_page": 274,
+      "location": "Definition of complex,15.1(b)",
+      "original": "Each pair of elements A,B...have a greatest lower bound",
+      "corrected": "Each pair of elements A,B...has a greatest lower bound",
+      "reason": "Singular each pair takes has;original reading visually confirmed. Mathematical content unchanged.",
+      "status": "corrected;source visually checked"
+    },
+    {
+      "id": "E081",
+      "source_file_page": 300,
+      "printed_page": 287,
+      "location": "Proof15.3.8,eq:15-3-8-short-prefix",
+      "original": "there exists alpha>=2",
+      "corrected": "there exists alpha>=1",
+      "reason": "The prepended word has s+1 letters. Exchange indexj in2..s+1 corresponds to alpha=j-1 in1..s. Common first generators require alpha=1;inS3 the equal reduced words(a,b),(a,b),a=(12),b=(23),admit onlyalpha1. Sage exact counterexample and8 finite exchange cases passed. Lean checks the conditional deletion identity and common-first cancellation,not the whole Matsumoto theorem.",
+      "status": "corrected;full source visually checked;exact counterexample and literature corroboration",
+      "validation": [
+        "validation/coxeter-exchange-sage.json",
+        "validation/lean/CoxeterDeletion.lean",
+        "LIT032"
+      ]
+    },
+    {
+      "id": "E082",
+      "source_file_page": 307,
+      "printed_page": 294,
+      "location": "15.5.1,thinness ofSigma0",
+      "original": "the only elements ofN contained inP_J are1,n_i",
+      "corrected": "the only cosets ofB intersectionN inN intersectionP_J areB intersectionN andn_i(B intersectionN)",
+      "reason": "N_J is the inverse image ofW_J,not its set of representatives. Proposition8.2.3 identifies(BnB) intersectionN withn(B intersectionN). SL2(F3) satisfies all rank-oneBN axioms butN has4 elements,not2;the corrected two cosets yield the intended two apartment chambers.",
+      "status": "corrected;full source visually checked;exactSage counterexample",
+      "validation": [
+        "validation/building-cosets-sage.json"
+      ]
+    },
+    {
+      "id": "E083",
+      "source_file_page": 307,
+      "printed_page": 294,
+      "location": "15.5.1,verification ofB4",
+      "original": "the chambers areP_J andnP_K",
+      "corrected": "the elements areP_J andnP_K",
+      "reason": "The argument begins with arbitrary elements and arbitraryJ,K;these need not be chambers. B4 requires arbitrary elements. The surrounding source consistently calls them elements.",
+      "status": "corrected;full source and local context checked"
+    },
+    {
+      "id": "E084",
+      "source_file_page": 310,
+      "printed_page": 297,
+      "location": "15.6.2,paragraph proving preservation of minimal galleries fromA",
+      "original": "The restriction retr_(Sigma,Cprime):Sigma-prime→Sigma is the unique isomorphism fixing all faces ofCprime.",
+      "corrected": "Use distance from a face to a chamber;apartment and global distances coincide by retraction. A retraction centred atE preserves distances from any face ofE,by restriction to an apartment containingE and the target chamber. Both factors ofalpha preserve distance fromA,so minimal galleries fromA remain minimal.",
+      "reason": "Cprime is not inSigma-prime,which containsC andCdoubleprime. The stated restriction sends bothC andCdoubleprime toC,so it cannot be injective. This already fails in a rank-one thick building. The corrected distance argument is exactly the missing ingredient of the parallel proof inAbramenko–Brown4.131,using4.34/4.35/4.39(2). It uses only retractions and thin apartment axioms,not the conclusion that apartments areCoxeter. The conclusion and remaining Carter proof are unchanged.",
+      "status": "corrected;full source visually checked;literature corroborated proof repair",
+      "validation": [
+        "LIT034"
+      ],
+      "accepted_file_sha256": {
+        "content/apartment-retractions.typ": "028889653b772e93f38fa67f56bf003025b637fcf273991e149231e16c6d11a1"
+      }
+    },
+    {
+      "id": "E085",
+      "source_file_page": 312,
+      "printed_page": 299,
+      "location": "Proof15.7.1,description ofSigma0",
+      "original": "The chambers ofSigma0 haveformnP_J",
+      "corrected": "The elements ofSigma0 haveformnP_J",
+      "reason": "The mapnP_J→P_J acts on allfaces indexed byarbitraryJ. Chambers haveformnB (Jempty). The immediatelypreceding15.5construction andfollowingtypecomparison use elements.",
+      "status": "corrected;fullsource andcontextchecked"
+    },
+    {
+      "id": "E086",
+      "source_file_page": 323,
+      "printed_page": 310,
+      "location": "Finaltable,Fi22 order",
+      "original": "2^17·3^9·5^2·7·11·23",
+      "corrected": "2^17·3^9·5^2·7·11·13",
+      "reason": "Samepage prosehas13. GAPCTblLibFi22order64561751654400 confirms13 and rejects23.",
+      "status": "corrected;fullsource checked andcorroborated",
+      "validation": [
+        "validation/sporadic-orders-sage.json"
+      ]
+    },
+    {
+      "id": "E087",
+      "source_file_page": 323,
+      "printed_page": 310,
+      "location": "Finaltable,Fischer group label",
+      "original": "Fi24 withorder2^21·3^16·5^2·7^3·11·13·17·23·29",
+      "corrected": "Fi24prime,sameorder",
+      "reason": "Precedingprose saysFi24has2^22 factor andsimpleindex2subgroupFi24prime. GAPagrees.",
+      "status": "corrected;fullsource checked andcorroborated",
+      "validation": [
+        "validation/sporadic-orders-sage.json"
+      ]
+    },
+    {
+      "id": "E088",
+      "source_file_page": 322,
+      "printed_page": 309,
+      "location": "LastWeylgroup isomorphism",
+      "original": "W(E8)/Z isomorphic O8(2)",
+      "corrected": "W(E8)/Z isomorphic O8plus(2)",
+      "reason": "Wilson3.12.4 printed104 provesmod2quadraticform hasplus typeandkernel{±1};GOinWilsonisfullOinCarter.",
+      "status": "corrected;fullsource checked andcorroborated",
+      "validation": [
+        "LIT035"
+      ]
+    },
+    {
+      "id": "E089",
+      "source_file_page": 321,
+      "printed_page": 308,
+      "location": "Finalparagraph,Conway groups",
+      "original": "Co1,Co2,Co3 containedinG",
+      "corrected": "Co1,Co2,Co3 arisingfromG",
+      "reason": "Co1isG/Z inpreviousparagraph,not subgroupof24-dimensionalintegralG. GAPmincomplexnontrivialdegree276rules out embedding inGL24(C);Co2,Co3 remain stabilizers.",
+      "status": "corrected;fullsource checked andcorroborated",
+      "validation": [
+        "LIT035",
+        "validation/sporadic-orders-sage.json"
+      ]
+    },
+    {
+      "id": "E090",
+      "source_file_page": 321,
+      "printed_page": 308,
+      "location": "Lastsentence,Suz",
+      "original": "ThegroupSuz alsooccurs insideG",
+      "corrected": "A sixfoldcentralextension ofSuz alsooccurs insideG",
+      "reason": "Wilson5.6(5.59) has6.Suzinside2.Co1;5.6.11 constructs quotientby6scalars. GAPminnontrivialcomplexdegree143 excludesSuzitselfinside24-dimensionalG. Keep historical sublatticestabilizerqualification.",
+      "status": "corrected;fullsource checked andcorroborated",
+      "validation": [
+        "LIT035",
+        "validation/sporadic-orders-sage.json"
+      ]
+    },
+    {
+      "id": "E091",
+      "source_file_page": 323,
+      "printed_page": 310,
+      "location": "Table discoverer andbibliography source331authorheader",
+      "original": "MacLaughlin",
+      "corrected": "McLaughlin",
+      "reason": "Prose320 hascorrectspelling;Springer primaryarticle authorJackMcLaughlin,DOI10.1007/BF01898827. Correctbothbibrecords understablekeys146,147;preserveoriginal inventoryspelling in source_author.",
+      "status": "corrected;fullsource checked andcorroborated",
+      "validation": [
+        "LIT036"
+      ]
+    },
+    {
+      "id": "E092",
+      "source_file_page": 331,
+      "printed_page": 318,
+      "location": "Bibliography authorheader",
+      "original": "H.V.Niemeyer",
+      "corrected": "H.V.Niemeier",
+      "reason": "Source321prose andpublisherrecord forarticlebasedon1968Göttingendissertation identifyHans-VolkerNiemeier. Thesisdate/details retained.",
+      "status": "corrected;fullsource checked andcorroborated",
+      "validation": [
+        "LIT036"
+      ]
+    },
+    {
+      "id": "E093",
+      "source_file_page": 319,
+      "printed_page": 306,
+      "location": "Chapter16.2 andfinaltable323",
+      "original": "MacKay",
+      "corrected": "McKay",
+      "reason": "Carter own bibliography hasG.Higman andJ.McKay;Wilson bibliography77 confirmsconstruction ofJ3. Fourbody/table occurrences corrected.",
+      "status": "corrected;fullsource checked andcorroborated",
+      "validation": [
+        "LIT036"
+      ]
+    },
+    {
+      "id": "E094",
+      "source_file_page": 322,
+      "printed_page": 309,
+      "location": "Beforefinalinduction on3-transpositions",
+      "original": "Laterconclusions claimGsimplealthoughinitialhypothesespermitnontrivialcentralcovers",
+      "corrected": "ExplicitlyreplaceGbyG/Z(G),again denotedG,forfollowingdiscussion",
+      "reason": "Classificationjuststatedconcernscentralquotient. Wilson5.7.4 exhibitsa2.Fi22generatedby3510transpositionsandnontrivialcentre;thus simplegroupidentificationsneedquotientconvention. Addminimalhypothesisclarification,retainargument.",
+      "status": "corrected;fullsource checked andcorroborated",
+      "validation": [
+        "LIT035"
+      ]
+    },
+    {
+      "id": "E095",
+      "source_file_page": 340,
+      "printed_page": 327,
+      "location": "Notationindex,W(Sigma)",
+      "original": "abstract Coxeter group Sigma",
+      "corrected": "abstract Coxeter complex Sigma",
+      "reason": "Sigma is the complex;W(Sigma) its group of type-preserving automorphisms,as15.3.6 states onoriginal284.",
+      "status": "corrected;source and body definition compared",
+      "validation": [
+        "validation/indexes-source-review.json"
+      ]
+    },
+    {
+      "id": "E096",
+      "source_file_page": 339,
+      "printed_page": 326,
+      "location": "Notationindex,Sp_n(K) locator",
+      "original": "Page2",
+      "corrected": "Definition in1.3,original3;clickablecurrentpageofsec:1-3",
+      "reason": "Original2defineslineargroups. Symplecticgroupsbegino n3;subjectindex331 itselfgives3. Originalnumber2 retainedininventory,semanticdefinitionlinkcorrected.",
+      "status": "corrected;source and body definition compared",
+      "validation": [
+        "validation/indexes-source-review.json"
+      ]
+    },
+    {
+      "id": "E097",
+      "source_file_page": 343,
+      "printed_page": 330,
+      "location": "Subjectindex,Lefshetz fixed point formula",
+      "original": "Lefshetz",
+      "corrected": "Lefschetz",
+      "reason": "Correctspellingalreadyappears in10.6,original169;indexdropsc.",
+      "status": "corrected;source and body definition compared",
+      "validation": [
+        "validation/indexes-source-review.json"
+      ]
+    }
+  ],
+  "bibliography_updates": [
+    {
+      "id": "BIB001",
+      "key": "bib335-238",
+      "author": "J. Tits",
+      "original_number": 22,
+      "source_file_page": 335,
+      "original": "Notes on finite BN-pairs, to appear.",
+      "decision": "Owner2026-09-18: replace the provisional citation in the reading bibliography with the published monograph only;retain original work number22 and stable key. Link the final title directly to its DOI. Historical source reading remains in this log.",
+      "published_account": {
+        "title": "Buildings of Spherical Type and Finite BN-Pairs",
+        "series": "Lecture Notes in Mathematics",
+        "volume": 386,
+        "publisher": "Springer-Verlag",
+        "year": 1974,
+        "doi": "10.1007/978-3-540-38349-9"
+      },
+      "sources": [
+        {
+          "url": "https://link.springer.com/book/10.1007/978-3-540-38349-9",
+          "finding": "Publisher confirms title,author,series386,first edition1974,DOI."
+        },
+        {
+          "url": "https://link.springer.com/content/pdf/bfm:978-3-540-38349-9/1",
+          "finding": "Title/copyright pages confirm firstedition1974 and secondcorrectedprinting1986. Introduction,p.IV: revised/extended Oberwolfach1968 seminar notes;chapter11 finiteBN-pairs."
+        },
+        {
+          "url": "https://www.college-de-france.fr/sites/default/files/media/document/2023-08/Jacques%20Tits%20Bibliographie.pdf",
+          "finding": "Institutional bibliography confirms book,series386,1974."
+        }
+      ],
+      "limitation": "No primary source explicitly equating Carter provisional title with final title was found. Publication is provided as a published account of the subject, not an exact identification.",
+      "requested_by_owner": true,
+      "checked_date": "2026-09-18",
+      "accepted_file_sha256": {
+        "references.bib": "2a6871ef0176a35460d27894f9b5d6d95d277563cd023cf925533ac668c2584b",
+        "content/bibliography.typ": "6677f6fdb3d2e388641ed8560154ae9853373fcee19b96ad2355ac0f1212846f"
+      },
+      "previous_decision": "Retain historical title; replace to-appear placeholder with an explicit pointer to the published account, not an asserted title identity. Add clickable DOI.",
+      "replacement_authorized_by_owner": true
+    }
+  ]
+}
