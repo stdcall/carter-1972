@@ -108,8 +108,8 @@ class SemanticRules(unittest.TestCase):
                      'equations':[{'label':'<eq:1-1>'}],
                      'metadata':[{'label':'<pg:source-1>', 'value':{'kind':'source', 'file-page':14, 'printed-page':'1'}}]}
 
-    def rules(self, data=None, config=None):
-        return {e['rule'] for e in semantic_checks(data or self.data, config or {}, [14])}
+    def rules(self, data=None):
+        return {e['rule'] for e in semantic_checks(data or self.data, [14])}
 
     def test_valid_document(self):
         self.assertFalse(self.rules())
@@ -135,18 +135,18 @@ class SemanticRules(unittest.TestCase):
         self.data['metadata'][0]['value']['file-page'] = 15
         self.assertIn('T015', self.rules())
 
-    def test_absent_target_then_stale_exception(self):
-        ref = {'value':{'kind':'cross-reference','target':'ch:4','resolved':False}}
-        self.data['metadata'].append(ref)
-        self.assertIn('T014', self.rules())
-        config = {'absent_targets':{'ch:4':'Outside current selection'}}
-        self.assertFalse(self.rules(config=config))
-        ref['value']['resolved'] = True
-        self.assertIn('T099', self.rules(config=config))
+    def test_missing_reference_is_always_an_error(self):
+        for target in ['ch:missing', 'sec:missing', 'th:1-1-1', 'bib:missing']:
+            with self.subTest(target=target):
+                data = copy.deepcopy(self.data)
+                data['metadata'].append({'value': {
+                    'kind': 'cross-reference', 'target': target, 'resolved': False}})
+                self.assertIn('T014', self.rules(data))
 
-    def test_missing_bibliography_cannot_be_allowlisted(self):
-        self.data['metadata'].append({'value':{'kind':'cross-reference','target':'bib:missing','resolved':False}})
-        self.assertIn('T014', self.rules(config={'absent_targets':{'bib:missing':'Not transcribed'}}))
+    def test_missing_source_page_is_an_error(self):
+        self.data['metadata'].append({'value': {
+            'kind': 'page-reference', 'original-page': '2', 'resolved': False}})
+        self.assertIn('T014', self.rules())
 
     def test_number_only_subsection_uses_counter_and_semantic_label(self):
         self.data['headings'].append({

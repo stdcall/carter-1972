@@ -4,7 +4,6 @@ For this project's unrotated, full-page Typst export, Typst puts the destination
 10pt above its semantic target. Validate positions, not just page existence.
 """
 import hashlib
-import json
 from pathlib import Path
 import re
 
@@ -128,12 +127,3 @@ def check_links(pdf, references, figure_anchors=None):
             'references': checked, 'explicit_absent_targets': sorted(set(absent)),
             'numbered_figure_anchors': figures,
             'links': records, 'viewer_click_test': 'not performed; actual PDF objects checked'}
-
-
-if __name__ == '__main__':
-    root = Path(__file__).resolve().parents[1]
-    report = check_links(root/'build/carter-1972.pdf',
-                         json.loads((root/'build/.cache/cross-references.json').read_text()),
-                         json.loads((root/'build/.cache/figure-anchors.json').read_text()))
-    (root/'build/.cache/internal-links.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
-    print(f"{report['semantic_references_checked']} semantic references; {report['internal_link_annotations']} PDF links checked")
