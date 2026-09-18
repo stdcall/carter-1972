@@ -1,10 +1,8 @@
-#!/usr/bin/env python3
 """Project lint: conservative source checks plus Typst's evaluated document.
 
 No fixes: mathematical meaning and source readings must never change implicitly.
 This is not a general Typst parser or a mathematical proof checker.
 """
-import argparse
 from collections import Counter
 import hashlib
 import json
@@ -149,7 +147,7 @@ def label_name(item):
     return (item.get('label') or '').strip('<>')
 
 
-def semantic_checks(data, config, expected_pages):
+def semantic_checks(data, expected_pages):
     findings = []
     def add(rule, item, message):
         findings.append({'rule': rule, 'path': 'content/main.typ', 'position': item.get('position'), 'message': message})
@@ -174,7 +172,6 @@ def semantic_checks(data, config, expected_pages):
             add('T013', item, 'Displayed equation must itself carry an eq: label')
         else:
             semantic_labels.append(name)
-    missing = set()
     sources = []
     for item in data['metadata']:
         value = item['value']
@@ -187,9 +184,7 @@ def semantic_checks(data, config, expected_pages):
         if kind in ('cross-reference', 'page-reference'):
             target = value.get('target', 'pg:source-'+str(value.get('original-page', '')))
             if not value.get('resolved'):
-                missing.add(target)
-                if target.startswith('bib:') or not config.get('absent_targets', {}).get(target, '').strip():
-                    add('T014', value, f'Unresolved reference: {target}')
+                add('T014', value, f'Unresolved reference: {target}')
         if kind == 'source':
             sources.append(value['file-page'])
             printed = value['printed-page']
@@ -199,8 +194,6 @@ def semantic_checks(data, config, expected_pages):
                 add('T015', value, 'Incorrect Carter DjVu/printed page offset')
         if kind == 'bibliography-anchor' and name != 'bib:'+value['key']:
             add('T016', value, 'Bibliography key/anchor mismatch')
-    for target in set(config.get('absent_targets', {}))-missing:
-        add('T099', {}, f'Unused absent-target exception: {target}')
     if sources != sorted(set(sources)):
         add('T015', {}, 'Source pages must be unique and in original order')
     if sources != expected_pages:
@@ -221,33 +214,27 @@ def input_hashes(root):
     return {str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
 
 
-def format_sources(root=ROOT):
-    subprocess.run(formatter_command(root, inplace=True), cwd=root,
-                   check=True, timeout=90)
-
-
-def lint(root=ROOT, semantic=True):
+def lint(root=ROOT):
     cache_path(root).mkdir(parents=True, exist_ok=True)
     config = json.loads((root/'config/lint.json').read_text())
     findings = []
     seen = {}
     hashes = input_hashes(root)
     upstream = []
-    if semantic:
-        commands = [
-            ['tinymist', 'lint', '--diagnostic-format', 'short', '--root', str(root), settings(root)['entry']],
-            formatter_command(root, check=True),
-        ]
-        for cmd in commands:
-            if not shutil.which(cmd[0]):
-                findings.append({'rule':'T000', 'path':'content/main.typ', 'message':f'Missing {cmd[0]}; install with brew install tinymist typstyle'})
-                continue
-            checked = subprocess.run(cmd, cwd=root, env=tool_env(root), capture_output=True, text=True, timeout=90)
-            output = checked.stdout+checked.stderr
-            upstream.append({'command':cmd, 'exit_code':checked.returncode, 'diagnostics':output,
-                             'version':subprocess.check_output([cmd[0], '--version'], text=True).strip()})
-            if checked.returncode or re.search(r'(?:^|: )(?:warning|error):', output, re.M):
-                findings.append({'rule':'T000', 'path':'content/main.typ', 'message':f'{cmd[0]} failed: {output.strip()}'})
+    commands = [
+        ['tinymist', 'lint', '--diagnostic-format', 'short', '--root', str(root), settings(root)['entry']],
+        formatter_command(root, check=True),
+    ]
+    for cmd in commands:
+        if not shutil.which(cmd[0]):
+            findings.append({'rule':'T000', 'path':'content/main.typ', 'message':f'Missing {cmd[0]}; install with brew install tinymist typstyle'})
+            continue
+        checked = subprocess.run(cmd, cwd=root, env=tool_env(root), capture_output=True, text=True, timeout=90)
+        output = checked.stdout+checked.stderr
+        upstream.append({'command':cmd, 'exit_code':checked.returncode, 'diagnostics':output,
+                         'version':subprocess.check_output([cmd[0], '--version'], text=True).strip()})
+        if checked.returncode or re.search(r'(?:^|: )(?:warning|error):', output, re.M):
+            findings.append({'rule':'T000', 'path':'content/main.typ', 'message':f'{cmd[0]} failed: {output.strip()}'})
     for path in (p for p in hashes if p.endswith('.typ')):
         errors, labels = source_checks(path, (root/path).read_text(), config)
         findings.extend(errors)
@@ -256,27 +243,26 @@ def lint(root=ROOT, semantic=True):
                 findings.append({'rule':'T010','path':path,'line':line,'message':f'Duplicate label {name}; first in {seen[name]}'})
             seen[name] = path
     data = None
-    if semantic:
-        result = subprocess.run(['typst','eval',EXPRESSION,'--in',settings(root)['entry'],'--format','json'],
-                                cwd=root, env=tool_env(root), capture_output=True, text=True)
-        if result.returncode or result.stderr.strip():
-            findings.append({'rule':'T000','path':'content/main.typ','message':result.stderr.strip() or 'Typst evaluation failed'})
-        if result.returncode == 0:
-            data = json.loads(result.stdout)
-            expected = json.loads((root/'data/source-pages.json').read_text())['source_file_pages']
-            findings.extend(semantic_checks(data, config, expected))
-            inventories = [json.loads((root/name).read_text()) for name in
-                           ['data/notation-index.json', 'data/subject-index.json']]
-            index_errors = index_checks(data['metadata'], inventories)
-            findings.extend({'rule': 'T050', 'path': 'content/main.typ', 'message': e}
-                            for e in index_errors)
-            (root/'build/.cache/index-report.json').write_text(json.dumps({
-                'status': 'failed' if index_errors else 'passed',
-                'counts': [len(rows) for rows in inventories],
-                'input_sha256': hashes, 'errors': index_errors,
-            }, ensure_ascii=False, indent=2)+'\n')
-    report = {'status':'failed' if findings else 'passed', 'scope':'source+evaluated document' if semantic else 'source only',
-              'input_sha256':hashes, 'upstream':upstream, 'errors':findings, 'explicit_absent_targets':config.get('absent_targets', {}),
+    result = subprocess.run(['typst','eval',EXPRESSION,'--in',settings(root)['entry'],'--format','json'],
+                            cwd=root, env=tool_env(root), capture_output=True, text=True)
+    if result.returncode or result.stderr.strip():
+        findings.append({'rule':'T000','path':'content/main.typ','message':result.stderr.strip() or 'Typst evaluation failed'})
+    if result.returncode == 0:
+        data = json.loads(result.stdout)
+        expected = json.loads((root/'data/source-pages.json').read_text())['source_file_pages']
+        findings.extend(semantic_checks(data, expected))
+        inventories = [json.loads((root/name).read_text()) for name in
+                       ['data/notation-index.json', 'data/subject-index.json']]
+        index_errors = index_checks(data['metadata'], inventories)
+        findings.extend({'rule': 'T050', 'path': 'content/main.typ', 'message': e}
+                        for e in index_errors)
+        (root/'build/.cache/index-report.json').write_text(json.dumps({
+            'status': 'failed' if index_errors else 'passed',
+            'counts': [len(rows) for rows in inventories],
+            'input_sha256': hashes, 'errors': index_errors,
+        }, ensure_ascii=False, indent=2)+'\n')
+    report = {'status':'failed' if findings else 'passed', 'scope':'source+evaluated document',
+              'input_sha256':hashes, 'upstream':upstream, 'errors':findings,
               'counts':{'source_files':sum(p.endswith('.typ') for p in hashes), 'static_labels':len(seen),
                         'display_equations':len(data['equations']) if data else None,
                         'headings':len(data['headings']) if data else None}}
@@ -287,13 +273,3 @@ def lint(root=ROOT, semantic=True):
         print(f"{item['path']}:{item.get('line', '?')}: {item['rule']}: {item['message']}")
     print(json.dumps({'lint':report['status'], 'errors':len(findings), **report['counts']}))
     return report
-
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--source-only', action='store_true', help='Fast incomplete check; cannot qualify a release')
-    parser.add_argument('--fix', action='store_true', help='Apply upstream Typstyle fixes before checking; never fix source readings')
-    args = parser.parse_args()
-    if args.fix:
-        format_sources()
-    raise SystemExit(0 if lint(semantic=not args.source_only)['status'] == 'passed' else 1)

@@ -98,6 +98,3 @@ def compile_bibliography(root=ROOT):
     if not output.exists() or output.read_text() != serialized:
         output.write_text(serialized)
     return result
-
-if __name__=='__main__':
-    x=compile_bibliography(); print(f"{x['entries']} BibLaTeX records; {x['printed_items']} original numbered items")

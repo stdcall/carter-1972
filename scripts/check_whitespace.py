@@ -1,13 +1,10 @@
-#!/usr/bin/env python3
 """Flag large bottom gaps in the rendered text area for visual review.
 
 Headers, footers and the normal 21 mm bottom margin are excluded. Rendered
 ink includes vector diagrams and rules, not just extractable text. This is
 a screening check: a large matrix or a chapter ending can justify a gap.
 """
-import argparse
 import hashlib
-import json
 from pathlib import Path
 
 import fitz
@@ -81,16 +78,3 @@ def check_whitespace(pdf, bookmarks):
         'pages_requiring_review': pending,
         'pages': pages,
     }
-
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--pdf', type=Path,
-                        default=ROOT / 'build/carter-1972.pdf')
-    args = parser.parse_args()
-    structure = json.loads((ROOT / 'build/.cache/pdf-report.json').read_text())
-    report = check_whitespace(args.pdf, structure['bookmarks'])
-    (ROOT / 'build/.cache/whitespace-report.json').write_text(
-        json.dumps(report, ensure_ascii=False, indent=2) + '\n')
-    print(json.dumps({k: report[k] for k in
-                      ['status', 'pages_checked', 'pages_requiring_review']}))

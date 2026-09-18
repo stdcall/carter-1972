@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
 """Build Typst text and CeTZ diagrams, with zoom-preserving PDF outlines."""
-import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -203,8 +201,6 @@ def build(force=False, thorough=False, exported=None):
         '\n'.join(p.read_text() for p in (ROOT/'content').rglob('*.typ')))))
     expr = '(' + ','.join(json.dumps(n) for n in figure_labels) + ',).map(n => (target: n, position: query(label(n)).first().location().position()))'
     figure_anchors = json.loads(run(['typst', 'eval', expr, '--in', settings()['entry'], '--format', 'json']).stdout)
-    (cache/'cross-references.json').write_text(json.dumps(references))
-    (cache/'figure-anchors.json').write_text(json.dumps(figure_anchors))
     staged = cache/'book-checked.pdf'
     report = normalize_outlines(raw, staged, references=references)
     links = check_links(staged, references, figure_anchors)
@@ -244,11 +240,3 @@ def build_corrections():
     (cache/'corrections-report.json').write_text(json.dumps(report, indent=2)+'\n')
     raw.unlink()
     print('Corrections: '+str(len(ids))+' entries; '+str(report['pdf_pages'])+' pages')
-
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--force', action='store_true')
-    parser.add_argument('--check', action='store_true')
-    args = parser.parse_args()
-    build(force=args.force or args.check, thorough=args.check)
