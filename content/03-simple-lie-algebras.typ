@@ -366,7 +366,8 @@
     We define an integer $n_(i j)$ by $n_(i j)=4 cos^2 theta_(i j)$. Thus
     $n_(i j)=0,1,2$ or $3$ if $i!=j$. $n_(i j)$ admits a factorization
     $
-      n_(i j)=frac(2(p_i,p_j), lr((p_i,p_i))) dot frac(2(p_j,p_i), lr((p_j,p_j)))
+      n_(i j)=frac(2(p_i,p_j), lr((p_i,p_i))) dot
+      frac(2(p_j,p_i), lr((p_j,p_j)))
     $ <eq:3-4-3>
     into a product of two non-positive integers. We consider this factorization
     in the different cases which can arise.
@@ -972,5 +973,5 @@
   ]
 ]
 
-// Preview this file in the context of the complete book.
-#context { include "main.typ" }
+#import "chapter-preview.typ": chapter-preview
+#chapter-preview(3, chapter)

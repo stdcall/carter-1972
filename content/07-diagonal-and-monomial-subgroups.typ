@@ -338,7 +338,8 @@
       $h(chi) in H$. Then we have
     ]
     $
-      n h(chi)n^(-1) dot h_s & =n h(chi) dot (n^(-1)h_s)=n dot (n^(-1)h_s)=h_s, \
+      n h(chi)n^(-1) dot h_s & =n h(chi) dot (n^(-1)h_s)=n dot
+                               (n^(-1)h_s)=h_s, \
       n h(chi)n^(-1) dot e_s & =n h(chi) dot (eta e_(w^(-1)(s))),
     $ <eq:7-2-2-conjugated-action>
     // E030: a general n in N may contain torus factors, so eta is not just ±1.
@@ -421,5 +422,5 @@
   ]
 ]
 
-// Preview this file in the context of the complete book.
-#context { include "main.typ" }
+#import "chapter-preview.typ": chapter-preview
+#chapter-preview(7, chapter)

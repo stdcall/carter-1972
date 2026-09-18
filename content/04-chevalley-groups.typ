@@ -324,7 +324,8 @@
       be a Cartan decomposition of #L. Let $h_r in frak(H)$ be the co-root
       corresponding to the root $r$. Then, for each root $r in Phi$, an element
       $e_r$ can be chosen in $frak(L)_r$ such that
-      // E020: spell out the root-sum condition and exclude opposite roots below.
+      // E020: spell out the root-sum condition and exclude opposite roots
+      // below.
       $
         [e_r e_(-r)] & =h_r, \
            [e_r e_s] & =plus.minus(p+1)e_(r+s), quad r+s in Phi,
@@ -702,7 +703,8 @@
     $frak(L)_K$. Suppose
     $
                           [v_i v_j] & =sum_k gamma_(i j k)v_k, \
-      [overline(v)_i overline(v)_j] & =sum_k overline(gamma)_(i j k)overline(v)_k,
+      [overline(v)_i overline(v)_j] & =sum_k
+                                      overline(gamma)_(i j k)overline(v)_k,
     $ <eq:4-4-2-structure-constants>
     where $gamma_(i j k) in ZZ$ and $overline(gamma)_(i j k)$ are the
     corresponding elements of the prime field of $K$. Now we have
@@ -804,7 +806,8 @@
     as the algebra of $2 times 2$ matrices of trace $0$ under Lie multiplication
     $[x y]=x y-y x$. For if we define
     $
-      h_r=mat(1, 0; 0, -1), quad e_r=mat(0, 1; 0, 0), quad e_(-r)=mat(0, 0; 1, 0),
+      h_r=mat(1, 0; 0, -1), quad e_r=mat(0, 1; 0, 0), quad
+      e_(-r)=mat(0, 0; 1, 0),
     $ <eq:4-5-sl2-basis>
     #block(sticky: true)[we have]
     $ [h_r e_r]=2e_r, quad [h_r e_(-r)]=-2e_(-r), quad [e_r e_(-r)]=h_r. $
@@ -832,7 +835,8 @@
     $ <eq:4-5-1-first-powers>
     #block(sticky: true)[We show]
     $
-      frac((ad y)^k, k!) dot x=sum_(i,j \ i+j=k) frac(y^i, i!)x frac((-y)^j, j!).
+      frac((ad y)^k, k!) dot x=sum_(i,j \ i+j=k) frac(y^i, i!)x
+      frac((-y)^j, j!).
     $
     <eq:4-5-1-divided-power>
     #block(sticky: true)[
@@ -846,7 +850,8 @@
         (frac(y^(i+1), i!)x frac((-y)^j, j!)
           +frac(y^i, i!)x frac((-y)^(j+1), j!))
       ) \
-      &=sum_(m,n \ m+n=k+1) frac(y^m, m!)x frac((-y)^n, n!)lr((frac(m+n, k+1))) \
+      &=sum_(m,n \ m+n=k+1) frac(y^m, m!)x
+      frac((-y)^n, n!)lr((frac(m+n, k+1))) \
       &=sum_(m,n \ m+n=k+1) frac(y^m, m!)x frac((-y)^n, n!).
     $ <eq:4-5-1-induction>
     Now $y$ is nilpotent and so $((ad y)^k/k!)x=0$ for sufficiently large values
@@ -902,5 +907,5 @@
   ]
 ]
 
-// Preview this file in the context of the complete book.
-#context { include "main.typ" }
+#import "chapter-preview.typ": chapter-preview
+#chapter-preview(4, chapter)

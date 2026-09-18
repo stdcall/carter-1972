@@ -359,7 +359,8 @@
     <eq:12-1-1-minimal-parabolic-condition>
     #block(sticky: true)[Now we have]
     $
-      nbar_r Bbar nbar_r & =nbar_r Bbar nbar_r^(-1)=nbar_r Ubar Hbar nbar_r^(-1) \
+      nbar_r Bbar nbar_r & =nbar_r Bbar nbar_r^(-1)=nbar_r Ubar Hbar
+                           nbar_r^(-1) \
                          & =nbar_r Xbar_r Ubar_r Hbar nbar_r^(-1)
                            =Xbar_(-r)Ubar_r Hbar subset.eq Xbar_(-r)Bbar.
     $ <eq:12-1-1-minimal-parabolic-calculation>
@@ -407,7 +408,8 @@
     natural homomorphism. Hence
     $
       Bbar nbar_w Bbar & =Bbar nbar_w Hbar Ubar_w^+ Ubar_w^- \
-                       & =Bbar Hbar nbar_w Ubar_w^+ Ubar_w^-=Bbar nbar_w Ubar_w^-.
+                       & =Bbar Hbar nbar_w Ubar_w^+ Ubar_w^-=Bbar
+                         nbar_w Ubar_w^-.
     $ <eq:12-1-1-cell-reduction>
     Thus each element $gbar in Gbar$ can be written in the form
     $ gbar=bbar nbar_w ubar, $ <eq:12-1-1-cell-expression>
@@ -581,7 +583,8 @@
     This is so if and only if this character takes value $1$ at each fundamental
     root. Now
     $
-      chi_(p_i,t_i)(p_j)=t_i^(2 lr((p_i,p_j)) slash lr((p_i,p_i)))=t_i^(A_(i j)).
+      chi_(p_i,t_i)(p_j)=t_i^(2 lr((p_i,p_j)) slash lr((p_i,p_i)))
+      =t_i^(A_(i j)).
     $
     <eq:12-1-character-on-simple-root>
     #block(sticky: true)[Thus]
@@ -906,7 +909,8 @@
     #block(breakable: false, width: 100%)[
       $
         n_r (t) & ->x_rbar (t^(lambda(rbar)))
-                  x_(-rbar)((-t^(-1))^(lambda(rbar))) x_rbar (t^(lambda(rbar))) \
+                  x_(-rbar)((-t^(-1))^(lambda(rbar))) x_rbar
+                  (t^(lambda(rbar))) \
                 & =n_rbar (t^(lambda(rbar))),
       $ <eq:12-3-3-weyl-image>
     ]
@@ -1305,7 +1309,8 @@
     #block(sticky: true)[Consider the subset $B n_r^(-1) inter V$. We have]
     $
       B n_r^(-1) inter V & =B n_r^(-1) inter n_(w_0)U n_(w_0)^(-1) \
-                         & subset (B n_r^(-1)n_(w_0) inter n_(w_0)U)n_(w_0)^(-1) \
+                         & subset (B n_r^(-1)n_(w_0) inter
+                             n_(w_0)U)n_(w_0)^(-1) \
                          & subset (B n_r^(-1)n_(w_0)B inter B
                              n_(w_0)B)n_(w_0)^(-1).
     $ <eq:12-5-disjoint-cells>
@@ -1511,5 +1516,5 @@
   ]
 ]
 
-// Preview this file in the context of the complete book.
-#context { include "main.typ" }
+#import "chapter-preview.typ": chapter-preview
+#chapter-preview(12, chapter)

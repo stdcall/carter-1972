@@ -14,7 +14,7 @@
   "tinymist.formatterMode": "typstyle",
   "tinymist.formatterPrintWidth": 80,
   "tinymist.formatterIndentSize": 2,
-  "tinymist.formatterProseWrap": "fill",
+  "tinymist.formatterProseWrap": true,
   "tinymist.fontPaths": [
     "${workspaceFolder}/assets/fonts"
   ],

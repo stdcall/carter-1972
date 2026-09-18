@@ -1462,7 +1462,9 @@
     #let retr = math.op("retr")
 
     #source(312, "299")
-    == Groups of Type-Preserving Automorphisms <sec:type-preserving-automorphisms>
+    #heading(level: 2)[
+      Groups of Type-Preserving Automorphisms
+    ] <sec:type-preserving-automorphisms>
 
     We shall be concerned with groups of type-preserving automorphisms of a
     building $Omega$, and first give an example in the building $Omega(G; B, N)$
@@ -1638,5 +1640,5 @@
   ]
 ]
 
-// Preview this file in the context of the complete book.
-#context { include "main.typ" }
+#import "chapter-preview.typ": chapter-preview
+#chapter-preview(15, chapter)

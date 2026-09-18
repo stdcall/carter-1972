@@ -6,7 +6,9 @@
       position: here().position(),
     ))#label("pg:source-" + printed)]
 }
-// Author's numbering is retained; an absent pilot target stays plain text.
+// Only standalone chapter previews may lack automatic reference targets.
+#let chapter-preview-mode = state("chapter-preview", false)
+
 #let reference-numbers(body) = {
   show regex("[0-9]+(?:\\.[0-9]+)*|\\b[ivxlcdm]+\\b"): set text(
     weight: "semibold",
@@ -26,10 +28,14 @@
   let target = label(prefix + ":" + id)
   let found = query(target)
   let body = if body == none {
-    assert(found.len() == 1, message: "Missing heading: " + str(target))
-    let entry = found.first()
-    assert(entry.func() == heading and entry.numbering != none)
-    supplement + numbering("1.1", ..counter(heading).at(entry.location()))
+    if found.len() == 0 and chapter-preview-mode.get() {
+      supplement + [?]
+    } else {
+      assert(found.len() == 1, message: "Missing heading: " + str(target))
+      let entry = found.first()
+      assert(entry.func() == heading and entry.numbering != none)
+      supplement + numbering("1.1", ..counter(heading).at(entry.location()))
+    }
   } else { body }
   let destination = if found.len() == 1 {
     let pos = found.first().location().position()

@@ -95,6 +95,49 @@ class PDFLinks(unittest.TestCase):
             check_links(broken, self.references)
 
 
+class ChapterPreview(unittest.TestCase):
+    def test_local_links_work_and_external_numbers_are_placeholders(self):
+        with tempfile.TemporaryDirectory(dir=ROOT/'build/.cache') as folder:
+            source = Path(folder)/'chapter.typ'
+            pdf = Path(folder)/'chapter.pdf'
+            source.write_text('''#import "/content/main-defs.typ": section-ref
+#import "/content/chapter-preview.typ": chapter-preview
+#chapter-preview(11)[
+= A single chapter <ch:preview-example>
+See #section-ref("local-section") and #section-ref("external-section").
+== Local section <sec:local-section>
+The chapter ends here.
+]
+''')
+            subprocess.run(['typst', 'compile', '--root', str(ROOT), str(source), str(pdf)],
+                           check=True, capture_output=True)
+            reader = PdfReader(pdf)
+            self.assertEqual(len(reader.pages), 1)
+            text = reader.pages[0].extract_text()
+            self.assertIn('11. A single chapter', text)
+            self.assertIn('section 11.1', text)
+            self.assertIn('section ?', text)
+            references = json.loads(subprocess.check_output(
+                ['typst', 'eval', EXPR, '--root', str(ROOT), '--in', str(source), '--format', 'json'], text=True))
+            local = [r for r in references if r['resolved']]
+            self.assertEqual(len(local), 1)
+            self.assertEqual(local[0]['target'], 'sec:local-section')
+            check_links(pdf, local)
+
+    def test_importing_chapter_preview_does_not_relax_full_book_references(self):
+        with tempfile.TemporaryDirectory(dir=ROOT/'build/.cache') as folder:
+            source = Path(folder)/'main.typ'
+            source.write_text('''#import "/content/main-defs.typ": section-ref
+#import "/content/11-properties-of-chevalley-groups.typ": chapter
+#section-ref("missing-section")
+''')
+            result = subprocess.run(
+                ['typst', 'compile', '--root', str(ROOT), str(source), str(Path(folder)/'main.pdf')],
+                capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('Missing heading:', result.stderr)
+
+
 class IndexLinks(unittest.TestCase):
     def test_definition_intro_is_visible_and_index_inset_is_local(self):
         with tempfile.TemporaryDirectory(dir=ROOT/'build/.cache') as folder:

@@ -130,7 +130,8 @@
                              dot frac([xi,eta]^(k+1), 2^k dot k!)
                              dot (-1)^(k+1)
     $ <eq:5-1-2-induction-expansion>
-    // E024: the last sum explicitly excludes i=0; otherwise (i-1)! is undefined.
+    // E024: the last sum explicitly excludes i=0; otherwise (i-1)! is
+    // undefined.
     $
       & =sum_(i,j,k \ i+j+2k=n) frac(xi^i, i!) dot frac(eta^j, j!)
         dot frac([xi,eta]^k, 2^k dot k!) dot (-1)^k
@@ -262,7 +263,8 @@
     #block(sticky: true)[
       $[xi,eta]$ is again nilpotent and commutes with $xi,eta$. Thus
     ]
-    // E025: restore the two BCH factors from the preceding definitions of xi,eta.
+    // E025: restore the two BCH factors from the preceding definitions of
+    // xi,eta.
     $
       & x_r (t)x_s (u)x_r (t)^(-1) \
       & =exp(u ad e_s+M_(r,s,1)t u ad e_(r+s)) \
@@ -702,5 +704,5 @@
   ]
 ]
 
-// Preview this file in the context of the complete book.
-#context { include "main.typ" }
+#import "chapter-preview.typ": chapter-preview
+#chapter-preview(5, chapter)

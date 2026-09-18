@@ -13,7 +13,9 @@
     Chevalley groups of type $A_l,B_l,C_l,D_l$ are isomorphic to certain
     classical groups.
 
-    == The Simplicity of the Chevalley Groups <sec:simplicity-of-chevalley-groups>
+    #heading(level: 2)[
+      The Simplicity of the Chevalley Groups
+    ] <sec:simplicity-of-chevalley-groups>
 
     We first prove a criterion for simplicity valid for any group with a
     $(B,N)$-pair. We recall from section #book-ref("sec", "bn-pairs") that in
@@ -313,7 +315,9 @@
   #[
     #import "main-defs.typ": bib-ref, book-ref, qed, source
 
-    == Classical Lie Algebras in Matrix Form <sec:classical-lie-algebra-matrices>
+    #heading(level: 2)[
+      Classical Lie Algebras in Matrix Form
+    ] <sec:classical-lie-algebra-matrices>
 
     We wish to show now that the Chevalley groups
     $A_l (K),B_l (K),C_l (K),D_l (K)$ are isomorphic to certain classical
@@ -461,7 +465,8 @@
     $
       [e_(i j)-e_(-j,-i),-e_(-i,-j)+e_(j i)]=e_(i i)-e_(j
       j)-e_(-i,-i)+e_(-j,-j), \
-      [e_(i,-j)-e_(j,-i),-e_(-i,j)+e_(-j,i)]=e_(i i)+e_(j j)-e_(-i,-i)-e_(-j,-j).
+      [e_(i,-j)-e_(j,-i),-e_(-i,j)+e_(-j,i)]=e_(i i)
+      +e_(j j)-e_(-i,-i)-e_(-j,-j).
     $ <eq:11-2-3-coroots>
     For in each case we have $[h_r e_r]=2e_r$. As in #book-ref(
       "sec",
@@ -609,7 +614,8 @@
     $
       [e_(i j)-e_(-j,-i),-e_(-i,-j)+e_(j i)]=e_(i i)-e_(j
       j)-e_(-i,-i)+e_(-j,-j), \
-      [e_(i,-j)+e_(j,-i),e_(-i,j)+e_(-j,i)]=e_(i i)+e_(j j)-e_(-i,-i)-e_(-j,-j), \
+      [e_(i,-j)+e_(j,-i),e_(-i,j)+e_(-j,i)]=e_(i i)
+      +e_(j j)-e_(-i,-i)-e_(-j,-j), \
       [e_(i,-i),e_(-i,i)]=e_(i i)-e_(-i,-i).
     $ <eq:11-2-5-coroots>
     For $[h_r e_r]=2e_r$ in each case. The map $theta(x)=-x'$ is an automorphism
@@ -888,5 +894,5 @@
   ]
 ]
 
-// Preview this file in the context of the complete book.
-#context { include "main.typ" }
+#import "chapter-preview.typ": chapter-preview
+#chapter-preview(11, chapter)

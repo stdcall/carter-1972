@@ -3,9 +3,9 @@
   "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
   "mathlib_commit": "a218e50f981942cba4fd060faff7cae680805062",
   "content_sha256": {
-    "content/13-twisted-simple-groups.typ": "bdf40429cc6fde430b0353239ada0fed59a1407dc86ed627ef03f19c0fd331b0",
-    "content/04-chevalley-groups.typ": "3e9a490cbb794ae14e242a5427edfcac2e3c981a8b4a7f516a8e3009e79612c5",
-    "content/09-polynomial-invariants.typ": "7682d9d561de85b1416eb9d5a16d95a35cae0a2867b18415ce31cde6ff9afc65"
+    "content/13-twisted-simple-groups.typ": "095bf26639ce6dc54e8b15ba4d2e09991587d8c636f1c7c936f632c8a2781b49",
+    "content/04-chevalley-groups.typ": "c3b564b617addad3fbc35626394cc95803b93cc218427f7ccbe293ca9c2785c3",
+    "content/09-polynomial-invariants.typ": "3ad41540f4308de3d01bfe38fefa99770dd9464b2198c67a92600af91e153e66"
   },
   "source_pages": [
     60,

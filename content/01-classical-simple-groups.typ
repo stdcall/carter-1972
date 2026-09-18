@@ -213,7 +213,8 @@
   corresponding projective groups
   $
      italic("PO")_n (K,f) & = O_n (K,f)\/Z, \
-    italic("PSO")_n (K,f) & = italic("SO")_n (K,f)\/Z inter italic("SO")_n (K,f).
+    italic("PSO")_n (K,f) & = italic("SO")_n (K,f)\/Z inter
+                            italic("SO")_n (K,f).
   $ <eq:1-4-projective>
 
   One might expect, by analogy with the symplectic groups, that the groups
@@ -302,7 +303,8 @@
   centre we obtain the corresponding projective groups
   $
      italic("PU")_n (K,f) & = U_n (K,f)\/Z, \
-    italic("PSU")_n (K,f) & = italic("SU")_n (K,f)\/Z inter italic("SU")_n (K,f).
+    italic("PSU")_n (K,f) & = italic("SU")_n (K,f)\/Z inter
+                            italic("SU")_n (K,f).
   $ <eq:1-5-projective>
   The groups $italic("PSU")_n (K,f)$ are usually simple. In fact
   $italic("PSU")_n (K,f)$ is always simple provided $n>=2$ and $nu>=1$, with the
@@ -466,5 +468,5 @@
   can be interpreted as simple groups of Lie type.
 ]
 
-// Preview this file in the context of the complete book.
-#context { include "main.typ" }
+#import "chapter-preview.typ": chapter-preview
+#chapter-preview(1, chapter)

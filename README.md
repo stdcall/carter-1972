@@ -43,9 +43,11 @@ a second formatting extension is unnecessary.
 Run `just build` once after a fresh checkout. `content/main.typ` is
 configured as the entry through `tinymist.typstExtraArgs`. Tinymist supplies
 live preview, source/preview synchronization, lint on save and formatting.
-Use the preview button in `content/main.typ` or any numbered chapter. Each
-chapter exports its text to the book; opened on its own, it previews the whole
-book so automatic references and source synchronization retain their context.
+Use the preview button in `content/main.typ` for the complete book, or in a
+numbered chapter for that chapter alone. Chapter previews use the book's
+typography and chapter number, with their own pagination. Links within the
+chapter work; references outside it are plain text, with `?` for an automatic
+number that needs another chapter. The full build still checks every reference.
 Every file in `content/diagrams/` also has a standalone preview; open a file
 and run **Typst Preview: Preview Opened File**. Files with several variants
 display them together or on separate preview pages. The shared template is

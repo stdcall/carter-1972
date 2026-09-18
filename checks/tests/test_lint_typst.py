@@ -1,10 +1,33 @@
 import copy
+import json
 from pathlib import Path
 import sys
+import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
 from lint_typst import source_checks, semantic_checks
+from project import formatter_command
+
+
+class FormatterConfiguration(unittest.TestCase):
+    def test_editor_boolean_maps_to_cli_wrapping_mode(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root/'.vscode').mkdir()
+            (root/'config').mkdir()
+            (root/'config/project.json').write_text('{"format_sources": ["content"]}')
+            config = {'tinymist.formatterPrintWidth': 80,
+                      'tinymist.formatterIndentSize': 2}
+            path = root/'.vscode/settings.json'
+            for enabled, mode in [(True, 'fill'), (False, 'none')]:
+                config['tinymist.formatterProseWrap'] = enabled
+                path.write_text(json.dumps(config))
+                self.assertIn('--wrap-text='+mode, formatter_command(root))
+            config['tinymist.formatterProseWrap'] = 'fill'
+            path.write_text(json.dumps(config))
+            with self.assertRaisesRegex(ValueError, 'must be a boolean'):
+                formatter_command(root)
 
 
 class SourceRules(unittest.TestCase):

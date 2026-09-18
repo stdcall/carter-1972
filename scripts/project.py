@@ -34,9 +34,12 @@ def formatter_command(root=ROOT, *, check=False, inplace=False):
     # Typstyle 0.15.1 has no native configuration-file switch. Read the actual
     # Tinymist workspace settings, so editor and CLI share the same policy.
     config = json.loads((root/'.vscode/settings.json').read_text())
+    prose_wrap = config['tinymist.formatterProseWrap']
+    if not isinstance(prose_wrap, bool):
+        raise ValueError('tinymist.formatterProseWrap must be a boolean')
     args = ['typstyle', '--line-width', str(config['tinymist.formatterPrintWidth']),
             '--indent-width', str(config['tinymist.formatterIndentSize']),
-            '--wrap-text='+config['tinymist.formatterProseWrap']]
+            '--wrap-text='+('fill' if prose_wrap else 'none')]
     if check:
         args.append('--check')
     if inplace:

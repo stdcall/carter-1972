@@ -676,7 +676,8 @@
       relation and the relations $w_(r_i)^2=1$ we have
     ]
     $
-      w_(r_1) dots.c w_(r_k)=w_(r_1) dots.c w_(r_(i-1)) w_(r_(i+1)) dots.c w_(r_j)
+      w_(r_1) dots.c w_(r_k)=w_(r_1) dots.c w_(r_(i-1)) w_(r_(i+1))
+      dots.c w_(r_j)
       w_(r_(j+2)) dots.c w_(r_k).
     $ <eq:2-4-1-deletion>
     The relation
@@ -761,7 +762,8 @@
     product of fundamental reflections, is a consequence of the given relations.
     This is clear, since the given relations imply
     $
-                  w_(r_k) w_s w_(r_k) & = w_(s_1), quad "where" s_1=w_(r_k)(s), \
+                  w_(r_k) w_s w_(r_k) & = w_(s_1), quad "where"
+                                        s_1=w_(r_k)(s), \
       w_(r_(k-1)) w_(s_1) w_(r_(k-1)) & = w_(s_2), quad "where" s_2=w_(r_(k-1))
                                         w_(r_k)(s),
     $ <eq:2-4-3-iterated-relations>
@@ -1158,5 +1160,5 @@
   ]
 ]
 
-// Preview this file in the context of the complete book.
-#context { include "main.typ" }
+#import "chapter-preview.typ": chapter-preview
+#chapter-preview(2, chapter)

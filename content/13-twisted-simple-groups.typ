@@ -1815,7 +1815,12 @@
       -> u_1 (t^(2theta-1)),
     $ <eq:13-7-4-sp4-a-matrix>
     $
-      B=mat(1, 0, 0, 0; 0, 1, 0, 0; t^(-1), t^(-theta), 1, 0; t^(-theta), 0, 0, 1)
+      B=mat(
+        1, 0, 0, 0;
+        0, 1, 0, 0;
+        t^(-1), t^(-theta), 1, 0;
+        t^(-theta), 0, 0, 1
+      )
       -> v_2 (t^(-1)).
     $ <eq:13-7-4-sp4-b-matrix>
 
@@ -1937,5 +1942,5 @@
   ]
 ]
 
-// Preview this file in the context of the complete book.
-#context { include "main.typ" }
+#import "chapter-preview.typ": chapter-preview
+#chapter-preview(13, chapter)

@@ -615,7 +615,8 @@
         _Then $h_r (lambda)$ operates on the Chevalley basis of $frak(L)_K$ in
         the following manner:_
       ]
-      // E028: the set of roots is Phi; the source prints an undefined Sigma here.
+      // E028: the set of roots is Phi; the source prints an undefined Sigma
+      // here.
       $
         h_r (lambda) dot h_s & =h_s, quad s in Pi, \
         h_r (lambda) dot e_s & =lambda^(A_(r s))e_s, quad s in Phi.
@@ -677,7 +678,8 @@
       ]
       $
         n_r dot h_s & =h_(w_r (s)), \
-        n_r dot e_s & =eta_(r,s)e_(w_r (s)), quad "where" eta_(r,s)=plus.minus 1.
+        n_r dot e_s & =eta_(r,s)e_(w_r (s)), quad "where"
+                      eta_(r,s)=plus.minus 1.
       $ <eq:6-4-2-actions>
     ]
 
@@ -855,5 +857,5 @@
   ]
 ]
 
-// Preview this file in the context of the complete book.
-#context { include "main.typ" }
+#import "chapter-preview.typ": chapter-preview
+#chapter-preview(6, chapter)

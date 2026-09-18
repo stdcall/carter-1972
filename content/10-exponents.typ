@@ -241,7 +241,8 @@
       have
     ]
     $
-      w_(p_i) (a) & =e(-w_(p_i) (S)) dot product_(r in Phi^+) (e(w_(p_i) (r))-1) \
+      w_(p_i) (a) & =e(-w_(p_i) (S)) dot product_(r in Phi^+)
+                    (e(w_(p_i) (r))-1) \
                   & =e(p_i-S) dot product_(r in Phi^+) (e(r)-1)
                     dot (e(-p_i)-1)/(e(p_i)-1) \
                   & =e(-S) dot product_(r in Phi^+) (e(r)-1)
@@ -747,7 +748,8 @@
     #block(sticky: true)[However]
     $
       (a,a) & =sum_(i,j=1)^k xi_i xi_j (M^(-1))_(i j)=(u^1)' B u^1, \
-      (b,b) & =sum_(#mathclap($i,j=k+1$))^l xi_i xi_j (M^(-1))_(i j)=(u^2)' D u^2.
+      (b,b) & =sum_(#mathclap($i,j=k+1$))^l xi_i xi_j
+              (M^(-1))_(i j)=(u^2)' D u^2.
     $ <eq:10-4-2-norms>
     #block(sticky: true)[
       The equations (#book-ref("eq", "10-4-2-star", [$*$])) now show
@@ -1166,7 +1168,8 @@
     the conjugacy class which is ‘as far removed as possible’ from the unit
     class.
 
-    // Compact the closing displays while retaining the normal paragraph spacing.
+    // Compact the closing displays while retaining the normal paragraph
+    // spacing.
     #show math.equation.where(block: true): set block(
       above: 0.7em,
       below: 0.7em,
@@ -1224,5 +1227,5 @@
   ]
 ]
 
-// Preview this file in the context of the complete book.
-#context { include "main.typ" }
+#import "chapter-preview.typ": chapter-preview
+#chapter-preview(10, chapter)

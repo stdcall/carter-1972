@@ -767,7 +767,8 @@
     ]
     $ n_w=h n_(r_1) dots n_(r_k) $ <eq:8-4-3-representative>
     #block(sticky: true)[for some $h in H$. Thus]
-    // E033: invert the product in reverse order; restore the missing minus sign.
+    // E033: invert the product in reverse order; restore the missing minus
+    // sign.
     $
       n_w X_s n_w^(-1)
       &=h n_(r_1) dots n_(r_k) X_s n_(r_k)^(-1) dots n_(r_1)^(-1)h^(-1) \
@@ -1210,5 +1211,5 @@
   ]
 ]
 
-// Preview this file in the context of the complete book.
-#context { include "main.typ" }
+#import "chapter-preview.typ": chapter-preview
+#chapter-preview(8, chapter)
