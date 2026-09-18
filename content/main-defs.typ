@@ -13,9 +13,24 @@
   )
   body
 }
-#let book-ref(prefix, id, body, highlight: true, above: 0pt) = box(context {
+#let book-ref(
+  prefix,
+  id,
+  supplement: [],
+  highlight: true,
+  above: 0pt,
+  ..content,
+) = box(context {
+  assert(content.named().len() == 0 and content.pos().len() <= 1)
+  let body = content.pos().at(0, default: none)
   let target = label(prefix + ":" + id)
   let found = query(target)
+  let body = if body == none {
+    assert(found.len() == 1, message: "Missing heading: " + str(target))
+    let entry = found.first()
+    assert(entry.func() == heading and entry.numbering != none)
+    supplement + numbering("1.1", ..counter(heading).at(entry.location()))
+  } else { body }
   let destination = if found.len() == 1 {
     let pos = found.first().location().position()
     pos.y = calc.max(10pt, pos.y - above)
@@ -38,8 +53,19 @@
     )
   } else { body }
 })
-#let chapter-ref(n) = book-ref("ch", str(n), [chapter #n])
-#let section-ref(n) = book-ref("sec", n.replace(".", "-"), [section #n])
+#let chapter-ref(id) = book-ref("ch", id, supplement: [chapter ])
+#let section-ref(id) = book-ref("sec", id, supplement: [section ])
+
+#let book-heading-numbering(..numbers) = {
+  let parts = numbers.pos()
+  numbering("1.1", ..parts) + if parts.len() == 1 { "." } else { "" }
+}
+#let book-heading-body(it) = context {
+  if it.numbering == none { it.body } else {
+    let number = numbering(it.numbering, ..counter(heading).at(it.location()))
+    if it.body == [] { number } else { [#number #it.body] }
+  }
+}
 // Keep original wording/numbers; IDs are stable across pagination changes.
 #let equation-ref(n, body: none, highlight: true) = book-ref(
   "eq",

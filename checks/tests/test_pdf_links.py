@@ -18,15 +18,16 @@ from check_indexes import check_definition_destinations
 EXPR = 'query(metadata).filter(it => it.value.at("kind", default: "") in ("cross-reference", "page-reference")).map(it => it.value)'
 FIXTURE = '''#import "/content/main-defs.typ": *
 #set page(width: 176mm, height: 250mm)
-#chapter-ref(1), #section-ref("1.1"), #equation-ref("1.2"),
+#set heading(numbering: book-heading-numbering)
+#chapter-ref("chapter"), #section-ref("section"), #equation-ref("1.2"),
 #theorem-ref("1.3"), #lemma-ref("1.4"), #proposition-ref("1.5"),
 #definition-ref("1.6"), #corollary-ref("1.8"), #figure-ref("1.7"), #source-page-ref("1"),
 #bib-ref("chevalley1955", "jordan1870")
 #bib-ref("steinberg1967lectures"), #bib-ref("tits1966existence")
 #pagebreak()
 #source(14, "1")
-= 1. Chapter <ch:1>
-== 1.1 Section <sec:1-1>
+= Chapter <ch:chapter>
+== Section <sec:section>
 $ x = 1 $ <eq:1-2>
 #metadata((kind: "anchor")) <th:1-3>
 Theorem 1.3.\n

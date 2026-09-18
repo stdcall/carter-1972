@@ -1061,7 +1061,7 @@
       original: ((2, 2),),
     ))$S p_n (K)$],
   [The symplectic group of degree $n$ over $K$],
-  [#index-ref(2, target: "sec:1-3")],
+  [#index-ref(2, target: "sec:symplectic-groups")],
 
   [#metadata((
       kind: "index-entry",

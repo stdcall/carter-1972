@@ -38,16 +38,25 @@
   spacing: 1.1em,
 )
 #set heading(numbering: none)
+#import "main-defs.typ": book-heading-body, book-heading-numbering
 #show heading.where(level: 1): it => block(above: 5mm, below: 7mm)[#text(
   size: 22pt,
   weight: "bold",
-  it.body,
+  book-heading-body(it),
 )]
 #show heading.where(level: 2): it => block(above: 5mm, below: 3mm)[#text(
   size: 13pt,
   weight: "bold",
-  it.body,
+  book-heading-body(it),
 )]
+#show heading.where(level: 3): it => block(book-heading-body(it))
+// Keep the existing contents layout while numbering comes from counters.
+#show outline.entry: it => context link(
+  it.element.location(),
+  it.indented(none, if it.prefix() == none { it.inner() } else {
+    [#it.prefix() #it.inner()]
+  }),
+)
 #show math.equation: set text(font: "STIX Two Math")
 // Long derivations may continue at their existing row breaks.
 #show math.equation.where(block: true): set block(breakable: true)
@@ -90,38 +99,56 @@
 #set par(first-line-indent: 1.25em)
 #include "00-preface.typ"
 #pagebreak()
-#include "01-classical-simple-groups.typ"
+#set heading(numbering: book-heading-numbering)
+#import "01-classical-simple-groups.typ": chapter
+#chapter
 #pagebreak()
-#include "02-weyl-groups.typ"
+#import "02-weyl-groups.typ": chapter
+#chapter
 #pagebreak()
-#include "03-simple-lie-algebras.typ"
+#import "03-simple-lie-algebras.typ": chapter
+#chapter
 #pagebreak()
-#include "04-chevalley-groups.typ"
+#import "04-chevalley-groups.typ": chapter
+#chapter
 #pagebreak()
-#include "05-unipotent-subgroups.typ"
+#import "05-unipotent-subgroups.typ": chapter
+#chapter
 #pagebreak()
-#include "06-root-sl2-subgroups.typ"
+#import "06-root-sl2-subgroups.typ": chapter
+#chapter
 #pagebreak()
-#include "07-diagonal-and-monomial-subgroups.typ"
+#import "07-diagonal-and-monomial-subgroups.typ": chapter
+#chapter
 #pagebreak()
-#include "08-bruhat-decomposition.typ"
+#import "08-bruhat-decomposition.typ": chapter
+#chapter
 #pagebreak()
-#include "09-polynomial-invariants.typ"
+#import "09-polynomial-invariants.typ": chapter
+#chapter
 #pagebreak()
-#include "10-exponents.typ"
+#import "10-exponents.typ": chapter
+#chapter
 #pagebreak()
-#include "11-properties-of-chevalley-groups.typ"
+#import "11-properties-of-chevalley-groups.typ": chapter
+#chapter
 #pagebreak()
-#include "12-generators-relations-and-automorphisms.typ"
+#import "12-generators-relations-and-automorphisms.typ": chapter
+#chapter
 #pagebreak()
-#include "13-twisted-simple-groups.typ"
+#import "13-twisted-simple-groups.typ": chapter
+#chapter
 #pagebreak()
-#include "14-properties-of-twisted-groups.typ"
+#import "14-properties-of-twisted-groups.typ": chapter
+#chapter
 #pagebreak()
-#include "15-geometrical-structures.typ"
+#import "15-geometrical-structures.typ": chapter
+#chapter
 #pagebreak()
-#include "16-sporadic-simple-groups.typ"
+#import "16-sporadic-simple-groups.typ": chapter
+#chapter
 #pagebreak()
+#set heading(numbering: none)
 #include "90-bibliography.typ"
 #pagebreak()
 #include "91-notation-index.typ"

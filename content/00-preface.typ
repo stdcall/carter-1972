@@ -71,8 +71,10 @@ number of helpful comments were made by members of the audience at these
 courses.
 
 Thanks are due to C. W. Curtis for suggesting an improvement to my original
-approach to #chapter-ref(6) and to I. G. Macdonald for permission to include a
-hitherto unpublished result of his in #chapter-ref(10).
+approach to #chapter-ref("root-sl2-subgroups") and to I. G. Macdonald for
+permission to include a hitherto unpublished result of his in #chapter-ref(
+  "exponents",
+).
 
 Finally I wish to thank Mrs. Susan Tall for typing the manuscript.
 

@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PREFIXES = {'th', 'l', 'p', 'cor', 'eq', 'fig', 'def', 'ex', 'ch', 'sec', 'pg', 'bib'}
 EXPRESSION = '''(
   figures: query(figure).map(it => (label: it.at("label", default: none), floating: it.placement != none, position: it.location().position())),
-  headings: query(heading).map(it => (label: it.at("label", default: none), level: it.level, body: it.body, position: it.location().position())),
+  headings: query(heading).map(it => (label: it.at("label", default: none), level: it.level, body: it.body, number: if it.numbering == none { none } else { numbering("1.1", ..counter(heading).at(it.location())) }, position: it.location().position())),
   equations: query(math.equation.where(block: true)).map(it => (label: it.at("label", default: none), position: it.location().position())),
   metadata: query(metadata).map(it => (label: it.at("label", default: none), value: it.value)),
 )'''
@@ -153,26 +153,21 @@ def semantic_checks(data, config, expected_pages):
     findings = []
     def add(rule, item, message):
         findings.append({'rule': rule, 'path': 'content/main.typ', 'position': item.get('position'), 'message': message})
-    heading_exceptions = config.get('context_headings', {})
-    used_headings = set()
     semantic_labels = []
     for item in data.get('figures', []):
         if item['floating'] and label_name(item).startswith('fig:'):
             add('T018', item, 'Label the block inside a floating figure, not the logical figure wrapper (Typst issue 4359)')
     for item in data['headings']:
-        title = plain(item['body'])
-        number = re.match(r'(\d+(?:\.\d+)*)(?=[. ]|$)', title)
+        title = plain(item['body']).strip()
         name = label_name(item)
         if name:
             semantic_labels.append(name)
-        if number:
-            expected = ('ch:' if item['level'] == 1 else 'sec:')+number[1].replace('.', '-')
-            if not name and title in heading_exceptions and heading_exceptions[title].strip():
-                used_headings.add(title)
-            elif name != expected:
-                add('T012', item, f'Heading {title!r} requires <{expected}>')
-    for title in set(heading_exceptions)-used_headings:
-        add('T099', {}, f'Unused context-heading exception: {title}')
+        if re.match(r'\d+(?:\.\d+)*(?=[. ]|$)', title):
+            add('T012', item, f'Heading {title!r} must use automatic numbering')
+        if item.get('number') is not None:
+            prefix = 'ch:' if item['level'] == 1 else 'sec:'
+            if not re.fullmatch(prefix+r'[a-z][a-z0-9]*(?:-[a-z0-9]+)*', name):
+                add('T012', item, f'Numbered heading requires a semantic {prefix} label')
     for item in data['equations']:
         name = label_name(item)
         if not name.startswith('eq:'):

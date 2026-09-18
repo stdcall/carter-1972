@@ -43,7 +43,9 @@ a second formatting extension is unnecessary.
 Run `just build` once after a fresh checkout. `content/main.typ` is
 configured as the entry through `tinymist.typstExtraArgs`. Tinymist supplies
 live preview, source/preview synchronization, lint on save and formatting.
-Use its preview button in `content/main.typ` for interactive editing.
+Use the preview button in `content/main.typ` or any numbered chapter. Each
+chapter exports its text to the book; opened on its own, it previews the whole
+book so automatic references and source synchronization retain their context.
 Every file in `content/diagrams/` also has a standalone preview; open a file
 and run **Typst Preview: Preview Opened File**. Files with several variants
 display them together or on separate preview pages. The shared template is

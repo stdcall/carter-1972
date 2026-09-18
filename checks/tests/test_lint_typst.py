@@ -81,7 +81,7 @@ class SourceRules(unittest.TestCase):
 
 class SemanticRules(unittest.TestCase):
     def setUp(self):
-        self.data = {'headings':[{'label':'<ch:1>', 'level':1, 'body':{'text':'1. Chapter'}}],
+        self.data = {'headings':[{'label':'<ch:chapter>', 'level':1, 'number':'1', 'body':{'text':'Chapter'}}],
                      'equations':[{'label':'<eq:1-1>'}],
                      'metadata':[{'label':'<pg:source-1>', 'value':{'kind':'source', 'file-page':14, 'printed-page':'1'}}]}
 
@@ -125,15 +125,20 @@ class SemanticRules(unittest.TestCase):
         self.data['metadata'].append({'value':{'kind':'cross-reference','target':'bib:missing','resolved':False}})
         self.assertIn('T014', self.rules(config={'absent_targets':{'bib:missing':'Not transcribed'}}))
 
-    def test_number_only_subsection_keeps_last_component(self):
+    def test_number_only_subsection_uses_counter_and_semantic_label(self):
         self.data['headings'].append({
-            'body': {'text': '13.3.8'}, 'level': 3, 'label': '<sec:13-3-8>'})
+            'body': {}, 'number': '13.3.8', 'level': 3,
+            'label': '<sec:folded-diagram-classification>'})
         self.assertNotIn('T012', self.rules())
         self.data['headings'][-1]['label'] = '<sec:13-3>'
         self.assertIn('T012', self.rules())
 
-    def test_heading_must_match_original_number(self):
+    def test_numbered_heading_requires_semantic_label(self):
         self.data['headings'][0]['label'] = '<ch:2>'
+        self.assertIn('T012', self.rules())
+
+    def test_heading_cannot_hardcode_its_number(self):
+        self.data['headings'][0]['body'] = {'text': '1. Chapter'}
         self.assertIn('T012', self.rules())
 
 
