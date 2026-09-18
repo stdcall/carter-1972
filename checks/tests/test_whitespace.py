@@ -1,4 +1,3 @@
-import json
 from pathlib import Path
 import sys
 from tempfile import TemporaryDirectory
@@ -47,23 +46,6 @@ class RenderedWhitespace(unittest.TestCase):
             self.assertEqual(report['status'], 'passed')
             self.assertEqual(report['pages'][0]['classification'],
                              'before chapter or major division')
-
-    def test_review_does_not_survive_changed_following_page(self):
-        with TemporaryDirectory() as tmp:
-            pdf = Path(tmp) / 'before.pdf'
-            review = Path(tmp) / 'review.json'
-            marks = [{'title': 'Preface', 'depth': 0, 'pdf_page': 1}]
-            self.make_pdf(pdf)
-            report = check_whitespace(pdf, marks, review)
-            key = report['pages'][0]['review_key']
-            review.write_text(json.dumps({'accepted': {
-                key: {'reason': 'A following indivisible illustration.'}}}))
-            self.assertEqual(check_whitespace(pdf, marks, review)['status'],
-                             'passed')
-            pdf = Path(tmp) / 'after.pdf'
-            self.make_pdf(pdf, next_text='Changed following material')
-            self.assertEqual(check_whitespace(pdf, marks, review)['status'],
-                             'needs_visual_review')
 
     def test_two_line_spill_is_not_exempt_as_a_chapter_ending(self):
         with TemporaryDirectory() as tmp:

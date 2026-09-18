@@ -21,6 +21,8 @@
   "max_line_length": 80,
   "layout_files": [
     "content/main.typ",
-    "content/corrections.typ"
+    "content/corrections.typ",
+    "content/diagrams/graph-symmetries.typ",
+    "content/diagrams/coxeter-circle.typ"
   ]
 }

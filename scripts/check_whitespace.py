@@ -32,15 +32,11 @@ def body_metrics(page):
     return {
         'gap_pt': round(max(0, area.y1 - bottom), 1),
         'body_text': page.get_text('text', clip=area, sort=True).strip(),
-        'ink_sha256': hashlib.sha256(pix.samples).hexdigest(),
     }
 
 
-def check_whitespace(pdf, bookmarks, review_file=None):
+def check_whitespace(pdf, bookmarks):
     pdf = Path(pdf)
-    review_file = review_file or ROOT / 'config/page-layout-exceptions.json'
-    reviewed = (json.loads(review_file.read_text()).get('accepted', {})
-                if review_file.exists() else {})
     with fitz.open(pdf) as doc:
         metrics = [body_metrics(page) for page in doc]
         labels = [page.get_label() or str(i + 1)
@@ -53,11 +49,8 @@ def check_whitespace(pdf, bookmarks, review_file=None):
     for i, metric in enumerate(metrics):
         number = i + 1
         following = metrics[i + 1] if i + 1 < len(metrics) else None
-        key = hashlib.sha256((metric['ink_sha256'] +
-                              (following['ink_sha256'] if following else ''))
-                             .encode()).hexdigest()
         row = {'pdf_page': number, 'page_label': labels[i],
-               'gap_pt': metric['gap_pt'], 'review_key': key}
+               'gap_pt': metric['gap_pt']}
         if number < first_text:
             row['classification'] = 'front matter'
         elif number == len(metrics):
@@ -72,15 +65,13 @@ def check_whitespace(pdf, bookmarks, review_file=None):
             row['classification'] = 'needs visual review'
             row['body_tail'] = metric['body_text'][-500:]
             row['next_body_head'] = following['body_text'][:500]
-            if key in reviewed and reviewed[key].get('reason'):
-                row['classification'] = 'visually reviewed gap'
-                row['review'] = reviewed[key]
         pages.append(row)
     pending = [p['pdf_page'] for p in pages
                if p['classification'] == 'needs visual review']
     return {
         'sha256': hashlib.sha256(pdf.read_bytes()).hexdigest(),
         'status': 'needs_visual_review' if pending else 'passed',
+        'advisory': True,
         'pages_checked': len(pages),
         'threshold_pt': THRESHOLD_PT,
         'scope': ('Bottom whitespace inside the text area, measured from '
