@@ -86,6 +86,8 @@ those values to CLI arguments; formatting policy is not duplicated in scripts.
 
 - `content/main.typ`, `content/main-defs.typ`: reading order, typography and
   reference helpers.
+- `content/statements.typ`: semantic theorem, lemma, proposition, corollary,
+  definition, example and proof blocks; shared numbering and presentation.
 - `content/00-…` through `16-…`: preface and one file per numbered chapter.
   Files `90-…`, `91-…`, `92-…` are bibliography and indexes. Diagram sources
   live in `content/diagrams/`; publication details in `content/frontmatter/`.
@@ -113,7 +115,8 @@ recovery archive. Literature comparisons are in `checks/literature.json`.
 Body text is 12 pt Libertinus Serif with 1.1 em paragraph spacing and 0.68 em
 leading; the proof-ending square is 11 pt. Links keep the body colour, with
 only reference numbers in semibold. Descriptive links stay visually ordinary.
-Original statement numbers are retained; internal page references use the
+Statement and subsection numbers come from a shared counter and match the
+original while the content is unchanged; internal page references use the
 new pagination. Labels use typed prefixes such as `eq:`, `th:`, `l:`, `p:`,
 `fig:`, `ch:` and `sec:`. Bibliographic numbers restart within author groups.
 
@@ -144,8 +147,10 @@ explains what remains. Neither Sage nor Lean is required for PDF CI.
 
 CI runs format/lint checks, regression tests, both builds and PDF navigation
 and layout checks. Tool downloads are versioned and checksum-verified.
-Successful builds upload both PDFs as workflow artifacts. A `v*` tag runs the
-same checks and publishes the PDFs in a GitHub release.
+Successful builds upload both PDFs as workflow artifacts. Every commit merged
+into `main` automatically publishes both PDFs in a release tagged
+`main-<commit>`, after the required checks pass. Re-running the workflow updates
+the same release. Manual `v*` tags also run the checks and publish a release.
 
 This is a personal-library transcription of Carter's book, not a new licence
 for the original text. Original publication details are retained in the book;

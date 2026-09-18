@@ -3,9 +3,9 @@
   "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
   "mathlib_commit": "a218e50f981942cba4fd060faff7cae680805062",
   "content_sha256": {
-    "content/13-twisted-simple-groups.typ": "095bf26639ce6dc54e8b15ba4d2e09991587d8c636f1c7c936f632c8a2781b49",
-    "content/04-chevalley-groups.typ": "c3b564b617addad3fbc35626394cc95803b93cc218427f7ccbe293ca9c2785c3",
-    "content/09-polynomial-invariants.typ": "3ad41540f4308de3d01bfe38fefa99770dd9464b2198c67a92600af91e153e66"
+    "content/13-twisted-simple-groups.typ": "c63245253ecf614ad78ce2e5af2896e1054e923451428bc5c3b22fd8953c9137",
+    "content/04-chevalley-groups.typ": "c420e4372f5aa0c6894a56e253f5955e20be6fb2b54ca383c5a709bf28f2ef8d",
+    "content/09-polynomial-invariants.typ": "630e3c1205584ae9274c84ff1d741f6c5609bbaeeee736aeee94304eb5495762"
   },
   "source_pages": [
     60,
@@ -20,11 +20,11 @@
     262
   ],
   "labels": [
-    "l:4-3-1",
-    "eq:4-3-1-exponential",
-    "l:9-3-2",
-    "eq:9-3-2-average-operator",
-    "eq:13-7-4-nonsquare-contradiction"
+    "l:nilpotent-derivation-exponential",
+    "eq:nilpotent-derivation-exponential-exponential",
+    "l:averaging-trace",
+    "eq:averaging-trace-average-operator",
+    "eq:unequal-length-twisted-torus-nonsquare-contradiction"
   ],
   "mapping": {
     "4.3.1": "For a LieDerivation D with D^n = 0, the exact finite rational-factorial sum in Carter is the underlying linear map of the mathlib Lie algebra equivalence D.exp. Its inverse is exp(-D). This is an explicit checked specialization of existing mathlib results, not a new independent proof.",

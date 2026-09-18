@@ -46,7 +46,10 @@
       original: ((43, 43),),
     ))$A_l$],
   [The type of a simple Lie algebra over $CC$],
-  [#index-ref(43, target: "fig:3-6-standard-list")],
+  [#index-ref(
+    43,
+    target: "fig:description-of-simple-lie-algebras-standard-list",
+  )],
 
   [#metadata((
       kind: "index-entry",
@@ -118,7 +121,10 @@
       original: ((43, 43),),
     ))$B_l$],
   [The type of a simple Lie algebra over $CC$],
-  [#index-ref(43, target: "fig:3-6-standard-list")],
+  [#index-ref(
+    43,
+    target: "fig:description-of-simple-lie-algebras-standard-list",
+  )],
 
   [#metadata((
       kind: "index-entry",
@@ -191,7 +197,10 @@
       original: ((43, 43),),
     ))$C_l$],
   [The type of a simple Lie algebra over $CC$],
-  [#index-ref(43, target: "fig:3-6-standard-list")],
+  [#index-ref(
+    43,
+    target: "fig:description-of-simple-lie-algebras-standard-list",
+  )],
 
   [#metadata((
       kind: "index-entry",
@@ -231,7 +240,10 @@
       original: ((43, 43),),
     ))$D_l$],
   [The type of a simple Lie algebra over $CC$],
-  [#index-ref(43, target: "fig:3-6-standard-list")],
+  [#index-ref(
+    43,
+    target: "fig:description-of-simple-lie-algebras-standard-list",
+  )],
 
   [#metadata((
       kind: "index-entry",
@@ -303,7 +315,10 @@
       original: ((43, 43),),
     ))$E_6$],
   [The type of a simple Lie algebra over $CC$],
-  [#index-ref(43, target: "fig:3-6-standard-list")],
+  [#index-ref(
+    43,
+    target: "fig:description-of-simple-lie-algebras-standard-list",
+  )],
 
   [#metadata((
       kind: "index-entry",
@@ -343,7 +358,10 @@
       original: ((43, 43),),
     ))$E_7$],
   [The type of a simple Lie algebra over $CC$],
-  [#index-ref(43, target: "fig:3-6-standard-list")],
+  [#index-ref(
+    43,
+    target: "fig:description-of-simple-lie-algebras-standard-list",
+  )],
 
   [#metadata((
       kind: "index-entry",
@@ -367,7 +385,10 @@
       original: ((43, 43),),
     ))$E_8$],
   [The type of a simple Lie algebra over $CC$],
-  [#index-ref(43, target: "fig:3-6-standard-list")],
+  [#index-ref(
+    43,
+    target: "fig:description-of-simple-lie-algebras-standard-list",
+  )],
 
   [#metadata((
       kind: "index-entry",
@@ -391,7 +412,10 @@
       original: ((43, 43),),
     ))$F_4$],
   [The type of a simple Lie algebra over $CC$],
-  [#index-ref(43, target: "fig:3-6-standard-list")],
+  [#index-ref(
+    43,
+    target: "fig:description-of-simple-lie-algebras-standard-list",
+  )],
 
   [#metadata((
       kind: "index-entry",
@@ -463,7 +487,7 @@
       original: ((226, 226),),
     ))$G^1$],
   [A twisted group],
-  [#index-ref(226, target: "def:13-4-2")],
+  [#index-ref(226, target: "def:twisted-group-and-subgroups")],
 
   [#metadata((
       kind: "index-entry",
@@ -471,7 +495,10 @@
       original: ((43, 43),),
     ))$G_2$],
   [The type of a simple Lie algebra over $CC$],
-  [#index-ref(43, target: "fig:3-6-standard-list")],
+  [#index-ref(
+    43,
+    target: "fig:description-of-simple-lie-algebras-standard-list",
+  )],
 
   [#metadata((
       kind: "index-entry",
@@ -787,7 +814,10 @@
       original: ((43, 43),),
     ))$N$],
   [The number of positive roots],
-  [#index-ref(43, target: "fig:3-6-standard-list")],
+  [#index-ref(
+    43,
+    target: "fig:description-of-simple-lie-algebras-standard-list",
+  )],
 
   [#metadata((
       kind: "index-entry",

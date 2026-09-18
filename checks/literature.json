@@ -2,7 +2,7 @@
   "checks": [
     {
       "id": "LIT001",
-      "target": "Lemma5.1.2 and eq:5-1-2-campbell-hausdorff",
+      "target": "Lemma5.1.2 and eq:nilpotent-campbell-hausdorff-campbell-hausdorff",
       "carter_printed_pages": [
         69,
         70
@@ -130,7 +130,7 @@
     },
     {
       "id": "LIT007",
-      "target": "fig:8-6-fundamental-groups",
+      "target": "fig:finite-chevalley-groups-fundamental-groups",
       "source": "M.Geck, A Course on Lie algebras and Chevalley groups, arXiv2404.11472v3,2 October2025",
       "local_path": "/Users/nkhodyunya/Sync/vault_books/math/groups.chevalley/geck-chevalley.pdf",
       "printed_pages": [
