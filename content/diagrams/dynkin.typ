@@ -229,3 +229,45 @@
     stack(dir: ttb, spacing: 3mm, [$G_2$], rank-two("G2")),
   )
 }
+
+// Figure 2: the G₂ roots expressed in the pair used in section 5.2.
+#let g2-root-string() = rank-two("G2", labels-override: (
+  $s$,
+  $r+2s$,
+  $r+s$,
+  $2r+s$,
+  $r$,
+  $r-s$,
+  $-s$,
+  $-r-2s$,
+  $-r-s$,
+  $-2r-s$,
+  $-r$,
+  $-r+s$,
+))
+
+// Standalone preview; importing this file does not insert the preview.
+#import "../diagram-preview.typ": diagram-preview
+#show: diagram-preview
+#classification()
+#v(5mm)
+#stack(dir: ltr, spacing: 10mm, numbered-chain(), numbered-chain(double: true))
+#pagebreak()
+#table(
+  columns: (auto, auto),
+  stroke: none,
+  align: (right + horizon, left + horizon),
+  inset: (x: 3mm, y: 5mm),
+  [$A_l$], fundamental("A"),
+  [$B_l$], fundamental("B"),
+  [$C_l$], fundamental("C"),
+  [$D_l$], fundamental("D"),
+  [$F_4$], fundamental("F"),
+  [$E_6$], fundamental("E6"),
+  [$E_7$], fundamental("E7"),
+  [$E_8$], fundamental("E8"),
+)
+#pagebreak()
+#low-rank-roots()
+#pagebreak()
+#g2-root-string()

@@ -216,3 +216,20 @@
     ))
     .flatten(),
 )
+
+// Standalone preview; importing this file does not insert the preview.
+#import "../diagram-preview.typ": diagram-preview
+#show: diagram-preview
+#table(
+  columns: (auto, auto),
+  stroke: none,
+  align: (right + horizon, left + horizon),
+  inset: (x: 5mm, y: 3mm),
+  [$A_l$], numbered-symmetry("A"),
+  [$D_l$], numbered-symmetry("D"),
+  [$E_6$], numbered-symmetry("E6"),
+  [$D_4$], numbered-symmetry("D4"),
+  [$F_4$], numbered-symmetry("F4"),
+)
+#pagebreak()
+#folding-table()

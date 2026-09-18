@@ -22,3 +22,8 @@
     chain(([], [], $s$, $r+s$)), [$p=2$], [$q=1$], [$(s,s)=1/3(r+s,r+s)$],
   )
 }
+
+// Standalone preview; importing this file does not insert the preview.
+#import "../diagram-preview.typ": diagram-preview
+#show: diagram-preview
+#root-chains()

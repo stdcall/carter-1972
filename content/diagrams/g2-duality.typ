@@ -54,3 +54,10 @@
     content((x + dx, y + dy), labels.at(i), anchor: anchor)
   }
 })
+
+// Standalone preview; importing this file does not insert the preview.
+#import "../diagram-preview.typ": diagram-preview
+#show: diagram-preview
+#g2-duality()
+#pagebreak()
+#g2-duality(bisector: true)

@@ -31,3 +31,11 @@
     line((x, 0.8), (x, -0.55), mark: (end: ">"), stroke: 0.7pt)
   }
 })
+
+// Standalone preview; importing this file does not insert the preview.
+#import "../diagram-preview.typ": diagram-preview
+#show: diagram-preview
+#retraction-scheme()
+
+#v(10mm)
+#building-correspondence()

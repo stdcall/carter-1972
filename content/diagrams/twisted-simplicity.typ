@@ -20,3 +20,8 @@
     content((xs.at(i + 2), 0.12), lab, anchor: "south")
   }
 })
+
+// Standalone preview; importing this file does not insert the preview.
+#import "../diagram-preview.typ": diagram-preview
+#show: diagram-preview
+#unitary-chain()

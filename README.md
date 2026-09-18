@@ -44,9 +44,10 @@ Run `just build` once after a fresh checkout. `content/main.typ` is
 configured as the entry through `tinymist.typstExtraArgs`. Tinymist supplies
 live preview, source/preview synchronization, lint on save and formatting.
 Use its preview button in `content/main.typ` for interactive editing.
-The diagram files `graph-symmetries.typ` and `coxeter-circle.typ` also have
-standalone previews; open either file and run **Typst Preview: Preview Opened
-File**. Their preview content is not included when imported into the book.
+Every file in `content/diagrams/` also has a standalone preview; open a file
+and run **Typst Preview: Preview Opened File**. Files with several variants
+display them together or on separate preview pages. The shared template is
+`content/diagram-preview.typ`; preview content is not imported into the book.
 
 **Run Build Task** (`Cmd+Shift+B`) runs **Carter: PDF**. It uses Tinymist's
 native `type: typst`, `command: export` task, then checks the exported PDF and

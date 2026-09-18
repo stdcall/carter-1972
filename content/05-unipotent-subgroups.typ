@@ -147,7 +147,7 @@
 
 #[
   #import "main-defs.typ": L, book-ref, chapter-ref, figure-ref, qed, source
-  #import "diagrams/dynkin.typ": rank-two
+  #import "diagrams/dynkin.typ": g2-root-string
   #let ad = math.op("ad")
 
   #source(84, "71")
@@ -397,20 +397,7 @@
   system in this case is shown in #figure-ref("2").
 
   #figure(
-    [#block[#rank-two("G2", labels-override: (
-        $s$,
-        $r+2s$,
-        $r+s$,
-        $2r+s$,
-        $r$,
-        $r-s$,
-        $-s$,
-        $-r-2s$,
-        $-r-s$,
-        $-2r-s$,
-        $-r$,
-        $-r+s$,
-      )) #align(center)[Figure 2]] <fig:2>],
+    [#block[#g2-root-string() #align(center)[Figure 2]] <fig:2>],
     caption: none,
     placement: top,
   )

@@ -43,8 +43,7 @@
   }
 })
 
-// Standalone preview; imports use the function and discard this content.
-#set page(width: auto, height: auto, margin: 5mm)
-#set text(font: "Libertinus Serif", size: 12pt, fill: rgb("202020"))
-#show math.equation: set text(font: "STIX Two Math")
+// Standalone preview; importing this file does not insert the preview.
+#import "../diagram-preview.typ": diagram-preview
+#show: diagram-preview
 #stack(dir: ltr, spacing: 10mm, coxeter-circle(), coxeter-circle(detail: true))

@@ -33,3 +33,8 @@
     content(point, label, anchor: anchor)
   }
 })
+
+// Standalone preview; importing this file does not insert the preview.
+#import "../diagram-preview.typ": diagram-preview
+#show: diagram-preview
+#b2-duality()

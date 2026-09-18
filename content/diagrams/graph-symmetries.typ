@@ -121,8 +121,7 @@
   [$F_4$], symmetry("F4"),
 )
 
-// Standalone preview; imports use the functions and discard this content.
-#set page(width: auto, height: auto, margin: 5mm)
-#set text(font: "Libertinus Serif", size: 12pt, fill: rgb("202020"))
-#show math.equation: set text(font: "STIX Two Math")
+// Standalone preview; importing this file does not insert the preview.
+#import "../diagram-preview.typ": diagram-preview
+#show: diagram-preview
 #diagram-symmetries()

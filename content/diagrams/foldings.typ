@@ -20,3 +20,8 @@
   line((1.65, 0.48), (3.15, 0.48), mark: (end: ">"), stroke: 0.7pt)
   content((2.4, 0.64), $alpha$, anchor: "south")
 })
+
+// Standalone preview; importing this file does not insert the preview.
+#import "../diagram-preview.typ": diagram-preview
+#show: diagram-preview
+#folding-panel()

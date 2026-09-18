@@ -37,3 +37,8 @@
   v(1.2em)
   block(breakable: false, width: 100%, panel(6))
 }
+
+// Standalone preview; importing this file does not insert the preview.
+#import "../diagram-preview.typ": diagram-preview
+#show: diagram-preview
+#constants-table()

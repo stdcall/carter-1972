@@ -24,3 +24,8 @@
   }
   content((3.5, -0.52), $l$, anchor: "north")
 })
+
+// Standalone preview; importing this file does not insert the preview.
+#import "../diagram-preview.typ": diagram-preview
+#show: diagram-preview
+#orthogonal-fork()

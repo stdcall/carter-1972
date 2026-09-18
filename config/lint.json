@@ -22,7 +22,6 @@
   "layout_files": [
     "content/main.typ",
     "content/corrections.typ",
-    "content/diagrams/graph-symmetries.typ",
-    "content/diagrams/coxeter-circle.typ"
+    "content/diagram-preview.typ"
   ]
 }

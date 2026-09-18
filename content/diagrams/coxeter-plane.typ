@@ -39,3 +39,8 @@
   content((b.at(0) + 0.08, b.at(1) + 0.07), $b$, anchor: "south-west")
   content((0.53, 0.19), $theta$, anchor: "center")
 })
+
+// Standalone preview; importing this file does not insert the preview.
+#import "../diagram-preview.typ": diagram-preview
+#show: diagram-preview
+#stack(dir: ltr, spacing: 10mm, coxeter-plane(), coxeter-plane(reflected: true))
