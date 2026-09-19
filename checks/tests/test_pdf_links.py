@@ -7,13 +7,16 @@ import sys
 import tempfile
 import unittest
 
+import fitz
 from pypdf import PdfReader, PdfWriter
-from pypdf.generic import NameObject, NumberObject
+from pypdf.generic import NameObject, NullObject, NumberObject
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT/'scripts'))
 from check_links import check_links, check_figure_anchors, set_link_descriptions
 from check_indexes import check_definition_destinations
+from build import normalize_outline_destinations
+from project import settings
 
 EXPR = 'query(metadata).filter(it => it.value.at("kind", default: "") in ("cross-reference", "page-reference")).map(it => it.value)'
 FIXTURE = '''#import "/content/main-defs.typ": *
@@ -89,6 +92,57 @@ class PDFLinks(unittest.TestCase):
         writer.write(broken)
         with self.assertRaisesRegex(AssertionError, 'wrong target height'):
             check_links(broken, self.references)
+
+
+class PDFOutline(unittest.TestCase):
+    def test_nested_sections_on_same_page_keep_precise_targets_and_zoom(self):
+        with tempfile.TemporaryDirectory(dir=ROOT/'build/.cache') as folder:
+            source = Path(folder)/'main.typ'
+            raw, final = Path(folder)/'raw.pdf', Path(folder)/'final.pdf'
+            source.write_text('''#set page(width: 400pt, height: 700pt)
+= Chapter
+#v(100pt)
+== First section
+#v(100pt)
+=== Subsection
+''')
+            subprocess.run(['typst', 'compile', str(source), str(raw)],
+                           check=True, capture_output=True)
+            original = PdfReader(raw)
+            writer = PdfWriter(raw, incremental=True)
+            count = normalize_outline_destinations(
+                writer, original, left=settings()['pdf_navigation']['outline_left'])
+            self.assertEqual(count, 3)
+            writer.write(final)
+            checked = PdfReader(final)
+
+            def flatten(items):
+                for item in items:
+                    if isinstance(item, list):
+                        yield from flatten(item)
+                    else:
+                        yield item
+
+            expected = list(flatten(original.outline))
+            actual = list(flatten(checked.outline))
+            with fitz.open(final) as doc:
+                toc = doc.get_toc(simple=False)
+                self.assertEqual([row[0] for row in toc], [1, 2, 3])
+                tops = []
+                for before, after, row in zip(expected, actual, toc):
+                    self.assertEqual(before.title, after.title)
+                    self.assertEqual(before.dest_array[3], after.dest_array[3])
+                    self.assertIsInstance(after.dest_array[4], NullObject)
+                    dest = row[3]
+                    self.assertEqual(dest['kind'], fitz.LINK_GOTO)
+                    self.assertEqual(dest['page'], 0)
+                    top = 700 - float(after.dest_array[3])
+                    self.assertAlmostEqual(dest['to'].y, top, places=3)
+                    self.assertEqual(dest['to'].x, 0)
+                    self.assertEqual(dest['zoom'], 0)
+                    tops.append(top)
+                self.assertLess(tops[0], tops[1])
+                self.assertLess(tops[1], tops[2])
 
 
 class ChapterPreview(unittest.TestCase):

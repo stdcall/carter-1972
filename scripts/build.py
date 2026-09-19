@@ -8,7 +8,7 @@ import subprocess
 import time
 
 from pypdf import PdfReader, PdfWriter
-from pypdf.generic import ArrayObject, NameObject, NullObject
+from pypdf.generic import ArrayObject, FloatObject, NameObject, NullObject
 from bibliography import compile_bibliography
 from check_links import check_links, set_link_descriptions
 from check_indexes import check_definition_destinations
@@ -78,18 +78,8 @@ def accessibility_signature(reader):
             'structure_elements': len(structures), 'embedded_font_programs': len(embedded),
             'font_program_sha256': sorted(embedded)}
 
-def normalize_outlines(raw, output, *, book=True, references=()):
-    original = PdfReader(raw)
-    writer = PdfWriter(raw, incremental=True)
-    # Typst uses physical page numbers for coordinate-link tooltips. Keep the
-    # new index offsets while describing their printed page numbers correctly.
-    set_link_descriptions(original, references)
-    set_link_descriptions(writer, references)
-    preserved = accessibility_signature(original)
-    # Match viewer page labels to the visible book numbering after the cover.
-    if book:
-        writer.set_page_label(0, 0, prefix='Cover')
-        writer.set_page_label(1, len(writer.pages)-1, style='/D', start=1)
+def normalize_outline_destinations(writer, original, *, left=None):
+    """Keep heading heights and inherited zoom in every nested bookmark."""
     count = 0
 
     def walk(ref):
@@ -109,14 +99,35 @@ def normalize_outlines(raw, output, *, book=True, references=()):
                 dest = original.named_destinations[dest].dest_array
             if not isinstance(dest, (list, ArrayObject)) or len(dest) != 5 or dest[1] != '/XYZ':
                 raise ValueError(f'Unexpected destination: {dest}')
+            # MuPDF drops the vertical target when x is null. The book can
+            # choose an explicit left edge while retaining null (inherited) zoom.
+            x = NullObject() if left is None else FloatObject(left)
             holder[NameObject(key)] = ArrayObject([
-                dest[0], NameObject('/XYZ'), NullObject(), dest[3], NullObject()])
+                dest[0], NameObject('/XYZ'), x, dest[3], NullObject()])
             count += 1
             if node.get('/First'):
                 walk(node['/First'])
             ref = node.get('/Next')
 
-    walk(writer.root_object['/Outlines']['/First'])
+    if '/Outlines' in writer.root_object:
+        walk(writer.root_object['/Outlines'].get('/First'))
+    return count
+
+
+def normalize_outlines(raw, output, *, book=True, references=()):
+    original = PdfReader(raw)
+    writer = PdfWriter(raw, incremental=True)
+    # Typst uses physical page numbers for coordinate-link tooltips. Keep the
+    # new index offsets while describing their printed page numbers correctly.
+    set_link_descriptions(original, references)
+    set_link_descriptions(writer, references)
+    preserved = accessibility_signature(original)
+    # Match viewer page labels to the visible book numbering after the cover.
+    if book:
+        writer.set_page_label(0, 0, prefix='Cover')
+        writer.set_page_label(1, len(writer.pages)-1, style='/D', start=1)
+    left = settings()['pdf_navigation']['outline_left']
+    count = normalize_outline_destinations(writer, original, left=left)
     assert '/OpenAction' not in writer.root_object
     tmp = output.with_suffix('.tmp.pdf')
     writer.write(tmp)
@@ -133,12 +144,14 @@ def normalize_outlines(raw, output, *, book=True, references=()):
                 continue
             dest = item.dest_array
             assert len(dest) == 5 and dest[1] == '/XYZ'
-            assert isinstance(dest[2], NullObject) and isinstance(dest[4], NullObject)
+            assert (isinstance(dest[2], NullObject) if left is None
+                    else float(dest[2]) == left)
+            assert isinstance(dest[4], NullObject)
             page = checked.get_destination_page_number(item)
             assert page is not None and 0 <= page < len(checked.pages)
             assert 0 <= float(dest[3]) <= float(checked.pages[page].mediabox.top)
             records.append({'title': item.title, 'depth': depth, 'pdf_page': page+1,
-                            'top': float(dest[3]), 'left': None, 'zoom': None, 'type': 'XYZ'})
+                            'top': float(dest[3]), 'left': left, 'zoom': None, 'type': 'XYZ'})
 
     validate(checked.outline)
     assert len(records) == count
