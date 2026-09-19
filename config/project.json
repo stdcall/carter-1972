@@ -2,6 +2,9 @@
   "entry": "content/main.typ",
   "output": "build/carter-1972.pdf",
   "cache": "build/.cache",
+  "pdf_navigation": {
+    "outline_left": 0
+  },
   "font_paths": [
     "assets/fonts"
   ],
