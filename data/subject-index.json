@@ -1,0 +1,2156 @@
+[
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "abstract Coxeter complex",
+    "original_locators": [
+      [
+        281
+      ],
+      [
+        284
+      ],
+      [
+        288
+      ],
+      [
+        291
+      ],
+      [
+        296
+      ]
+    ],
+    "id": "subject-001"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "adjacent chambers",
+    "original_locators": [
+      [
+        276
+      ]
+    ],
+    "id": "subject-002"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "adjoint Chevalley group",
+    "original_locators": [
+      [
+        198
+      ]
+    ],
+    "id": "subject-003"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "alternating elements",
+    "original_locators": [
+      [
+        148
+      ]
+    ],
+    "id": "subject-004"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "alternating polynomials",
+    "original_locators": [
+      [
+        139
+      ]
+    ],
+    "id": "subject-005"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "apartments",
+    "original_locators": [
+      [
+        292
+      ],
+      [
+        296
+      ]
+    ],
+    "id": "subject-006"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "automorphisms, of Chevalley groups",
+    "original_locators": [
+      [
+        199
+      ],
+      [
+        211
+      ]
+    ],
+    "id": "subject-007"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 1,
+    "term": "of simple Lie algebras",
+    "original_locators": [
+      [
+        60
+      ],
+      [
+        63
+      ]
+    ],
+    "id": "subject-008"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "basic polynomial invariants",
+    "original_locators": [
+      [
+        128
+      ],
+      [
+        129
+      ]
+    ],
+    "id": "subject-009"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Betti numbers",
+    "original_locators": [
+      [
+        169
+      ]
+    ],
+    "id": "subject-010"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "$(B,N)$-pair",
+    "original_locators": [
+      [
+        107,
+        114
+      ],
+      [
+        294
+      ]
+    ],
+    "id": "subject-011"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 1,
+    "term": "in twisted groups",
+    "original_locators": [
+      [
+        227
+      ],
+      [
+        230
+      ]
+    ],
+    "id": "subject-012"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 1,
+    "term": "operating on a building",
+    "original_locators": [
+      [
+        299
+      ],
+      [
+        302
+      ]
+    ],
+    "id": "subject-013"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Borel subgroup",
+    "original_locators": [
+      [
+        104
+      ]
+    ],
+    "id": "subject-014"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Bruhat decomposition",
+    "original_locators": [
+      [
+        104
+      ],
+      [
+        106
+      ],
+      [
+        109
+      ]
+    ],
+    "id": "subject-015"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "building",
+    "original_locators": [
+      [
+        292
+      ],
+      [
+        296
+      ],
+      [
+        302
+      ]
+    ],
+    "id": "subject-016"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 1,
+    "term": "associated with a group with $(B,N)$-pair",
+    "original_locators": [
+      [
+        293
+      ],
+      [
+        299
+      ]
+    ],
+    "id": "subject-017"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "canonical form, for elements of a Chevalley group",
+    "original_locators": [
+      [
+        115
+      ],
+      [
+        117
+      ]
+    ],
+    "id": "subject-018"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 1,
+    "term": "for elements of a unipotent subgroup",
+    "original_locators": [
+      [
+        78
+      ]
+    ],
+    "id": "subject-019"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 1,
+    "term": "for elements of a twisted group",
+    "original_locators": [
+      [
+        229
+      ]
+    ],
+    "id": "subject-020"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Cartan decomposition",
+    "original_locators": [
+      [
+        35
+      ]
+    ],
+    "id": "subject-021"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Cartan matrix",
+    "original_locators": [
+      [
+        43,
+        45
+      ],
+      [
+        99
+      ],
+      [
+        122
+      ]
+    ],
+    "id": "subject-022"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "central series of unipotent group",
+    "original_locators": [
+      [
+        78
+      ]
+    ],
+    "id": "subject-023"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "chamber",
+    "original_locators": [
+      [
+        21,
+        23
+      ],
+      [
+        275
+      ]
+    ],
+    "id": "subject-024"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "chamber complex",
+    "original_locators": [
+      [
+        275
+      ]
+    ],
+    "id": "subject-025"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Chevalley basis",
+    "original_locators": [
+      [
+        56
+      ]
+    ],
+    "id": "subject-026"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Chevalley group, definition",
+    "original_locators": [
+      [
+        64
+      ]
+    ],
+    "id": "subject-027"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Chevalley’s theorems, on existence of integral basis",
+    "original_locators": [
+      [
+        56
+      ]
+    ],
+    "id": "subject-028"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 1,
+    "term": "on commutator formula",
+    "original_locators": [
+      [
+        76
+      ]
+    ],
+    "id": "subject-029"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 1,
+    "term": "on polynomial invariants",
+    "original_locators": [
+      [
+        128
+      ]
+    ],
+    "id": "subject-030"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "classification of simple Lie algebras",
+    "original_locators": [
+      [
+        43
+      ]
+    ],
+    "id": "subject-031"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "closed set of roots",
+    "original_locators": [
+      [
+        114
+      ]
+    ],
+    "id": "subject-032"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Coleman’s theorem",
+    "original_locators": [
+      [
+        166
+      ]
+    ],
+    "id": "subject-033"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "commutator formula",
+    "original_locators": [
+      [
+        76
+      ]
+    ],
+    "id": "subject-034"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "complex",
+    "original_locators": [
+      [
+        274
+      ]
+    ],
+    "id": "subject-035"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Conway groups",
+    "original_locators": [
+      [
+        308
+      ]
+    ],
+    "id": "subject-036"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "co-roots",
+    "original_locators": [
+      [
+        49
+      ]
+    ],
+    "id": "subject-037"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Coxeter complex",
+    "original_locators": [
+      [
+        30,
+        32
+      ],
+      [
+        136
+      ],
+      [
+        137
+      ],
+      [
+        255
+      ],
+      [
+        288
+      ]
+    ],
+    "id": "subject-038"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Coxeter element",
+    "original_locators": [
+      [
+        156
+      ]
+    ],
+    "id": "subject-039"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Coxeter group",
+    "original_locators": [
+      [
+        25
+      ],
+      [
+        284
+      ],
+      [
+        286
+      ],
+      [
+        292
+      ]
+    ],
+    "id": "subject-040"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Coxeter’s theorem",
+    "original_locators": [
+      [
+        156
+      ]
+    ],
+    "id": "subject-041"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "degrees of basic invariants",
+    "original_locators": [
+      [
+        130,
+        133
+      ],
+      [
+        145
+      ],
+      [
+        155
+      ]
+    ],
+    "id": "subject-042"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "derivations",
+    "original_locators": [
+      [
+        34
+      ],
+      [
+        61
+      ]
+    ],
+    "id": "subject-043"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "diagonal automorphism",
+    "original_locators": [
+      [
+        200
+      ]
+    ],
+    "id": "subject-044"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "diagonal subgroup $H$, of a Chevalley group",
+    "original_locators": [
+      [
+        97
+      ],
+      [
+        99
+      ],
+      [
+        117
+      ]
+    ],
+    "id": "subject-045"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 1,
+    "term": "of a twisted group",
+    "original_locators": [
+      [
+        238
+      ],
+      [
+        244
+      ]
+    ],
+    "id": "subject-046"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "dihedral subgroup of Weyl group",
+    "original_locators": [
+      [
+        158
+      ],
+      [
+        161
+      ]
+    ],
+    "id": "subject-047"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "distinguished coset representatives",
+    "original_locators": [
+      [
+        30
+      ],
+      [
+        138
+      ]
+    ],
+    "id": "subject-048"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "double coset decomposition",
+    "original_locators": [
+      [
+        109
+      ],
+      [
+        110
+      ]
+    ],
+    "id": "subject-049"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "duality of exponents",
+    "original_locators": [
+      [
+        156
+      ],
+      [
+        168
+      ]
+    ],
+    "id": "subject-050"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "dual root system",
+    "original_locators": [
+      [
+        49
+      ],
+      [
+        50
+      ]
+    ],
+    "id": "subject-051"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "Dynkin diagram, of a simple Lie algebra",
+    "original_locators": [
+      [
+        40
+      ]
+    ],
+    "id": "subject-052"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 1,
+    "term": "of the twisted groups",
+    "original_locators": [
+      [
+        224
+      ]
+    ],
+    "id": "subject-053"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "eigenvalues of Coxeter element",
+    "original_locators": [
+      [
+        165
+      ],
+      [
+        166
+      ],
+      [
+        168
+      ]
+    ],
+    "id": "subject-054"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "elementary symmetric polynomials",
+    "original_locators": [
+      [
+        124
+      ]
+    ],
+    "id": "subject-055"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "existence theorem for simple Lie algebras",
+    "original_locators": [
+      [
+        42
+      ]
+    ],
+    "id": "subject-056"
+  },
+  {
+    "source_file_page": 342,
+    "indent": 0,
+    "term": "exponential map",
+    "original_locators": [
+      [
+        60
+      ],
+      [
+        66
+      ]
+    ],
+    "id": "subject-057"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "exponents of Weyl group",
+    "original_locators": [
+      [
+        169
+      ]
+    ],
+    "id": "subject-058"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "extraspecial pair of roots",
+    "original_locators": [
+      [
+        58
+      ]
+    ],
+    "id": "subject-059"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "factorization of the polynomial $sum t^(l(w))$, in Chevalley groups",
+    "original_locators": [
+      [
+        135
+      ]
+    ],
+    "id": "subject-060"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 1,
+    "term": "in twisted groups",
+    "original_locators": [
+      [
+        254
+      ]
+    ],
+    "id": "subject-061"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "field automorphism",
+    "original_locators": [
+      [
+        200
+      ]
+    ],
+    "id": "subject-062"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "finite Chevalley groups",
+    "original_locators": [
+      [
+        120,
+        122
+      ]
+    ],
+    "id": "subject-063"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "finite twisted groups",
+    "original_locators": [
+      [
+        251
+      ]
+    ],
+    "id": "subject-064"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Fischer groups",
+    "original_locators": [
+      [
+        309
+      ]
+    ],
+    "id": "subject-065"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "folding",
+    "original_locators": [
+      [
+        277
+      ]
+    ],
+    "id": "subject-066"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Frobenius–Perron theorem",
+    "original_locators": [
+      [
+        162
+      ]
+    ],
+    "id": "subject-067"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "fundamental group",
+    "original_locators": [
+      [
+        99
+      ]
+    ],
+    "id": "subject-068"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "fundamental reflection",
+    "original_locators": [
+      [
+        17
+      ]
+    ],
+    "id": "subject-069"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "fundamental system of roots",
+    "original_locators": [
+      [
+        13
+      ],
+      [
+        19
+      ],
+      [
+        21
+      ]
+    ],
+    "id": "subject-070"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "fundamental weights",
+    "original_locators": [
+      [
+        98
+      ],
+      [
+        146
+      ],
+      [
+        148
+      ]
+    ],
+    "id": "subject-071"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "gallery",
+    "original_locators": [
+      [
+        276
+      ]
+    ],
+    "id": "subject-072"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "generators and relations, for Chevalley group",
+    "original_locators": [
+      [
+        190
+      ]
+    ],
+    "id": "subject-073"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 1,
+    "term": "for Weyl group",
+    "original_locators": [
+      [
+        23
+      ],
+      [
+        25
+      ]
+    ],
+    "id": "subject-074"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "graph automorphism, of the groups $B_2(K),F_4(K)$",
+    "original_locators": [
+      [
+        204
+      ]
+    ],
+    "id": "subject-075"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 1,
+    "term": "of the group $G_2(K)$",
+    "original_locators": [
+      [
+        206
+      ]
+    ],
+    "id": "subject-076"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "height of a root",
+    "original_locators": [
+      [
+        16
+      ],
+      [
+        77
+      ],
+      [
+        153,
+        155
+      ]
+    ],
+    "id": "subject-077"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Held group",
+    "original_locators": [
+      [
+        306
+      ]
+    ],
+    "id": "subject-078"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Higman–Sims group",
+    "original_locators": [
+      [
+        307
+      ]
+    ],
+    "id": "subject-079"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "homomorphism, from $S L_2(CC)$",
+    "original_locators": [
+      [
+        87
+      ]
+    ],
+    "id": "subject-080"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 1,
+    "term": "from $S L_2(K)$",
+    "original_locators": [
+      [
+        88
+      ]
+    ],
+    "id": "subject-081"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "ideal of Lie algebra",
+    "original_locators": [
+      [
+        33
+      ]
+    ],
+    "id": "subject-082"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "induced character",
+    "original_locators": [
+      [
+        136
+      ]
+    ],
+    "id": "subject-083"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "isomorphism theorem for simple Lie algebras",
+    "original_locators": [
+      [
+        42
+      ]
+    ],
+    "id": "subject-084"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Jacobian",
+    "original_locators": [
+      [
+        134
+      ],
+      [
+        166
+      ]
+    ],
+    "id": "subject-085"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Jacobi identity",
+    "original_locators": [
+      [
+        33
+      ]
+    ],
+    "id": "subject-086"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Janko groups",
+    "original_locators": [
+      [
+        305
+      ]
+    ],
+    "id": "subject-087"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "$K$-character",
+    "original_locators": [
+      [
+        97
+      ],
+      [
+        99
+      ],
+      [
+        121
+      ],
+      [
+        199
+      ]
+    ],
+    "id": "subject-088"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 1,
+    "term": "self-conjugate",
+    "original_locators": [
+      [
+        238
+      ]
+    ],
+    "id": "subject-089"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Killing form",
+    "original_locators": [
+      [
+        34
+      ]
+    ],
+    "id": "subject-090"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Leech lattice",
+    "original_locators": [
+      [
+        308
+      ]
+    ],
+    "id": "subject-091"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Lefschetz fixed point formula",
+    "original_locators": [
+      [
+        169
+      ]
+    ],
+    "id": "subject-092"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "length function",
+    "original_locators": [
+      [
+        18
+      ],
+      [
+        136
+      ]
+    ],
+    "id": "subject-093"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Levi decomposition",
+    "original_locators": [
+      [
+        118
+      ]
+    ],
+    "id": "subject-094"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Levi subgroup",
+    "original_locators": [
+      [
+        119
+      ]
+    ],
+    "id": "subject-095"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Lie algebra, definition",
+    "original_locators": [
+      [
+        33
+      ]
+    ],
+    "id": "subject-096"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "linear groups",
+    "original_locators": [
+      [
+        2
+      ],
+      [
+        184
+      ],
+      [
+        185
+      ]
+    ],
+    "id": "subject-097"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Lyons group",
+    "original_locators": [
+      [
+        306
+      ]
+    ],
+    "id": "subject-098"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Macdonald’s theorem",
+    "original_locators": [
+      [
+        151
+      ]
+    ],
+    "id": "subject-099"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Mathieu groups",
+    "original_locators": [
+      [
+        303
+      ]
+    ],
+    "id": "subject-100"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Matsumoto’s theorem",
+    "original_locators": [
+      [
+        286
+      ]
+    ],
+    "id": "subject-101"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "McLaughlin group",
+    "original_locators": [
+      [
+        307
+      ]
+    ],
+    "id": "subject-102"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "monomial subgroup $N$, of Chevalley group",
+    "original_locators": [
+      [
+        101
+      ]
+    ],
+    "id": "subject-103"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 1,
+    "term": "of twisted group",
+    "original_locators": [
+      [
+        228
+      ]
+    ],
+    "id": "subject-104"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 1,
+    "term": "relationship to Weyl group",
+    "original_locators": [
+      [
+        102
+      ]
+    ],
+    "id": "subject-105"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "morphism of chamber complexes",
+    "original_locators": [
+      [
+        276
+      ]
+    ],
+    "id": "subject-106"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "nilpotent derivations",
+    "original_locators": [
+      [
+        61
+      ],
+      [
+        66
+      ],
+      [
+        69
+      ]
+    ],
+    "id": "subject-107"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "nilpotent Lie algebra",
+    "original_locators": [
+      [
+        35
+      ]
+    ],
+    "id": "subject-108"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "opposite folding",
+    "original_locators": [
+      [
+        280
+      ]
+    ],
+    "id": "subject-109"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "order, of Coxeter elements",
+    "original_locators": [
+      [
+        163
+      ],
+      [
+        168
+      ]
+    ],
+    "id": "subject-110"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 1,
+    "term": "of finite Chevalley groups",
+    "original_locators": [
+      [
+        122
+      ],
+      [
+        144
+      ]
+    ],
+    "id": "subject-111"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 1,
+    "term": "of finite twisted groups",
+    "original_locators": [
+      [
+        253
+      ],
+      [
+        259
+      ],
+      [
+        262
+      ]
+    ],
+    "id": "subject-112"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 1,
+    "term": "of sporadic simple groups",
+    "original_locators": [
+      [
+        310
+      ]
+    ],
+    "id": "subject-113"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "ordering of vector space",
+    "original_locators": [
+      [
+        13
+      ]
+    ],
+    "id": "subject-114"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "orthogonal groups",
+    "original_locators": [
+      [
+        4,
+        8
+      ],
+      [
+        184,
+        188
+      ],
+      [
+        271
+      ]
+    ],
+    "id": "subject-115"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "parabolic subgroups, of a group with $(B,N)$-pair",
+    "original_locators": [
+      [
+        111,
+        113
+      ]
+    ],
+    "id": "subject-116"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 1,
+    "term": "of a Chevalley group",
+    "original_locators": [
+      [
+        118
+      ],
+      [
+        119
+      ]
+    ],
+    "id": "subject-117"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 1,
+    "term": "of a twisted group",
+    "original_locators": [
+      [
+        231
+      ]
+    ],
+    "id": "subject-118"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 1,
+    "term": "of a Weyl group",
+    "original_locators": [
+      [
+        27,
+        30
+      ],
+      [
+        32
+      ]
+    ],
+    "id": "subject-119"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Poincaré polynomial",
+    "original_locators": [
+      [
+        169
+      ]
+    ],
+    "id": "subject-120"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "polynomial invariants of Weyl group",
+    "original_locators": [
+      [
+        123
+      ]
+    ],
+    "id": "subject-121"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "positive systems of roots",
+    "original_locators": [
+      [
+        13
+      ]
+    ],
+    "id": "subject-122"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "rank of a Lie algebra",
+    "original_locators": [
+      [
+        35
+      ]
+    ],
+    "id": "subject-123"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Ree groups",
+    "original_locators": [
+      [
+        251
+      ]
+    ],
+    "id": "subject-124"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "Ree’s theorem",
+    "original_locators": [
+      [
+        184
+      ]
+    ],
+    "id": "subject-125"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "reflections",
+    "original_locators": [
+      [
+        12
+      ],
+      [
+        284
+      ]
+    ],
+    "id": "subject-126"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "retractions",
+    "original_locators": [
+      [
+        282
+      ],
+      [
+        296
+      ]
+    ],
+    "id": "subject-127"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "roots of a simple Lie algebra",
+    "original_locators": [
+      [
+        36
+      ]
+    ],
+    "id": "subject-128"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "root subgroups, of Chevalley groups",
+    "original_locators": [
+      [
+        68
+      ]
+    ],
+    "id": "subject-129"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 1,
+    "term": "of twisted groups",
+    "original_locators": [
+      [
+        233
+      ],
+      [
+        235
+      ]
+    ],
+    "id": "subject-130"
+  },
+  {
+    "source_file_page": 343,
+    "indent": 0,
+    "term": "root systems",
+    "original_locators": [
+      [
+        12
+      ],
+      [
+        45,
+        49
+      ]
+    ],
+    "id": "subject-131"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "semi-simple Lie algebra",
+    "original_locators": [
+      [
+        36
+      ]
+    ],
+    "id": "subject-132"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "simplex",
+    "original_locators": [
+      [
+        274
+      ]
+    ],
+    "id": "subject-133"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "simplicity, of Chevalley groups",
+    "original_locators": [
+      [
+        172
+      ]
+    ],
+    "id": "subject-134"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 1,
+    "term": "of groups with $(B,N)$-pair",
+    "original_locators": [
+      [
+        170
+      ]
+    ],
+    "id": "subject-135"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 1,
+    "term": "of twisted groups",
+    "original_locators": [
+      [
+        262
+      ]
+    ],
+    "id": "subject-136"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "$S L_2$",
+    "original_locators": [
+      [
+        67
+      ],
+      [
+        81
+      ],
+      [
+        87
+      ],
+      [
+        88
+      ]
+    ],
+    "id": "subject-137"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "Solomon’s theorem",
+    "original_locators": [
+      [
+        135
+      ],
+      [
+        143
+      ]
+    ],
+    "id": "subject-138"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "special pair of roots",
+    "original_locators": [
+      [
+        58
+      ]
+    ],
+    "id": "subject-139"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "sporadic simple groups",
+    "original_locators": [
+      [
+        303
+      ]
+    ],
+    "id": "subject-140"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "Steinberg’s theorems, on automorphisms of finite Chevalley groups",
+    "original_locators": [
+      [
+        211
+      ]
+    ],
+    "id": "subject-141"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 1,
+    "term": "on generators and relations for Chevalley groups",
+    "original_locators": [
+      [
+        190
+      ]
+    ],
+    "id": "subject-142"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 1,
+    "term": "on generators and relations for the Weyl group",
+    "original_locators": [
+      [
+        23
+      ],
+      [
+        25
+      ]
+    ],
+    "id": "subject-143"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "Steiner system",
+    "original_locators": [
+      [
+        303
+      ]
+    ],
+    "id": "subject-144"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "structure constants",
+    "original_locators": [
+      [
+        52
+      ],
+      [
+        55
+      ],
+      [
+        58
+      ]
+    ],
+    "id": "subject-145"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 1,
+    "term": "for the Lie algebra $G_2$",
+    "original_locators": [
+      [
+        211
+      ]
+    ],
+    "id": "subject-146"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "subalgebras of Lie algebras",
+    "original_locators": [
+      [
+        33
+      ]
+    ],
+    "id": "subject-147"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "Suzuki groups",
+    "original_locators": [
+      [
+        251
+      ],
+      [
+        307
+      ]
+    ],
+    "id": "subject-148"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "symmetric algebra",
+    "original_locators": [
+      [
+        123
+      ]
+    ],
+    "id": "subject-149"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "symmetric group",
+    "original_locators": [
+      [
+        124
+      ]
+    ],
+    "id": "subject-150"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "symmetric polynomials",
+    "original_locators": [
+      [
+        124
+      ]
+    ],
+    "id": "subject-151"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "symmetry of Dynkin diagram",
+    "original_locators": [
+      [
+        200
+      ],
+      [
+        221,
+        223
+      ]
+    ],
+    "id": "subject-152"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "symplectic groups",
+    "original_locators": [
+      [
+        3
+      ],
+      [
+        184
+      ],
+      [
+        186
+      ]
+    ],
+    "id": "subject-153"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "Tits’ theorems, on finite groups with $(B,N)$-pair",
+    "original_locators": [
+      [
+        302
+      ]
+    ],
+    "id": "subject-154"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 1,
+    "term": "on parabolic subgroups",
+    "original_locators": [
+      [
+        112
+      ],
+      [
+        113
+      ]
+    ],
+    "id": "subject-155"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 1,
+    "term": "on simplicity of groups with $(B,N)$-pair",
+    "original_locators": [
+      [
+        170
+      ]
+    ],
+    "id": "subject-156"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 1,
+    "term": "on the apartments of a building",
+    "original_locators": [
+      [
+        296
+      ]
+    ],
+    "id": "subject-157"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "transitive extensions",
+    "original_locators": [
+      [
+        304
+      ],
+      [
+        306
+      ]
+    ],
+    "id": "subject-158"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "twisted group, definition",
+    "original_locators": [
+      [
+        226
+      ]
+    ],
+    "id": "subject-159"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "type, of element in a building",
+    "original_locators": [
+      [
+        298
+      ]
+    ],
+    "id": "subject-160"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 1,
+    "term": "of element in a chamber complex",
+    "original_locators": [
+      [
+        283
+      ]
+    ],
+    "id": "subject-161"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "type-preserving automorphisms",
+    "original_locators": [
+      [
+        284
+      ],
+      [
+        290
+      ],
+      [
+        291
+      ],
+      [
+        299
+      ]
+    ],
+    "id": "subject-162"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "unipotent linear transformation",
+    "original_locators": [
+      [
+        68
+      ]
+    ],
+    "id": "subject-163"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "unipotent subgroup, of a Chevalley group",
+    "original_locators": [
+      [
+        68
+      ],
+      [
+        78
+      ],
+      [
+        104
+      ],
+      [
+        114
+      ]
+    ],
+    "id": "subject-164"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 1,
+    "term": "of a twisted group",
+    "original_locators": [
+      [
+        231
+      ]
+    ],
+    "id": "subject-165"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "universal Chevalley group",
+    "original_locators": [
+      [
+        197
+      ]
+    ],
+    "id": "subject-166"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "Weyl’s theorem",
+    "original_locators": [
+      [
+        149
+      ]
+    ],
+    "id": "subject-167"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 0,
+    "term": "Weyl group, of a root system",
+    "original_locators": [
+      [
+        13
+      ]
+    ],
+    "id": "subject-168"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 1,
+    "term": "of a Chevalley group",
+    "original_locators": [
+      [
+        102
+      ]
+    ],
+    "id": "subject-169"
+  },
+  {
+    "source_file_page": 344,
+    "indent": 1,
+    "term": "of a twisted group",
+    "original_locators": [
+      [
+        221,
+        224
+      ],
+      [
+        226
+      ],
+      [
+        228
+      ]
+    ],
+    "id": "subject-170"
+  }
+]

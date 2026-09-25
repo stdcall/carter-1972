@@ -1,0 +1,508 @@
+{
+  "checks": [
+    {
+      "id": "LIT001",
+      "target": "Lemma5.1.2 and eq:nilpotent-campbell-hausdorff-campbell-hausdorff",
+      "carter_printed_pages": [
+        69,
+        70
+      ],
+      "source": "J. I. Hall, Introduction to Lie Algebras: Finite and Infinite Dimension, AMS Graduate Studies in Mathematics248,2024",
+      "printed_page": 67,
+      "location": "Problem3.7(b), assumptions and hint; full page visually inspected",
+      "finding": "With [A,B]=AB-BA and [A,[A,B]]=[B,[A,B]]=0, Hall writes exp(tA)exp(tB)=exp(t(A+B)+t^2[A,B]/2); the hint explicitly uses exp(tA)exp(tB)exp(-t^2[A,B]/2). At t=1 this corroborates Carter’s order and minus one-half coefficient.",
+      "limitations": "Hall formulates the exercise for real matrices. This comparison confirms convention, sign and central-commutator special case; it is not an independent formal proof of Carter’s arbitrary characteristic-zero nilpotence assertion. Carter’s own finite power-expansion proof is retained.",
+      "decision": "Retain Carter’s formula. No new CAS or Lean test needed for this reading."
+    },
+    {
+      "id": "LIT002",
+      "target": "Theorem5.2.2, integral commutator expansion",
+      "source": "R.Steinberg, Lectures on Chevalley Groups, AMS University Lecture Series66",
+      "printed_pages": [
+        19,
+        20
+      ],
+      "location": "Lemma15 and corollary, both complete pages visually inspected",
+      "finding": "Integral root-group commutator expansion and validity over arbitrary fields. Steinberg defines (A,B)=ABA^-1B^-1; Carter defines [A,B]=A^-1B^-1AB. Carter [A,B] is Steinberg (A^-1,B^-1). Product order and corresponding constants must also be matched.",
+      "limitations": "Corroborates structure, integrality and field transfer, not Carter’s entire explicit G2 coefficient table. B2/G2 coefficients are left as an exercise in this Steinberg passage.",
+      "decision": "Retain Carter’s explicitly stated convention and ordered coefficient formulas; no direct replacement of signs from Steinberg."
+    },
+    {
+      "id": "LIT003",
+      "target": "Propositions6.4.1–6.4.3 and Lemma6.4.4",
+      "source": "R.Steinberg, Lectures on Chevalley Groups, AMS University Lecture Series66",
+      "printed_pages": [
+        22,
+        23
+      ],
+      "location": "Lemma19 and continuation; both complete pages visually inspected",
+      "finding": "Steinberg w_r(t)=x_r(t)x_-r(-t^-1)x_r(t) is Carter n_r(t), with the same matrix [[0,t],[-t^-1,0]]. h_r(t)=w_r(t)w_r(1)^-1 matches Carter n_r(t)n_r(-1). Lemma19(a) confirms Weyl action and equal signs for opposite roots;19(c) confirms torus weight t^<s,r>, Carter A_rs.",
+      "limitations": "Basis-dependent individual signs remain Carter’s. This reference does not verify Carter’s intermediate epsilon index range; E029 follows from the full root string and the preceding structure-constant equation.",
+      "decision": "Preserve Carter’s order and sign convention; accept the matching identities."
+    },
+    {
+      "id": "LIT004",
+      "target": "Section7.1 intersections and Theorem7.2.2",
+      "source": "R.Steinberg, Lectures on Chevalley Groups, AMS University Lecture Series66",
+      "printed_pages": [
+        24
+      ],
+      "location": "Lemmas21–23; complete page visually inspected",
+      "finding": "Lemma21 confirms U normal in UH and U∩H=1. Lemma22 proves H normal in N and W≅N/H using the same root-representative conjugation and reflection presentation. Its w_r(t) equals Carter n_r(t); omega_r equals Carter n_r. Both sides use the same triple root-product order.",
+      "limitations": "Does not independently transcribe Carter’s weight-lattice paragraph or scalar eta sentence. E030 follows directly from torus action6.4.1. No formal proof of full chapter claimed.",
+      "decision": "Retain Carter’s arguments and conventions; correct the general scalar domain and missing root subscript in the errata journal."
+    },
+    {
+      "id": "LIT005",
+      "target": "Sections8.1 and8.4, canonical Bruhat form",
+      "source": "R.Steinberg, Lectures on Chevalley Groups, AMS University Lecture Series66",
+      "printed_pages": [
+        25,
+        26
+      ],
+      "location": "Lemma25, Theorems4 and4-prime; both complete pages visually inspected",
+      "finding": "Theorem4-prime uses Q=P∩w^(-1)(−P) and B omega_w U_w with unique factors. Here P=Phi+, Q=Carter Psi2, omega_w=Carter n_w, U_w=Carter U_w−. Lemma25 gives right multiplication; inversion translates it to Carter left multiplication convention.",
+      "limitations": "Reference corroborates the canonical form, not every intermediate printed identity. E033 is directly the inverse-of-product identity.",
+      "decision": "Retain canonical form and ordering; correct E033."
+    },
+    {
+      "id": "LIT006",
+      "target": "Theorem8.5.2 Levi decomposition",
+      "source": "M.Geck and G.Malle, The Character Theory of Finite Groups of Lie Type, Cambridge Studies in Advanced Mathematics187",
+      "printed_pages": [
+        212
+      ],
+      "location": "3.1.1 Finite BN-pairs; complete page visually inspected",
+      "finding": "Standard parabolic P_I=U_I semidirect L_I with the standard Levi complement, matching Carter structural statement.",
+      "limitations": "This passage assumes a finite algebraic BN-pair and does not prove Carter arbitrary-field statement or his support formulas. E035 is established separately by root grading and exact counterexamples.",
+      "decision": "Use as corroboration of the decomposition only."
+    },
+    {
+      "id": "LIT007",
+      "target": "fig:finite-chevalley-groups-fundamental-groups",
+      "source": "M.Geck, A Course on Lie algebras and Chevalley groups, arXiv2404.11472v3,2 October2025",
+      "printed_pages": [
+        190
+      ],
+      "location": "Table12 and Remark4.1.5; complete page visually inspected",
+      "finding": "All ten type entries agree. Geck Omega/root lattice equals Carter Q/P. In type D the quotient is Z/4 for odd rank and Z/2×Z/2 for even rank; E6 and E7 give Z/3 and Z/2; G2,F4,E8 are trivial.",
+      "limitations": "Corroborates the finite lattice quotient table. Carter character counts follow by counting roots of unity in GF(q); no whole-group order computation claimed.",
+      "decision": "Retain both original tables, reflow into two groups of five columns for legibility."
+    },
+    {
+      "id": "LIT008",
+      "target": "Theorem9.2.2 and E038, nonvanishing evaluated partial derivative",
+      "source": "J.E.Humphreys, Reflection Groups and Coxeter Groups, Cambridge Studies in Advanced Mathematics29,1990",
+      "printed_pages": [
+        64
+      ],
+      "location": "Jacobian criterion proof, equations23–24; complete page visually inspected",
+      "finding": "Humphreys explicitly chooses a relation of least total degree and uses the smaller degree of a nonzero partial to show its evaluated value is nonzero. Carter’s positive weighted grading gives the identical minimality argument with degree d−deg(I_i).",
+      "limitations": "This checks the bounded derivative step, not Carter’s entire proof. Steinberg AMS edition printed79 was also visually inspected and omits minimality like Carter; it is not independent confirmation of the missing condition.",
+      "supplementary_reference": {
+        "url": "https://math.soimeme.org/~arunram/Resources/LOCGS9TheOrdersOfTheFiniteChevalleyGroups.html",
+        "location": "Theorem27(a), proof of(2), electronic transcription of Steinberg Yale1967 notes",
+        "finding": "This transcription explicitly includes minimal degree; differs from the AMS edition."
+      },
+      "decision": "Insert the minimal weighted degree choice; preserve the remaining proof."
+    },
+    {
+      "id": "LIT009",
+      "target": "Section9.4, Solomon proof",
+      "source": "R.Steinberg, Lectures on Chevalley Groups, AMS University Lecture Series66",
+      "printed_pages": [
+        84
+      ],
+      "location": "Proof of Theorem26, steps9–12; complete page visually inspected",
+      "finding": "Alternating invariant dimensions, the product of positive-root forms, and Hilbert-series proof agree with Carter9.4.6–9.4.9.",
+      "limitations": "Steinberg does not explicitly display Carter’s fixed-complement factor. E040 is established directly from Carter’s definition and degree-one invariant count, with exact Sage diagnostics.",
+      "decision": "Retain proof; correct confirmed E040 and the E039 parentheses."
+    },
+    {
+      "id": "LIT010",
+      "target": "Theorem10.1.8; Weyl denominator identity",
+      "source": "J.E.Humphreys, Reflection Groups and Coxeter Groups, Cambridge Studies in Advanced Mathematics29,1990",
+      "printed_pages": [
+        85
+      ],
+      "location": "Section3.20, unnumbered Weyl denominator identity; complete page visually inspected",
+      "finding": "Humphreys rho equals Carter S, theta has identical determinant signs, and the product e(-rho) product_(alpha>0)(e(alpha)-1) agrees exactly. The same page displays Macdonald identity35 and a positive-subset expansion in its numerator.",
+      "limitations": "Confirms theorem and conventions; Humphreys does not reproduce Carter’s two misprinted sums. E041 follows directly from product expansion and is diagnosed independently in Sage.",
+      "decision": "Preserve theorem; correct two missing plus signs in proof."
+    },
+    {
+      "id": "LIT011",
+      "target": "Theorem10.2.1 and specialization in10.2.2",
+      "source": "J.E.Humphreys, Reflection Groups and Coxeter Groups, Cambridge Studies in Advanced Mathematics29,1990",
+      "printed_pages": [
+        85
+      ],
+      "location": "Section3.20 equation35 and following specialization; complete page visually inspected",
+      "finding": "Macdonald product/sum identity has the same signs1-t e(-w alpha),1-e(-w alpha). Specialization e(alpha)->t^(-h(alpha)) leaves only the identity Weyl element. Weight-lattice notation differs, conventions agree.",
+      "limitations": "Reference corroborates stated identity and specialization, not an independent formal verification of each proof step.",
+      "decision": "Preserve source formulas."
+    },
+    {
+      "id": "LIT012",
+      "target": "Carter10.4.1 and10.4.3, bipartition and plane action",
+      "source": "J.E.Humphreys, Reflection Groups and Coxeter Groups, Cambridge Studies in Advanced Mathematics29,1990",
+      "printed_pages": [
+        77,
+        78
+      ],
+      "location": "Section3.17, full two pages visually inspected",
+      "finding": "Same tree bipartition, dual basis and reflection axes. Humphreys unit roots alpha_i equal Carter f_i; A equals Carter M, y=w1,z=w2; Humphreys vector lambda corresponds to Carter a and vector mu to Carter b. Scalar eigenvalue c corresponds to1−Carter lambda. His (c−1)lambda+mu is the negative of Carter lambda*a−b. Thus axes and signs agree.",
+      "limitations": "Humphreys chooses the positive Perron eigenvector for a faithful plane action. Carter10.4.3 applies to any nonzero eigenvalue ofI−M and claims invariance/rotation, not faithfulness for every such plane. General faithful-plane argument follows in10.5.",
+      "decision": "Preserve formulas and axes, with distinct scalar/vector notations understood."
+    },
+    {
+      "id": "LIT013",
+      "target": "Theorem10.6.1, Coleman correspondence",
+      "source": "J.E.Humphreys, Reflection Groups and Coxeter Groups, Cambridge Studies in Advanced Mathematics29,1990",
+      "printed_pages": [
+        81
+      ],
+      "location": "Section3.19 theorem and proof, full page visually inspected",
+      "finding": "Same Jacobian/eigenvector argument, inverse eigenvalues on coordinate functions, exponent sign1−d_i−m_i and final congruence-plus-sum argument. Humphreys takes point(1,0,…,0), an explicit nonzero representative of Carter eigenline. Remainder uses y2,…,yn, resolving Carter repeated-index wording.",
+      "limitations": "Humphreys repeats the same leading coefficient symbol before/after integration, so does not resolve its implicit renormalization at i=1. E042 makes those coefficients distinct without changing argument; checked by direct differentiation.",
+      "decision": "Preserve argument with explicit coefficient distinction and E039 action parentheses. Final arithmetic implication separately formalized in Lean."
+    },
+    {
+      "id": "LIT014",
+      "target": "Carter11.2 classical matrix algebras; E045–E046",
+      "source": "M.Geck, A Course on Lie Algebras and Chevalley Groups, arXiv2404.11472v3,2October2025",
+      "printed_pages": [
+        39
+      ],
+      "location": "Example1.6.5, Remark1.6.6 and Proposition1.6.7; full page visually inspected",
+      "finding": "Transpose preserves the classical form Lie algebra. A_ij=delta_i E_ij−delta_j E_(n+1−j,n+1−i) gives a matrix basis and its nilpotence. D/C negative-coordinate order is reversed relative to Carter; B also uses a different central-coordinate normalization. This corroborates the matrix construction, not the exact displayed Carter basis sign.",
+      "limitations": "The missing minus is inferred directly from Carter matrix pairs. Geck does not state the Carter erratum or justify the imaginary rescaling; the latter is disproved by an exact root-sum pair.",
+      "decision": "Keep Carter matrices and normalization, correct opposite-root signs and remove the invalid rescaling argument with full erratum."
+    },
+    {
+      "id": "LIT015",
+      "target": "Carter11.3.1, kernel of classical representation to adjoint group",
+      "source": "R.Steinberg, Lectures on Chevalley Groups, AMS University Lecture Series66,2016",
+      "printed_pages": [
+        29,
+        30
+      ],
+      "location": "Corollary5 to Theorem4-prime, and following discussion of root/weight lattices and ker beta=Z(G); full pages visually inspected",
+      "finding": "Inclusion of weight lattices induces the generator-preserving surjective homomorphism with central kernel; the map to the adjoint group has kernel equal to the centre. This corroborates the kernel statement over arbitrary fields in the Chevalley representation framework.",
+      "limitations": "The integral Chevalley lattice is not automatically identical with the span of reduced classical root matrices in bad characteristic. Carter proof retained; no claim that a finite matrix check proves this general kernel assertion.",
+      "decision": "Retain Carter11.3.1; record independent conceptual support and the lattice limitation."
+    },
+    {
+      "id": "LIT016",
+      "target": "Carter11.3.2(ii), exceptional B2(2), E047",
+      "source": "M.Geck and G.Malle, The Character Theory of Finite Groups of Lie Type: A Guided Tour, Cambridge Studies in Advanced Mathematics187,2020",
+      "printed_pages": [
+        95
+      ],
+      "location": "Table2.1; full page visually inspected",
+      "finding": "The small-group table identifies Sp4(2) with S6. With Carter characteristic-two orthogonal/symplectic identification and Omega denoting the derived subgroup, the order720 group cannot equal POmega5(2) of order360.",
+      "limitations": "The POmega comparison is our deduction using Carter conventions and independently checked generators, not a quotation from the table. This only diagnoses the small exception; it does not reprove11.3.2 over arbitrary fields.",
+      "decision": "Add the proof existing B2(2) exclusion to the theorem statement; preserve original and correction in E047."
+    },
+    {
+      "id": "LIT017",
+      "target": "Carter12.1.1, presentation and conjugation identities",
+      "source": "R.Steinberg, Lectures on Chevalley Groups, AMS University Lecture Series66,2016",
+      "printed_pages": [
+        43,
+        44,
+        45
+      ],
+      "location": "Theorem8; Lemmas36–38. Full pages visually inspected.",
+      "finding": "Theorem8 supports the presentation, including the replacement relation in rank1. Lemma36 provides the positive-root injection. Lemma37(a–f) gives the conjugation identities with the negative Cartan exponent in the Weyl lift. Lemma38 gives generation of H by fundamental-root torus factors.",
+      "notation_mapping": "Steinberg w_alpha(t) is Carter n_r(t), primes correspond to bars, and <beta,alpha>=A_rs. Before imposing multiplicativity, Steinberg writes torus conjugation as a product of h terms; Carter simplifies it using his third defining relation. Commutator conventions differ, so constants/signs were compared through the conjugation formulas rather than copied.",
+      "decision": "Preserve Carter argument. Read the blotted exponent on printed page 193 as -A_rs, consistent with the previous identity and Steinberg37(b,c). A +A_rs interpretation also fails the exact A2 diagnostic.",
+      "limitations": "This is independent literature corroboration and a review of notation, not a formal verification of all of12.1.1. The separate Lean proof covers only the final abstract kernel-centre step."
+    },
+    {
+      "id": "LIT018",
+      "target": "Carter12.2, diagonal, field and graph automorphisms",
+      "source": "R.Steinberg, Lectures on Chevalley Groups, AMS University Lecture Series66,2016",
+      "printed_pages": [
+        91,
+        92,
+        93
+      ],
+      "location": "Corollary following Theorems28–29, Lemma58 and field-automorphism paragraph; all three pages visually inspected.",
+      "finding": "The corollary constructs graph automorphisms from diagram permutations with signs epsilon_alpha=1 on simple roots and their negatives in the equal-length case. Lemma58 constructs diagonal automorphisms from characters; printed93 gives field automorphisms on root generators. These corroborate12.2.2–3 and the two preceding definitions.",
+      "notation_mapping": "Steinberg sigma on roots corresponds to Carter r->rbar and epsilon_alpha to gamma_r. Steinberg includes some inner automorphisms in the diagonal family; Carter reserves the name for h(chi) outside H. Steinberg distinguishes root lengths with directed bonds; Carter lists symmetries of undirected multiple-edge diagrams, with the unequal-length cases deferred to12.3.",
+      "decision": "Retain Carter statements and signs. The D_(2n) lattice-invariance caveat in Steinberg applies to general isogeny types; Carter here uses the adjoint group, whose root lattice is diagram-invariant.",
+      "limitations": "Independent literature and notation check, not a formal proof of the entire construction."
+    },
+    {
+      "id": "LIT019",
+      "target": "Carter12.3–12.4, exceptional graph automorphisms in characteristics2 and3",
+      "source": "R.Steinberg, Lectures on Chevalley Groups, AMS University Lecture Series66,2016",
+      "printed_pages": [
+        85,
+        86,
+        87,
+        92
+      ],
+      "location": "Examples preceding Theorem28 and its proof; corollary following Theorems28–29. Full pages85–87 visually inspected,92 already inspected for LIT018.",
+      "finding": "Theorem28 constructs the exceptional endomorphisms and identifies the characteristic restrictions; the corollary gives automorphisms for perfect fields. Example(b) explicitly adjusts root lengths after reflection, supporting E051. The proof gives the characteristic2 rank-two commutator check.",
+      "notation_mapping": "Steinberg alpha is long (Carter b), beta short (Carter a). Short-root parameters acquire the characteristic power, long-root parameters remain unchanged; root duality interchanges lengths. Commutator conventions differ, but characteristic2 eliminates sign differences in12.3. The particular G2 sign normalization and table are independently checked by exact Sage, not asserted to match Steinberg basis signs.",
+      "decision": "Retain Carter conditions and factor order; clarify root direction in E051.",
+      "limitations": "Literature comparison is not a formal proof; exact Sage checks have the separately recorded finite rank-two scope."
+    },
+    {
+      "id": "LIT020",
+      "target": "Carter12.5.1, automorphisms of finite Chevalley groups",
+      "source": "R.Steinberg,Lectures on Chevalley Groups,AMS University Lecture Series66,2016",
+      "printed_pages": [
+        93,
+        94
+      ],
+      "location": "Theorem30, proof steps(1)–(4),Lemma59; both complete pages visually inspected.",
+      "finding": "The same inner,diagonal,graph,field factorization is proved. Steps(1)–(3) match Sylow normalization, opposite root groups, rank-one braid identity and graph restrictions. Step(4) explicitly includes Weyl representatives among fixed generators, supporting E052. It also supplies a rank-one field-multiplicativity argument covering Carter final parenthetical caveat.",
+      "notation_mapping": "Steinberg sigma is Carter successively normalized theta; U-minus=V; w_alpha(1)=n_r. Steinberg alpha is long and beta short in the C2/F4 argument, while Carter a is short and b long. General isogeny-type lattice caveat is harmless for Carter adjoint groups.",
+      "decision": "Retain Carter proof and rank-one caveat; correct final generating index Pi to Phi. Scalar matrix-entry step independently formalized in BraidParameter.lean.",
+      "limitations": "Not a formal proof of all12.5.1; the new Lean declaration assumes the scalar consequences of equality up to sign and does not prove the SL2 kernel description."
+    },
+    {
+      "id": "LIT021",
+      "target": "Carter13.1–13.2, fixed reflection subgroup and projected roots",
+      "source": "R.Steinberg,Lectures on Chevalley Groups,AMS University Lecture Series66,2016",
+      "printed_pages": [
+        101,
+        102
+      ],
+      "location": "Theorem32 and complete proof, full pages visually inspected.",
+      "finding": "Faithfulness, orbit-longest reflections, length induction, projected-ray partition and disjoint-support basis agree. Proof(10) distinguishes the original root from its projection, supporting E053.",
+      "notation_mapping": "Steinberg sigma=Carter tau; W_sigma=W^1; V_sigma=frak(V)^1; alpha-bar=r^1; pi=J. Both permit isometries preserving root directions without preserving root lengths.",
+      "decision": "Retain argument; remove extraneous projection superscript in the original-root membership statement.",
+      "limitations": "Literature comparison, not a formal proof. Steinberg proof(3) itself omits a minus in one displayed image of P_pi; Carter correctly has Phi_J^- and that sign is preserved."
+    },
+    {
+      "id": "LIT022",
+      "target": "Carter13.3–13.4, folded types and twisted subgroup definition",
+      "source": "R.Steinberg,Lectures on Chevalley Groups,AMS University Lecture Series66,2016",
+      "printed_pages": [
+        102,
+        103,
+        104
+      ],
+      "location": "Examples following Theorem32, automorphism conditions and Theorem33 corollary; full pages visually inspected.",
+      "finding": "All seven fold types agree, including exceptional F4 angle7pi/8 and dihedral order16. Examples(e),(f) concern W_sigma, confirming E054. Conditions theta^n=1 and Frobenius*theta^2=1 agree. Theorem33 corollary explicitly distinguishes the subgroup generated by fixed U and U-minus from the full fixed group.",
+      "notation_mapping": "Steinberg sigma on roots corresponds to Carter tau; group sigma is the composite graph-field automorphism. Steinberg G_sigma is the full fixed group, while Carter G^1 corresponds to Steinberg G-prime_sigma generated by U_sigma and U-minus_sigma. Steinberg A2n example uses full nonreduced BCn projections, while Carter lists the Bn simple projections; the Weyl group is the same.",
+      "decision": "Preserve Carter root lengths, diagram numbering and generated-subgroup definition. Restore W^1 in E054. Exact finite Gram checks separately recorded.",
+      "limitations": "Literature comparison is not a formal proof; Sage checks classical families only at the explicitly listed ranks."
+    },
+    {
+      "id": "LIT023",
+      "target": "Carter13.5.1–3, nontrivial fixed root subgroups and Bruhat decomposition",
+      "source": "R.Steinberg,Lectures on Chevalley Groups,AMS University Lecture Series66,2016",
+      "printed_pages": [
+        104
+      ],
+      "location": "Lemmas60–61,Theorem33 and corollary; complete page visually inspected.",
+      "finding": "Lemma61 constructs a nontrivial fixed element as the product over the orbit of a terminal root when the orbit has length n. This repairs the erroneous fixed-root assertion for B2/G2 in Carter13.5.1. Theorem33 supplies fixed Weyl representatives and the fixed Bruhat factorization used in13.5.2–3.",
+      "notation_mapping": "Carter G^1 is Steinberg G-prime_sigma generated by U_sigma and U-minus_sigma. Carter S is Steinberg class a. Parameter-one signs are all+1 in Carter exceptional normalization, including characteristic2 B2/F4.",
+      "decision": "E055 uses the terminal two-root orbit; E056 restores a sign factor from Carter own next lines. Other Bruhat arguments preserved.",
+      "limitations": "Comparison and bounded checks, not a formalization of the Chevalley group construction or the entire BN-pair theorem."
+    },
+    {
+      "id": "LIT024",
+      "target": "Carter13.6.1 and13.6.3–4, fixed unipotent factors",
+      "source": "R.Steinberg,Lectures on Chevalley Groups,AMS University Lecture Series66,2016",
+      "printed_pages": [
+        104,
+        105
+      ],
+      "location": "Lemma62 andLemma63, complete pages visually inspected.",
+      "finding": "Unique ordered factorization into fixed equivalence-class subgroups agrees. A1 orbit products and A2 trace-zero constraint/product law agree; Steinberg normalizes N_(alpha,beta)=1. B2/G2 have corresponding two/three-parameter root subgroups and p*theta^2=1, but root order and signs/coordinates differ. Carter exceptional formulas independently verified as universal polynomial matrix identities.",
+      "notation_mapping": "Carter bar(t)=Steinberg t^theta in equal-length cases. A2 r=alpha,bar(r)=beta; retain Carter explicit N_(r,bar(r)). For exceptional rank two, Carter a short,b long correspond to Steinberg beta,alpha. No literal identification of exceptional u,v coordinates is claimed.",
+      "decision": "Keep Carter factor order, signs and parameters. Use independent Sage matrix collection for13.6.3/4(vi),(vii), not unqualified termwise comparison of different parametrizations.",
+      "limitations": "Not a formal proof of13.6.2 or a full coordinate conversion between the books."
+    },
+    {
+      "id": "LIT025",
+      "target": "Carter13.7 self-conjugate characters and exceptional torus",
+      "source": "R.Steinberg,Lectures on Chevalley Groups,AMS University Lecture Series66,2016",
+      "printed_pages": [
+        106,
+        107
+      ],
+      "location": "Lemma64 proof(1)–(6) and corollary; both complete pages visually inspected.",
+      "finding": "The universal fixed torus is generated by orbit characters; unitary trace/norm ratios use nonzero parameters. The Suzuki/Ree torus result agrees, with finite-field restriction in the Ree case; squares and -1 argument agrees.",
+      "notation_mapping": "Steinberg uses the universal group, Carter the adjoint group. Carter G^1 is the image of the universal group generated by fixed root subgroups; H^2 is the image of self-conjugate weight-lattice characters. The full fixed adjoint torus is not identified with that image without proof. For A2,r=alpha,bar(r)=beta,bar=theta. In exceptional rank two Carter a(short),b(long) correspond to Steinberg beta,alpha; no literal identification of u,v parametrizations.",
+      "decision": "E058 and E060 follow from Carter adjacent displays; E059 makes multiplicative domains explicit. E062 removes an erroneous blanket adjoint subsystem identification, with a separate Sage counterexample. Other torus statements retained.",
+      "limitations": "Not a formal proof of all13.7. Exact Sage matrix/coefficient identities have explicit hypotheses; Lean proves only the nonsquare step. General image/kernel and Bruhat arguments remain textual."
+    },
+    {
+      "source": "R.Steinberg,Lectures on Chevalley Groups,AMS University Lecture Series66,2016",
+      "id": "LIT026",
+      "target": "Carter14.1 finite twisted field,unipotent,torus and Bruhat counts",
+      "printed_pages": [
+        108,
+        110
+      ],
+      "location": "Lemma65,Theorem35 and finite-group order table; complete pages visually inspected.",
+      "finding": "Unipotent q^N,torus eigenvalue product and universal-to-adjoint fixed-centre factors agree. Table central factors agree with Carter note. Steinberg uses the universal group before dividing out centre.",
+      "notation_mapping": "Steinberg universal G_sigma maps onto Carter generated adjoint G^1; do not equate the full fixed adjoint torus with the restriction image. Carter q=p^(m+1/2) in Suzuki/Ree cases; Steinberg printed108 exponent notation is not copied.",
+      "decision": "Keep Carter q convention and final order formulas; repair character-domain/kernel distinction inE065.",
+      "limitations": "Comparison and seven finite character enumerations are not a general formal proof."
+    },
+    {
+      "source": "R.Steinberg,Lectures on Chevalley Groups,AMS University Lecture Series66,2016",
+      "id": "LIT027",
+      "target": "Carter14.2 polynomial factorization and twisted face/trace identity",
+      "printed_pages": [
+        109
+      ],
+      "location": "Lemma66 and proof(6prime)–(8prime); complete page visually inspected.",
+      "finding": "Factorization numerator epsilon_j and degree d_j,denominator linear-action eigenvalues; only diagram-stable subsets with orbit-count signs. Face and induced-character identities are explicitly for w in W,confirmingE067. Trace identity agrees.",
+      "notation_mapping": "Carter tau=Steinberg sigma_0,Carter W^1=Steinberg W_sigma,Carter l(w)=N(w),eta_j=epsilon_0j. Root directions normalized when lengths differ.",
+      "decision": "Preserve Carter expanded proof; correct the clearly defective indices/product/linear degrees inE066–069,with source evidence and exact finite checks.",
+      "limitations": "Literature agrees with general argument; Sage checks only four finite root systems,not all ranks or a Lean formalization."
+    },
+    {
+      "id": "LIT028",
+      "target": "Carter14.3 finite twisted order table and F4 invariant",
+      "source": "R.Steinberg,Lectures on Chevalley Groups,AMS University Lecture Series66,2016",
+      "printed_pages": [
+        110,
+        111
+      ],
+      "location": "Corollary order table and case-by-case proof; both full pages visually inspected.",
+      "finding": "All seven order families and central divisors agree. F4 invariant is the sum of eighth powers over individual long roots plus eighth powers of sqrt2 times short-root forms. Its degree8 eigenvalue is+1,and degrees6,12 have-1.",
+      "notation_mapping": "Steinberg table gives universal group order and central factor separately; Carter divides by d. Suzuki is denoted2C2 by Steinberg and2B2 by Carter. Retain Carter q squared field convention. Steinberg F4 coordinate roots have a different overall scale/duality orientation; compare invariant construction,not unadjusted coordinate coefficients.",
+      "decision": "Keep all order factors as printed; clarify F4 pair counting inE070 and correct dummy product indexE071.",
+      "limitations": "Table comparison and exact explicit polynomial check,not a formal proof of the complete order theorem."
+    },
+    {
+      "id": "LIT029",
+      "target": "Carter14.4 simplicity exceptions and unitary torus action",
+      "source": "R.Steinberg,Lectures on Chevalley Groups,AMS University Lecture Series66,2016",
+      "printed_pages": [
+        107,
+        108,
+        112
+      ],
+      "location": "Theorem34,proof sketch andRemark2;rank-one unitary torus action. Full pages visually inspected.",
+      "finding": "Same four simplicity exceptions;Ree2G2(3) derived groupA1(8) has index3 and2F4(2) derived group has index2. Unitary d(s) acts on two parameters with exponents2-theta and1+theta,agreeing with corrected explicit character construction.",
+      "notation_mapping": "Steinberg treats universal groups modulo centre. In the unitary calculation his theta is the field involution,not Carter exceptional-field theta. Steinberg2C2 is Carter2B2.",
+      "decision": "Retain theorem and exception note;repair the arbitrary-character claim by explicit sufficient characters. Do not use printed113 exceptional index list,whose2G2 entry conflicts with the correct Remark2 on108.",
+      "limitations": "Literature comparison plus exact bounded/polynomial Sage checks;not a formal proof of14.4.1."
+    },
+    {
+      "id": "LIT030",
+      "target": "Carter14.5.2,elementary orthogonal generation and descent warning",
+      "source": "D.E.Taylor,The Geometry of the Classical Groups,corrected edition April2021",
+      "printed_pages": [
+        148,
+        161,
+        164
+      ],
+      "location": "Formula11.17,Theorems11.46 and11.51;full pages visually inspected.",
+      "finding": "Siegel transformations are defined uniformly in all characteristics and generate Omega for the dimensions and Witt index in Carter14.5.2. Omega is the kernel of the spinor norm inside SO;this exhibits the failure of the printed fixed-point identification after a quadratic field extension.",
+      "notation_mapping": "Taylor Q is Carter f;beta is its polar form. Omega is the commutator subgroup in both. Carter coordinates are columns and the final anisotropic plane is the norm(x_l-alpha*x_-l). The terminal root pair equals rho_(e_(l-1),tbar*e_l+t*e_-l) before changing basis.",
+      "decision": "Preserve theorem and all matrix calculations;clarify the polar matrix and reordered basis,then use elementary generation for the final step(E078–079).",
+      "limitations": "General generation uses the cited theorem;Sage verifies explicit D4 matrix identities and a finite counterexample,not a formal general proof."
+    },
+    {
+      "id": "LIT031",
+      "target": "Carter15.1.2 and15.2.1–7",
+      "source": "P.Abramenko and K.S.Brown,Buildings:Theory and Applications,Springer2008,GTM248",
+      "printed_pages": [
+        129,
+        130,
+        131,
+        132,
+        133
+      ],
+      "location": "Definition3.41,Lemmas3.42–46,Remark3.47,Lemma3.49;full pages visually inspected.",
+      "finding": "Same folding definition,two complementary chamber sets,convexity,distance separation,uniqueness propagation across a panel,and involutive automorphism from opposite foldings. Confirms Carter arguments without changing mathematics.",
+      "notation_mapping": "Carter alpha is phi;Carter alpha bar on chambers is phi prime. Carter Theta is Sigma. Brown halves alpha/alpha prime denote subcomplexes,not folding maps. Carter galleries allow consecutive repetitions;Brown calls those pregalleries.",
+      "decision": "Preserve Carter mathematics and proof order. No new mathematical erratum.",
+      "limitations": "Literature/source comparison,not a Sage test or Lean formalization of these lemmas."
+    },
+    {
+      "id": "LIT032",
+      "target": "Carter15.3:retractions,types,reflection generation,exchange andE081",
+      "source": "P.Abramenko and K.S.Brown,Buildings:Theory and Applications,Springer2008,GTM248",
+      "printed_pages": [
+        79,
+        138,
+        139,
+        140,
+        141
+      ],
+      "location": "Exchange condition(E),Theorem3.65,Lemmas3.66–72;all full pages visually inspected.",
+      "finding": "Same characterization via foldings across each ordered adjacent chamber pair. Retractions give types;reflections preserve types and act simply transitively;gallery deletion yields Coxeter relations. Exchange(E) allows deletion of the first letter,consistent with correctedalpha>=1.",
+      "notation_mapping": "BrownS corresponds to Carter reflectionsw_i;Brown chamber closure corresponds to CarterS(C). Brown phi is Carteralpha folding. Brown proof3.67 uses a finite list of adjacent chambers,so it corroborates the finite-rank argument only;Carter retains an explicit arbitrary-rank construction.",
+      "decision": "Keep Carter proof. Correct only erroneous lower bound in15.3.8(E081),using direct reindexing and exact counterexample.",
+      "limitations": "Literature/source comparison,not formalization of whole15.3. Sage checks finiteS3;Lean two conditional group identities only."
+    },
+    {
+      "id": "LIT033",
+      "target": "Carter15.4.3:face stabilizers and coset isomorphism",
+      "source": "P.Abramenko and K.S.Brown,Buildings:Theory and Applications,Springer2008,GTM248",
+      "printed_pages": [
+        141,
+        142
+      ],
+      "location": "Lemma3.75 and conclusion ofTheorem3.65;full pages visually read.",
+      "finding": "The chamber closure is a simplicial fundamental domain;face of cotypeJ has stabilizerW_J;the resulting coset map gives Sigma isomorphic to Sigma(W,S).",
+      "notation_mapping": "BrownS corresponds to Carter fundamental reflections indexed byPi;BrowncotypeJ is CarterJ. The source theorem concerns the specified Coxeter system,not merely the underlying abstract group.",
+      "decision": "Preserve15.4.3 and its explicit relation/generator hypothesis. No new mathematical correction;prose Note understood in this context.",
+      "limitations": "Literature/source comparison only;no new Sage/Lean run for15.4."
+    },
+    {
+      "id": "LIT034",
+      "target": "Carter15.6.2:apartments areCoxeter complexes;repairE084",
+      "source": "P.Abramenko andK.S.Brown,Buildings:Theory and Applications,Springer2008,GTM248",
+      "printed_pages": [
+        186,
+        187,
+        214,
+        215
+      ],
+      "location": "Corollary4.34,Remark4.35,Proposition4.39(2),Theorem4.131;all four fullpages visually read.",
+      "finding": "Apartment/global gallery distances between faces agree viaretraction. Retractions preserve distance from faces of their centre. Theorem4.131 explicitly states these arguments only require thin chamber apartments and uses them to construct the samefolding asCarter.",
+      "notation_mapping": "BrownDelta isCarterOmega;Brownphi,phiprime areCarteralpha,beta;centred retractions agree. BrownB1/B2 correspond to CarterB3/B4. The distance argument uses finite galleries and does not require the desired Coxeter conclusion.",
+      "decision": "Replace only false isomorphism/minimal-gallery paragraph with self-contained distance argument;retain theorem and remainingproof.",
+      "limitations": "Literature/source proof comparison,not a new fullLean proof. Rank-one noninjectivity is immediate fromCarter displayed images;noCAS needed."
+    },
+    {
+      "id": "LIT035",
+      "target": "Carter16.4/16.5,E088–090,E094",
+      "source": "R.A.Wilson,The Finite Simple Groups,Springer2009",
+      "printed_pages": [
+        104,
+        219,
+        229,
+        242
+      ],
+      "location": "3.12.4;5.6equation5.59;5.6.11;5.7.4. Allfourfullpages visuallyinspected.",
+      "finding": "W(E8)/{±1}=GO8plus(2);6.Suz embeds in2.Co1 andSuz isquotientbysixscalars;2.Fi22and3.Fi22 generatedby3-transpositions. Thiscorroborates fourminimalcorrections.",
+      "notation_mapping": "WilsonfullGO isCarterO;WilsonCo0=2.Co1 isCarterLeechG. Carterunitaryfieldargumentq² differsWilsonq. Preservehistoricalgroupaliases andFebruary1971scope.",
+      "limitations": "Literaturecomparison. GAPdatabaseexactorders/degreechecks areseparate andnot formalproof ofclassification."
+    },
+    {
+      "id": "LIT036",
+      "target": "Carter16names andbibliography,E091–093",
+      "sources": [
+        {
+          "url": "https://link.springer.com/article/10.1007/BF01898827",
+          "finding": "PublisherauthorJackMcLaughlin;Somegroupsgeneratedbytransvections1967,18,364–368."
+        },
+        {
+          "url": "https://www.sciencedirect.com/science/article/pii/0022314X73900681",
+          "finding": "AuthorHans-VolkerNiemeier;1973articlefootnote explicitlyidentifiesrevised1968Göttingendissertation."
+        },
+        {
+          "printed_page": 286,
+          "location": "Bibliography77;fullpageviewed",
+          "finding": "G.Higman andJ.McKay,J3construction;matchesCarterownMcKaybibheader."
+        }
+      ],
+      "decision": "Correctname spellingsonly;retainworknumbers,originalpublicationdetailsandstablekeys."
+    }
+  ]
+}

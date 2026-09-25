@@ -1,0 +1,30 @@
+{
+  "external_page_literals": {
+    "content/11-properties-of-chevalley-groups.typ": {
+      "p. 59": "Dieudonné [1], external book page, not Carter."
+    },
+    "content/01-classical-simple-groups.typ": {
+      "p. 182": "Huppert [1], page in the cited book, not Carter."
+    },
+    "content/03-simple-lie-algebras.typ": {
+      "p. 127": "Jacobson [1], page in the cited book, not Carter."
+    },
+    "content/corrections.typ": {
+      "p. 198": "Page of the original 1972 edition in the separate correction list.",
+      "p. 248": "Page of the original 1972 edition in the separate correction list.",
+      "p. 3": "Page of the original 1972 edition in the separate correction list.",
+      "p. 2": "Page of the original 1972 edition in the separate correction list.",
+      "p. 13": "Page of the 1972 edition and the 1989 reprint in the correction list.",
+      "p. 37": "Page of the 1972 edition and the 1989 reprint in the correction list.",
+      "p. 175": "Page of the 1972 edition and the 1989 reprint in the correction list.",
+      "p. 263": "Page of the 1972 edition and the 1989 reprint in the correction list.",
+      "p. 269": "Page of the 1972 edition and the 1989 reprint in the correction list.",
+      "p. 310": "Page of the 1972 edition and the 1989 reprint in the correction list."
+    }
+  },
+  "max_line_length": 80,
+  "layout_files": [
+    "content/main.typ",
+    "content/corrections.typ"
+  ]
+}

@@ -1,0 +1,278 @@
+[
+  {
+    "rule": "USUniversities",
+    "file": "content/00-preface.typ",
+    "text": "University of\nChicago",
+    "reason": "Harper misreads the sentence; the wording is correct."
+  },
+  {
+    "rule": "OneOfTheSingular",
+    "file": "content/01-classical-simple-groups.typ",
+    "text": "two",
+    "reason": "Reads this way in the original."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/01-classical-simple-groups.typ",
+    "text": "Chevalley’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/01-classical-simple-groups.typ",
+    "text": "Chevalley’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "WrongNegative",
+    "file": "content/01-classical-simple-groups.typ",
+    "text": "inequivalent",
+    "reason": "Harper misreads the sentence; the wording is correct."
+  },
+  {
+    "rule": "WrongNegative",
+    "file": "content/01-classical-simple-groups.typ",
+    "text": "inequivalent",
+    "reason": "Harper misreads the sentence; the wording is correct."
+  },
+  {
+    "rule": "WrongNegative",
+    "file": "content/01-classical-simple-groups.typ",
+    "text": "inequivalent",
+    "reason": "Harper misreads the sentence; the wording is correct."
+  },
+  {
+    "rule": "QuiteQuiet",
+    "file": "content/02-weyl-groups.typ",
+    "text": "quite",
+    "reason": "Harper misreads the sentence; the wording is correct."
+  },
+  {
+    "rule": "ThatThan",
+    "file": "content/03-simple-lie-algebras.typ",
+    "text": "that",
+    "reason": "Harper misreads the sentence; the wording is correct."
+  },
+  {
+    "rule": "OneOfTheSingular",
+    "file": "content/04-chevalley-groups.typ",
+    "text": "form",
+    "reason": "Reads this way in the original."
+  },
+  {
+    "rule": "OneOfTheSingular",
+    "file": "content/04-chevalley-groups.typ",
+    "text": "form",
+    "reason": "Reads this way in the original."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/04-chevalley-groups.typ",
+    "text": "Chevalley’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/05-unipotent-subgroups.typ",
+    "text": "Chevalley’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/05-unipotent-subgroups.typ",
+    "text": "Chevalley’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/05-unipotent-subgroups.typ",
+    "text": "Chevalley’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "MissingTo",
+    "file": "content/07-diagonal-and-monomial-subgroups.typ",
+    "text": "need",
+    "reason": "Harper misreads the sentence; the wording is correct."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/08-bruhat-decomposition.typ",
+    "text": "Bruhat’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/08-bruhat-decomposition.typ",
+    "text": "Chevalley’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/08-bruhat-decomposition.typ",
+    "text": "Chevalley’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/09-polynomial-invariants.typ",
+    "text": "Chevalley’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/10-exponents.typ",
+    "text": "Weyl’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/10-exponents.typ",
+    "text": "Macdonald’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/10-exponents.typ",
+    "text": "Macdonald’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/10-exponents.typ",
+    "text": "Macdonald’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/10-exponents.typ",
+    "text": "Macdonald’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/12-generators-relations-and-automorphisms.typ",
+    "text": "Steinberg’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/12-generators-relations-and-automorphisms.typ",
+    "text": "Sylow’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/12-generators-relations-and-automorphisms.typ",
+    "text": "Sylow’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/13-twisted-simple-groups.typ",
+    "text": "Steinberg’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "ThatThan",
+    "file": "content/13-twisted-simple-groups.typ",
+    "text": "that",
+    "reason": "Harper misreads the sentence; the wording is correct."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/16-sporadic-simple-groups.typ",
+    "text": "O’Meara",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "WrongNegative",
+    "file": "content/16-sporadic-simple-groups.typ",
+    "text": "det",
+    "reason": "Harper misreads the sentence; the wording is correct."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/91-notation-index.typ",
+    "text": "Chevalley’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/corrections.typ",
+    "text": "Chevalley’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/corrections.typ",
+    "text": "Dieudonné’s",
+    "reason": "Harper's dictionary does not accept a capitalised word with a typographic apostrophe."
+  },
+  {
+    "rule": "WrongNegative",
+    "file": "content/corrections.typ",
+    "text": "nonfixed",
+    "reason": "Harper misreads the sentence; the wording is correct."
+  },
+  {
+    "rule": "WrongNegative",
+    "file": "content/corrections.typ",
+    "text": "des",
+    "reason": "Harper misreads the sentence; the wording is correct."
+  },
+  {
+    "rule": "RepeatedWords",
+    "file": "content/main.typ",
+    "text": "J. J.",
+    "reason": "Harper misreads the sentence; the wording is correct."
+  },
+  {
+    "rule": "ExpandConfiguration",
+    "file": "scripts/project.py",
+    "text": "config",
+    "reason": "Our own wording; left as it is."
+  },
+  {
+    "rule": "PhrasalVerbAsCompoundNoun",
+    "file": "CONTRIBUTING.md",
+    "text": "checkout",
+    "reason": "A Git checkout: the noun is intended."
+  },
+  {
+    "rule": "NotablePlaces",
+    "file": "content/16-sporadic-simple-groups.typ",
+    "text": "New\n    York",
+    "reason": "\"New York\" is capitalised; the rule sees the source line break inside the name."
+  },
+  {
+    "rule": "NumericRangeEnDash",
+    "file": "content/frontmatter/publication.typ",
+    "text": "-",
+    "reason": "Library of Congress catalog number 72-39228, not a range; printed with a hyphen."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/17-supplement.typ",
+    "text": "hartley",
+    "reason": "Label name inside Typst code (the query for the Hartley anchor), not prose."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/main-defs.typ",
+    "text": "latin",
+    "reason": "Internal Typst notation-index category or selector key, not prose."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/main-defs.typ",
+    "text": "greek",
+    "reason": "Internal Typst notation-index category or selector key, not prose."
+  },
+  {
+    "rule": "SpellCheck",
+    "file": "content/main-defs.typ",
+    "text": "nx",
+    "reason": "Internal Typst notation-index category or selector key, not prose."
+  }
+]

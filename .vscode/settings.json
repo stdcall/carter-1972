@@ -1,0 +1,73 @@
+{
+  "[typst]": {
+    "editor.defaultFormatter": "myriad-dreamin.tinymist",
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.minimap.enabled": false
+  },
+  "editor.wordWrap": "off",
+  "tinymist.formatterMode": "typstyle",
+  "tinymist.formatterPrintWidth": 80,
+  "tinymist.formatterIndentSize": 2,
+  "tinymist.formatterProseWrap": true,
+  "tinymist.fontPaths": [
+    "${workspaceFolder}/assets/fonts"
+  ],
+  "tinymist.rootPath": "${workspaceFolder}",
+  "tinymist.exportPdf": "onSave",
+  "tinymist.outputPath": "$root/build/.cache/$name",
+  "tinymist.lint.enabled": true,
+  "tinymist.lint.when": "onSave",
+  "tinymist.preview.refresh": "onType",
+  "tinymist.preview.scrollSync": "onSelectionChangeByMouse",
+  "tinymist.preview.invertColors": "never",
+  "files.exclude": {
+    "**/__pycache__": true,
+    "build/.cache": true
+  },
+  "files.watcherExclude": {
+    "**/build/.cache/**": true
+  },
+  "search.exclude": {
+    "build": true
+  },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "task.saveBeforeRun": "always",
+  "ltex.enabled": false,
+  "harper.dialect": "British",
+  "harper.diagnosticSeverity": "hint",
+  "harper.maxFileLength": 400000,
+  "harper.workspaceDictPath": "checks/harper-dictionary.txt",
+  "harper.excludePatterns": [
+    "**/build/**",
+    "**/.venv/**",
+    "**/harper-dictionary.txt"
+  ],
+  "harper.linters.AnA": false,
+  "harper.linters.AvoidAndAlso": false,
+  "harper.linters.AvoidCurses": false,
+  "harper.linters.CapitalizePersonalPronouns": false,
+  "harper.linters.CondenseAllThe": false,
+  "harper.linters.DiscourseMarkers": false,
+  "harper.linters.DisjointPrefixes": false,
+  "harper.linters.EllipsisLength": false,
+  "harper.linters.Excellent": false,
+  "harper.linters.LeftRightHand": false,
+  "harper.linters.LongSentences": false,
+  "harper.linters.MassNouns": false,
+  "harper.linters.MissingPreposition": false,
+  "harper.linters.OrthographicConsistency": false,
+  "harper.linters.Overall": false,
+  "harper.linters.OxfordComma": false,
+  "harper.linters.SentenceCapitalization": false,
+  "harper.linters.SplitWords": false,
+  "harper.linters.UnclosedQuotes": false,
+  "harper.linters.UseTitleCase": false,
+  "tinymist.projectResolution": "lockDatabase"
+}
