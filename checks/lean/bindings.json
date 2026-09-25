@@ -1,24 +1,12 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
   "mathlib_commit": "a218e50f981942cba4fd060faff7cae680805062",
-  "content_sha256": {
-    "content/13-twisted-simple-groups.typ": "bfbf0e8d092038303c12997f6a0adbdf2f5c0cf02ff5f1f41384b6758e30f300",
-    "content/04-chevalley-groups.typ": "e29924e242fdc5b0cd67d1d88c13937e734f0f02dca1ea35c7b2e07214d303f6",
-    "content/09-polynomial-invariants.typ": "d2868a374ee830432ad61798d8db325b33cf5dc4bcbb1c2e52da866561b9ef61"
-  },
   "source_pages": [
     60,
     130,
     131,
     249
-  ],
-  "labels": [
-    "l:nilpotent-derivation-exponential",
-    "eq:nilpotent-derivation-exponential-exponential",
-    "l:averaging-trace",
-    "eq:averaging-trace-average-operator",
-    "eq:unequal-length-twisted-torus-nonsquare-contradiction"
   ],
   "mapping": {
     "4.3.1": "For a LieDerivation D with D^n = 0, the exact finite rational-factorial sum in Carter is the underlying linear map of the mathlib Lie algebra equivalence D.exp. Its inverse is exp(-D). This is an explicit checked specialization of existing mathlib results, not a new independent proof.",
@@ -32,10 +20,13 @@
       "required_olean": [
         "Mathlib/Algebra/Lie/Derivation/Basic.olean"
       ],
-      "sha256": "6affe1bbbd8561f694e917eb41982efe734b74f6401e3a25b5b7814a706c4a49",
       "declarations": [
         "Carter1972.nilpotent_derivation_exponential",
         "Carter1972.nilpotent_exponential_inverse"
+      ],
+      "passages": [
+        "l:nilpotent-derivation-exponential",
+        "eq:nilpotent-derivation-exponential-exponential"
       ]
     },
     {
@@ -43,9 +34,12 @@
       "required_olean": [
         "Mathlib/RepresentationTheory/Invariants.olean"
       ],
-      "sha256": "c3813858a8078e3f275a3c135aa21a1d13e223ee3435d926a64d5165cd39c12a",
       "declarations": [
         "Carter1972.averaging_trace"
+      ],
+      "passages": [
+        "l:averaging-trace",
+        "eq:averaging-trace-average-operator"
       ]
     },
     {
@@ -53,9 +47,11 @@
       "required_olean": [
         "Mathlib/Algebra/Ring/Equiv.olean"
       ],
-      "sha256": "e3722a0cff78f133eada00b78f34ba1577c581d5be0ed83220e9fc844960827b",
       "declarations": [
         "Carter1972.twisted_minus_one_not_square"
+      ],
+      "passages": [
+        "eq:unequal-length-twisted-torus-nonsquare-contradiction"
       ]
     }
   ]

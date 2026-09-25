@@ -167,12 +167,15 @@ reviewed after substantive edits; formatting is not permission to reword them.
 Three Lean files check four declarations: exact correspondences between
 Carter's formulas and mathlib in §§4.3.1 and 9.3.2, and the nonsquare argument
 in §13.7.4. Their precise hypotheses and scope are recorded in
-`checks/lean/bindings.json`. No surrounding chapter is claimed as fully
-formalized. Run `just check-lean` with `LEAN_MATHLIB` set to a prebuilt
-mathlib checkout of the pinned commit; such machine settings may be kept in a
-local `.env` file, which `just` reads. Nothing is installed or built. Neither
-Sage nor Lean is required for the PDF build or CI. [The check index](checks/README.md)
-describes the Lean files and the literature comparisons.
+`checks/lean/bindings.json`, which also lists, for each Lean file, the labels
+of the passages it checks; `just check` verifies that these labels exist. When
+changing such a passage or proof, review their correspondence. No surrounding
+chapter is claimed as fully formalized. Run `just check-lean` with
+`LEAN_MATHLIB` set to a prebuilt mathlib checkout of the pinned commit; such
+machine settings may be kept in a local `.env` file, which `just` reads.
+Nothing is installed or built. Neither Sage nor Lean is required for the PDF
+build or CI. [The check index](checks/README.md) describes the Lean files and
+the literature comparisons.
 
 ## GitHub
 

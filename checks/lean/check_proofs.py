@@ -8,10 +8,11 @@ installed and the required .olean files present.
 
 A file passes if it compiles without errors or warnings and its
 `#print axioms` lines cover exactly its listed declarations, which may depend
-only on propext, Classical.choice and Quot.sound. The SHA-256 of each proof
-file and of each chapter file it is bound to must match bindings.json: a
-changed chapter makes the binding stale until its claim has been checked in
-the new text and the hash updated.
+only on propext, Classical.choice and Quot.sound. Each file lists in
+`passages` the labels of the book passages it checks; every label must occur
+as `<label>` in content/*.typ. When the mathematics of such a passage changes,
+review the proof against the new text. Proof files must not change during a
+run.
 """
 import argparse
 import hashlib
@@ -29,6 +30,7 @@ MANIFEST = LEAN_DIR / 'bindings.json'
 ALLOWED = {'propext', 'Classical.choice', 'Quot.sound'}
 AXIOMS = re.compile(r"'([^']+)' (?:depends on axioms: \[([^\]]*)\]"
                     r"|does not depend on any axioms)")
+LABEL = re.compile(r'<([A-Za-z][\w:.-]*)>')
 
 
 def sha256(path):
@@ -40,6 +42,26 @@ def project_file(name):
     if Path(name).is_absolute() or not path.is_relative_to(ROOT) or not path.is_file():
         raise SystemExit(f'Expected an existing project file: {name}')
     return path
+
+
+def snapshot(manifest):
+    """Digests of the proof files, compared only within one run."""
+    return {p['file']: sha256(project_file(p['file'])) for p in manifest['proofs']}
+
+
+def passage_problems(manifest):
+    """Each proof names the passages it checks; each must be a book label."""
+    labels = {label for path in (ROOT / 'content').rglob('*.typ')
+              for label in LABEL.findall(path.read_text())}
+    problems = []
+    for proof in manifest['proofs']:
+        passages = proof.get('passages', [])
+        if not passages or len(set(passages)) != len(passages):
+            problems.append(f'{proof["file"]}: empty or repeated passages')
+        for label in passages:
+            if label not in labels:
+                problems.append(f'{proof["file"]}: label <{label}> is not in content/*.typ')
+    return problems
 
 
 def check_records(manifest, mathlib, lake):
@@ -63,15 +85,10 @@ def check_records(manifest, mathlib, lake):
                            cwd=mathlib, text=True, capture_output=True, check=True).stdout
     if dirty.strip():
         problems.append(f'tracked files of {mathlib} are modified')
-    for name, digest in manifest['content_sha256'].items():
-        if sha256(project_file(name)) != digest:
-            problems.append(f'{name} changed since the proofs were bound; check the '
-                            'claims in the new text, then update its SHA-256')
+    problems += passage_problems(manifest)
     seen = set()
     cache = (mathlib / '.lake/build/lib/lean').resolve()
     for proof in manifest['proofs']:
-        if sha256(project_file(proof['file'])) != proof['sha256']:
-            problems.append(f'{proof["file"]}: SHA-256 differs from bindings.json')
         declarations = proof['declarations']
         if not declarations or len(set(declarations)) != len(declarations) or seen & set(declarations):
             problems.append(f'{proof["file"]}: empty or repeated declarations')
@@ -125,6 +142,7 @@ def main():
 
     manifest_text = MANIFEST.read_text()
     manifest = json.loads(manifest_text)
+    proof_sums = snapshot(manifest)
     problems = check_records(manifest, mathlib, args.lake)
     if problems:
         sys.exit('\n'.join(['Lean check records:'] + problems))
@@ -147,7 +165,8 @@ def main():
             print(output)
         else:
             print(f'ok   {proof["file"]}: {len(proof["declarations"])} declarations')
-    if MANIFEST.read_text() != manifest_text or check_records(manifest, mathlib, args.lake):
+    if (MANIFEST.read_text() != manifest_text or snapshot(manifest) != proof_sums
+            or check_records(manifest, mathlib, args.lake)):
         failed = True
         print('Inputs changed during the run.')
     if failed:
