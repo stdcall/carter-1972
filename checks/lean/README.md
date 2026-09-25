@@ -17,8 +17,11 @@ results. None of these files formalizes the entire surrounding chapter.
 Run `just check-lean` with `LEAN_MATHLIB` set to a prebuilt mathlib checkout
 of the pinned commit (in the environment or in a local `.env` file). The
 runner, `check_proofs.py`, checks the pinned toolchain and mathlib commit, the
-source and proof hashes, warnings and axioms. It never installs, builds or
-updates an environment.
+passage labels, warnings and axioms. It never installs, builds or updates an
+environment.
 
-Exact hypotheses, content bindings and scope are in `bindings.json`.
+Exact hypotheses, bound passages and scope are in `bindings.json`. Each file
+lists in `passages` the labels of the passages it checks; `just check` and
+`just check-lean` verify that these labels exist in the book. When the
+mathematics of such a passage changes, review the proof against the new text.
 An overview of the checks is in `../README.md`.
