@@ -28,8 +28,8 @@ commands are also available as `uv run --locked python scripts/project.py COMMAN
 | `just clean` | Remove `build/`; no source files are touched |
 
 Fonts and their licences are included. The first build downloads the pinned
-CeTZ package through Typst's ordinary package cache. Building the book
-requires neither Sage nor Lean.
+CeTZ and fletcher packages through Typst's ordinary package cache. Building
+the book requires neither Sage nor Lean.
 
 ## VS Code
 

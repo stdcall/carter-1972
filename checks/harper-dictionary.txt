@@ -102,6 +102,7 @@ extractable
 extraspecial
 Feit
 finies
+fletcher
 foldings
 Frobenius
 G.
