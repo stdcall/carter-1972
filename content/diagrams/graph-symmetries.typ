@@ -1,122 +1,78 @@
-// The undirected Dynkin diagrams and their vertex permutations, 12.2.
-// These arcs indicate diagram symmetries, not root-length arrows on bonds.
-#import "@preview/cetz:0.5.2"
+// Section 12.2: the undirected Dynkin diagrams with their non-trivial
+// symmetries ρ. The arcs show ρ, not root lengths; each is drawn from a node
+// to its image, and symmetric arcs are completed by the reflection of the
+// picture that realizes ρ.
+#import "root-systems.typ": (
+  across, bonds, cartan, complete, dynkin, flip, mirror-arc, path-layout,
+  symmetry, symmetry-arc,
+)
 
-#let symmetry(kind) = cetz.canvas(length: 1cm, {
-  import cetz.draw: *
-  let nodes = ((0, 0), (0.8, 0), (1.6, 0), (3.6, 0), (4.4, 0), (5.2, 0))
-  let edges = ((0, 1, 1), (1, 2, 1), (2, 3, 0), (3, 4, 1), (4, 5, 1))
-  if kind == "D" {
-    nodes = ((0, 0), (0.8, 0), (1.6, 0), (3.6, 0), (4.4, 0.28), (4.4, -0.28))
-    edges = ((0, 1, 1), (1, 2, 1), (2, 3, 0), (3, 4, 1), (3, 5, 1))
-  } else if kind == "E6" {
-    nodes = ((0, 0), (0.8, 0), (1.6, 0), (2.4, 0), (3.2, 0), (1.6, -0.5))
-    edges = ((0, 1, 1), (1, 2, 1), (2, 3, 1), (3, 4, 1), (2, 5, 1))
-  } else if kind == "D4" {
-    nodes = ((0.8, 0), (0, 0), (1.6, 0.55), (1.6, -0.55))
-    edges = ((0, 1, 1), (0, 2, 1), (0, 3, 1))
-  } else if kind in ("B2", "G2") {
-    nodes = ((0, 0), (0.8, 0))
-    edges = ((0, 1, if kind == "B2" { 2 } else { 3 }),)
-  } else if kind == "F4" {
-    nodes = ((0, 0), (0.8, 0), (1.6, 0), (2.4, 0))
-    edges = ((0, 1, 1), (1, 2, 2), (2, 3, 1))
-  }
-  for (i, j, strength) in edges {
-    let (x, y) = nodes.at(i)
-    let (xx, yy) = nodes.at(j)
-    if strength == 0 {
-      line((x, y), (xx, yy), stroke: (thickness: 0.5pt, dash: "dashed"))
-    } else {
-      let offsets = if strength == 3 { (-0.065, 0, 0.065) } else if (
-        strength == 2
-      ) { (-0.045, 0.045) } else { (0,) }
-      for dy in offsets {
-        line((x, y + dy), (xx, yy + dy), stroke: 0.5pt)
-      }
-    }
-  }
-  let two-way = (start: ">", end: ">", length: 4pt, width: 3pt)
-  let one-way = (end: ">", length: 4pt, width: 3pt)
-  if kind == "A" {
-    bezier(
-      (0.8, 0.12),
-      (4.4, 0.12),
-      (1.8, 0.92),
-      (3.4, 0.92),
-      stroke: 0.55pt,
-      mark: two-way,
-    )
+#let style = (stroke: 0.5pt, radius: 1.8pt, spacing: (0.045, 0.065))
+
+#let symmetric-diagram(kind) = {
+  let (a, at, arcs) = if kind == "A" {
+    let a = cartan("A", 7)
+    let rho = symmetry(a, range(7).rev())
+    let axis = across(2.6)
+    let at = complete(path-layout(bonds(a), 0.8, skip: range(3, 7)), rho, axis)
+    (a, at, (symmetry-arc(at, rho, 1, (0, 0.12), (1, 0.8), mirror: axis),))
   } else if kind == "D" {
-    bezier(
-      (4.5, 0.28),
-      (4.5, -0.28),
-      (5, 0.16),
-      (5, -0.16),
-      stroke: 0.55pt,
-      mark: two-way,
-    )
+    let a = cartan("D", 7)
+    let rho = symmetry(a, (0, 1, 2, 3, 4, 6, 5))
+    let xs = (0, 0.8, 1.6, 3.6)
+    let at = path-layout(bonds(a), xs, skip: (3,), fork: (0.8, 0.28))
+    (a, at, (symmetry-arc(at, rho, 5, (0.1, 0), (0.5, -0.12), mirror: flip),))
   } else if kind == "E6" {
-    bezier(
-      (0, 0.12),
-      (3.2, 0.12),
-      (0.8, 0.74),
-      (2.4, 0.74),
-      stroke: 0.55pt,
-      mark: two-way,
-    )
+    let a = cartan("E", 6)
+    let rho = symmetry(a, (5, 4, 2, 3, 1, 0))
+    let axis = across(1.6)
+    let at = complete(path-layout(bonds(a), 0.8, drop: 0.5), rho, axis)
+    (a, at, (symmetry-arc(at, rho, 0, (0, 0.12), (0.8, 0.62), mirror: axis),))
   } else if kind == "D4" {
-    bezier(
-      (1.46, 0.61),
-      (0.04, 0.13),
-      (0.9, 0.86),
-      (0.35, 0.65),
-      stroke: 0.55pt,
-      mark: one-way,
+    // ρ has order 3: two arcs are images of each other under the reflection
+    // in the axis, the third is symmetric.
+    let a = cartan("D", 4)
+    let rho = symmetry(a, (3, 1, 0, 2))
+    let at = path-layout(bonds(a), 0.8, fork: (0.8, 0.55))
+    let enter = ((0.04, 0.13), (0.31, 0.52))
+    let first = symmetry-arc(
+      at,
+      rho,
+      2,
+      (-0.14, 0.06),
+      (-0.56, 0.25),
+      enter: enter,
     )
-    bezier(
-      (0.04, -0.13),
-      (1.46, -0.61),
-      (0.35, -0.65),
-      (0.9, -0.86),
-      stroke: 0.55pt,
-      mark: one-way,
+    let last = symmetry-arc(
+      at,
+      rho,
+      3,
+      (0.12, 0.07),
+      (0.34, 0.28),
+      mirror: flip,
     )
-    bezier(
-      (1.72, -0.48),
-      (1.72, 0.48),
-      (2.06, -0.2),
-      (2.06, 0.2),
-      stroke: 0.55pt,
-      mark: one-way,
-    )
+    (a, at, (first, mirror-arc(first, flip), last))
   } else {
-    let right = if kind == "F4" { 2.4 } else { 0.8 }
-    let high = if kind == "F4" { 0.68 } else { 0.48 }
-    bezier(
-      (0, 0.13),
-      (right, 0.13),
-      (0.25 * right, high),
-      (0.75 * right, high),
-      stroke: 0.55pt,
-      mark: two-way,
-    )
+    let a = cartan(kind.first(), int(kind.last()))
+    let rho = symmetry(a, range(a.len()).rev())
+    let axis = across(0.4 * (a.len() - 1))
+    let at = complete(path-layout(bonds(a), 0.8), rho, axis)
+    let bend = (B2: (0.2, 0.35), G2: (0.2, 0.35), F4: (0.6, 0.55)).at(kind)
+    (a, at, (symmetry-arc(at, rho, 0, (0, 0.13), bend, mirror: axis),))
   }
-  for node in nodes {
-    circle(node, radius: 1.8pt, fill: white, stroke: 0.5pt)
-  }
-})
+  dynkin(bonds(a), at, arcs: arcs, ..style)
+}
 
 #let diagram-symmetries() = table(
   columns: (auto, auto),
   stroke: none,
   align: (right + horizon, left + horizon),
   inset: (x: 5mm, y: 2.5mm),
-  [$A_l$], symmetry("A"),
-  [$D_l$], symmetry("D"),
-  [$E_6$], symmetry("E6"),
-  [$D_4$], symmetry("D4"),
-  [$B_2$], symmetry("B2"),
-  [$G_2$], symmetry("G2"),
-  [$F_4$], symmetry("F4"),
+  [$A_l$], symmetric-diagram("A"),
+  [$D_l$], symmetric-diagram("D"),
+  [$E_6$], symmetric-diagram("E6"),
+  [$D_4$], symmetric-diagram("D4"),
+  [$B_2$], symmetric-diagram("B2"),
+  [$G_2$], symmetric-diagram("G2"),
+  [$F_4$], symmetric-diagram("F4"),
 )

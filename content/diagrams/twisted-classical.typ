@@ -1,26 +1,21 @@
-// Carter printed page 271: numbered D_l fundamental roots.
-#import "@preview/cetz:0.5.2"
+// Printed page 271: the fundamental roots of D_l numbered 1, …, l.
+#import "root-systems.typ": bonds, cartan, dynkin, path-layout, relative
 
-#let orthogonal-fork() = cetz.canvas(length: 1cm, {
-  import cetz.draw: *
-  let nodes = ((0, 0), (0.65, 0), (1.3, 0), (2.8, 0), (3.5, 0.4), (3.5, -0.4))
-  for (i, j) in ((0, 1), (1, 2), (2, 3), (3, 4), (3, 5)) {
-    line(nodes.at(i), nodes.at(j), stroke: (
-      paint: black,
-      thickness: 0.6pt,
-      dash: if i == 2 { "dashed" } else { "solid" },
-    ))
-  }
-  for pos in nodes { circle(pos, radius: 0.055, fill: white, stroke: 0.6pt) }
-  for (i, lab) in ($1$, $2$, $3$, $l-2$, $l-1$).enumerate() {
-    content(
-      (
-        nodes.at(i).at(0) - if i == 3 { 0.12 } else { 0 },
-        nodes.at(i).at(1) + 0.16,
-      ),
-      lab,
-      anchor: "south",
-    )
-  }
-  content((3.5, -0.52), $l$, anchor: "north")
-})
+#let orthogonal-fork() = {
+  let n = bonds(cartan("D", 7))
+  let at = path-layout(n, (0, 0.65, 1.3, 2.8), skip: (3,), fork: (0.7, 0.4))
+  let numbered(i, offset, anchor) = (
+    i,
+    relative(i + 1, ((0, ""), (7, "l"))),
+    offset,
+    anchor,
+  )
+  dynkin(
+    n,
+    at,
+    labels: (0, 1, 2, 5).map(i => numbered(i, (0, 0.16), "south"))
+      + (numbered(4, (-0.12, 0.16), "south"), numbered(6, (0, -0.12), "north")),
+    stroke: 0.6pt,
+    radius: 0.055,
+  )
+}

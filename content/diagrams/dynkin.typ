@@ -1,73 +1,35 @@
-// Carter's undirected diagrams: the source does not use root-length arrows.
-#import "@preview/cetz:0.5.2"
+// Carter's undirected Dynkin diagrams (no root-length arrows) from the
+// Cartan matrices of section 3.6, and the root systems of Figures 1 and 2.
+#import "root-systems.typ": (
+  bonds, cartan, cartan-of, dynkin, path-layout, relative, root-system, vadd,
+  vector-label, vscale,
+)
 
-#let graph(nodes, edges, labels: (), unit: 1cm) = cetz.canvas(length: unit, {
-  import cetz.draw: *
-  for (i, j, strength) in edges {
-    let (x, y) = nodes.at(i)
-    let (xx, yy) = nodes.at(j)
-    if strength == "dashed" {
-      line((x, y), (xx, yy), stroke: (thickness: 0.45pt, dash: "dashed"))
-    } else {
-      let offsets = if strength == 3 { (-0.065, 0, 0.065) } else if (
-        strength == 2
-      ) { (-0.055, 0.055) } else { (0,) }
-      for dy in offsets {
-        line((x, y + dy), (xx, yy + dy), stroke: 0.45pt)
-      }
-    }
-  }
-  for (i, node) in nodes.enumerate() {
-    circle(node, radius: 1.7pt, fill: white, stroke: 0.45pt)
-    if labels.len() > i {
-      let (body, side) = labels.at(i)
-      let (x, y) = node
-      let (offset, anchor) = if side == "below" {
-        ((0, -0.15), "north")
-      } else if side == "right" { ((0.16, 0), "west") } else if side == "high" {
-        ((0, 0.75), "south")
-      } else {
-        ((0, 0.15), "south")
-      }
-      content((x + offset.at(0), y + offset.at(1)), body, anchor: anchor)
-    }
-  }
-})
+#let style = (stroke: 0.45pt, radius: 1.7pt, spacing: (0.055, 0.065))
+#let above = ((0, 0.15), "south")
 
+// Each type in a representative rank, the general ones with a middle node
+// elided.
 #let shape(kind) = {
-  let nodes = ((0, 0), (0.7, 0), (2.1, 0), (2.8, 0))
-  let edges = ((0, 1, 1), (1, 2, "dashed"), (2, 3, 1))
-  if kind in ("B", "C") { edges.at(2) = (2, 3, 2) }
-  if kind == "D" {
-    nodes = ((0, 0), (0.7, 0), (2.1, 0), (2.8, 0.28), (2.8, -0.28))
-    edges = ((0, 1, 1), (1, 2, "dashed"), (2, 3, 1), (2, 4, 1))
+  let family = kind.first()
+  let rank = if kind.len() > 1 { int(kind.slice(1)) } else {
+    (G: 2, F: 4, D: 6).at(family, default: 5)
   }
-  if kind == "G" {
-    nodes = ((0, 0), (0.7, 0))
-    edges = ((0, 1, 3),)
+  let n = bonds(cartan(family, rank))
+  let at = if family == "E" { path-layout(n, 0.6, drop: 0.4) } else {
+    let fork = if family == "D" { (0.7, 0.28) }
+    path-layout(n, 0.7, skip: if rank > 4 { (2,) } else { () }, fork: fork)
   }
-  if kind == "F" {
-    nodes = ((0, 0), (0.7, 0), (1.4, 0), (2.1, 0))
-    edges = ((0, 1, 1), (1, 2, 2), (2, 3, 1))
-  }
-  if kind.starts-with("E") {
-    let rank = int(kind.slice(1))
-    nodes = range(rank - 1).map(i => (0.6 * i, 0))
-    nodes.push((0.6 * (rank - 4), -0.4))
-    edges = range(rank - 2).map(i => (i, i + 1, 1))
-    edges.push((rank - 4, rank - 1, 1))
-  }
-  (nodes, edges)
+  (n, at)
 }
 
-#let standard(kind, unit: 1cm) = {
-  let (nodes, edges) = shape(kind)
-  graph(nodes, edges, unit: unit)
-}
+#let standard(kind, unit: 1cm) = dynkin(..shape(kind), unit: unit, ..style)
 
 #let numbered-chain(double: false) = {
-  let (nodes, edges) = shape(if double { "B" } else { "A" })
-  graph(nodes, edges, labels: ($1$, $2$, $l-1$, $l$).map(x => (x, "above")))
+  let (n, at) = shape(if double { "B" } else { "A" })
+  let shown = range(n.len()).filter(i => at.at(i) != none)
+  let name(i) = relative(i + 1, ((0, ""), (n.len(), "l")))
+  dynkin(n, at, labels: shown.map(i => (i, name(i), ..above)), ..style)
 }
 
 #let classification() = table(
@@ -85,136 +47,90 @@
   [$E_8$], standard("E8"),
 )
 
+// The fundamental systems of section 3.6 in the orthonormal basis, in a
+// representative rank l whose middle roots are elided; indices near l are
+// printed relative to l. Their Cartan matrices must be those printed there.
 #let fundamental(kind) = {
-  let nodes = ((0, 0), (1.65, 0), (4.8, 0), (6.7, 0))
-  let edges = ((0, 1, 1), (1, 2, "dashed"), (2, 3, 1))
-  let labels = ($e_0-e_1$, $e_1-e_2$, $e_(l-2)-e_(l-1)$, $e_(l-1)-e_l$)
-  if kind in ("B", "C") {
-    nodes = ((0, 0), (1.5, 0), (3, 0), (5.6, 0), (7.1, 0))
-    edges = ((0, 1, 1), (1, 2, 1), (2, 3, "dashed"), (3, 4, 2))
-    labels = (
-      $e_1-e_2$,
-      $e_2-e_3$,
-      $e_3-e_4$,
-      $e_(l-1)-e_l$,
-      if kind == "B" { $e_l$ } else { $2e_l$ },
+  let family = kind.first()
+  let l = if family == "E" { int(kind.slice(1)) } else {
+    (A: 6, B: 9, C: 9, D: 10, F: 4).at(family)
+  }
+  // Coordinate k stands for e_(k + first): e_0, …, e_l for A_l, e_1, …, e_8
+  // for E_l, e_1, …, e_l otherwise.
+  let (dim, first) = if family == "A" { (l + 1, 0) } else if family == "E" {
+    (8, 1)
+  } else { (l, 1) }
+  let e(k) = range(dim).map(i => int(i == k))
+  let minus(u, v) = vadd(u, vscale(-1, v))
+  let chain(ks) = ks.map(k => minus(e(k), e(k + 1)))
+  let roots = if family == "A" { chain(range(l)) } else if family == "F" {
+    chain(range(2)) + (e(2), (-0.5, -0.5, -0.5, 0.5))
+  } else if family == "E" {
+    let half = range(8).map(_ => -0.5)
+    chain(range(8 - l, 5)) + (minus(e(5), e(6)), vadd(e(5), e(6)), half)
+  } else {
+    let last = (
+      B: e(l - 1),
+      C: vscale(2, e(l - 1)),
+      D: vadd(e(l - 2), e(l - 1)),
     )
+    chain(range(l - 1)) + (last.at(family),)
   }
-  if kind == "D" {
-    return graph(
-      ((0, 0), (1.5, 0), (3, 0), (5.6, 0), (7.6, 0.65), (7.6, -0.65)),
-      ((0, 1, 1), (1, 2, 1), (2, 3, "dashed"), (3, 4, 1), (3, 5, 1)),
-      labels: (
-        ($e_1-e_2$, "above"),
-        ($e_2-e_3$, "above"),
-        ($e_3-e_4$, "above"),
-        ($e_(l-2)-e_(l-1)$, "high"),
-        ($e_(l-1)-e_l$, "right"),
-        ($e_(l-1)+e_l$, "right"),
-      ),
+  let a = cartan(family, l)
+  assert(
+    cartan-of(roots) == a,
+    message: "not a fundamental system of this type",
+  )
+  let n = bonds(a)
+  let skip = if family == "A" { (2, 3) } else if family in ("B", "C", "D") {
+    range(3, 7)
+  } else { () }
+  let at = if family == "E" {
+    let xs = range(l - 1).map(i => 1.65 * i)
+    xs.at(-1) += 0.65
+    path-layout(n, xs, drop: 0.8)
+  } else if family == "D" {
+    path-layout(n, (0, 1.5, 3, 5.6), skip: skip, fork: (2, 0.65))
+  } else {
+    let xs = (
+      A: (0, 1.65, 4.8, 6.7),
+      B: (0, 1.5, 3, 5.6, 7.1),
+      C: (0, 1.5, 3, 5.6, 7.1),
+      F: (0, 1.8, 3.6, 6.3),
     )
+    path-layout(n, xs.at(family), skip: skip)
   }
-  if kind == "F" {
-    nodes = ((0, 0), (1.8, 0), (3.6, 0), (6.3, 0))
-    edges = ((0, 1, 1), (1, 2, 2), (2, 3, 1))
-    labels = ($e_1-e_2$, $e_2-e_3$, $e_3$, $1/2(-e_1-e_2-e_3+e_4)$)
+  let anchors = if family == "E" or family == "F" { ((0, ""),) } else {
+    ((0, ""), (l, "l"))
   }
-  if kind.starts-with("E") {
-    let rank = int(kind.slice(1))
-    let start = 9 - rank
-    nodes = range(rank - 1).map(i => (1.65 * i, 0))
-    nodes.at(rank - 2) = (1.65 * (rank - 2) + 0.65, 0)
-    nodes.push((1.65 * (rank - 4), -0.8))
-    edges = range(rank - 2).map(i => (i, i + 1, 1))
-    edges.push((rank - 4, rank - 1, 1))
-    labels = range(start, 6).map(i => $e_#i - e_#(i + 1)$)
-    labels += ($e_6+e_7$, $-1/2 sum_(i=1)^8 e_i$)
-    return graph(
-      nodes,
-      edges,
-      labels: labels.map(x => (x, "above")) + (($e_6-e_7$, "below"),),
-    )
-  }
-  graph(nodes, edges, labels: labels.map(x => (x, "above")))
+  let index(k) = relative(k + first, anchors)
+  let side(i) = if family == "D" and i == l - 3 {
+    ((0, 0.75), "south")
+  } else if (
+    family == "D" and i > l - 3
+  ) { ((0.16, 0), "west") } else if at.at(i).last() < 0 {
+    ((0, -0.15), "north")
+  } else { above }
+  let shown = range(l).filter(i => at.at(i) != none)
+  dynkin(
+    n,
+    at,
+    labels: shown.map(i => (i, vector-label(roots.at(i), index), ..side(i))),
+    ..style,
+  )
 }
 
 // Figure 1: lattice coordinates, with corrected −b in the A₂ panel (E016).
-#let rank-two(kind, labels-override: none) = cetz.canvas(length: 1.6cm, {
-  import cetz.draw: *
-  let h = calc.sqrt(3) / 2
-  let nodes = ((1, 0), (-1, 0))
-  let labels = ($a$, $-a$)
-  if kind == "A2" {
-    nodes = ((1, 0), (0.5, h), (-0.5, h), (-1, 0), (-0.5, -h), (0.5, -h))
-    labels = ($a$, $a+b$, $b$, $-a$, $-a-b$, $-b$)
-  }
-  if kind == "B2" {
-    nodes = (
-      (1, 0),
-      (1, 1),
-      (0, 1),
-      (-1, 1),
-      (-1, 0),
-      (-1, -1),
-      (0, -1),
-      (1, -1),
-    )
-    labels = ($a$, $2a+b$, $a+b$, $b$, $-a$, $-2a-b$, $-a-b$, $-b$)
-  }
-  if kind == "G2" {
-    nodes = (
-      (1, 0),
-      (1.5, h),
-      (0.5, h),
-      (0, 2 * h),
-      (-0.5, h),
-      (-1.5, h),
-      (-1, 0),
-      (-1.5, -h),
-      (-0.5, -h),
-      (0, -2 * h),
-      (0.5, -h),
-      (1.5, -h),
-    )
-    labels = (
-      $a$,
-      $3a+b$,
-      $2a+b$,
-      $3a+2b$,
-      $a+b$,
-      $b$,
-      $-a$,
-      $-3a-b$,
-      $-2a-b$,
-      $-3a-2b$,
-      $-a-b$,
-      $-b$,
-    )
-  }
-  if labels-override != none { labels = labels-override }
-  if nodes.len() > 2 { line(..nodes, close: true, stroke: 0.45pt) }
-  for i in range(calc.quo(nodes.len(), 2)) {
-    line(nodes.at(i), nodes.at(i + calc.quo(nodes.len(), 2)), stroke: 0.45pt)
-  }
-  line((0, -0.08), (0, 0.08), stroke: 0.45pt)
-  for (i, (x, y)) in nodes.enumerate() {
-    circle((x, y), radius: 1.5pt, fill: white, stroke: 0.45pt)
-    let anchor = if y > 0 { "south" } else if y < 0 { "north" } else if x > 0 {
-      "west"
-    } else { "east" }
-    let dy = if y > 0 { 0.12 } else if y < 0 { -0.12 } else { 0 }
-    let dx = if y == 0 { if x > 0 { 0.12 } else { -0.12 } } else { 0 }
-    if kind == "G2" and y != 0 and x != 0 {
-      dx = if x > 0 { 0.1 } else { -0.1 }
-      anchor = (
-        (if y > 0 { "south" } else { "north" })
-          + "-"
-          + (if x > 0 { "west" } else { "east" })
-      )
-    }
-    content((x + dx, y + dy), labels.at(i), anchor: anchor)
-  }
-})
+#let rank-two(kind, names: ("a", "b"), basis: none) = root-system(
+  cartan(kind.first(), int(kind.last())),
+  names: names,
+  basis: basis,
+  unit: 1.6cm,
+  stroke: 0.45pt,
+  radius: 1.5pt,
+  diagonal: if kind == "G2" { 0.1 },
+  origin: true,
+)
 
 #let low-rank-roots() = {
   set text(size: 11pt)
@@ -230,18 +146,9 @@
   )
 }
 
-// Figure 2: the G₂ roots expressed in the pair used in section 5.2.
-#let g2-root-string() = rank-two("G2", labels-override: (
-  $s$,
-  $r+2s$,
-  $r+s$,
-  $2r+s$,
-  $r$,
-  $r-s$,
-  $-s$,
-  $-r-2s$,
-  $-r-s$,
-  $-2r-s$,
-  $-r$,
-  $-r+s$,
-))
+// Figure 2: the G₂ roots over the short roots r = a + b and s = a of 5.2.
+#let g2-root-string() = rank-two(
+  "G2",
+  names: ("r", "s"),
+  basis: ((1, 1), (1, 0)),
+)
