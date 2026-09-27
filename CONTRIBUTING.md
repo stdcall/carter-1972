@@ -84,6 +84,10 @@ those values to CLI arguments; formatting policy is not duplicated in scripts.
   `17-supplement.typ` is the Supplement added in 1989.
   Files `90-…`, `91-…`, `92-…` are bibliography and indexes. Diagram sources
   live in `content/diagrams/`; publication details in `content/frontmatter/`.
+- `content/diagrams/root-systems.typ`: root systems, Dynkin diagrams, their
+  symmetries and foldings, derived from the Cartan matrices of section 3.6
+  with assertions on the mathematical data; the figure files choose only the
+  view, scale and label placement.
 - `references.bib`: Unicode BibLaTeX, 255 records covering 243 original items.
 - `corrections.json`: complete original/corrected readings and justifications.
   `content/corrections.typ`: readable list of all 100 entries, the Tits [22]
