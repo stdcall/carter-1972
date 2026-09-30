@@ -18,6 +18,7 @@
   "tinymist.fontPaths": [
     "${workspaceFolder}/assets/fonts"
   ],
+  "tinymist.systemFonts": false,
   "tinymist.rootPath": "${workspaceFolder}",
   "tinymist.exportPdf": "onSave",
   "tinymist.outputPath": "$root/build/.cache/$name",

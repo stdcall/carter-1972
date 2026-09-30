@@ -27,6 +27,10 @@ def tool_env(root=ROOT):
     env = os.environ.copy()
     env['TYPST_ROOT'] = str(root)
     env['TYPST_FONT_PATHS'] = os.pathsep.join(str(root/p) for p in settings(root)['font_paths'])
+    # Only the book's fonts: system fonts are ignored. Typst's bundled fonts
+    # stay visible, so text the style does not cover lands in one of them and
+    # the PDF font check rejects it.
+    env['TYPST_IGNORE_SYSTEM_FONTS'] = 'true'
     return env
 
 
