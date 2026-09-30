@@ -69,7 +69,13 @@
     position: here().position(),
     target-position: destination,
     description: if above > 0pt and found.len() == 1 {
-      "page " + str(counter(page).at(found.first().location()).first())
+      (
+        "page "
+          + numbering(
+            found.first().location().page-numbering(),
+            ..counter(page).at(found.first().location()),
+          )
+      )
     },
   ))
   if found.len() == 1 {
@@ -121,7 +127,7 @@
   ))
   if found.len() == 1 {
     link(target, reference-numbers([
-      p. #counter(page).at(found.first().location()).first()
+      p. #counter(page).display(at: found.first().location())
     ]))
   } else {
     [p. #printed (original edition)]
