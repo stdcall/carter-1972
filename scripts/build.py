@@ -71,7 +71,7 @@ def check_fonts(pdf, label):
         number, foreign = page.number + 1, {}
         for _, _, kind, name, _, encoding, *_ in page.get_fonts(full=True):
             name = SUBSET_TAG.sub('', name)
-            if kind == 'Type0':  # BaseFont of a Type0 font is "<font>-<CMap>"
+            if kind == 'Type0':  # a composite font's name ends in its encoding
                 name = name.removesuffix(f'-{encoding}')
             if name not in allowed:
                 foreign[name] = found[f'font {name} is not a book font']
