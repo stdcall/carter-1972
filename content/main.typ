@@ -21,7 +21,7 @@
   )
 ]
 #counter(page).update(1)
-#import "book-style.typ": book-style
+#import "book-style.typ": book-footer, book-header, book-style
 #import "main-defs.typ": book-heading-numbering
 #show: book-style
 #import "main-defs.typ": source
@@ -29,6 +29,8 @@
 #let L = $frak(L)$
 
 // Title information as on the printed series, title and copyright pages.
+// The cover is outside the count; i and ii are counted but not printed.
+#set page(numbering: "i", header: none, footer: none)
 #set par(first-line-indent: 0pt)
 #source(5, "series")
 #source(6, "title")
@@ -52,12 +54,17 @@
 #pagebreak()
 #include "frontmatter/publication.typ"
 #pagebreak()
+#set page(header: book-header, footer: book-footer)
+#set par(first-line-indent: 1.25em)
+#include "00-preface.typ"
+#pagebreak()
+#set par(first-line-indent: 0pt)
 #heading(level: 1, outlined: false, bookmarked: true)[Contents]
 #outline(title: none, depth: 2, indent: 1.2em)
 #pagebreak()
 #set par(first-line-indent: 1.25em)
-#include "00-preface.typ"
-#pagebreak()
+#set page(numbering: "1")
+#counter(page).update(1)
 #set heading(numbering: book-heading-numbering)
 #include "01-classical-simple-groups.typ"
 #pagebreak()

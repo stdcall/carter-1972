@@ -2,6 +2,15 @@
 #import "main-defs.typ": reference-rules
 #import "main-defs.typ": book-heading-body
 
+#let book-header = align(
+  center,
+  text(size: 8pt, tracking: 0.6pt)[SIMPLE GROUPS OF LIE TYPE],
+)
+#let book-footer = context align(
+  center,
+  text(size: 10pt, counter(page).display()),
+)
+
 #let book-style(body) = {
   show: statement-rules
   show: reference-rules
@@ -9,12 +18,9 @@
     width: 176mm,
     height: 250mm,
     margin: (x: 20mm, top: 21mm, bottom: 21mm),
-    header: context if counter(page).get().first() > 2 {
-      align(center, text(size: 8pt, tracking: 0.6pt)[SIMPLE GROUPS OF LIE TYPE])
-    },
-    footer: context if counter(page).get().first() > 1 {
-      align(center, text(size: 10pt, counter(page).display("1")))
-    },
+    numbering: "1",
+    header: book-header,
+    footer: book-footer,
   )
   set text(
     font: "Libertinus Serif",

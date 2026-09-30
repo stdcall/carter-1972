@@ -187,7 +187,30 @@ def normalize_outline_destinations(writer, original, *, left=None):
     return count
 
 
-def normalize_outlines(raw, output, *, book=True, references=()):
+def set_book_page_labels(writer, body_start):
+    """Use the first chapter's physical position, not a fixed front-matter size."""
+    assert 3 < body_start < len(writer.pages)
+    writer.root_object.pop(NameObject('/PageLabels'), None)
+    writer.set_page_label(0, 0, prefix='Cover')
+    writer.set_page_label(1, body_start-1, style='/r', start=1)
+    writer.set_page_label(body_start, len(writer.pages)-1, style='/D', start=1)
+
+
+def check_book_pagination(pdf, body_start):
+    """Compare every printed folio with the labels a PDF viewer displays."""
+    labels = PdfReader(pdf).page_labels
+    assert labels[:4] == ['Cover', 'i', 'ii', 'iii']
+    assert labels[body_start:] == [str(i) for i in range(1, len(labels)-body_start+1)]
+    with pymupdf.open(pdf) as document:
+        for index, page in enumerate(document):
+            footer = [word[4] for word in page.get_text('words')
+                      if word[1] > page.rect.height-50]
+            assert footer == ([] if index < 3 else [labels[index]]), \
+                f'PDF page {index+1}: folio {footer} differs from label {labels[index]}'
+    return {'first_body_pdf_page': body_start+1, 'visible_folios_checked': len(labels)-3}
+
+
+def normalize_outlines(raw, output, *, book=True, body_start=None, references=()):
     original = PdfReader(raw)
     writer = PdfWriter(raw, incremental=True)
     # Typst uses physical page numbers for coordinate-link tooltips. Keep the
@@ -195,10 +218,9 @@ def normalize_outlines(raw, output, *, book=True, references=()):
     set_link_descriptions(original, references)
     set_link_descriptions(writer, references)
     preserved = accessibility_signature(original)
-    # Match viewer page labels to the visible book numbering after the cover.
+    # Match viewer labels to the Roman preliminary and Arabic body counters.
     if book:
-        writer.set_page_label(0, 0, prefix='Cover')
-        writer.set_page_label(1, len(writer.pages)-1, style='/D', start=1)
+        set_book_page_labels(writer, body_start)
     left = settings()['pdf_navigation']['outline_left']
     count = normalize_outline_destinations(writer, original, left=left)
     assert '/OpenAction' not in writer.root_object
@@ -208,7 +230,7 @@ def normalize_outlines(raw, output, *, book=True, references=()):
     checked = PdfReader(tmp)
     assert accessibility_signature(checked) == preserved, 'Tags or embedded fonts changed'
     if book:
-        assert checked.page_labels == ['Cover'] + [str(i) for i in range(1,len(checked.pages))]
+        check_book_pagination(tmp, body_start)
     records = []
 
     def validate(items, depth=0):
@@ -289,11 +311,13 @@ def build(force=False, thorough=False, exported=None):
     expr = '(' + ','.join(json.dumps(n) for n in figure_labels) + ',).map(n => (target: n, position: query(label(n)).first().location().position()))'
     figure_anchors = json.loads(run(['typst', 'eval', expr, '--in', settings()['entry'], '--format', 'json']).stdout)
     staged = cache/'book-checked.pdf'
-    report = normalize_outlines(raw, staged, references=references)
+    body_start = next(h['position']['page']-1 for h in document['headings']
+                      if h['label'] == '<ch:classical-simple-groups>')
+    report = normalize_outlines(raw, staged, body_start=body_start, references=references)
     links = check_links(staged, references, figure_anchors)
     notation_expr = ('query(label("nx"))'
                      '.map(m => (key: m.value.key, target: m.value.target, '
-                     'page: counter(page).at(m.location()).first()))')
+                     'page: m.location().position().page))')
     notation_marks = json.loads(run(['typst', 'eval', notation_expr, '--in',
                                      settings()['entry'], '--format', 'json']).stdout)
     links['definition_introductions_checked'] = check_definition_destinations(

@@ -160,6 +160,12 @@ original while the content is unchanged; internal page references use the
 new pagination. Labels use typed prefixes such as `eq:`, `th:`, `l:`, `p:`,
 `fig:`, `ch:` and `sec:`. Bibliographic numbers restart within author groups.
 
+The cover is outside the page count. The title and copyright pages count as
+i and ii without printed numbers or running headers. Preface precedes Contents;
+both continue in lower-case Roman numerals. Chapter 1 starts Arabic numbering at 1.
+PDF page labels follow these series. PDF destination checks use physical page
+positions, independently of the printed page counter.
+
 Index links to definitions begin with their introductory text. Locators without
 a semantic definition anchor retain the complete relocated source-page range.
 Index destinations include extra room above the line for mathematical glyphs.
