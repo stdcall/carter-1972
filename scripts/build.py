@@ -1,12 +1,20 @@
-"""Build Typst text and CeTZ diagrams, with zoom-preserving PDF outlines."""
+"""Build Typst text and CeTZ diagrams, with zoom-preserving PDF outlines.
+
+Typst does not see system fonts; a Typst font warning fails the build, and
+every PDF is checked to contain no font other than those in the book's font
+directories (not even one bundled with Typst) and no missing glyph.
+"""
+from collections import defaultdict
 import hashlib
 import json
 from pathlib import Path
 import re
 import shutil
+import struct
 import subprocess
 import time
 
+import pymupdf
 from pypdf import PdfReader, PdfWriter
 from pypdf.generic import ArrayObject, FloatObject, NameObject, NullObject
 from bibliography import compile_bibliography
@@ -17,13 +25,78 @@ from lint_typst import lint, input_hashes
 from project import settings, tool_env, cache_path
 
 ROOT = Path(__file__).resolve().parents[1]
+SUBSET_TAG = re.compile(r'^[A-Z]{6}\+')
 
 
 def run(args):
     result = subprocess.run(args, cwd=ROOT, env=tool_env(ROOT), capture_output=True, text=True)
     if result.returncode:
         raise RuntimeError(f'{args[0]} failed:\n{result.stdout}\n{result.stderr}')
+    # A missing font family or math font is only a warning in Typst.
+    if re.search(r'^warning: .*font', result.stderr, re.MULTILINE):
+        raise RuntimeError(f'{args[0]}: Typst font warning:\n{result.stderr}')
     return result
+
+
+def book_font_names():
+    """PostScript names (OpenType name ID 6) of the font files of the book."""
+    names = set()
+    for directory in settings()['font_paths']:
+        for path in sorted((ROOT/directory).rglob('*')):
+            if path.suffix.lower() not in {'.otf', '.ttf'}:
+                continue
+            data = path.read_bytes()
+            for index in range(struct.unpack_from('>H', data, 4)[0]):
+                tag, _, table, _ = struct.unpack_from('>4sIII', data, 12 + 16*index)
+                if tag != b'name':
+                    continue
+                _, count, strings = struct.unpack_from('>3H', data, table)
+                for record in range(count):
+                    platform, _, _, name_id, length, offset = struct.unpack_from(
+                        '>6H', data, table + 6 + 12*record)
+                    if name_id == 6:
+                        start = table + strings + offset
+                        names.add(data[start:start+length].decode(
+                            'utf-16-be' if platform in (0, 3) else 'latin-1'))
+    if not names:
+        raise ValueError('No fonts found in '+', '.join(settings()['font_paths']))
+    return names
+
+
+def check_fonts(pdf, label):
+    """Fail if the PDF has a font outside the book's fonts or a missing glyph."""
+    allowed = book_font_names()
+    found = defaultdict(dict)  # problem -> {PDF page: text set in the font}
+    for page in pymupdf.open(pdf):
+        number, foreign = page.number + 1, {}
+        for _, _, kind, name, _, encoding, *_ in page.get_fonts(full=True):
+            name = SUBSET_TAG.sub('', name)
+            if kind == 'Type0':  # BaseFont of a Type0 font is "<font>-<CMap>"
+                name = name.removesuffix(f'-{encoding}')
+            if name not in allowed:
+                foreign[name] = found[f'font {name} is not a book font']
+                foreign[name][number] = ''
+        text = ''
+        for span in page.get_texttrace():
+            chars = ''.join(chr(c) if c > 0 else '?' for c, *_ in span['chars'])
+            chars = chars.replace('\xad', '-')
+            # MuPDF shortens the font names of spans.
+            for name, pages in foreign.items():
+                if name.startswith(span['font']):
+                    pages[number] += chars
+            if any(name.startswith(span['font']) for name in allowed):
+                for index, (_, glyph, *_) in enumerate(span['chars']):
+                    if glyph == 0:
+                        context = (text + chars[:index])[-40:]
+                        found[f'no book font has the glyph after "{context}"'][number] = ''
+            text += chars
+    if found:
+        raise ValueError(f'{label}:' + ''.join(
+            f'\n  {problem}: ' + ', '.join(
+                f'PDF page {page}' + (f' "{sample[:30]}"' if sample else '')
+                for page, sample in list(pages.items())[:8]
+            ) + (f' and {len(pages) - 8} more pages' if len(pages) > 8 else '')
+            for problem, pages in found.items()))
 
 
 
@@ -131,6 +204,7 @@ def normalize_outlines(raw, output, *, book=True, references=()):
     assert '/OpenAction' not in writer.root_object
     tmp = output.with_suffix('.tmp.pdf')
     writer.write(tmp)
+    check_fonts(tmp, Path(settings()['output' if book else 'corrections_output']).name)
     checked = PdfReader(tmp)
     assert accessibility_signature(checked) == preserved, 'Tags or embedded fonts changed'
     if book:
