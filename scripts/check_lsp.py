@@ -109,6 +109,7 @@ def check(root):
                     'fontPaths': [str(root / 'assets/fonts')],
                     'projectResolution': 'lockDatabase'}})
             send('initialized', {}, request=False)
+            open_document(root / 'content/main.typ')
             first = cases[0][0]
             open_document(first)
             send('workspace/executeCommand', {
