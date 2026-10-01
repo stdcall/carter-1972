@@ -12,7 +12,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def settings(root=ROOT):
-    return json.loads((root/'config/project.json').read_text())
+    config = json.loads((root/'config/project.json').read_text())
+    local = root/'config/local.json'
+    if local.exists():
+        config.update(json.loads(local.read_text()))
+    return config
 
 
 def layout_settings(root=ROOT):
@@ -20,7 +24,10 @@ def layout_settings(root=ROOT):
 
 
 def cache_path(root=ROOT):
-    return root/settings(root)['cache']
+    configured = settings(root).get('cache')
+    if configured:
+        return root / Path(configured).expanduser()
+    return root / 'build/.cache'
 
 
 def tool_env(root=ROOT):
